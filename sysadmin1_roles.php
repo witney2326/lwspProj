@@ -108,7 +108,7 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                                 </ul> 
 
                                 <div class="row">
-                                    <div class="col-12">
+                                    <div class="col-9">
                                         <div class="card-border">
                                             <div class="card-body">
                                             <h7 class="card-title mt-0"></h7>

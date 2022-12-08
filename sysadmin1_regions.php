@@ -24,6 +24,14 @@
   <script type="text/javascript" 
 src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
   </script>
+
+    <style> 
+        .card-border 
+        {
+            border-style: solid;
+            border-color: orange;
+        }
+    </style>
 </head>
 
 <?php include 'layouts/body.php'; ?>
@@ -98,65 +106,63 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                                         </a>
                                     </li>
                                 </ul>
+                                
 
                                 <!-- Tab panes -->
-                                <div class="tab-content p-3 text-muted">
-                                    <div class="tab-pane active" id="home-1" role="tabpanel">
-                                        <p class="mb-0">
-                                            <!--start here -->
-                                            
-                                            
-                                            <div class="row">
-                                                <div class="col-12">
-                                                    <div class="card border border-primary">
-                                                    
-                                                    <div class="card-body">
-                                                    <h7 class="card-title mt-0"></h7>
-                                                        
-                                                            <table id="datatable" class="table table-bordered dt-responsive  nowrap w-100">
-                                                            
-                                                                <thead>
-                                                                    <tr>
-                                                                        <th>RecID</th>
-                                                                        <th>Constituency</th>
-                                                                        <th>Action</th>                                                              
-                                                                    </tr>
-                                                                </thead>
 
+                                <div class="row">
+                                    <div class="col-9">
 
-                                                                <tbody>
-                                                                    <?Php
-                                                                        $query = "SELECT * FROM constituency";
-
-                                                                        if ($result_set = $link->query($query)) {
-                                                                        while($row = $result_set->fetch_array(MYSQLI_ASSOC))
-                                                                        { 
-                                                                            echo "<tr>";
-                                                                            echo "<td>".$row['id']."</td>";
-                                                                            echo "<td>".$row['cname']."</td>";
-                                                                            
-                                                                            echo "<td>
-                                                                                
-                                                                                <a onClick=\"javascript: return confirm('Are You Sure You want To Delete This SLG - You Must Be a Supervisor');\" href=\"?id=".$row['id']."\"><i class='far fa-trash-alt' title='Delete SLG' style='font-size:18px;color:Red'></i></a>
-                                                                             </td>\n";
-                                                                            echo "</tr>";
-                                                                        }
-                                                                        $result_set->close();
-                                                                        }  
-                                                                                           
-                                                                    ?>
-                                                                </tbody>
-                                                            </table>
-                                                            </p>
-                                                        </div>
-                                                    </div>     
-                                                </div>            
-                                            </div>  
+                                    <form action="OSS_add_Con.php">
+                                        <p align="right">
+                                            <input type="submit" value="Add New Constituency" class="btn btn-outline-success w-md" style="width:170px"/>
                                         </p>
-                                    </div>
-                                    <!-- Here -->
-                                </div>
+                                    </form>
 
+                                        <div class="card-border">
+                                        
+                                        <div class="card-body">
+                                        <h7 class="card-title mt-0"></h7>
+                                            
+                                                <table id="datatable" class="table table-bordered dt-responsive  nowrap w-100">
+                                                
+                                                    <thead>
+                                                        <tr>
+                                                            <th>RecID</th>
+                                                            <th>Constituency</th>
+                                                            <th>Action</th>                                                              
+                                                        </tr>
+                                                    </thead>
+
+
+                                                    <tbody>
+                                                        <?Php
+                                                            $query = "SELECT * FROM constituency";
+
+                                                            if ($result_set = $link->query($query)) {
+                                                            while($row = $result_set->fetch_array(MYSQLI_ASSOC))
+                                                            { 
+                                                                echo "<tr>";
+                                                                echo "<td>".$row['id']."</td>";
+                                                                echo "<td>".$row['cname']."</td>";
+                                                                
+                                                                echo "<td>
+                                                                    <a href=\"OSS_edit_CityCon.php?id=".$row['id']."\"><i class='fas fa-edit' title='Edit City Constituency' style='font-size:18px;color:green'></i></a>
+                                                                    <a onClick=\"javascript: return confirm('Are You Sure You want To Delete This Constituency?');\" href=OSS_constituency_delete.php\"?id=".$row['id']."\"><i class='far fa-trash-alt' title='Delete SLG' style='font-size:18px;color:Red'></i></a>
+                                                                    </td>\n";
+                                                                echo "</tr>";
+                                                            }
+                                                            $result_set->close();
+                                                            }  
+                                                                                
+                                                        ?>
+                                                    </tbody>
+                                                </table>
+                                                </p>
+                                            </div>
+                                        </div>     
+                                    </div>            
+                                </div>  
                             </div>
                         </div>
                     </div>

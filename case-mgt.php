@@ -24,6 +24,19 @@
   <script type="text/javascript" 
 src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
   </script>
+
+<style>
+    .nav-link active {
+        background-color: orange !important;
+        border: none !important;
+        border-width:0!important;
+    }
+    .card-border {
+            border-style: solid;
+            border-color: orange;
+        }
+</style>
+
 </head>
 
 <?php include 'layouts/body.php'; ?>
@@ -69,8 +82,8 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                         <div class="card">
                             <div class="card-body">
 
-                            <ul class="nav nav-pills nav-justified" role="tablist">
-                                <li class="nav-item waves-effect waves-light">
+                                <ul class="nav nav-pills nav-justified" role="tablist">
+                                    <li class="nav-item waves-effect waves-light">
                                         <a class="nav-link active" data-bs-toggle="tab" href="#home" role="tab">
                                             <span class="d-block d-sm-none"><i class="fas fa-home"></i></span>
                                             <span class="d-none d-sm-block">received complaints</span>
@@ -82,52 +95,36 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                                             <span class="d-none d-sm-block">Complaint Status</span>
                                         </a>
                                     </li>
-                                    
-                                                                       
-
                                 </ul>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="card-border">
+                                        <div class="card-header bg-transparent border-primary">
+                                            <h5 class="my-0 text-primary">Complaints/Issues</h5>
+                                        </div>
+                                        <div class="card-body">
+                                        <h7 class="card-title mt-0"></h7>
+                                            
+                                                <table id="datatable" class="table table-bordered dt-responsive  nowrap w-100">
+                                                
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Issue Code</th>
+                                                            <th>Source</th>                                           
+                                                            <th>Current Status</th>
+                                                            <th>Action</th>  
+                                                        </tr>
+                                                    </thead>
 
-                                <div class="tab-pane active" id="home-1" role="tabpanel">
-                                    <p class="mb-0">
-                                        <!--start here -->
-                                        
-
-                                        <div class="row">
-                                            <div class="col-12">
-                                                <div class="card border border-primary">
-                                                <div class="card-header bg-transparent border-primary">
-                                                    <h5 class="my-0 text-primary">Complaints/Issues</h5>
-                                                </div>
-                                                <div class="card-body">
-                                                <h7 class="card-title mt-0"></h7>
-                                                    
-                                                        <table id="datatable" class="table table-bordered dt-responsive  nowrap w-100">
+                                                    <tbody>
                                                         
-                                                            <thead>
-                                                                <tr>
-                                                                    <th>Issue Code</th>
-                                                                    <th>Source</th>                                           
-                                                                    <th>Current Status</th>
-                                                                    
-                                                                    <th>Action</th>  
-                                                                </tr>
-                                                            </thead>
-
-                                                            <tbody>
-                                                                
-                                                            </tbody>
-                                                        </table>
-                                                        </p>
-                                                    </div>
-                                                </div>     
-                                            </div>            
-                                        </div>  
-                                    </p>
-                                </div>
-                                    <!-- Here -->
-                                    
-                                
-
+                                                    </tbody>
+                                                </table>
+                                                </p>
+                                            </div>
+                                        </div>     
+                                    </div>            
+                                </div>  
                             </div>
                         </div>
                     </div>

@@ -106,72 +106,61 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                                     </li>
                                 </ul>
 
-                                <!-- Tab panes -->
-                                <div class="tab-content p-3 text-muted">
-                                    <div class="tab-pane active" id="home-1" role="tabpanel">
-                                        <p class="mb-0">
-                                            <!--start here -->
+                                <form action="OSS_add_CityWard.php">
+                                    <p align="right">
+                                        <input type="submit" value="Add New Ward" class="btn btn-outline-success w-md" style="width:170px"/>
+                                    </p>
+                                </form>
+
+                                <div class="row">
+                                    <div class="col-9">
+                                        <div class="card-border">
+                                        
+                                        <div class="card-body">
+                                        <h7 class="card-title mt-0"></h7>
                                             
-                                            <form action="OSS_add_CityWard.php">
-                                                <p align="right">
-                                                    <input type="submit" value="Add New Ward" class="btn btn-outline-success w-md" style="width:170px"/>
+                                                <table id="datatable" class="table table-bordered dt-responsive  nowrap w-100">
+                                                
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Ward ID</th>
+                                                            <th>Constituency</th>
+                                                            <th>Ward</th>
+                                                            <th>Action</th>                                                              
+                                                        </tr>
+                                                    </thead>
+
+
+                                                    <tbody>
+                                                        <?Php
+                                                            $query = "SELECT * FROM wards";
+
+                                                            if ($result_set = $link->query($query)) {
+                                                            while($row = $result_set->fetch_array(MYSQLI_ASSOC))
+                                                            { 
+                                                                echo "<tr>";
+                                                                echo "<td>".$row['id']."</td>";
+                                                                echo "<td>".$row['constituency']."</td>";
+                                                                echo "<td>".$row['wname']."</td>";                                                       
+                                                                
+
+                                                                echo "<td>
+                                                                    <a href=\"OSS_edit_CityWard.php?id=".$row['id']."\"><i class='fas fa-edit' title='Edit City Ward' style='font-size:18px;color:green'></i></a>
+                                                                    <a onClick=\"javascript: return confirm('Are You Sure You want To Delete This City Ward');\" href=\"OSS_ward_delete.php?id=".$row['id']."\"><i class='far fa-trash-alt' title='Delete City Ward' style='font-size:18px;color:Red'></i></a>
+                                                                    </td>\n";
+                                                                echo "</tr>";
+                                                            }
+                                                            $result_set->close();
+                                                            }  
+                                                                                
+                                                        ?>
+                                                    </tbody>
+                                                </table>
                                                 </p>
-                                            </form>
-
-                                            <div class="row">
-                                                <div class="col-12">
-                                                    <div class="card-border">
-                                                    
-                                                    <div class="card-body">
-                                                    <h7 class="card-title mt-0"></h7>
-                                                        
-                                                            <table id="datatable" class="table table-bordered dt-responsive  nowrap w-100">
-                                                            
-                                                                <thead>
-                                                                    <tr>
-                                                                        <th>Ward ID</th>
-                                                                        <th>Constituency</th>
-                                                                        <th>Ward</th>
-                                                                        <th>Action</th>                                                              
-                                                                    </tr>
-                                                                </thead>
-
-
-                                                                <tbody>
-                                                                    <?Php
-                                                                        $query = "SELECT * FROM wards";
-
-                                                                        if ($result_set = $link->query($query)) {
-                                                                        while($row = $result_set->fetch_array(MYSQLI_ASSOC))
-                                                                        { 
-                                                                            echo "<tr>";
-                                                                            echo "<td>".$row['id']."</td>";
-                                                                            echo "<td>".$row['constituency']."</td>";
-                                                                            echo "<td>".$row['wname']."</td>";                                                       
-                                                                            
-
-                                                                            echo "<td>
-                                                                                <a href=\"OSS_edit_CityWard.php?id=".$row['id']."\"><i class='fas fa-edit' title='Edit City Ward' style='font-size:18px;color:green'></i></a>
-                                                                                <a onClick=\"javascript: return confirm('Are You Sure You want To Delete This City Ward');\" href=\"OSS_ward_delete.php?id=".$row['id']."\"><i class='far fa-trash-alt' title='Delete City Ward' style='font-size:18px;color:Red'></i></a>
-                                                                             </td>\n";
-                                                                            echo "</tr>";
-                                                                        }
-                                                                        $result_set->close();
-                                                                        }  
-                                                                                           
-                                                                    ?>
-                                                                </tbody>
-                                                            </table>
-                                                            </p>
-                                                        </div>
-                                                    </div>     
-                                                </div>            
-                                            </div>  
-                                        </p>
-                                    </div>
-                                    <!-- Here -->
-                                </div>
-
+                                            </div>
+                                        </div>     
+                                    </div>            
+                                </div>  
                             </div>
                         </div>
                     </div>

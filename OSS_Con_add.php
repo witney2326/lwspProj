@@ -1,14 +1,19 @@
 <?php
 include_once 'layouts/config.php';
-    
-    $concode = $_GET["id"];
-    
-        $sql = "DELETE from constituency where id = '$concode'";
-        
+
+
+if(isset($_POST['Add']))
+{    
+    $ccode = $_POST["ccode"];
+    $cname= $_POST["cname"];   
+
+        $sql = "INSERT INTO constituency (id,cname)
+        VALUES ('$ccode','$cname')";
+
         if (mysqli_query($link, $sql)) {
         
         echo '<script type="text/javascript">'; 
-        echo 'alert("City Area Deleted Successfully!");'; 
+        echo 'alert("New Constituency Added Successfully!");'; 
         echo 'window.location.href = "sysadmin1_regions.php";';
         echo '</script>';
     } else {
@@ -19,5 +24,5 @@ include_once 'layouts/config.php';
 
     
             
-
+}
 ?>

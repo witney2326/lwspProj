@@ -121,7 +121,7 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                                             </form>
 
                                             <div class="row">
-                                                <div class="col-12">
+                                                <div class="col-9">
                                                     <div class="card-border">
                                                     
                                                     <div class="card-body">
