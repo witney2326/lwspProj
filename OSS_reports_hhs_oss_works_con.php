@@ -71,7 +71,7 @@
                                 <ul class="nav nav-pills nav-justified" role="tablist">
                                     
                                     <li class="nav-item waves-effect waves-light">
-                                        <a class="nav-link" data-bs-toggle="tab" href="OSS_reports_hhs_oss_works" role="tab">
+                                        <a class="nav-link" data-bs-toggle="link" href="OSS_reports_hhs_oss_works.php" role="link">
                                             <span class="d-block d-sm-none"><i class="far fa-envelope"></i></span>
                                             <span class="d-none d-sm-block">Household OSS Works</span>
                                         </a>
@@ -84,7 +84,7 @@
                                         </a>
                                     </li>
                                     <li class="nav-item waves-effect waves-light">
-                                        <a class="nav-link" data-bs-toggle="tab" href="#iga" role="tab">
+                                        <a class="nav-link" data-bs-toggle="link" href="OSS_reports_completed_oss_works.php" role="link">
                                             <span class="d-block d-sm-none"><i class="far fa-envelope"></i></span>
                                             <span class="d-none d-sm-block">Completed Household OSS Works</span>
                                         </a>

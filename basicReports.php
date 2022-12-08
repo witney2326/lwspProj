@@ -42,6 +42,10 @@
         $row = mysqli_fetch_assoc($result); 
         $approved_projects = $row['approved_projects'];
 
+        $result = mysqli_query($link, "SELECT COUNT(pID) AS completed_projects FROM tprojects where pstatus = '06'"); 
+        $row = mysqli_fetch_assoc($result); 
+        $completed_projects = $row['completed_projects'];
+
         $result = mysqli_query($link, 'SELECT SUM(amount_paid) AS payments FROM tpayments'); 
         $row = mysqli_fetch_assoc($result); 
         $hh_savings = $row['payments'];
@@ -138,9 +142,9 @@
                                             <tr>
                                                 <th scope="row">6</th>
                                                 <td>Completed and Verified OSS Works </td>
-                                                <td><a href=""><i class="fas fa-file" style='font-size:24px'></i></a></td>
+                                                <td><a href="OSS_reports_completed_oss_works.php"><i class="fas fa-file" style='font-size:24px'></i></a></td>
 
-                                                <td>Number</td>
+                                                <td><?php echo $completed_projects;?> OSS Works</td>
                                             </tr>
                                               
                                         </tbody>

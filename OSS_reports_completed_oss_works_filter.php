@@ -2,7 +2,7 @@
 <?php include 'layouts/head-main.php'; ?>
 
 <head>
-    <title>OSS Works Reports</title>
+    <title>OSS Completed Works Reports</title>
     <?php include 'layouts/head.php'; ?>
     <?php include 'layouts/head-style.php'; ?>
 
@@ -47,7 +47,7 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                            <h4 class="mb-sm-0 font-size-18">OSS Works Reports</h4>
+                            <h4 class="mb-sm-0 font-size-18">OSS Completed Works Reports</h4>
 
                             <div class="page-title-right">
                                 
@@ -65,24 +65,19 @@
                         <ul class="nav nav-pills nav-justified" role="tablist">
                             
                             <li class="nav-item waves-effect waves-light">
-                                <a class="nav-link" data-bs-toggle="link" href="OSS_reports_hhs_oss_works.php" role="link">
+                                <a class="nav-link" data-bs-toggle="link" href="OSS_reports_completed_oss_works.php" role="link">
                                     <span class="d-block d-sm-none"><i class="far fa-envelope"></i></span>
-                                    <span class="d-none d-sm-block">Household OSS Works</span>
+                                    <span class="d-none d-sm-block">Completed OSS Works</span>
                                 </a>
                             </li>
                             
                             <li class="nav-item waves-effect waves-light">
                                 <a class="nav-link active" data-bs-toggle="link" href="javascript:void(0);" role="link">
                                     <span class="d-block d-sm-none"><i class="far fa-envelope"></i></span>
-                                    <span class="d-none d-sm-block">Filtered Household Household OSS Works</span>
+                                    <span class="d-none d-sm-block">Filtered Completed OSS Works</span>
                                 </a>
                             </li>
-                            <li class="nav-item waves-effect waves-light">
-                                <a class="nav-link" data-bs-toggle="link" href="OSS_reports_completed_oss_works.php" role="link">
-                                    <span class="d-block d-sm-none"><i class="far fa-envelope"></i></span>
-                                    <span class="d-none d-sm-block">Completed Household OSS Works</span>
-                                </a>
-                            </li>
+                            
                         </ul>
                     </div>
                 </div>
@@ -90,7 +85,7 @@
                 <div class="card-border">
                     
                     <div class="card-body">
-                        <form class="row row-cols-lg-auto g-3 align-items-center" novalidate action="OSS_reports_hhs_oss_works_con.php" method ="GET" >
+                        <form class="row row-cols-lg-auto g-3 align-items-center" novalidate action="OSS_reports_completed_oss_works_con.php" method ="GET" >
                             <div class="col-12">
                                 <label for="constituency" class="form-label">Constituency</label>
                                 

@@ -2,7 +2,7 @@
 <?php include 'layouts/head-main.php'; ?>
 
 <head>
-    <title>OSS Works Reports</title>
+    <title>OSS Completed Works Reports</title>
     <?php include 'layouts/head.php'; ?>
     <?php include 'layouts/head-style.php'; ?>
     <?php include 'layouts/config.php'; ?>
@@ -54,7 +54,7 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                            <h4 class="mb-sm-0 font-size-18">OSS Works Reports</h4>
+                            <h4 class="mb-sm-0 font-size-18">OSS Completed Works Reports</h4>
 
                             <div class="page-title-right">
                                 <ol class="breadcrumb m-0">
@@ -76,23 +76,16 @@
                                     <li class="nav-item waves-effect waves-light">
                                         <a class="nav-link active" data-bs-toggle="tab" href="javascript:void(0);" role="tab">
                                             <span class="d-block d-sm-none"><i class="far fa-envelope"></i></span>
-                                            <span class="d-none d-sm-block">Household OSS Works</span>
+                                            <span class="d-none d-sm-block">Completed OSS Works</span>
                                         </a>
                                     </li>
                                     
                                     <li class="nav-item waves-effect waves-light">
-                                        <a class="nav-link" data-bs-toggle="link" href="OSS_reports_hhs_oss_works_filter.php" role="link">
+                                        <a class="nav-link" data-bs-toggle="link" href="OSS_reports_completed_oss_works_filter.php" role="link">
                                             <span class="d-block d-sm-none"><i class="far fa-envelope"></i></span>
-                                            <span class="d-none d-sm-block">Filtered Household Household OSS Works</span>
+                                            <span class="d-none d-sm-block">Filtered Completed OSS Works</span>
                                         </a>
                                     </li>
-                                    <li class="nav-item waves-effect waves-light">
-                                        <a class="nav-link" data-bs-toggle="link" href="OSS_reports_completed_oss_works.php" role="link">
-                                            <span class="d-block d-sm-none"><i class="far fa-envelope"></i></span>
-                                            <span class="d-none d-sm-block">Completed Household OSS Works</span>
-                                        </a>
-                                    </li>
-                                    
                                 </ul>
                             </div>
                         </div>
@@ -111,7 +104,7 @@
                                 </div>
 
                                 <div class="card-header bg-transparent border-primary">
-                                    <p><center><h5 class="my-0 text-primary">OSS Works Reports</h5></p></center>
+                                    <p><center><h5 class="my-0 text-primary">OSS Completed Works Report</h5></p></center>
                                 </div>
 
                                     <table id="datatable-buttons" class="table table-bordered dt-responsive  nowrap w-100" style="font-size: 10;">
@@ -125,16 +118,15 @@
                                                 <th>HH Name</th>
                                                 <th>Plot No.</th>
                                                 <th>Start Date</th>
-                                                <th>End Date</th>
+                                                <th>Completion Date</th>
                                                 <th>Contractor</th>
-                                                <th>Status</th>
                                             </tr>
                                         </thead>
 
                                         <tbody>
                                             <?Php
-                                                $query="select pID,phhcode,hhname,plot,pstartdate,pfinishdate,pcontractorID,tprojects.pstatus as pstatus from tprojects inner join households on tprojects.phhcode = households.hhcode 
-                                                where (tprojects.pstatus <> '06')";                                                               
+                                                $query="select pID,phhcode,hhname,plot,pstartdate,pcompletiondate,pcontractorID,tprojects.pstatus as pstatus from tprojects inner join households on tprojects.phhcode = households.hhcode 
+                                                where (tprojects.pstatus = '06')";                                                               
                                                 
                                                 if ($result_set = $link->query($query)) {
                                                 while($row = $result_set->fetch_array(MYSQLI_ASSOC))
@@ -146,9 +138,8 @@
                                                     echo "<td>".$row["hhname"]."</td>\n";
                                                     echo "<td>".$row["plot"]."</td>\n";
                                                     echo "<td>".$row["pstartdate"]."</td>\n";
-                                                    echo "<td>".$row["pfinishdate"]."</td>\n";
+                                                    echo "<td>".$row["pcompletiondate"]."</td>\n";
                                                     echo "<td>".contractor_name($link,$row["pcontractorID"])."</td>\n";
-                                                    echo "<td>".pstatus($link,$row["pstatus"])."</td>\n";
                                                 echo "</tr>\n";
                                                 }
                                                 $result_set->close();
