@@ -14,8 +14,8 @@ if($link === false){
     die("ERROR: Could not connect. " . mysqli_connect_error());
 }
 
-$gmailid = ''; // YOUR gmail email
+$gmailid = 'lilongwe.water.sanitation@gmail.com'; // YOUR gmail email
 $gmailpassword = ''; // YOUR gmail password
-$gmailusername = ''; // YOUR gmail User name
+$gmailusername = 'adminLWSP'; // YOUR gmail User name
 
 ?>

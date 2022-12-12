@@ -133,8 +133,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                                 <a href="" class="auth-logo-dark">
                                     <div class="avatar-md profile-user-wid mb-4">
-                                        <span class="avatar-title rounded-circle bg-light">
-                                            <img src="assets/images/logo.svg" alt="" class="rounded-circle" height="64">
+                                        <span class="avatar-title rounded-circle bg-dark">
+                                            <img src="assets/images/lwsp.svg" alt="" class="rounded-circle" height="64">
                                         </span>
                                     </div>
                                 </a>
