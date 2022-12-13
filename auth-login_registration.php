@@ -99,6 +99,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <title>Login | LWSP</title>
     <?php include 'layouts/head.php'; ?>
     <?php include 'layouts/head-style.php'; ?>
+    <style> 
+        .card-border 
+        {
+            border-style: solid;
+            border-color: orange;
+        }
+        .my-body 
+        {
+            background-color: orange;
+        }
+    </style>
 </head>
 
 <body>
@@ -107,66 +118,68 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <div class="row justify-content-center">
                 <div class="col-md-8 col-lg-6 col-xl-5">
                     <div class="card overflow-hidden">
-                        <div class="bg-primary bg-soft">
+                        <div class="my-body">
                             <div class="row">
                                 <div class="col-4">
                                     <div class="text-primary p-4">
-                                        <h3 class="text-default">LWSP</h3>
+                                        <h3 class="text-default"></h3>
                                         
                                     </div>
                                 </div>
                                 <div class="col-5 align-self-end">
-                                    <img src="assets/images/profile-img.png" alt="" class="img-fluid">
+                                    <img src="assets/images/product/new.jpg" alt="" class="img-fluid">
                                 </div>
                             </div>
                         </div>
-                        <div class="card-body pt-0">
-                            <div class="auth-logo">
-                                <a href="" class="auth-logo-light">
-                                    <div class="avatar-md profile-user-wid mb-4">
-                                        <span class="avatar-title rounded-circle bg-light">
-                                            <img src="assets/images/logo-light.svg" alt="" class="rounded-circle" height="64">
-                                        </span>
-                                    </div>
-                                </a>
+                        <div class = "card-border">
+                            <div class="card-body pt-0">
+                                <div class="auth-logo">
+                                    <a href="" class="auth-logo-light">
+                                        <div class="avatar-md profile-user-wid mb-4">
+                                            <span class="avatar-title rounded-circle bg-light">
+                                                <img src="assets/images/lwsp.svg" alt="" class="rounded-circle" height="64">
+                                            </span>
+                                        </div>
+                                    </a>
 
-                                <a href="" class="auth-logo-dark">
-                                    <div class="avatar-md profile-user-wid mb-4">
-                                        <span class="avatar-title rounded-circle bg-light">
-                                            <img src="assets/images/logo.svg" alt="" class="rounded-circle" height="64">
-                                        </span>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="p-2">
-                                <form class="form-horizontal" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+                                    <a href="" class="auth-logo-dark">
+                                        <div class="avatar-md profile-user-wid mb-4">
+                                            <span class="avatar-title rounded-circle bg-light">
+                                                <img src="assets/images/lwsp.svg" alt="" class="rounded-circle" height="64">
+                                            </span>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="p-2">
+                                    <form class="form-horizontal" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
 
-                                    <div class="row mb-1 <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
-                                        <label hidden for="username" class="col-sm-4 col-form-label">Username</label>
-                                        <input hidden type="password" class="form-control" id="username" value="guest3" name="username" style="max-width:40%;" readonly>
-                                        <span class="text-danger"><?php echo $username_err; ?></span>
-                                    </div>
+                                        <div class="row mb-1 <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
+                                            <label hidden for="username" class="col-sm-4 col-form-label">Username</label>
+                                            <input hidden type="password" class="form-control" id="username" value="guest3" name="username" style="max-width:40%;" readonly>
+                                            <span class="text-danger"><?php echo $username_err; ?></span>
+                                        </div>
 
-                                    <div class="row mb-4 <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
-                                        
-                                        <label hidden class="col-sm-4 col-form-label"> Password</label>
-                                        <input hidden type="password" name="password" class="form-control" value="wkabango" aria-label="Password" aria-describedby="password-addon" style="max-width:40%;" readonly>
-                                        
-                                        
-                                        <span class="text-danger"><?php echo $password_err; ?></span>
-                                    </div>
+                                        <div class="row mb-4 <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
+                                            
+                                            <label hidden class="col-sm-4 col-form-label"> Password</label>
+                                            <input hidden type="password" name="password" class="form-control" value="wkabango" aria-label="Password" aria-describedby="password-addon" style="max-width:40%;" readonly>
+                                            
+                                            
+                                            <span class="text-danger"><?php echo $password_err; ?></span>
+                                        </div>
 
-                                    <div class="row mb-1">
-                                        <div class="text-center">
-                                            <button class="btn btn btn-outline-success waves-effect waves-light" type="submit" value="Login" style="width:30%">Login and Register</button>
-                                            <a href="" class="text-muted"style="width:70%"></a>
+                                        <div class="row mb-1">
+                                            <div class="text-center">
+                                                <button class="btn btn btn-outline-success waves-effect waves-light" type="submit" value="Login" style="width:30%">Login and Register</button>
+                                                <a href="" class="text-muted"style="width:70%"></a>
 
-                                            <div class="mt-2 text-right"> 
-                                                
-                                            </div>
-                                        </div>                                     
-                                    </div>
-                                </form>
+                                                <div class="mt-2 text-right"> 
+                                                    
+                                                </div>
+                                            </div>                                     
+                                        </div>
+                                    </form>
+                                </div>
                             </div>
                         </div>
                     </div>

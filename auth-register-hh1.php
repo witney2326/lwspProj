@@ -35,7 +35,7 @@ require_once 'layouts/config.php';
                                                     <div class="owl-carousel owl-theme auth-review-carousel" id="auth-review-carousel">
                                                         <div class="item">
                                                             <div class="py-3">
-                                                                <p class="font-size-16 mb-4">" LWSP "</p>
+                                                                <p class="font-size-16 mb-4">" Lilongwe Water and Sanitation Project "</p>
 
                                                                 <div>
                                                                     <h4 class="font-size-16 text-primary"></h4>

@@ -105,21 +105,25 @@
                 <li ></li>
 
                 <li>
-                    <a href="index.php" class="waves-effect">
+                    <a href="index_check.php" class="waves-effect">
                         <i class="bx bx-home-circle"></i><span class="badge rounded-pill bg-info float-end"></span>
                         <span key="t-dashboards"><?php echo $language["Dashboard"]; ?></span>
                     </a>
                     
                 </li>
+                <?php
 
-                <li>
                     
-                    <a href="sysadmin1.php" class="waves-effect">
-                        <i class="fa fa-cog" style="color:orangered;font-size:small;"></i><span class="badge rounded-pill bg-info float-end"></span>
-                        <span key="t-dashboards"><b>System Admin</b></span>
-                    </a>
-                    
-                </li>
+                        if ($_SESSION["userrole"] == '01')
+                        {
+                            echo '<li>';
+                                 echo '<a href="sysadmin1.php" class="waves-effect">';
+                                    echo  '<i class="fa fa-cog" style="color:orangered;font-size:small;"></i><span class="badge rounded-pill bg-info float-end"></span>';
+                                    echo '<span key="t-dashboards"><b>System Admin</b></span>';
+                                echo '</a>';
+                            echo '</li>';
+                        }
+                ?>
 
                 <li>
                     <a href="register_beneficiary.php" class="waves-effect">
