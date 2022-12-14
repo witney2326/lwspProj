@@ -103,6 +103,12 @@
     $rg = mysqli_fetch_array($rg_query);// fetch data
     return $rg['rolename'];
     }
+    function userid($link, $code)
+    {
+    $rg_query = mysqli_query($link,"select id from users where usercon='$code'"); // select query
+    $rg = mysqli_fetch_array($rg_query);// fetch data
+    return $rg['id'];
+    }
     
 
     function send_whatsapp($message="Test"){

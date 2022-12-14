@@ -193,7 +193,7 @@
                                                 <tbody>
                                                     <?Php
                                                         $query="SELECT hhcode,hhname,ward,area,blockname,plot,phone
-                                                        FROM households where (con = '$constituency') group by ward,area ";
+                                                        FROM households where ((con = '$constituency') and (deleted = '0')) group by ward,area ";
                                                         
                                                         if ($result_set = $link->query($query)) {
                                                         while($row = $result_set->fetch_array(MYSQLI_ASSOC))

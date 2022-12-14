@@ -59,7 +59,7 @@
                                                         <i class='fa fa-user-plus center' style='font-size:24px;color:orange'></i>
                                                         <p class="text-muted fw-medium center">Registered HouseHolds</p>
                                                         <?php
-                                                            $result = mysqli_query($link, 'SELECT COUNT(hhcode) AS value_sum FROM households'); 
+                                                            $result = mysqli_query($link, "SELECT COUNT(hhcode) AS value_sum FROM households where deleted = '0'"); 
                                                             $row = mysqli_fetch_assoc($result); 
                                                             $sum = $row['value_sum'];
                                                         ?>

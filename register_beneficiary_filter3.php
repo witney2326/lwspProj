@@ -149,7 +149,7 @@
                                         <div class="col-md-3">
                                             <div class="mb-3">
                                                 <label for="phone" class="form-label">Phone Number</label>
-                                                <input type="text" class="form-control" id="phone" name="phone"  >
+                                                <input type="text" class="form-control" id="phone" name="phone" pattern="/(0)\d{9}/" title="Please enter valid phone number">
                                             </div>
                                         </div>
                                         <div class="col-md-3">
@@ -386,19 +386,11 @@
                                         </div>
                                     </div>
                                 </form>
-
-                                
-                                
-                                
                             </div>
                         </div>
                         
                     </div>
                 </div>
-
-                
-
-                
             </div>
         </div>
         <script src="assets/libs/datatables.net/js/jquery.dataTables.min.js"></script>

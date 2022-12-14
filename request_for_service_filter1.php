@@ -45,12 +45,7 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
      
     }
     
-    function get_rname($link, $rcode)
-        {
-        $rg_query = mysqli_query($link,"select name from tblregion where regionID='$rcode'"); // select query
-        $rg = mysqli_fetch_array($rg_query);// fetch data
-        return $rg['name'];
-        }
+    
     
         function con_name($link, $conID)
         {
@@ -201,7 +196,7 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
 
                                                     <tbody>
                                                         <?Php
-                                                            $query="select * from households where ((enrolled='1') and (con ='$constituency'))";
+                                                            $query="select * from households where ((enrolled='1') and (con ='$constituency') and (ready_selection = '1') and (deleted = '0'))";
 
                                                             //Variable $link is declared inside config.php file & used here
                                                             

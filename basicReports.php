@@ -22,7 +22,7 @@
     <?php   include 'layouts/menu.php'; 
             include 'layouts/config.php';
     
-        $result = mysqli_query($link, 'SELECT COUNT(hhcode) AS value_registered FROM households'); 
+        $result = mysqli_query($link, "SELECT COUNT(hhcode) AS value_registered FROM households where deleted = '0'"); 
         $row = mysqli_fetch_assoc($result); 
         $hh_registered = $row['value_registered'];
 
@@ -107,7 +107,7 @@
                                                 <td>Households Registered</td>
                                                 <td><a href="OSS_reports_registration.php"><i class="fa fa-file" style='font-size:24px' aria-hidden="true"></i></a></td>
 
-                                                <td><?php echo $hh_registered;?> Households</td>
+                                                <td><?php echo $hh_registered;?> Household(s)</td>
                                             </tr>
                                             <tr>
                                                 <th scope="row">2</th>

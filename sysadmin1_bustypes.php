@@ -68,6 +68,12 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                                         </a>
                                     </li>
                                     <li class="nav-item waves-effect waves-light">
+                                        <a class="nav-link" data-bs-toggle="link" href="sysadmin1_contractors.php" role="link">
+                                            <span class="d-block d-sm-none"><i class="fas fa-home"></i></span>
+                                            <span class="d-none d-sm-block">contractors</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item waves-effect waves-light">
                                         <a class="link"  href="sysadmin1_roles.php" role="link">
                                             <span class="d-block d-sm-none"><i class="far fa-envelope"></i></span>
                                             <span class="d-none d-sm-block">roles</span>

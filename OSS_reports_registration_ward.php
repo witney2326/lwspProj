@@ -180,7 +180,7 @@
                                                     <tbody>
                                                         <?Php
                                                             $query="SELECT hhcode,hhname,area,blockname,plot,phone
-                                                            FROM households where ward = '$ward' group by ward,area";
+                                                            FROM households where ((ward = '$ward') and (deleted = '0')) group by ward,area";
                                                             
                                                             if ($result_set = $link->query($query)) {
                                                             while($row = $result_set->fetch_array(MYSQLI_ASSOC))

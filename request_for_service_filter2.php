@@ -207,7 +207,7 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
 
                                                     <tbody>
                                                         <?Php
-                                                            $query="select * from households where ((enrolled='1') and (con ='$constituency') and (ward='$ward'))";
+                                                            $query="select * from households where ((enrolled='1') and (con ='$constituency') and (ward='$ward') and (ready_selection = '1') and (deleted = '0'))";
 
                                                             //Variable $link is declared inside config.php file & used here
                                                             

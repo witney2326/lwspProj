@@ -70,9 +70,15 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                                 <!-- Nav tabs -->
                                 <ul class="nav nav-pills nav-justified" role="tablist">
                                     <li class="nav-item waves-effect waves-light">
-                                        <a class="nav-link active" data-bs-toggle="tab" href="#home-1" role="tab">
+                                        <a class="nav-link active" data-bs-toggle="tab" href="javascript:void(0);" role="tab">
                                             <span class="d-block d-sm-none"><i class="fas fa-home"></i></span>
                                             <span class="d-none d-sm-block">users</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item waves-effect waves-light">
+                                        <a class="nav-link" data-bs-toggle="link" href="sysadmin1_contractors.php" role="link">
+                                            <span class="d-block d-sm-none"><i class="fas fa-home"></i></span>
+                                            <span class="d-none d-sm-block">contractors</span>
                                         </a>
                                     </li>
                                     <li class="nav-item waves-effect waves-light">
@@ -131,7 +137,7 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                                                                         <th>Email</th>
                                                                         <th>Role</th>
                                                                         <th>Status</th>
-                                                                        <th>HH Code</th>
+                                                                        <th>Code</th>
                                                                         <th>Action</th>                                                              
                                                                     </tr>
                                                                 </thead>
@@ -149,7 +155,7 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                                                                             echo "<td>".$row['id']."</td>";
                                                                             echo "<td>".$row['username']."</td>";
                                                                             echo "<td>".$row['useremail']."</td>";                                                       
-                                                                            echo "<td>".$row['userrole']."</td>";
+                                                                            echo "<td>".role_name($link,$row['userrole'])."</td>";
                                                                             echo "<td>\t\t$ustatus</td>";
                                                                             echo "<td>".$row['usercon']."</td>";
                                                                             if ($row['ustatus'] == '1')

@@ -167,7 +167,7 @@
                                                     <tbody>
                                                         <?Php
                                                             $query="SELECT hhcode,hhname,area,blockname,plot,phone
-                                                            FROM households where (area = '$area')";
+                                                            FROM households where ((area = '$area') and (deleted = '0'))";
                                                             
                                                             if ($result_set = $link->query($query)) {
                                                             while($row = $result_set->fetch_array(MYSQLI_ASSOC))

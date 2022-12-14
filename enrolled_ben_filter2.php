@@ -198,7 +198,7 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                                                         <tr>
                                                             <th>HH Code</th>                                           
                                                             <th>HH Name</th>
-                                                            <th>TCs?</th>
+                                                            <th>Agree TCs?</th>
                                                             <th>TG?</th>
                                                             <th>Ready_Select?</th>
                                                             <th>Action</th>  
@@ -207,7 +207,7 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
 
                                                     <tbody>
                                                         <?Php
-                                                            $query="select * from households where ((ward = '$ward') and (enrolled ='1'))";
+                                                            $query="select * from households where ((con = '$constituency') and (ward = '$ward') and (enrolled ='1') and (deleted = '0'))";
 
                                                             //Variable $link is declared inside config.php file & used here
                                                             
@@ -216,10 +216,12 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                                                             { 
                                                                 if ($row["identification"] == 1){$ident = 'CBT';}else{$ident = 'Self';}
                                                                 if ($row["enrolled"]== 1){$enrolled = 'Yes';}else {$enrolled = 'No';}
+                                                                if ($row["agree_tcs"]== 1){$agree_tcs = 'Yes';}else {$agree_tcs = 'No';}
+
                                                             echo "<tr>\n";
                                                                 echo "<td>".$row["hhcode"]."</td>\n";
                                                                 echo "<td>".$row["hhname"]."</td>\n";
-                                                                echo "<td>".$row["agree_tcs"]."</td>\n";
+                                                                echo "<td>\t\t$agree_tcs</td>\n";
                                                                 echo "<td>".$row["need_tech_guidance_on_selection"]."</td>\n";
                                                                 echo "<td>".$row["ready_selection"]."</td>\n";
                                                                 echo "<td>                                               
