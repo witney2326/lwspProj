@@ -76,7 +76,7 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
 
                             <div class="page-title-right">
                                 <ol class="breadcrumb m-0">
-                                    <li class="breadcrumb-item"><a href="index.php">Dashboard</a></li>
+                                    <li class="breadcrumb-item"><a href="index_check.php">Dashboard</a></li>
                                     <li class="breadcrumb-item active">Request For Service</li>
                                 </ol>
                             </div>
@@ -177,7 +177,7 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                                     <div class="col-12">
                                         <div class="card-border">
                                         <div class="card-header bg-transparent border-primary">
-                                            <h5 class="my-0 text-default">Verified Households and Ready For Option Selection</h5>
+                                            <h5 class="my-0 text-default">Households Ready For Option Selection</h5>
                                         </div>
                                         <div class="card-body">
                                         <h7 class="card-title mt-0"></h7>
@@ -196,7 +196,7 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
 
                                                     <tbody>
                                                         <?Php
-                                                            $query="select * from households where ((enrolled='1') and (con ='$constituency') and (ready_selection = '1') and (deleted = '0') and (need_tech_guidance_on_selection = '0'))";
+                                                            $query="select * from households where ((enrolled='1') and (con ='$constituency') and (ready_selection = '1') and (deleted = '0') and (need_tech_guidance_on_selection = '0') and (selected_product = '00'))";
 
                                                             //Variable $link is declared inside config.php file & used here
                                                             
@@ -211,7 +211,7 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                                                                     echo "<td>";
                                                                         echo "<form action = 'request_for_service_SelectProduct.php' method ='POST'>";
                                                                             echo '<select id="product"  name="product">';
-                                                                                echo '<option></option>';
+                                                                                
                                                                                 $ta_fetch_query = "SELECT pID,pname,pCost FROM tproducts";                                                  
                                                                                 $result_ta_fetch = mysqli_query($link, $ta_fetch_query);                                                                       
                                                                                 $i=0;

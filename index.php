@@ -152,35 +152,16 @@
                                             <div class="card-body">
                                                 <div class="d-flex">
                                                     <div class="flex-grow-1">
-                                                    <i class='bx bx-dollar center' style='font-size:24px;color:red'></i>
-                                                        <p class="text-muted fw-medium center">Households with Part Payments</p>
+                                                    <i class='fa fa-compass center' style='font-size:24px;color:green'></i>
+                                                        <p class="text-muted fw-medium center">Households Requesting Technical Guidance on Selection</p>
                                                         <?php
-                                                            $hhCount = 0;
-                                                            $query="select DISTINCT(tpayments.hhCode) from tpayments inner join households on tpayments.hhCode = households.hhcode  where ((tpayments.pApproved ='1') and (households.selected_product <> '00') and (households.enrolled = '1') and (households.product_approved = '1') and (households.agree_tcs = '1'))";
-                                                            
-                                                            if ($result_set = $link->query($query)) 
-                                                            {
-                                                                while($row = $result_set->fetch_array(MYSQLI_ASSOC))
-                                                                { 
-                                                                    $hhcode = $row["hhCode"];
-                                                                                                                                                                                                            
-                                                                    $result2 = mysqli_query($link, "SELECT SUM(amount_paid) AS total_paid FROM tpayments where ((hhCode ='$hhcode') and (pApproved ='1'))"); 
-                                                                    $row2 = mysqli_fetch_assoc($result2); 
-                                                                    $total_paid = number_format($row2['total_paid'],2);
-
-                                                                    $pcost = product_cost($link,hh_selected_product($link,$hhcode));
-
-                                                                    if ($total_paid < $pcost)
-                                                                    {
-                                                                        $hhCount = $hhCount+1;
-                                                                    }
-
-                                                                }
-                                                            }
+                                                            $result = mysqli_query($link, "SELECT COUNT(hhcode) AS value_sum FROM households where (((need_tech_guidance_on_selection = '1') or (need_tg = '1')) and (deleted = '0'))"); 
+                                                            $row = mysqli_fetch_assoc($result); 
+                                                            $sum = $row['value_sum']; 
                                                         ?>
                                                         <h6 class="mb-0">
                                                             <div class="container">
-                                                                <div class="numberCircle center"><?php echo  number_format($hhCount);?></div>
+                                                                <div class="numberCircle center"><?php echo  number_format($sum);?></div>
                                                             </div> 
                                                         </h6>
                                                     </div>

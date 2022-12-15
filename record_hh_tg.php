@@ -90,7 +90,7 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                                 </div>
                                 <div class="card-body">
                                     
-                                    <form method="POST" action="OSS_product_add1.php">
+                                    <form method="POST" action="record_hh_tech_guide.php">
                                         <div class="row mb-1">
                                             <label for="hhcode" class="col-sm-2 col-form-label">HH Code</label>
                                             <input type="text" class="form-control" id="hhcode" name = "hhcode" value="<?php echo $Rec_ID;?>"  style="max-width:30%;" readonly >
@@ -108,21 +108,23 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                                         </div>
 
                                         <div class="row mb-1">
-                                            <label for="tg" class="col-sm-2 col-form-label">Technical Guidance</label>
-                                            <input type="memo" class="form-control" id="tg" name="tg"  >
+                                            <label for="rdate" class="col-sm-2 col-form-label">Date</label>
+                                            <input type="date" class="form-control" id="rdate" name="rdate" style="max-width:30%;" >
+
+                                            <label for="supervisor" class="col-sm-2 col-form-label">Rendered By</label>
+                                            <input type="text" class="form-control" id="supervisor" name="supervisor" style="max-width:30%;" >
+                                        </div>  
+
+                                        <div class="row mb-1">
+                                            <label for="tg" class="col-sm-2 col-form-label">Technical Guidance Rendered</label>
+                                            <input type="textarea" class="form-control" id="tg" name="tg" style="max-width:80%;"  >
 
                                         </div>
-                                        <div class="row mb-1">
-                                            <label for="plotno" class="col-sm-2 col-form-label">Date</label>
-                                            <input type="date" class="form-control" id="plotno" name="plotno" style="max-width:30%;" >
-
-                                        </div>                              
+                                                                    
                                                                                 
                                         <div class="row justify-content-end">
                                             <div>
-                                                
-                                                <button type="submit" class="btn btn-btn btn-outline-success w-md" name="Add" value="Add">Add Product</button>
-                                                
+                                                <button type="submit" class="btn btn-btn btn-outline-success w-md" name="Add" value="Add">Record HH TG Rendered</button>
                                             </div>
                                         </div>
                                     </form>

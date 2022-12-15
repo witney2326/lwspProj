@@ -216,8 +216,7 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                                                                         echo "<td>".$row["blockname"]."</td>\n";
                                                                         echo "<td>".$row["plot"]."</td>\n";
                                                                         echo "<td>                                               
-                                                                            <a onClick=\"javascript: return confirm('Do you Need Technical Guide Inorder To Make Selection?');\"  href=\"tg-for-selection.php?id=".$row['hhcode']."\"><i class='far fa-check-circle' title='Need TG For Selection' style='font-size:18px; color:purple'></i></a> 
-                                                                            <a onClick=\"javascript: return confirm('Are You Ready To Make Your Selection?');\" href=\"ben-ready-to-select.php?id=".$row['hhcode']."\"><i class='far fa-check-square' title='Ready For Selection' style='font-size:18px;color:green'></i></a> 
+                                                                            <a onClick=\"javascript: return confirm('Do you Want To Record Technical Guide Rendered To HH?');\"  href=\"record_hh_tg.php?id=".$row['hhcode']."\"><i class='fas fa-record-vinyl' title='Want To Record TG Rendered?' style='font-size:18px; color:black'></i></a> 
                                                                         </td>\n";
 
                                                                     echo "</tr>\n";
