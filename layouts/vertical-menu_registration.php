@@ -1,3 +1,10 @@
+<style>
+    .navbar-header {
+        background-color: orange !important;
+        border: none !important;
+        border-width:0!important;
+    }
+</style>
 <header id="page-topbar">
     <div class="navbar-header">
         <div class="d-flex">

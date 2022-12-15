@@ -113,6 +113,12 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                                             <span class="d-none d-sm-block">Verified HHs</span>
                                         </a>
                                     </li>
+                                    <li class="nav-item waves-effect waves-light">
+                                        <a class="nav-link" data-bs-toggle="link" href="enrolled_ben_tg.php" role="link">
+                                            <span class="d-block d-sm-none"><i class="fas fa-cog"></i></span>
+                                            <span class="d-none d-sm-block">Verified HHs: Need Technical Guidance</span>
+                                        </a>
+                                    </li>
                                 </ul>
                                         <!--start here -->
                                 <div class="card-border">

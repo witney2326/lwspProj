@@ -47,11 +47,11 @@ if(isset($_POST['Submit']))
     $current_status = '01';
 
     $_SESSION['hhid'] = $hhcode;
+   
 
-
-    if(($block = " ") or ($hhname =" ") or ($plot=" ") or ($phone=" ") or ($age_category=" ") or ($livelihood=" ") or ($average_income=" ") or
-    ($hh_vulnerable =" ") or ($hh_poor=" ") or ($hh_ownership_status=" ") or ($location_zone=" ") or ($hh_latrine=" ") or ($hh_identification=" ") or ($hh_status=" ") or ($hh_gender=" ") or
-    ($hh_population='0') or ($latrine_use =" ") or ($hh_nat_id=" "))
+    if(($block == "") or ($hhname =="") or ($plot=="") or ($phone=="") or ($age_category=="") or ($livelihood=="") or ($average_income=="") or
+    ($hh_vulnerable =="") or ($hh_poor=="") or ($hh_ownership_status=="") or ($location_zone=="") or ($hh_latrine=="") or ($hh_identification=="") or ($hh_status=="") or ($hh_gender=="") or
+    ($hh_population=='0') or ($latrine_use =="") or ($hh_nat_id==""))
     {
     echo '<script type="text/javascript">'; 
     echo 'alert("Please fill in the missing values on the form !");'; 

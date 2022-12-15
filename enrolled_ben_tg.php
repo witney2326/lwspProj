@@ -57,11 +57,11 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                 <div class="row">
                     <div class="col-12">
                         <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                            <h4 class="mb-sm-0 font-size-18">Targetting  and Registration: Verified Households</h4>
+                            <h4 class="mb-sm-0 font-size-18">Targetting  and Registration: Verified/Accepted Households That Neeed Technical Guidance</h4>
 
                             <div class="page-title-right">
                                 <ol class="breadcrumb m-0">
-                                    <li class="breadcrumb-item"><a href="index.php">Dashboard</a></li>
+                                    <li class="breadcrumb-item"><a href="index_check.php">Dashboard</a></li>
                                     <li class="breadcrumb-item active">Verify Households</li>
                                 </ol>
                             </div>
@@ -89,13 +89,13 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                                 </li>
 
                                 <li class="nav-item waves-effect waves-light">
-                                    <a class="nav-link active" data-bs-toggle="tab" href="javascript:void(0);" role="tab">
+                                    <a class="nav-link" data-bs-toggle="link" href="enrolled_ben.php" role="link">
                                         <span class="d-block d-sm-none"><i class="fas fa-cog"></i></span>
                                         <span class="d-none d-sm-block">Verified HHs</span>
                                     </a>
                                 </li>
                                 <li class="nav-item waves-effect waves-light">
-                                    <a class="nav-link" data-bs-toggle="link" href="enrolled_ben_tg.php" role="link">
+                                    <a class="nav-link active" data-bs-toggle="tab" href="javascript:void(0);" role="tab">
                                         <span class="d-block d-sm-none"><i class="fas fa-cog"></i></span>
                                         <span class="d-none d-sm-block">Verified HHs: Need Technical Guidance</span>
                                     </a>
@@ -112,7 +112,7 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                         <div class="card">
                             <div class="card-border"> 
                                 <div class="card-body">
-                                    <form class="row row-cols-lg-auto g-3 align-items-center" novalidate action="enrolled_ben_filter1.php" method ="GET" >
+                                    <form class="row row-cols-lg-auto g-3 align-items-center" novalidate action="enrolled_ben_tg_filter1.php" method ="GET" >
                                         <div class="col-12">
                                             <label for="constituency" class="form-label">Constituency</label>
                                             
@@ -170,7 +170,7 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                                 <div class="col-12">
                                     <div class="card-border">
                                     <div class="card-header bg-transparent border-primary">
-                                        <h5 class="my-0 text-primary">CBT Registered Households</h5>
+                                        <h5 class="my-0 text-primary">Verified Households</h5>
                                     </div>
                                     <div class="card-body">
                                     <h7 class="card-title mt-0"></h7>
@@ -179,40 +179,34 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                                             
                                                 <thead>
                                                     <tr>
-                                                        <th>Beneficiary Code</th>                                           
+                                                        <th>HH Code</th>                                           
                                                         <th>HH Name</th>
-                                                        <th>Agree TCs?</th>
-                                                        <th>TG?</th>
-                                                        <th>Ready_Select?</th>
+                                                        <th>Phone No.</th>
+                                                        <th>Block Name</th>
+                                                        <th>Plot No.</th>
                                                         <th>Action</th>  
                                                     </tr>
                                                 </thead>
 
                                                 <tbody>
                                                     <?Php
-                                                        $query="select * from households where ((enrolled ='1') and (deleted = '0'))";
+                                                        $query="select * from households where ((enrolled ='1') and (deleted = '0') and (need_tech_guidance_on_selection = '1'))";
 
                                                         //Variable $link is declared inside config.php file & used here
                                                         
                                                         if ($result_set = $link->query($query)) {
                                                         while($row = $result_set->fetch_array(MYSQLI_ASSOC))
                                                         { 
-                                                            if ($row["identification"] == 1){$ident = 'CBT';}else{$ident = 'Self';}
-                                                            if ($row["enrolled"]== 1){$enrolled = 'Yes';}else {$enrolled = 'No';}
-                                                            if ($row["agree_tcs"]== 1){$agree_tcs = 'Yes';}else {$agree_tcs = 'No';}
                                                             
-
                                                         echo "<tr>\n";
                                                             echo "<td>".$row["hhcode"]."</td>\n";
-                                                            echo "<td>".$row["hhname"]."</td>\n";
-                                                            echo "<td>\t\t$agree_tcs</td>\n";
-                                                            echo "<td>".$row["need_tech_guidance_on_selection"]."</td>\n";
-                                                            echo "<td>".$row["ready_selection"]."</td>\n";
+                                                            echo "<td>".$row["hhname"]."</td>\n"; 
+                                                            echo "<td>".$row["phone"]."</td>\n";
+                                                            echo "<td>".$row["blockname"]."</td>\n";
+                                                            echo "<td>".$row["plot"]."</td>\n";
                                                             echo "<td>
+                                                                <a onClick=\"javascript: return confirm('Do you Want To Record Technical Guide Rendered To HH?');\"  href=\"record_hh_tg.php?id=".$row['hhcode']."\"><i class='fas fa-record-vinyl' title='Want To Record TG Rendered?' style='font-size:18px; color:black'></i></a> 
                                                                 
-                                                                <a onClick=\"javascript: return confirm('Do you Need Technical Guide Inorder To Make Selection?');\"  href=\"tg-for-selection.php?id=".$row['hhcode']."\"><i class='far fa-check-circle' title='Need TG For Selection' style='font-size:18px; color:purple'></i></a> 
-                                                                <a onClick=\"javascript: return confirm('Are You Ready To Make Your Selection?');\" href=\"ben-ready-to-select.php?id=".$row['hhcode']."\"><i class='far fa-check-square' title='Ready For Selection' style='font-size:18px;color:green'></i></a> 
-                                                                    
                                                             </td>\n";
 
                                                         echo "</tr>\n";

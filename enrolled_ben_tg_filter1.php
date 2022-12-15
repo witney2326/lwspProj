@@ -25,7 +25,7 @@
 src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
   </script>
 
-    <style> 
+<style> 
         .card-border 
         {
             border-style: solid;
@@ -40,7 +40,7 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
     if(isset($_GET['Submit']))
     {   
         $constituency = $_GET['constituency'];
-        $ward = $_GET['ward'];
+        //$ward = $_GET['ward'];
         //$area = $_GET['area'];
      
     }
@@ -57,13 +57,6 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
         $dis_query = mysqli_query($link,"select cname from constituency where id='$conID'"); // select query
         $dis = mysqli_fetch_array($dis_query);// fetch data
         return $dis['cname'];
-        }
-
-        function ward_name($link, $wID)
-        {
-        $dis_query = mysqli_query($link,"select wname from wards where id='$wID'"); // select query
-        $dis = mysqli_fetch_array($dis_query);// fetch data
-        return $dis['wname'];
         }
 ?>
 
@@ -84,11 +77,11 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                 <div class="row">
                     <div class="col-12">
                         <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                            <h4 class="mb-sm-0 font-size-18">Targetting  and Registration: Verified Households</h4>
+                            <h4 class="mb-sm-0 font-size-18">Targetting  and Registration: Verified/Accepted Households That Neeed Technical Guidance</h4>
 
                             <div class="page-title-right">
                                 <ol class="breadcrumb m-0">
-                                    <li class="breadcrumb-item"><a href="index.php">Dashboard</a></li>
+                                    <li class="breadcrumb-item"><a href="index_check.php">Dashboard</a></li>
                                     <li class="breadcrumb-item active">Verified Households</li>
                                 </ol>
                             </div>
@@ -96,18 +89,17 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                         </div>
                     </div>
                 </div>
-                <!-- end page title -->
                 
                 <div class="row">
                     <div class="col-xl-12">
-                        <div class="card">  
+                        <div class="card">
                             <ul class="nav nav-pills nav-justified" role="tablist">
                                 <li class="nav-item waves-effect waves-light">
                                     <a class="link" data-bs-toggle="link" href="register_beneficiary.php" role="link">
                                         <span class="d-block d-sm-none"><i class="fas fa-users"></i></span>
                                         <span class="d-none d-sm-block">Register HH</span>
                                     </a>
-                                </li>             
+                                </li>              
                                 <li class="nav-item waves-effect waves-light">
                                     <a class="nav-link " data-bs-toggle="link" href="target_ben.php" role="link">
                                         <span class="d-block d-sm-none"><i class="fas fa-home"></i></span>
@@ -116,17 +108,19 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                                 </li>
 
                                 <li class="nav-item waves-effect waves-light">
-                                    <a class="nav-link active" data-bs-toggle="tab" href="javascript:void(0);" role="tab">
+                                    <a class="nav-link" data-bs-toggle="link" href="enrolled_ben.php" role="link">
                                         <span class="d-block d-sm-none"><i class="fas fa-cog"></i></span>
                                         <span class="d-none d-sm-block">Verified HHs</span>
                                     </a>
                                 </li>
                                 <li class="nav-item waves-effect waves-light">
-                                    <a class="nav-link" data-bs-toggle="link" href="enrolled_ben_tg.php" role="link">
+                                    <a class="nav-link active" data-bs-toggle="tab" href="javascript:void(0);" role="tab">
                                         <span class="d-block d-sm-none"><i class="fas fa-cog"></i></span>
                                         <span class="d-none d-sm-block">Verified HHs: Need Technical Guidance</span>
                                     </a>
                                 </li>
+
+                                
                             </ul>
                         </div>
                     </div>
@@ -134,13 +128,15 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                 <p align="right">
                     <button class="btn btn-outline-primary  waves-effect waves-light mb-2 me-2" onclick="window.location.href = 'view-products.php'">  View OSS Products</button>
                 </p>
+                <!-- end page title -->
+                
                 <div class="row">
-                    <div class="col-12">
+                    <div class="col-xl-12">
                         <div class="card">
-                            <div class="card-body">
-                                <div class="card-border">
-                                    <div class="card-body">
-                                        <form class="row row-cols-lg-auto g-3 align-items-center" novalidate action="enrolled_ben_filter3.php" method ="GET" >
+                            <div class="card-border">
+                                <div class="card-body">
+                                        <h5 class="card-title mt-0"></h5>
+                                        <form class="row row-cols-lg-auto g-3 align-items-center" novalidate action="enrolled_ben_tg_filter2.php" method ="GET" >
                                             <div class="col-12">
                                                 <label for="constituency" class="form-label">Constituency</label>
                                                 
@@ -152,31 +148,31 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                                             <div class="col-12">
                                                 <label for="ward" class="form-label">Ward</label>
                                                 <select class="form-select" name="ward" id="ward"  required >
-                                                    <option selected value="<?php echo $ward; ?>" ><?php echo ward_name($link,$ward); ?></option>
-                                                        
-                                                </select>
-                                                
-                                            </div>
-
-                                            <div class="col-12">
-                                                <label for="area" class="form-label">City Area</label>
-                                                <select class="form-select" name="area" id="area" required >
                                                     <option ></option>
-                                                    <?php                                                           
-                                                            $ta_fetch_query = "SELECT areacode,aname FROM areas";                                                  
-                                                            $result_ta_fetch = mysqli_query($link, $ta_fetch_query);                                                                       
+                                                        <?php                                                           
+                                                            $dis_fetch_query = "SELECT id,wname FROM wards where constituency = '$constituency'";                                                  
+                                                            $result_dis_fetch = mysqli_query($link, $dis_fetch_query);                                                                       
                                                             $i=0;
-                                                                while($DB_ROW_ta = mysqli_fetch_array($result_ta_fetch)) {
+                                                                while($DB_ROW_Dis = mysqli_fetch_array($result_dis_fetch)) {
                                                             ?>
-                                                            <option value="<?php echo $DB_ROW_ta["areacode"]; ?>">
-                                                                <?php echo $DB_ROW_ta["aname"]; ?></option><?php
+                                                            <option value="<?php echo $DB_ROW_Dis["id"]; ?>">
+                                                                <?php echo $DB_ROW_Dis["wname"]; ?></option><?php
                                                                 $i++;
                                                                     }
                                                         ?>
                                                 </select>
                                                 <div class="invalid-feedback">
-                                                    Please select a valid Area
+                                                    Please select a valid Ward.
                                                 </div>
+                                            </div>
+
+                                            <div class="col-12">
+                                                <label for="area" class="form-label">City Area</label>
+                                                <select class="form-select" name="area" id="area" required disabled>
+                                                    <option>Select Area</option>
+                                                    
+                                                </select>
+                                                
                                             </div>
 
                                             
@@ -193,7 +189,7 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                                     <div class="col-12">
                                         <div class="card-border">
                                         <div class="card-header bg-transparent border-primary">
-                                            <h5 class="my-0 text-primary">Registered HHs</h5>
+                                            <h5 class="my-0 text-primary">Verified Households</h5>
                                         </div>
                                         <div class="card-body">
                                         <h7 class="card-title mt-0"></h7>
@@ -204,38 +200,33 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                                                         <tr>
                                                             <th>HH Code</th>                                           
                                                             <th>HH Name</th>
-                                                            <th>Agree TCs?</th>
-                                                            <th>TG?</th>
-                                                            <th>Ready_Select?</th>
+                                                            <th>Phone No.</th>
+                                                            <th>Block Name</th>
+                                                            <th>Plot No.</th>
                                                             <th>Action</th>  
                                                         </tr>
                                                     </thead>
 
                                                     <tbody>
                                                         <?Php
-                                                            $query="select * from households where ((con = '$constituency') and (ward = '$ward') and (enrolled ='1') and (deleted = '0'))";
+                                                            $query="select * from households where ((con = '$constituency') and (enrolled ='1') and (deleted = '0') and (need_tech_guidance_on_selection = '1'))";
 
                                                             //Variable $link is declared inside config.php file & used here
                                                             
                                                             if ($result_set = $link->query($query)) {
                                                             while($row = $result_set->fetch_array(MYSQLI_ASSOC))
                                                             { 
-                                                                if ($row["identification"] == 1){$ident = 'CBT';}else{$ident = 'Self';}
-                                                                if ($row["enrolled"]== 1){$enrolled = 'Yes';}else {$enrolled = 'No';}
-                                                                if ($row["agree_tcs"]== 1){$agree_tcs = 'Yes';}else {$agree_tcs = 'No';}
-
-                                                            echo "<tr>\n";
+                                                                
+                                                                echo "<tr>\n";
                                                                 echo "<td>".$row["hhcode"]."</td>\n";
-                                                                echo "<td>".$row["hhname"]."</td>\n";
-                                                                echo "<td>\t\t$agree_tcs</td>\n";
-                                                                echo "<td>".$row["need_tech_guidance_on_selection"]."</td>\n";
-                                                                echo "<td>".$row["ready_selection"]."</td>\n";
+                                                                echo "<td>".$row["hhname"]."</td>\n"; 
+                                                                echo "<td>".$row["phone"]."</td>\n";
+                                                                echo "<td>".$row["blockname"]."</td>\n";
+                                                                echo "<td>".$row["plot"]."</td>\n";
                                                                 echo "<td>                                               
-                                                                    
                                                                     <a onClick=\"javascript: return confirm('Do you Need Technical Guide Inorder To Make Selection?');\"  href=\"tg-for-selection.php?id=".$row['hhcode']."\"><i class='far fa-check-circle' title='Need TG For Selection' style='font-size:18px; color:purple'></i></a> 
                                                                     <a onClick=\"javascript: return confirm('Are You Ready To Make Your Selection?');\" href=\"ben-ready-to-select.php?id=".$row['hhcode']."\"><i class='far fa-check-square' title='Ready For Selection' style='font-size:18px;color:green'></i></a> 
                                                                 </td>\n";
-
 
                                                             echo "</tr>\n";
                                                             }

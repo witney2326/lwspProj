@@ -11,6 +11,13 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css" integrity="sha384-jLKHWM3JRmfMU0A5x5AkjWkw/EYfGUAGagvnfryNV3F9VqM98XiIH7VBGVoxVSc7" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+    <style>
+    .bkground{
+        background-color: orange !important;
+        border: none !important;
+        border-width:0!important;
+    }
+</style>
 </head>
 
 <?php include 'layouts/body.php'; ?>
@@ -51,9 +58,7 @@ $contractorID = $_SESSION["hhid"];
                                                             <button class="btn btn-btn btn-outline-secondary w-md" onclick="window.location.href='works_tracking_con.php';">
                                                                 Allocated Projects and Progress Updates
                                                             </button>
-                                                            <button class="btn btn-btn btn-outline-secondary w-md" onclick="window.location.href='javascript:void(0)';">
-                                                                Tech Guide
-                                                            </button>
+                                                            
                                                             
                                                         </div>
                                                         

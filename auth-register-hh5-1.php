@@ -3,7 +3,7 @@
 <?php include 'layouts/config.php'; ?>
 
 <head>
-    <title>Register User| CIMIS</title>
+    <title>Register User Household| OSS IT Platform</title>
     <?php include 'layouts/head.php'; ?>
 
     <!-- owl.carousel css -->
@@ -219,7 +219,7 @@ if (isset($_POST["Submit"])) {
                                         <form class="needs-validation" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST">
 
                                             <div class="mb-1">
-                                                <label for="position" class="form-label">Position</label>
+                                                <label for="position" class="form-label">Role</label>
                                                 <select class="form-select" name="position" id="position" required>
                                                     <option selected value="05">household</option>
                                                 </select>

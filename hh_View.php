@@ -23,6 +23,16 @@
                  $phone= $row["phone"];
                  $identification= $row["identification"];
                  $product= $row["selected_product"];
+
+                 $agecat= $row["agecat"];
+                 $livelihood= $row["livelihood"];
+                 $income= $row["income"];
+                 $homestatus= $row["homestatus"];
+                 $zonename= $row["zonename"];
+                 $latrine= $row["latrine"]; 
+                 $vulnerable= $row["vulnerable"];
+                 $poor= $row["poor"]; 
+                 $enrolled= $row["enrolled"];
              }
              $result_set->close();
          }
@@ -85,7 +95,7 @@
                                                     <div class="row"> 
                                                         <div class="card border border-success">
                                                         <h5 class="card-title mt-0"> Household Details</h5>   
-                                                            <div class="col-lg-9">
+                                                            <div class="col-lg-11">
                                                                 <div class="row mb-1">
                                                                     <label for="hh_id" class="col-sm-2 col-form-label">HH Code</label> 
                                                                     <input type="text" class="form-control" id="hh_id" name = "hh_id" value="<?php echo $id ; ?>" style="max-width:30%;" disabled ="True">
@@ -96,25 +106,53 @@
                                                                                                         
                                                                 <div class="row mb-1">
                                                                     <label for="ward" class="col-sm-2 col-form-label">Ward</label>              
-                                                                    <input type="text" class="form-control" id="ward" name="ward" value ="<?php echo $ward ; ?>" style="max-width:30%;" disabled ="True">
+                                                                    <input type="text" class="form-control" id="ward" name="ward" value ="<?php echo ward_name($link,$ward) ; ?>" style="max-width:30%;" disabled ="True">
                                                                     
                                                                     <label for="area" class="col-sm-2 col-form-label">Area</label>
-                                                                    <input type="text" class="form-control" id="area" name="area" value ="<?php echo $area ; ?>" style="max-width:30%;" disabled ="True">
+                                                                    <input type="text" class="form-control" id="area" name="area" value ="<?php echo area_name($link,$area); ?>" style="max-width:30%;" disabled ="True">
                                                                 </div>
                                                                 <div class="row mb-1">
                                                                     <label for="plot" class="col-sm-2 col-form-label">Plot No.</label>                          
                                                                     <input type="text" class="form-control" id="plot" name="plot" value =" <?php echo $plot ; ?>" style="max-width:30%;" disabled ="True">
 
-                                                                    <label for="identification" class="col-sm-2 col-form-label">CBT</label>
-                                                                    <input type="text" class="form-control" id="identification" name="identification" value =" <?php echo $identification ; ?>" style="max-width:30%;" disabled ="True">                                           
+                                                                    <label for="identification" class="col-sm-2 col-form-label">Identification</label>
+                                                                    <input type="text" class="form-control" id="identification" name="identification" value =" <?php if($identification =='1'){echo "Targetted Through CBT";}else{echo "Self Targetting";} ?>" style="max-width:30%;" disabled ="True">                                           
                                                                 </div>                                  
                                                                                                         
                                                                 <div class="row mb-1">
                                                                     <label for="group" class="col-sm-2 col-form-label">Phone</label>              
                                                                     <input type="text" class="form-control" id="group" name="group" value ="<?php echo $phone; ?>" style="max-width:30%;" disabled ="True">
                                                                     
-                                                                    <label for="cohort" class="col-sm-2 col-form-label">Cohort</label>
-                                                                    <input type="text" class="form-control" id="cohort" name="cohort" value =" <?php  ?>" style="max-width:30%;" disabled ="True">
+                                                                    <label for="agecat" class="col-sm-2 col-form-label">Age Category</label>
+                                                                    <input type="text" class="form-control" id="agecat" name="agecat" value =" <?php echo agecat_name($link,$agecat); ?>" style="max-width:30%;" disabled ="True">
+                                                                </div>
+                                                                <div class="row mb-1">
+                                                                    <label for="Livelihood" class="col-sm-2 col-form-label">Livelihood</label>              
+                                                                    <input type="text" class="form-control" id="Livelihood" name="Livelihood" value ="<?php echo livelihood_name($link,$livelihood);?>" style="max-width:30%;" disabled ="True">
+                                                                    
+                                                                    <label for="income" class="col-sm-2 col-form-label">HH Income</label>
+                                                                    <input type="text" class="form-control" id="income" name="income" value =" <?php echo hh_income($link,$income); ?>" style="max-width:30%;" disabled ="True">
+                                                                </div>
+                                                                <div class="row mb-1">
+                                                                    <label for="Homestatus" class="col-sm-2 col-form-label">Home Status</label>              
+                                                                    <input type="text" class="form-control" id="Homestatus" name="Homestatus" value ="<?php echo hh_homestatus($link,$homestatus);?>" style="max-width:30%;" disabled ="True">
+                                                                    
+                                                                    <label for="zonename" class="col-sm-2 col-form-label">HH Zone</label>
+                                                                    <input type="text" class="form-control" id="zonename" name="zonename" value =" <?php echo hh_lzone($link,$zonename); ?>" style="max-width:30%;" disabled ="True">
+                                                                </div>
+                                                                <div class="row mb-1">
+                                                                    <label for="latrine" class="col-sm-2 col-form-label">Latrine</label>              
+                                                                    <input type="text" class="form-control" id="latrine" name="latrine" value ="<?php echo hh_latrine($link,$latrine);?>" style="max-width:30%;" disabled ="True">
+                                                                    
+                                                                    <label for="vulnerable" class="col-sm-2 col-form-label">Vulnerable?</label>
+                                                                    <input type="text" class="form-control" id="vulnerable" name="vulnerable" value =" <?php if ($vulnerable == '1'){echo "Yes";}else{echo "No";}; ?>" style="max-width:30%;" disabled ="True">
+                                                                </div>
+                                                                <div class="row mb-1">
+                                                                    <label for="poor" class="col-sm-2 col-form-label">HH Poor?</label>              
+                                                                    <input type="text" class="form-control" id="poor" name="poor" value ="<?php if ($poor == '1'){echo "Yes";}else{echo "No";};;?>" style="max-width:30%;" disabled ="True">
+                                                                    
+                                                                    <label for="enrolled" class="col-sm-2 col-form-label">Verified/Accepted?</label>
+                                                                    <input type="text" class="form-control" id="enrolled" name="enrolled" value =" <?php if ($enrolled == '1'){echo "Yes";}else{echo "No";}; ?>" style="max-width:30%;" disabled ="True">
                                                                 </div>
                                                                 
                                                                 

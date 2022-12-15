@@ -19,8 +19,19 @@
 <!-- Begin page -->
 <div id="layout-wrapper">
 
-    <?php   include 'layouts/menu.php'; 
-            include 'layouts/config.php';
+    <?php 
+        if (($_SESSION["userrole"] == '01') or ($_SESSION["userrole"] == '02') or ($_SESSION["userrole"] == '03'))
+        {
+            include 'layouts/menu.php'; 
+        }else if ($_SESSION["userrole"] == '04')
+        {
+            include 'layouts/menu_con.php';
+        }else if ($_SESSION["userrole"] == '05')
+        {
+            include 'layouts/menu_hh.php';
+        }
+        
+        include 'layouts/config.php';
     
         $result = mysqli_query($link, "SELECT COUNT(hhcode) AS value_registered FROM households where deleted = '0'"); 
         $row = mysqli_fetch_assoc($result); 

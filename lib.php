@@ -103,6 +103,50 @@
     $rg = mysqli_fetch_array($rg_query);// fetch data
     return $rg['rolename'];
     }
+
+    function agecat_name($link, $agecode)
+    {
+    $rg_query = mysqli_query($link,"select cat from age_category where id='$agecode'"); // select query
+    $rg = mysqli_fetch_array($rg_query);// fetch data
+    return $rg['cat'];
+    }
+
+    function livelihood_name($link, $livecode)
+    {
+    $rg_query = mysqli_query($link,"select livelihood from main_livelihood where id='$livecode'"); // select query
+    $rg = mysqli_fetch_array($rg_query);// fetch data
+    return $rg['livelihood'];
+    }
+
+    function hh_income($link, $incode)
+    {
+    $rg_query = mysqli_query($link,"select income from month_income where id='$incode'"); // select query
+    $rg = mysqli_fetch_array($rg_query);// fetch data
+    return $rg['income'];
+    }
+
+    function hh_homestatus($link, $hscode)
+    {
+    $rg_query = mysqli_query($link,"select status_ from home_status where id='$hscode'"); // select query
+    $rg = mysqli_fetch_array($rg_query);// fetch data
+    return $rg['status_'];
+    }
+
+    function hh_lzone($link, $hslcode)
+    {
+    $rg_query = mysqli_query($link,"select l_zone from location_zone where id='$hslcode'"); // select query
+    $rg = mysqli_fetch_array($rg_query);// fetch data
+    return $rg['l_zone'];
+    }
+
+    function hh_latrine($link, $hhlcode)
+    {
+    $rg_query = mysqli_query($link,"select type_ from hh_latrine where id='$hhlcode'"); // select query
+    $rg = mysqli_fetch_array($rg_query);// fetch data
+    return $rg['type_'];
+    }
+
+
     function userid($link, $code)
     {
     $rg_query = mysqli_query($link,"select id from users where usercon='$code'"); // select query
