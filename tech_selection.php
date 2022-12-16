@@ -57,7 +57,7 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
 
                             <div class="page-title-right">
                                 <ol class="breadcrumb m-0">
-                                    <li class="breadcrumb-item"><a href="index.php">Dashboard</a></li>
+                                    <li class="breadcrumb-item"><a href="index_check.php">Dashboard</a></li>
                                     <li class="breadcrumb-item active">Technology Selection</li>
                                 </ol>
                             </div>
@@ -90,7 +90,7 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                                     <li class="nav-item waves-effect waves-light">
                                         <a class="nav-link" data-bs-toggle="link" href="tcs_opt_payment.php" role="link">
                                             <span class="d-block d-sm-none"><i class="fas fa-cog"></i></span>
-                                            <span class="d-none d-sm-block">T&Cs Acceptance and Payment Option</span>
+                                            <span class="d-none d-sm-block">Payment Option</span>
                                         </a>
                                     </li>
                                     
@@ -159,7 +159,7 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                                     <div class="col-12">
                                         <div class="card-border">
                                         <div class="card-header bg-transparent border-primary">
-                                            <h5 class="my-0 text-primary">verified Households</h5>
+                                            <h5 class="my-0 text-default">Households with Selected OSS Options</h5>
                                         </div>
                                         <div class="card-body">
                                         <h7 class="card-title mt-0"></h7>
@@ -179,7 +179,7 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
 
                                                     <tbody>
                                                         <?Php
-                                                            $query="select * from households where ((selected_product <> '00') and (enrolled = '1'))";
+                                                            $query="select * from households where ((selected_product <> '00') and (enrolled = '1') and (product_approved = '0'))";
 
                                                             //Variable $link is declared inside config.php file & used here
                                                             
@@ -189,7 +189,7 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                                                                 if ($row["selected_product"] == '00'){$prod = 'None';}else{$prod = pname($link,$row["selected_product"]);}
                                                                 $cost = number_format(product_cost($link,$row["selected_product"]),2);
 
-                                                                if ($row["product_approved"] == '1'){$approved = 'Yes';}else{$approved = 'NA';}
+                                                                if ($row["product_approved"] == '1'){$approved = 'Yes';}else{$approved = 'No';}
                                                             echo "<tr>\n";
                                                                 echo "<td>".$row["hhcode"]."</td>\n";
                                                                 echo "<td>".$row["hhname"]."</td>\n";

@@ -53,11 +53,11 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                 <div class="row">
                     <div class="col-12">
                         <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                            <h4 class="mb-sm-0 font-size-18">Request For Service: T&Cs and Option Payment</h4>
+                            <h4 class="mb-sm-0 font-size-18">Request For Service: Option Payment</h4>
 
                             <div class="page-title-right">
                                 <ol class="breadcrumb m-0">
-                                    <li class="breadcrumb-item"><a href="index.php">Dashboard</a></li>
+                                    <li class="breadcrumb-item"><a href="index_check.php">Dashboard</a></li>
                                     <li class="breadcrumb-item active">Terms and Conditions</li>
                                 </ol>
                             </div>
@@ -90,7 +90,7 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                                     <li class="nav-item waves-effect waves-light">
                                         <a class="nav-link active" data-bs-toggle="tab" href="javascript: void(0);" role="tab">
                                             <span class="d-block d-sm-none"><i class="fas fa-cog"></i></span>
-                                            <span class="d-none d-sm-block">T&Cs Acceptance and Payment Option</span>
+                                            <span class="d-none d-sm-block">Payment Option</span>
                                         </a>
                                     </li>
                                     
@@ -160,7 +160,7 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                                     <div class="col-12">
                                         <div class="card-border">
                                         <div class="card-header bg-transparent border-primary">
-                                            <h5 class="my-0 text-primary">Verified Households</h5>
+                                            <h5 class="my-0 text-default">Households With Approved OSS Products</h5>
                                         </div>
                                         <div class="card-body">
                                         <h7 class="card-title mt-0"></h7>
@@ -181,7 +181,7 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
 
                                                     <tbody>
                                                         <?Php
-                                                            $query="select * from households where ((selected_product <> '00') and (enrolled = '1') and (product_approved = '1'))";
+                                                            $query="select * from households where ((selected_product <> '00') and (enrolled = '1') and (product_approved = '1') and (pOption = '00'))";
 
                                                             //Variable $link is declared inside config.php file & used here
                                                             
@@ -203,7 +203,7 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                                                                 echo "<td>";
                                                                     echo "<form action = 'request_for_service_SelectPaymentOption.php' method ='POST'>";
                                                                         echo '<select id="payment_option"  name="payment_option">';
-                                                                            echo '<option></option>';
+                                                                            
                                                                             $ta_fetch_query = "SELECT oID,oName FROM payment_options";                                                  
                                                                             $result_ta_fetch = mysqli_query($link, $ta_fetch_query);                                                                       
                                                                             $i=0;
@@ -220,7 +220,7 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                                                                 echo "</td>";
                                                                 echo "<td>                                               
                                                                 <a href=\"hh_View.php?id=".$row['hhcode']."\"><i class='far fa-eye' title='View HH' style='font-size:18px; color: purple'></i></a>\n
-                                                                <a onClick=\"javascript: return confirm('Household Agrees To OSS Terms and Conditions?');\" href=\"tcs_approval.php?id=".$row['hhcode']."\"><i class='fa fa-check' title='Agree To Terms and Conditions' style='font-size:18px;color:green'></i></a>
+                                                                
                                                                 </td>\n";
 
                                                             echo "</tr>\n";

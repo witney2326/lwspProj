@@ -2,7 +2,7 @@
 <?php include 'layouts/head-main.php'; ?>
 
 <head>
-    <title>Contribute For Service</title>
+    <title>LWSP|Contribute For Service</title>
     <?php include 'layouts/head.php'; ?>
     <?php include 'layouts/head-style.php'; ?>
     <?php include 'layouts/config.php'; ?>
@@ -155,7 +155,7 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                                             <div class="col-12">
                                                 <div class="card-border">
                                                 <div class="card-header bg-transparent border-primary">
-                                                    <h5 class="my-0 text-primary">HH With OSS Contributions</h5>
+                                                    <h5 class="my-0 text-default">Households With OSS Contributions</h5>
                                                 </div>
                                                 <div class="card-body">
                                                 <h7 class="card-title mt-0"></h7>
@@ -177,7 +177,7 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
 
                                                             <tbody>
                                                                 <?Php
-                                                                    $query="select * from tpayments inner join households on tpayments.hhCode = households.hhcode where ((area = '$area') and (households.selected_product <> '00') and (households.enrolled = '1') and (households.product_approved = '1') and (households.agree_tcs = '1'))";
+                                                                    $query="select * from tpayments inner join households on tpayments.hhCode = households.hhcode where ((area = '$area') and (households.selected_product <> '00') and (households.enrolled = '1') and (households.product_approved = '1') and (households.agree_tcs = '1') and (households.pOption <> '00'))";
 
                                                                     //Variable $link is declared inside config.php file & used here
                                                                     

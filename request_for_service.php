@@ -125,7 +125,7 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                                     <li class="nav-item waves-effect waves-light">
                                         <a class="nav-link" data-bs-toggle="link" href="tcs_opt_payment.php" role="link">
                                             <span class="d-block d-sm-none"><i class="fas fa-cog"></i></span>
-                                            <span class="d-none d-sm-block">T&Cs Acceptance and Payment Option</span>
+                                            <span class="d-none d-sm-block">Payment Option</span>
                                         </a>
                                     </li>
                                     
