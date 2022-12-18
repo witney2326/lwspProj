@@ -213,7 +213,7 @@
                                                     <i class='fas fa-tasks center' style='font-size:24px;color:green'></i>
                                                         <p class="text-muted fw-medium center">OSS Works on Schedule</p>
                                                         <?php
-                                                            $result = mysqli_query($link, "SELECT COUNT(pID) AS t_projs_l FROM tprojects where ((CURDATE() < pfinishdate) and (pstatus <> '05'))"); 
+                                                            $result = mysqli_query($link, "SELECT COUNT(pID) AS t_projs_l FROM tprojects where ((CURDATE() < pfinishdate) and (pstatus <> '05') and (pstatus <> '00'))"); 
                                                             $row = mysqli_fetch_assoc($result); 
                                                             $t_projs_l = $row['t_projs_l']; 
                                                         ?>

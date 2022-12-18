@@ -173,7 +173,7 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                                             <div class="col-12">
                                                 <div class="card-border">
                                                 <div class="card-header bg-transparent border-primary">
-                                                    <h5 class="my-0 text-primary">Scheduled Works</h5>
+                                                    <h5 class="my-0 text-default">Scheduled OSS Works</h5>
                                                 </div>
                                                 <div class="card-body">
                                                 <h7 class="card-title mt-0"></h7>
@@ -210,8 +210,9 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                                                                         echo "<td>".contractor_name($link,$row["pcontractorID"])."</td>\n";
                                                                         echo "<td>".pstatus($link,$row["pstatus"])."</td>\n";
                                                                         
-                                                                        echo "<td>                                               
-                                                                        <a href=\"hh_View.php?id=".$row['phhcode']."\"><i class='far fa-eye' title='View HH' style='font-size:18px;color:purple'></i></a> 
+                                                                        echo "<td> 
+                                                                            <a href=\"completion certificate.php?id=".$row['pID']."\"><i class='fa fa-print' title='Print OSS Works Handover Certificate' style='font-size:18px;color:black'></i></a>                                                                                              
+                                                                            <a href=\"hh_View.php?id=".$row['phhcode']."\"><i class='far fa-eye' title='View HH' style='font-size:18px;color:purple'></i></a> 
                                                                             <a href=\"hh_project_progressTrack.php?id=".$row['pID']."\"><i class='fas fa-project-diagram' title='Update Project Progress' style='font-size:18px;color:black'></i></a> 
                                                                         </td>\n";
                                                                     echo "</tr>\n";
