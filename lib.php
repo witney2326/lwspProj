@@ -80,7 +80,8 @@
     {
     $rg_query = mysqli_query($link,"select phhcode from tprojects where phhcode='$hcode'"); // select query
     $rg = mysqli_fetch_array($rg_query);// fetch data
-    return $rg['phhcode'];
+    if ($rg['phhcode'] <> "")
+    {return true;} else{return false;;}
     }
 
     function hh_plot($link, $hcode)

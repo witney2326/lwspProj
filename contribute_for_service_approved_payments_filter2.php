@@ -65,12 +65,12 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                 <div class="row">
                     <div class="col-12">
                         <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                            <h4 class="mb-sm-0 font-size-18">Contribute For Service: Approved Payments</h4>
+                            <h4 class="mb-sm-0 font-size-18">Contribute For Service: Works Scheduling</h4>
 
                             <div class="page-title-right">
                                 <ol class="breadcrumb m-0">
-                                    <li class="breadcrumb-item"><a href="index.php">Dashboard</a></li>
-                                    <li class="breadcrumb-item active">Approved Payments</li>
+                                    <li class="breadcrumb-item"><a href="index_check.php">Dashboard</a></li>
+                                    <li class="breadcrumb-item active">Works Scheduling</li>
                                 </ol>
                             </div>
 
@@ -98,11 +98,18 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                                             <span class="d-none d-sm-block">Payment Approvals</span>
                                         </a>
                                     </li>
+
+                                    <li class="nav-item waves-effect waves-light">
+                                        <a class="nav-link" data-bs-toggle="link" href="contribute_for_service_app_pymnts.php" role="link">
+                                            <span class="d-block d-sm-none"><i class="fas fa-home"></i></span>
+                                            <span class="d-none d-sm-block">Approved Payments</span>
+                                        </a>
+                                    </li>
                                                                         
                                     <li class="nav-item waves-effect waves-light">
                                         <a class="nav-link active" data-bs-toggle="tab" href="javascript:void(0);" role="tab">
                                             <span class="d-block d-sm-none"><i class="fas fa-cog"></i></span>
-                                            <span class="d-none d-sm-block">Approved Payments & Works Schedule</span>
+                                            <span class="d-none d-sm-block">Approved Full Payments & Works Schedule</span>
                                         </a>
                                     </li>
                                     
@@ -168,7 +175,7 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                                             <div class="col-12">
                                                 <div class="card-border">
                                                 <div class="card-header bg-transparent border-primary">
-                                                    <h5 class="my-0 text-primary">HH With OSS Contributions</h5>
+                                                    <h5 class="my-0 text-default">Households With Full Contributions/Payments</h5>
                                                 </div>
                                                 <div class="card-body">
                                                 <h7 class="card-title mt-0"></h7>
@@ -188,7 +195,7 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
 
                                                             <tbody>
                                                                 <?Php
-                                                                    $query="select DISTINCT(tpayments.hhCode) from tpayments inner join households on tpayments.hhCode = households.hhcode  where ((households.ward = '$ward') and (tpayments.pApproved ='1') and (households.selected_product <> '00') and (households.enrolled = '1') and (households.product_approved = '1') and (households.agree_tcs = '1'))";
+                                                                    $query="select DISTINCT(tpayments.hhCode) from tpayments inner join households on tpayments.hhCode = households.hhcode  where ((households.ward = '$ward') and (tpayments.pApproved ='1') and (households.selected_product <> '00') and (households.enrolled = '1') and (households.product_approved = '1') and (households.agree_tcs = '1') and (households.contractor_identified = '0') and (households.contractor_allocated = '0'))";
 
                                                                     //Variable $link is declared inside config.php file & used here
                                                                     
@@ -205,28 +212,22 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                                                                         $row3 = mysqli_fetch_assoc($result3); 
                                                                         $hhname = $row3['hhname'];$selected_product = pname($link,$row3['selected_product']);$pcost = number_format(product_cost($link,$row3['selected_product']),2);
                                                                         
-                                                                    echo "<tr>\n";
-                                                                        
-                                                                        echo "<td>".$row["hhCode"]."</td>\n";
-                                                                        echo "<td>\t\t$hhname</td>\n";
-                                                                        echo "<td>\t\t$selected_product</td>\n";
-                                                                        echo "<td>\t\t$total_paid</td>\n";
-                                                                        echo "<td>\t\t$pcost</td>\n";
-                                                                        
                                                                         if (($row2['total_paid']) >= product_cost($link,$row3['selected_product']))
                                                                         {
-                                                                            echo "<td>                              
-                                                                                <a href=\"hh_view.php?id=".$row['hhCode']."\"><i class='far fa-eye' title='View Household' style='font-size:18px;color:purple'></i></a> 
-                                                                                <a onClick=\"javascript: return confirm('Are You Sure You want To Schedule Works For This HOUSEHOLD?');\" href=\"hh_works_schedule1.php?id=".$row['hhCode']."\"><i class='far fa-check-square' title='Schedule Works For HH' style='font-size:18px;color:green'></i></a> 
-                                                                            </td>\n";
-                                                                        } else
-                                                                        {
-                                                                            echo "<td>                              
-                                                                                <a href=\"hh_view.php?id=".$row['hhCode']."\"><i class='far fa-eye' title='View Household' style='font-size:18px;color:purple'></i></a> 
-                                                                                <i class='far fa-check-square' title='Approved Amount Not Enough' style='font-size:18px;color:green'></i> 
-                                                                            </td>\n";
-                                                                        }
-                                                                    echo "</tr>\n";
+                                                                            echo "<tr>\n";
+                                                                                
+                                                                                echo "<td>".$row["hhCode"]."</td>\n";
+                                                                                echo "<td>\t\t$hhname</td>\n";
+                                                                                echo "<td>\t\t$selected_product</td>\n";
+                                                                                echo "<td>\t\t$total_paid</td>\n";
+                                                                                echo "<td>\t\t$pcost</td>\n";
+                                                                        
+                                                                                echo "<td>                              
+                                                                                    <a href=\"hh_view.php?id=".$row['hhCode']."\"><i class='far fa-eye' title='View Household' style='font-size:18px;color:purple'></i></a> 
+                                                                                    <a onClick=\"javascript: return confirm('Are You Sure You want To Schedule Works For This HOUSEHOLD?');\" href=\"hh_works_schedule1.php?id=".$row['hhCode']."\"><i class='far fa-check-square' title='Schedule Works For HH' style='font-size:18px;color:green'></i></a> 
+                                                                                </td>\n";
+                                                                            echo "</tr>\n";
+                                                                        } 
                                                                     }
                                                                     $result_set->close();
                                                                     }  

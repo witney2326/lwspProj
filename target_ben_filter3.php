@@ -88,7 +88,7 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
 
                             <div class="page-title-right">
                                 <ol class="breadcrumb m-0">
-                                    <li class="breadcrumb-item"><a href="index.php">Dashboard</a></li>
+                                    <li class="breadcrumb-item"><a href="index_check.php">Dashboard</a></li>
                                     <li class="breadcrumb-item active">Target Beneficiary</li>
                                 </ol>
                             </div>
@@ -171,7 +171,7 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                                     <div class="col-12">
                                         <div class="card-border">
                                         <div class="card-header bg-transparent border-primary">
-                                            <h5 class="my-0 text-primary">Registered HHs</h5>
+                                            <h5 class="my-0 text-default">Registered Households</h5>
                                         </div>
                                         <div class="card-body">
                                         <h7 class="card-title mt-0"></h7>

@@ -40,11 +40,10 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
     if(isset($_GET['Submit']))
     {   
         $constituency = $_GET['constituency'];
-        $ward = $_GET['ward'];
-        $area = $_GET['area'];
+        //$ward = $_GET['ward'];
+        //$area = $_GET['area'];
      
     }
-    
     
 ?>
 
@@ -65,7 +64,7 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                 <div class="row">
                     <div class="col-12">
                         <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                            <h4 class="mb-sm-0 font-size-18">Contribute For Service: Payment Approvals</h4>
+                            <h4 class="mb-sm-0 font-size-18">Contribute For Service: Approved Payments</h4>
 
                             <div class="page-title-right">
                                 <ol class="breadcrumb m-0">
@@ -93,14 +92,14 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                                         </a>
                                     </li>
                                     <li class="nav-item waves-effect waves-light">
-                                        <a class="nav-link active" data-bs-toggle="tab" href="#home" role="tab">
+                                        <a class="nav-link" data-bs-toggle="link" href="contribute_for_service.php" role="link">
                                             <span class="d-block d-sm-none"><i class="fas fa-home"></i></span>
                                             <span class="d-none d-sm-block">Payment Approvals</span>
                                         </a>
                                     </li>
 
                                     <li class="nav-item waves-effect waves-light">
-                                        <a class="nav-link" data-bs-toggle="link" href="contribute_for_service_app_pymnts.php" role="link">
+                                        <a class="nav-link active" data-bs-toggle="tab" href="javascript:void(0);" role="tab">
                                             <span class="d-block d-sm-none"><i class="fas fa-home"></i></span>
                                             <span class="d-none d-sm-block">Approved Payments</span>
                                         </a>
@@ -122,7 +121,7 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                                         <!--start here -->
                                         <div class="card-border">
                                             <div class="card-body">
-                                                <form class="row row-cols-lg-auto g-3 align-items-center" novalidate action="" method ="GET" >
+                                                <form class="row row-cols-lg-auto g-3 align-items-center" novalidate action="contribute_for_service__app_pymnt_filter2.php" method ="GET" >
                                                     <div class="col-12">
                                                         <label for="constituency" class="form-label">Constituency</label>
                                                         
@@ -134,18 +133,43 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                                                     <div class="col-12">
                                                         <label for="ward" class="form-label">Ward</label>
                                                         <select class="form-select" name="ward" id="ward"  required >
-                                                            <option selected value="<?php echo $ward; ?>" ><?php echo ward_name($link,$ward); ?></option>
-                                                                
+                                                            <option ></option>
+                                                                <?php                                                           
+                                                                    $dis_fetch_query = "SELECT id,wname FROM wards where constituency = '$constituency'";                                                  
+                                                                    $result_dis_fetch = mysqli_query($link, $dis_fetch_query);                                                                       
+                                                                    $i=0;
+                                                                        while($DB_ROW_Dis = mysqli_fetch_array($result_dis_fetch)) {
+                                                                    ?>
+                                                                    <option value="<?php echo $DB_ROW_Dis["id"]; ?>">
+                                                                        <?php echo $DB_ROW_Dis["wname"]; ?></option><?php
+                                                                        $i++;
+                                                                            }
+                                                                ?>
                                                         </select>
-                                                        
+                                                        <div class="invalid-feedback">
+                                                            Please select a valid Ward.
+                                                        </div>
                                                     </div>
 
                                                     <div class="col-12">
-                                                        <label for="area" class="form-label">City Area</label>
-                                                        <select class="form-select" name="area" id="area" required>
-                                                            <option selected  value="<?php echo $area;?>"><?php echo area_name($link,$area);?></option>
+                                                        <label for="ta" class="form-label">City Area</label>
+                                                        <select class="form-select" name="ta" id="ta" required disabled>
+                                                            <option selected  value="$ta"></option>
+                                                            <?php                                                           
+                                                                    $ta_fetch_query = "SELECT TAName FROM tblta";                                                  
+                                                                    $result_ta_fetch = mysqli_query($link, $ta_fetch_query);                                                                       
+                                                                    $i=0;
+                                                                        while($DB_ROW_ta = mysqli_fetch_array($result_ta_fetch)) {
+                                                                    ?>
+                                                                    <option>
+                                                                        <?php echo $DB_ROW_ta["TAName"]; ?></option><?php
+                                                                        $i++;
+                                                                            }
+                                                                ?>
                                                         </select>
-                                                        
+                                                        <div class="invalid-feedback">
+                                                            Please select a valid Area
+                                                        </div>
                                                     </div>
 
                                                     
@@ -162,7 +186,7 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                                             <div class="col-12">
                                                 <div class="card-border">
                                                 <div class="card-header bg-transparent border-primary">
-                                                    <h5 class="my-0 text-default">Households With OSS Contributions/Payments (Not Yet Approved)</h5>
+                                                    <h5 class="my-0 text-default">Households With OSS Approved Contributions/Payments</h5>
                                                 </div>
                                                 <div class="card-body">
                                                 <h7 class="card-title mt-0"></h7>
@@ -178,13 +202,13 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                                                                     <th>Pmt Ref</th>
                                                                     <th>Amount Paid</th>
                                                                     <th>Approved?</th>
-                                                                    <th>Action</th>    
+                                                                    <th>Action</th>  
                                                                 </tr>
                                                             </thead>
 
                                                             <tbody>
                                                                 <?Php
-                                                                    $query="select * from tpayments inner join households on tpayments.hhCode = households.hhcode where ((area = '$area') and (households.selected_product <> '00') and (households.enrolled = '1') and (households.product_approved = '1') and (households.agree_tcs = '1') and (households.pOption <> '00') and (tpayments.pApproved = '0'))";
+                                                                    $query="select * from tpayments inner join households on tpayments.hhCode = households.hhcode where ((households.con = '$constituency') and (households.selected_product <> '00') and (households.enrolled = '1') and (households.product_approved = '1') and (households.agree_tcs = '1') and (households.pOption <> '00'))";
 
                                                                     //Variable $link is declared inside config.php file & used here
                                                                     
@@ -200,11 +224,11 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                                                                         echo "<td>".$row["hhname"]."</td>\n";
                                                                         echo "<td>\t\t$pOption</td>\n";
                                                                         echo "<td>".$row["pReference"]."</td>\n";
-                                                                        echo "<td>".$row["amount_paid"]."</td>\n";
+                                                                        echo "<td>".number_format($row["amount_paid"],2)."</td>\n";
                                                                         echo "<td>\t\t$pApproved</td>\n";
                                                                         echo "<td>                                               
                                                                             <a href=\"hh_view.php?id=".$row['hhcode']."\"><i class='far fa-eye' title='View Household' style='font-size:18px;color:purple'></i></a> 
-                                                                            <a onClick=\"javascript: return confirm('Are You Sure You want To Approve This HOUSEHOLD Payment?');\" href=\"hh_payment_approval.php?id=".$row['pID']."\"><i class='far fa-check-square' title='Approve Payment Amount' style='font-size:18px;color:green'></i></a> 
+                                                                            
                                                                         </td>\n";
 
                                                                     echo "</tr>\n";

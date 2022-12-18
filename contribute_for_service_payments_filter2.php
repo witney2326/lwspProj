@@ -99,11 +99,18 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                                             <span class="d-none d-sm-block">Payment Approvals</span>
                                         </a>
                                     </li>
+
+                                    <li class="nav-item waves-effect waves-light">
+                                        <a class="nav-link" data-bs-toggle="link" href="contribute_for_service_app_pymnts.php" role="link">
+                                            <span class="d-block d-sm-none"><i class="fas fa-home"></i></span>
+                                            <span class="d-none d-sm-block">Approved Payments</span>
+                                        </a>
+                                    </li>
                                                                         
                                     <li class="nav-item waves-effect waves-light">
                                     <a class="nav-link" data-bs-toggle="link" href="contribute_for_service_approved_payments.php" role="link">
                                             <span class="d-block d-sm-none"><i class="fas fa-cog"></i></span>
-                                            <span class="d-none d-sm-block">Approved Payments & Works Schedule</span>
+                                            <span class="d-none d-sm-block">Approved Full Payments & Works Schedule</span>
                                         </a>
                                     </li>
                                     

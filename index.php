@@ -56,7 +56,7 @@
                                             <div class="card-body">
                                                 <div class="d-flex">
                                                     <div class="flex-grow-1">
-                                                        <i class='fa fa-user-plus center' style='font-size:24px;color:orange'></i>
+                                                        <a href="target_ben.php"><i class='fa fa-user-plus center' style='font-size:24px;color:orange'></i></a>
                                                         <p class="text-muted fw-medium center">Registered HouseHolds</p>
                                                         <?php
                                                             $result = mysqli_query($link, "SELECT COUNT(hhcode) AS value_sum FROM households where deleted = '0'"); 
@@ -82,7 +82,7 @@
                                             <div class="card-body">
                                                 <div class="d-flex">
                                                     <div class="flex-grow-1">
-                                                    <i class='fas fa-check-circle center' style='font-size:24px;color:orange;'></i>
+                                                        <a href="enrolled_ben.php"><i class='fas fa-check-circle center' style='font-size:24px;color:orange;'></i></a>
                                                         <p class="text-muted fw-medium center">Verified and Accepted Households</p>
                                                         <?php
                                                            $result = mysqli_query($link, "SELECT COUNT(hhcode) AS value_sum FROM households where enrolled = '1'"); 
@@ -122,7 +122,7 @@
                                                                                                                                                                                                             
                                                                     $result2 = mysqli_query($link, "SELECT SUM(amount_paid) AS total_paid FROM tpayments where ((hhCode ='$hhcode') and (pApproved ='1'))"); 
                                                                     $row2 = mysqli_fetch_assoc($result2); 
-                                                                    $total_paid = number_format($row2['total_paid'],2);
+                                                                    $total_paid = $row2['total_paid'];
 
                                                                     $pcost = product_cost($link,hh_selected_product($link,$hhcode));
 
@@ -152,7 +152,7 @@
                                             <div class="card-body">
                                                 <div class="d-flex">
                                                     <div class="flex-grow-1">
-                                                    <i class='fa fa-compass center' style='font-size:24px;color:green'></i>
+                                                        <a href="enrolled_ben_tg.php"><i class='fa fa-compass center' style='font-size:24px;color:green'></i></a>
                                                         <p class="text-muted fw-medium center">Households Requesting Technical Guidance on Selection</p>
                                                         <?php
                                                             $result = mysqli_query($link, "SELECT COUNT(hhcode) AS value_sum FROM households where (((need_tech_guidance_on_selection = '1') or (need_tg = '1')) and (deleted = '0'))"); 

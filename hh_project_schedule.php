@@ -16,41 +16,41 @@ function get_project_count($link)
      $x.=$dbcount;
      $pID = $x;
 
-
-if(isset($_POST['Allocate']))
-{    
+  
     $hh_id = $_POST["hh_id"];
     $contractor= $_POST["contractor"];   
     $startdate = $_POST["startdate"];
     $finishdate = $_POST["finishdate"];
-
-    if (hh_id_found($link,$hh_id) == "")
+    
+    if (hh_id_found($link,$hh_id) === false)
     {
-          
-            $sql = "INSERT INTO tprojects (pID,phhcode,pcontractorID,pCost,pstartdate,pfinishdate,pdeleted)
-            VALUES ('$pID','$hh_id','$contractor','0','$startdate','$finishdate','0')";
+        $sql2 = mysqli_query($link,"update households  SET contractor_identified = '1', contractor_allocated ='1', contractor ='$contractor', current_status = '07' where hhcode = '$hh_id'");
 
-            $sql2 = mysqli_query($link,"update households  SET contractor_identified = '1', contractor_allocated ='1', contractor ='$contractor' current_status = '07' where hhcode = '$hh_id'");
-        
-            if (mysqli_query($link, $sql)) {
+        $sql = "INSERT INTO tprojects (pID,phhcode,pcontractorID,pCost,pstartdate,pfinishdate,pcompletiondate,pstatus,pCompletenessVerified,pCertificateProduced,pHandedOverHH,pHandedOverContractor,pdeleted)
+        VALUES ('$pID','$hh_id','$contractor','0','$startdate','$finishdate','NULL','00','0','0','0','0','0')";
+
+        if (mysqli_query($link,$sql) and ($sql2)) 
+            {
             
             echo '<script type="text/javascript">'; 
             echo 'alert("OSS Works Successfully Scheduled !");'; 
+            //echo 'window.location.href = history.go(-1);';
             echo 'window.location.href = "contribute_for_service_approved_payments.php";';
             echo '</script>';
-        } else {
-            echo "Error: " . $sql . ":-" . mysqli_error($link);
-        }
+            } 
+        else 
+            {
+                echo "Error: " . $sql . ":-" . mysqli_error($link);
+            }
     }else
     {
         echo '<script type="text/javascript">'; 
-        echo 'alert("Household Already has OSS Works Registered !");'; 
-        echo 'window.location.href = "contribute_for_service_approved_payments.php";';
-        echo '</script>';
+            echo 'alert("Household OSS Works Already Scheduled !");'; 
+            
+            echo 'window.location.href = "contribute_for_service_approved_payments.php";';
+            echo '</script>';
     }
+    
     mysqli_close($link);
 
-    
-            
-}
 ?>

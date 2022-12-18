@@ -2,7 +2,7 @@
 <?php include 'layouts/head-main.php'; ?>
 
 <head>
-    <title>OSS Works|Household Schedule</title>
+    <title>OSS Works|Household Works Schedule</title>
     <?php include 'layouts/head.php'; ?>
     <?php include 'layouts/head-style.php'; ?>
     <?php include 'lib.php'; ?>
@@ -164,7 +164,7 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                                         <div class="row justify-content-end">
                                             <div>
                                                 
-                                                <button type="submit" class="btn btn-btn btn-outline-success w-md" name="Allocate" value="Allocate">Schedule Project</button>
+                                                <button type="submit" class="btn btn-btn btn-outline-success w-md" name="Allocate" value="Allocate">Schedule Household OSS Works</button>
                                                 
                                             </div>
                                         </div>

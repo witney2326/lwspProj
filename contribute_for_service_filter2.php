@@ -69,7 +69,7 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
 
                             <div class="page-title-right">
                                 <ol class="breadcrumb m-0">
-                                    <li class="breadcrumb-item"><a href="index.php">Dashboard</a></li>
+                                    <li class="breadcrumb-item"><a href="index_check.php">Dashboard</a></li>
                                     <li class="breadcrumb-item active">Contribute For Service</li>
                                 </ol>
                             </div>
@@ -98,11 +98,18 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                                             <span class="d-none d-sm-block">Payment Approvals</span>
                                         </a>
                                     </li>
+
+                                    <li class="nav-item waves-effect waves-light">
+                                        <a class="nav-link" data-bs-toggle="link" href="contribute_for_service_app_pymnts.php" role="link">
+                                            <span class="d-block d-sm-none"><i class="fas fa-home"></i></span>
+                                            <span class="d-none d-sm-block">Approved Payments</span>
+                                        </a>
+                                    </li>
                                                                         
                                     <li class="nav-item waves-effect waves-light">
                                     <a class="nav-link" data-bs-toggle="link" href="contribute_for_service_approved_payments.php" role="link">
                                             <span class="d-block d-sm-none"><i class="fas fa-cog"></i></span>
-                                            <span class="d-none d-sm-block">Approved Payments & Works Schedule</span>
+                                            <span class="d-none d-sm-block">Approved Full Payments & Works Schedule</span>
                                         </a>
                                     </li>
                                     
@@ -168,7 +175,7 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                                             <div class="col-12">
                                                 <div class="card-border">
                                                 <div class="card-header bg-transparent border-primary">
-                                                    <h5 class="my-0 text-default">Households With OSS Contributions</h5>
+                                                    <h5 class="my-0 text-default">Households With OSS Contributions/Payments (Not Yet Approved)</h5>
                                                 </div>
                                                 <div class="card-body">
                                                 <h7 class="card-title mt-0"></h7>
@@ -190,7 +197,7 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
 
                                                             <tbody>
                                                                 <?Php
-                                                                    $query="select * from tpayments inner join households on tpayments.hhCode = households.hhcode where ((ward = '$ward') and (households.selected_product <> '00') and (households.enrolled = '1') and (households.product_approved = '1') and (households.agree_tcs = '1') and (households.pOption <> '00'))";
+                                                                    $query="select * from tpayments inner join households on tpayments.hhCode = households.hhcode where ((ward = '$ward') and (households.selected_product <> '00') and (households.enrolled = '1') and (households.product_approved = '1') and (households.agree_tcs = '1') and (households.pOption <> '00') and (tpayments.pApproved = '0'))";
 
                                                                     //Variable $link is declared inside config.php file & used here
                                                                     
