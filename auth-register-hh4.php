@@ -277,7 +277,72 @@
 
                                         </div>
                                     </div>
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <div class="mb-3">
+                                                <label for="hh_status" class="form-label">Household Status</label>
+                                                <select class="form-select" id="hh_status" name ="hh_status" required>
+                                                    <option></option>
+                                                    <?php                                                           
+                                                        $spp_fetch_query = "SELECT id, status_ FROM household_status";                                                  
+                                                        $result_spp_fetch = mysqli_query($link, $spp_fetch_query);                                                                       
+                                                        $i=0;
+                                                            while($DB_ROW_spp = mysqli_fetch_array($result_spp_fetch)) {
+                                                        ?>
+                                                        <option value ="<?php echo $DB_ROW_spp["id"]; ?>">
+                                                            <?php echo $DB_ROW_spp["status_"]; ?></option><?php
+                                                            $i++;
+                                                                }
+                                                    ?>
+                                                </select>
+                                            </div>
 
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="mb-3">
+                                                <label for="hh_gender" class="form-label">HH Head Gender</label>
+                                                <select class="form-select" id="hh_gender" name ="hh_gender" required>
+                                                    <option></option>
+                                                    <?php                                                           
+                                                        $spp_fetch_query = "SELECT id, gender FROM tgender";                                                  
+                                                        $result_spp_fetch = mysqli_query($link, $spp_fetch_query);                                                                       
+                                                        $i=0;
+                                                            while($DB_ROW_spp = mysqli_fetch_array($result_spp_fetch)) {
+                                                        ?>
+                                                        <option value ="<?php echo $DB_ROW_spp["id"]; ?>">
+                                                            <?php echo $DB_ROW_spp["gender"]; ?></option><?php
+                                                            $i++;
+                                                                }
+                                                    ?>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="mb-3">
+                                                <label for="hh_population" class="form-label">HH Population</label>
+                                                <input type="number" min="1" class="form-control" id="hh_population" name="hh_population">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="mb-3">
+                                                <label for="latrine_use" class="form-label">Latrine Use</label><br>
+                                                
+                                                <input type="radio" id="single" name="latrine_use" value="1">
+                                                <label for="single">Single</label>
+                                                <input type="radio" id="shared" name="latrine_use" value="2">
+                                                <label for="shared">Shared</label><br>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <div class="mb-3">
+                                                <label for="hh_nat_id" class="form-label">National ID For HH Head</label>
+                                                <input type="text"  class="form-control" id="hh_nat_id" name="hh_nat_id">
+                                            </div>
+                                        </div>
+                                    </div>
 
                                 
                                     <div class="row">

@@ -18,7 +18,7 @@ if(isset($_POST['Add']))
     $supervisor = $_POST["supervisor"];
     $rdate = $_POST["rdate"];
 
-        $sql_hh_update = "UPDATE households set  need_tg = '0',need_tech_guidance_on_selection = '0',ready_for_tech_selection ='1' where hhcode = '$hhcode'";
+        $sql_hh_update = "UPDATE households set  need_tg = '0',need_tech_guidance_on_selection = '0',ready_for_tech_selection ='1',ready_selection = '1' where hhcode = '$hhcode'";
 
         $sql = "INSERT INTO ttechnical_guide (rec_id,hhcode,tg,tguider,tdate)
         VALUES ('$dbcount','$hhcode','$tg','$supervisor','$rdate')";

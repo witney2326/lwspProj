@@ -42,7 +42,7 @@
                                                     <div class="owl-carousel owl-theme auth-review-carousel" id="auth-review-carousel">
                                                         <div class="item">
                                                             <div class="py-3">
-                                                                <p class="font-size-16 mb-4">" LWSP "</p>
+                                                                <p class="font-size-16 mb-4">" Lilongwe Water and Sanitation Project "</p>
 
                                                                 <div>
                                                                     <h4 class="font-size-16 text-primary"></h4>
@@ -82,8 +82,8 @@
                             <div class="d-flex flex-column h-100">
                                 <div class="mb-4 mb-md-5">
                                     <a href="index.php" class="d-block auth-logo">
-                                        <img src="assets/images/logo-dark.png" alt="" height="18" class="auth-logo-dark">
-                                        <img src="assets/images/logo-light.png" alt="" height="18" class="auth-logo-light">
+                                        <img src="assets/images/logo-dark.png" alt="" height="64" class="auth-logo-dark">
+                                        <img src="assets/images/logo-light.png" alt="" height="64" class="auth-logo-light">
                                     </a>
                                 </div>
                                 <div class="my-auto">
@@ -162,7 +162,7 @@
                                 <div class="mt-4 mt-md-5 text-center">
                                     <p class="mb-0">© <script>
                                             document.write(new Date().getFullYear())
-                                        </script> Copyright<i class="mdi mdi-heart text-danger"></i> COMSIP</p>
+                                        </script> Copyright<i class="mdi mdi-heart text-danger"></i> LWSP</p>
                                 </div>
                             </div>
 

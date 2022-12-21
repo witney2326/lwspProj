@@ -181,27 +181,36 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
 
                                                             <tbody>
                                                                 <?Php
-                                                                    $query="select tprojects.pID,tprojects.phhcode,tprojects.pstartdate,tprojects.pfinishdate,tprojects.pcontractorID,tprojects.pstatus from tprojects inner join households on tprojects.phhcode = households.hhcode where ((households.con = '$constituency') and (households.ward = '$ward') and (households.area = '$area') and ((tprojects.pstatus <> '05') or (tprojects.pstatus <> '06)))";
+                                                                    $query="select tprojects.pID,tprojects.phhcode,tprojects.pstartdate,tprojects.pfinishdate,tprojects.pcontractorID,tprojects.pstatus as projStatus from tprojects inner join households on tprojects.phhcode = households.hhcode where ((households.con = '$constituency') and (households.ward = '$ward') and (households.area = '$area') and (tprojects.pstatus <> '05') and (tprojects.pstatus <> '06'))";
 
                                                                     //Variable $link is declared inside config.php file & used here
                                                                     
                                                                     if ($result_set = $link->query($query)) {
                                                                     while($row = $result_set->fetch_array(MYSQLI_ASSOC))
                                                                     { 
-                                                                       
+                                                                        $pstatus = $row["projStatus"];
                                                                     echo "<tr>\n";
                                                                         echo "<td>".$row["pID"]."</td>\n";
                                                                         echo "<td>".$row["phhcode"]."</td>\n";
                                                                         echo "<td>".$row["pstartdate"]."</td>\n";
                                                                         echo "<td>".$row["pfinishdate"]."</td>\n";
                                                                         echo "<td>".contractor_name($link,$row["pcontractorID"])."</td>\n";
-                                                                        echo "<td>".pstatus($link,$row["pstatus"])."</td>\n";
+                                                                        echo "<td>".pstatus($link,$row["projStatus"])."</td>\n";
                                                                         
-                                                                        echo "<td> 
-                                                                        <a href=\"completion certificate.php?id=".$row['pID']."\"><i class='fa fa-print' title='Print OSS Works Handover Certificate' style='font-size:18px;color:black'></i></a>                                                                                              
-                                                                        <a href=\"hh_View.php?id=".$row['phhcode']."\"><i class='far fa-eye' title='View HH' style='font-size:18px;color:purple'></i></a> 
-                                                                        <a href=\"hh_project_progressTrack.php?id=".$row['pID']."\"><i class='fas fa-project-diagram' title='Update Project Progress' style='font-size:18px;color:black'></i></a> 
-                                                                        </td>\n";
+                                                                        if  ($pstatus == '00') 
+                                                                        {  
+                                                                            echo "<td>
+                                                                                <a href=\"hh_View.php?id=".$row['phhcode']."\"><i class='far fa-eye' title='View HH' style='font-size:18px;color:purple'></i></a> 
+                                                                                <a href=\"hh_project_progressTrack.php?id=".$row['pID']."\"><i class='fas fa-project-diagram' title='Update Project Progress' style='font-size:18px;color:black'></i></a> 
+                                                                                <a href=\"works-handover-certificate.php?id=".$row['pID']."\"><i class='fa fa-print' title='Print OSS Works Handover Certificate' style='font-size:18px;color:black'></i></a>                                                
+                                                                            </td>\n";
+                                                                        }else
+                                                                        {
+                                                                            echo "<td>
+                                                                                <a href=\"hh_View.php?id=".$row['phhcode']."\"><i class='far fa-eye' title='View HH' style='font-size:18px;color:purple'></i></a> 
+                                                                                <a href=\"hh_project_progressTrack.php?id=".$row['pID']."\"><i class='fas fa-project-diagram' title='Update Project Progress' style='font-size:18px;color:black'></i></a> 
+                                                                            </td>\n";
+                                                                        }
 
                                                                     echo "</tr>\n";
                                                                     }

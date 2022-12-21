@@ -2,7 +2,7 @@
 <?php include 'layouts/head-main.php'; ?>
 
 <head>
-    <title>OSS HH Project| Track Progress</title>
+    <title>OSS Works| Track Progress</title>
     <?php include 'layouts/head.php'; ?>
     <?php include 'layouts/head-style.php'; ?>
 
@@ -152,7 +152,7 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
 
                                         <div class="row justify-content-end">
                                             <div>
-                                                <button type="submit" class="btn btn-outline-primary w-md" name="Update" value="Update" >Update Project Progress</button>
+                                                <button type="submit" class="btn btn-outline-primary w-md" name="Update" value="Update" >Update OSS Works Progress</button>
                                             </div>
                                         </div>
                                     </form>

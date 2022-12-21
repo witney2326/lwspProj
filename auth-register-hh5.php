@@ -264,7 +264,7 @@ if (isset($_POST["Submit"])) {
                                 <div class="mt-4 mt-md-5 text-center">
                                     <p class="mb-0">© <script>
                                             document.write(new Date().getFullYear())
-                                        </script> Copyright<i class="mdi mdi-heart text-danger"></i> COMSIP</p>
+                                        </script> Copyright<i class="mdi mdi-heart text-danger"></i> LWSP</p>
                                 </div>
                             </div>
 
