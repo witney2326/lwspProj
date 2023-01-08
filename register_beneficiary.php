@@ -25,8 +25,34 @@
         border-color: orange;
     }
 </style>
+<script>
+      function getWard(val) {
+        $.ajax({
+          type: "POST",
+          url: "ward.php",
+          data:'conid='+val,
+        success: function(data){
+          $("#ward").html(data);
+          
+        }
+        });
+        }
+
+        function getArea(val) {
+        $.ajax({
+          type: "POST",
+          url: "get_ta.php",
+          data:'disid='+val,
+        success: function(data){
+          $("#ta").html(data);
+          
+        }
+        });
+        }
+
+      </script>
 </head>
-<?php include 'layouts/body.php'; ?>
+
 <div id="layout-wrapper">
 
     <?php include 'layouts/menu.php'; ?>
@@ -55,7 +81,14 @@
             return $rg['aname'];
         }
     ?>
-
+    <?php 
+if(isset($_POST['submit']))
+{
+    
+    $constituency=$_POST['constituency'];
+    //$subcat=$_POST['subcategory'];
+}
+?>
     <!-- ============================================================== -->
     <!-- Start right Content here -->
     <!-- ============================================================== -->
@@ -126,27 +159,18 @@
                 <div class="card-border">
                     
                     <div class="card-body">
-                        <form class="row row-cols-lg-auto g-3 align-items-center" novalidate action="register_beneficiary_filter1.php" method ="GET" >
+                        <form class="row row-cols-lg-auto g-3 align-items-center"  method ="GET" enctype="multipart/form-data" action="register_beneficiary_filter1.php">
                             <div class="col-12">
                                 <label for="constituency" class="form-label">Constituency</label>
-                                
-                                    <select class="form-select" name="constituency" id="constituency"  required>
-                                        <?php                                                           
-                                                $dis_fetch_query = "SELECT id, cname FROM constituency";                                                  
-                                                $result_dis_fetch = mysqli_query($link, $dis_fetch_query);                                                                       
-                                                $i=0;
-                                                    while($DB_ROW_reg = mysqli_fetch_array($result_dis_fetch)) {
-                                                ?>
-                                                <option value ="<?php
-                                                        echo $DB_ROW_reg["id"];?>">
-                                                    <?php
-                                                        echo $DB_ROW_reg["cname"];
-                                                    ?>
-                                                </option>
-                                                <?php
-                                                    $i++;
-                                                        }
-                                            ?>
+
+                                    <select name="constituency" id="constituency" class="form-control" onChange="getWard(this.value);" required>
+                                        <option value="">Select Constituency</option>
+                                        <?php $sql=mysqli_query($link,"select id,cname from constituency ");
+                                        while ($rw=mysqli_fetch_array($sql)) 
+                                        { ?>
+                                         <option value="<?php echo htmlentities($rw['id']);?>"><?php echo htmlentities($rw['cname']);?></option> <?php
+                                        }
+                                        ?>
                                     </select>
                                     <div class="invalid-feedback">
                                         Please select a valid Constituency
@@ -154,19 +178,9 @@
                             </div>
                             <div class="col-12">
                                 <label for="ward" class="form-label">Ward</label>
-                                <select class="form-select" name="ward" id="ward" disabled required>
-                                    <option>Select Ward</option>
-                                        <?php                                                           
-                                            $dis_fetch_query = "SELECT wardid,wardname FROM wards";                                                  
-                                            $result_dis_fetch = mysqli_query($link, $dis_fetch_query);                                                                       
-                                            $i=0;
-                                                while($DB_ROW_Dis = mysqli_fetch_array($result_dis_fetch)) {
-                                            ?>
-                                            <option value="<?php echo $DB_ROW_Dis["wardid"]; ?>">
-                                                <?php echo $DB_ROW_Dis["wardname"]; ?></option><?php
-                                                $i++;
-                                                    }
-                                        ?>
+                                <select class="form-select" name="ward" id="ward"  required disabled>
+                                    <option value="">Select Ward</option>
+                                    
                                 </select>
                                 <div class="invalid-feedback">
                                     Please select a valid Ward.

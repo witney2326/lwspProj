@@ -18,7 +18,7 @@
  
         if (($pOption =='00'))
         {
-            $sql = mysqli_query($link,"update households  SET  pOption = '$payment_option', agree_tcs = '$tcs_agreement' where hhcode = '$hhID'");
+            $sql = mysqli_query($link,"update households  SET  pOption = '$payment_option' where hhcode = '$hhID'");
                     
             if ($sql) {
                 echo '<script type="text/javascript">'; 

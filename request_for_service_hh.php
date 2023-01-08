@@ -2,7 +2,7 @@
 <?php include 'layouts/head-main.php'; ?>
 
 <head>
-    <title>OSS|Request For Service</title>
+    <title>OSS|HH Request For Service</title>
     <?php include 'layouts/head.php'; ?>
     <?php include 'layouts/head-style.php'; ?>
     <?php include 'layouts/config.php'; ?>
@@ -43,6 +43,8 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
 $hhCode = $_SESSION["hhid"];
 
 $enrolled = hh_enroll_check($link,$hhCode);
+$readySelect=hh_ready_select_check($link,$hhCode); 
+$Selectedprod=hh_selected_product($link,$hhCode);
 ?>
 
 <!-- Begin page -->
@@ -94,6 +96,8 @@ $enrolled = hh_enroll_check($link,$hhCode);
                                     
                                         <div class="card border border-primary">
                                             <?php if ($enrolled == '0'){echo '<div class="alert alert-warning" role="alert"> Household NOT YET Enrolled, Check Household Status!</a></div>';}?>
+                                            <?php if ($readySelect == '0'){echo '<div class="alert alert-warning" role="alert"> Household IS NOT Ready For OSS Product Selection, Check Household Status!</a></div>';}?>
+                                            <?php if ($Selectedprod <> '00'){echo '<div class="alert alert-warning" role="alert"> Household OSS Product Already Selected, Check Household Status!</a></div>';}?>
                                             <div class="card-body">
                                                 <h7 class="card-title mt-0"></h7>
 
@@ -107,7 +111,7 @@ $enrolled = hh_enroll_check($link,$hhCode);
                                                         <input type="text" class="form-control" id="hhname" name ="hhname" value = "<?php echo hh_name($link,$hhCode);?>" style="max-width:30%;" readonly >
                                                     </div>
                                                 <?php
-                                                if ($enrolled == '1'){
+                                                if (($enrolled == '1') and ($readySelect == '1') and ($Selectedprod == '00')){
                                                     echo '<div class="row mb-3">'; 
                                                         echo '<label for="product" class="col-sm-2 col-form-label">OSS Product</label>';
                                                         echo '<select class="form-select" name="product" id="product" style="max-width:30%;" required >';

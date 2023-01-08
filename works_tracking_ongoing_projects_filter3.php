@@ -88,13 +88,13 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                                     <li class="nav-item waves-effect waves-light">
                                         <a class="nav-link" data-bs-toggle="link" href="works_tracking.php" role="link">
                                             <span class="d-block d-sm-none"><i class="fas fa-home"></i></span>
-                                            <span class="d-none d-sm-block">OSS Projects and Progress Updates</span>
+                                            <span class="d-none d-sm-block">OSS Works and Progress Updates</span>
                                         </a>
                                     </li>
                                     <li class="nav-item waves-effect waves-light">
                                         <a class="nav-link active" data-bs-toggle="tab" href="javascript:void(0);" role="tab">
                                             <span class="d-block d-sm-none"><i class="fas fa-users"></i></span>
-                                            <span class="d-none d-sm-block">On-going Projects</span>
+                                            <span class="d-none d-sm-block">On-going OSS Works</span>
                                         </a>
                                     </li>
                                     
@@ -102,13 +102,13 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                                     <li class="nav-item waves-effect waves-light">
                                         <a class="nav-link" data-bs-toggle="link" href="works_tracking_completed_projects.php" role="link">
                                             <span class="d-block d-sm-none"><i class="fas fa-cog"></i></span>
-                                            <span class="d-none d-sm-block">Completed Projects</span>
+                                            <span class="d-none d-sm-block">Completed OSS Works</span>
                                         </a>
                                     </li>
                                     <li class="nav-item waves-effect waves-light">
                                         <a class="nav-link" data-bs-toggle="link" href="works_tracking_verified_completed_projects.php" role="link">
                                             <span class="d-block d-sm-none"><i class="fas fa-cog"></i></span>
-                                            <span class="d-none d-sm-block">Verified Completed Projects</span>
+                                            <span class="d-none d-sm-block">Verified Completed OSS Works</span>
                                         </a>
                                     </li>
 

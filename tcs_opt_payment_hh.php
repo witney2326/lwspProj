@@ -42,7 +42,9 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
 
 $hhCode = $_SESSION["hhid"];
 
-$enrolled = hh_enroll_check($link,$hhCode);
+$enrolled = hh_enroll_check($link,$hhCode); 
+$SelectedProduct = hh_selected_product($link,$hhCode); 
+$SelectedProductApproved = hh_product_approved_check($link,$hhCode);
 ?>
 
 <!-- Begin page -->
@@ -94,6 +96,8 @@ $enrolled = hh_enroll_check($link,$hhCode);
                                     
                                         <div class="card border border-primary">
                                             <?php if ($enrolled == '0'){echo '<div class="alert alert-warning" role="alert"> Household NOT YET Enrolled, Check Household Status!</a></div>';}?>
+                                            <?php if ($SelectedProduct == '00'){echo '<div class="alert alert-warning" role="alert"> OSS Product NOT Selected, Check Household Status!</a></div>';}?>
+                                            <?php if ($SelectedProductApproved == '0'){echo '<div class="alert alert-warning" role="alert"> OSS Product Selected NOT Yet Approved by Project!</a></div>';}?>
                                             <div class="card-body">
                                                 <h7 class="card-title mt-0"></h7>
 
@@ -107,36 +111,35 @@ $enrolled = hh_enroll_check($link,$hhCode);
                                                         <input type="text" class="form-control" id="hhname" name ="hhname" value = "<?php echo hh_name($link,$hhCode);?>" style="max-width:30%;" readonly >
                                                     </div>
                                                     <?php 
-                                                    if ($enrolled == '1'){
-                                                    echo '<div class="row mb-1">'; 
-                                                        echo '<label for="payment_option" class="col-sm-3 col-form-label">Payment Option</label>';
-                                                        echo '<select class="form-select" name="payment_option" id="payment_option" style="max-width:30%;" required >';
-                                                            echo '<option ></option>';
-                                                                                                                      
-                                                                    $ta_fetch_query = "SELECT oID,oName FROM payment_options";                                                  
-                                                                    $result_ta_fetch = mysqli_query($link, $ta_fetch_query);                                                                       
-                                                                    $i=0;
-                                                                        while($DB_ROW_ta = mysqli_fetch_array($result_ta_fetch)) {
-                                                                    ?>
-                                                                    <option value="<?php echo $DB_ROW_ta["oID"]; ?>">
-                                                                        <?php echo $DB_ROW_ta["oName"];?></option><?php
-                                                                        $i++;
-                                                                            }
-                                                                
-                                                        echo '</select>';
-                                                    echo '</div>';
-                                                    echo '<div class="row mb-3">'; 
-                                                        echo '<label for="tcs_agreement" class="col-sm-5 col-form-label">Agree Terms and Conditions of OSS?</label>';
-                                                        echo '<select class="form-select" name="tcs_agreement" id="tcs_agreement" style="max-width:13%;" required >';
-                                                            echo '<option value="1" >Yes</option>';
-                                                            echo '<option value="0" >No</option>';
-                                                            
-                                                        echo '</select>';
-                                                    echo '</div>';
-                                                    echo '<div>';
-                                                        echo '<button type="submit" class="btn btn-outline-primary" name="FormSubmit" value="Submit" onClick="return confirmSubmit()">Select Payment Option</button>';
-                                                    echo '</div>';
-                                                        }?>
+                                                        if (($enrolled == '1') and ($SelectedProduct <> '00') and ($SelectedProductApproved == '1')){
+                                                            echo '<div class="row mb-1">'; 
+                                                                echo '<label for="payment_option" class="col-sm-3 col-form-label">Payment Option</label>';
+                                                                echo '<select class="form-select" name="payment_option" id="payment_option" style="max-width:30%;" required >';
+                                                                    echo '<option ></option>';
+                                                                                                                            
+                                                                            $ta_fetch_query = "SELECT oID,oName FROM payment_options";                                                  
+                                                                            $result_ta_fetch = mysqli_query($link, $ta_fetch_query);                                                                       
+                                                                            $i=0;
+                                                                                while($DB_ROW_ta = mysqli_fetch_array($result_ta_fetch)) {
+                                                                            ?>
+                                                                            <option value="<?php echo $DB_ROW_ta["oID"]; ?>">
+                                                                                <?php echo $DB_ROW_ta["oName"];?></option><?php
+                                                                                $i++;
+                                                                                    }
+                                                                        
+                                                                echo '</select>';
+                                                            echo '</div>';
+                                                            echo '<div class="row mb-3">'; 
+                                                                echo '<label for="tcs_agreement" class="col-sm-5 col-form-label">Agree Terms and Conditions of OSS?</label>';
+                                                                echo '<select class="form-select" name="tcs_agreement" id="tcs_agreement" style="max-width:13%;" required >';
+                                                                    echo '<option value="1" >Yes</option>';
+                                                                echo '</select>';
+                                                            echo '</div>';
+                                                            echo '<div>';
+                                                                echo '<button type="submit" class="btn btn-outline-primary" name="FormSubmit" value="Submit" onClick="return confirmSubmit()">Select Payment Option</button>';
+                                                            echo '</div>';
+                                                        }
+                                                        ?>
                                                 </form>
                                             </div>
                                         </div>     

@@ -155,7 +155,7 @@
                                                         <a href="enrolled_ben_tg.php"><i class='fa fa-compass center' style='font-size:24px;color:green'></i></a>
                                                         <p class="text-muted fw-medium center">Households Requesting Technical Guidance on Selection</p>
                                                         <?php
-                                                            $result = mysqli_query($link, "SELECT COUNT(hhcode) AS value_sum FROM households where (((need_tech_guidance_on_selection = '1') or (need_tg = '1')) and (deleted = '0'))"); 
+                                                            $result = mysqli_query($link, "SELECT COUNT(hhcode) AS value_sum FROM households where (((need_tg = '1') or (need_tg = '1')) and (deleted = '0'))"); 
                                                             $row = mysqli_fetch_assoc($result); 
                                                             $sum = $row['value_sum']; 
                                                         ?>

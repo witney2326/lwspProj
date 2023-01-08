@@ -15,16 +15,16 @@ $usermail = $row['useremail'];
         $mail = new PHPMailer(true);
         
         try {
-            $mail->SMTPDebug = 2;                                       
+            $mail->SMTPDebug = 1;                                       
             $mail->isSMTP();                                            
-            $mail->Host       = 'mail.comsip.org.mw';                    
+            $mail->Host       = 'comsip.org.mw';                    
             $mail->SMTPAuth   = true;                             
-            $mail->Username   = 'wkabango@comsip.org.mw';                 
-            $mail->Password   = 'G08N6aXLN%Gu';                        
+            $mail->Username   = 'sysadmin@comsip.org.mw';                 
+            $mail->Password   = 'x@F4?)R[N@mx';                        
             $mail->SMTPSecure = 'tls';                              
             $mail->Port       = 587;  
         
-            $mail->setFrom('wkabango@comsip.org.mw', 'admin@LWSP');           
+            $mail->setFrom('lilongwe.water.sanitation@gmail.com', 'admin@LWSP');           
             $mail->addAddress($usermail);
             
             
@@ -34,6 +34,7 @@ $usermail = $row['useremail'];
             
             $mail->send();
             echo "Mail has been sent successfully!";
+            echo 'history.go(-1)';
         } catch (Exception $e) {
             echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
         }

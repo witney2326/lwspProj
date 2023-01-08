@@ -15,24 +15,37 @@
             $result_set->close();
         }
  
-        if (($need_tg =='0'))
+        if (($need_tg =='0') and ($need_tech_guide == '0'))
+        {
+            $sql = mysqli_query($link,"update households  SET  need_tg = '$need_tech_guide', ready_for_tech_selection = '1', ready_selection = '1' where hhcode = '$hhID'");
+                    
+            if ($sql) {
+                echo '<script type="text/javascript">'; 
+                echo 'alert("Household Successfully Flagged For Technical Guidance!");'; 
+                echo 'history.go(-1)';
+                echo '</script>';
+            } else {
+                echo "Error: " . $sql . ":-" . mysqli_error($link);
+            }
+        } else if (($need_tg =='0') and ($need_tech_guide == '1'))
         {
             $sql = mysqli_query($link,"update households  SET  need_tg = '$need_tech_guide' where hhcode = '$hhID'");
                     
             if ($sql) {
                 echo '<script type="text/javascript">'; 
                 echo 'alert("Household Successfully Flagged For Technical Guidance!");'; 
-                echo 'window.location.href = "index_hh.php";';
+                echo 'history.go(-1)';
                 echo '</script>';
             } else {
                 echo "Error: " . $sql . ":-" . mysqli_error($link);
             }
-        }else
+        }
+        else
 
         {
             echo '<script type="text/javascript">'; 
             echo 'alert("Household Already Flagged For Technical Guidance!");'; 
-            echo 'window.location.href = "index_hh.php";';
+            echo 'history.go(-1)';
             echo '</script>';
         }
         mysqli_close($link);

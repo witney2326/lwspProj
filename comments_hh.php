@@ -28,7 +28,7 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
     <script LANGUAGE="JavaScript">
         function confirmSubmit()
         {
-        var agree=confirm("Are you sure you want to Select this OSS Product?");
+        var agree=confirm("Are you sure you want to this message to supervisor?");
         if (agree)
         return true ;
         else

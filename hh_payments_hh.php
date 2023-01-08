@@ -34,6 +34,7 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
       $id = $_SESSION["hhid"];
       
       $enrolled = hh_enroll_check($link,$id);
+      $paymentOption= hh_payment_option($link,$id);
       
      $query="select * from households where hhcode='$id'";
       
@@ -92,6 +93,7 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                         <div class="col-lg-9">
                             <div class="card border border-success">
                             <?php if ($enrolled == '0'){echo '<div class="alert alert-warning" role="alert"> Household NOT YET Enrolled, Check Household Status!</a></div>';}?>
+                            <?php if ($paymentOption == '00'){echo '<div class="alert alert-warning" role="alert"> Payment Option NOT Selected, Check Household Status!</a></div>';}?>
                                 <div class="card-body">
                                     
                                     <form method="POST" action="hh_payments_update_hh.php">
@@ -120,7 +122,7 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                                             <input type="text" class="form-control" id="poption" name="poption" value ="<?php echo $pOption;?>" style="max-width:30%;" readonly>
                                         </div>
                                         <?php
-                                        if ($enrolled == '1')
+                                        if (($enrolled == '1') and ($paymentOption <> '00'))
                                         {
                                             echo '<div class="row mb-1">';
                                                 echo '<label for="pref" class="col-sm-2 col-form-label">Payment Ref </label>';

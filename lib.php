@@ -34,6 +34,13 @@
     return $rg['selected_product'];
     }
 
+    function hh_payment_option($link, $hcode)
+    {
+    $rg_query = mysqli_query($link,"select pOption from households where hhcode='$hcode'"); // select query
+    $rg = mysqli_fetch_array($rg_query);// fetch data
+    return $rg['pOption'];
+    }
+
     function contractor_name($link, $ccode)
     {
     $rg_query = mysqli_query($link,"select cname from tcontractor where id='$ccode'"); // select query
@@ -97,6 +104,21 @@
     $rg = mysqli_fetch_array($rg_query);// fetch data
     return $rg['enrolled'];
     }
+
+    function hh_product_approved_check($link, $hcode)
+    {
+    $rg_query = mysqli_query($link,"select product_approved from households where hhcode='$hcode'"); // select query
+    $rg = mysqli_fetch_array($rg_query);// fetch data
+    return $rg['product_approved'];
+    }
+
+    function hh_ready_select_check($link, $hcode)
+    {
+    $rg_query = mysqli_query($link,"select ready_selection from households where hhcode='$hcode'"); // select query
+    $rg = mysqli_fetch_array($rg_query);// fetch data
+    return $rg['ready_selection'];
+    }
+
 
     function role_name($link, $rcode)
     {

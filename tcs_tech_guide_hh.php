@@ -2,7 +2,7 @@
 <?php include 'layouts/head-main.php'; ?>
 
 <head>
-    <title>OSS|Payment Options</title>
+    <title>OSS|Technical Guide</title>
     <?php include 'layouts/head.php'; ?>
     <?php include 'layouts/head-style.php'; ?>
     <?php include 'layouts/config.php'; ?>
@@ -42,7 +42,8 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
 
 $hhCode = $_SESSION["hhid"];
 
-$enrolled = hh_enroll_check($link,$hhCode);
+$enrolled = hh_enroll_check($link,$hhCode); 
+$ReadySelect = hh_ready_select_check($link,$hhCode);
 ?>
 
 <!-- Begin page -->
@@ -94,6 +95,7 @@ $enrolled = hh_enroll_check($link,$hhCode);
                                     
                                         <div class="card border border-primary">
                                             <?php if ($enrolled == '0'){echo '<div class="alert alert-warning" role="alert"> Household NOT YET Enrolled, Check Household Status!</a></div>';}?>
+                                            <?php if ($ReadySelect == '1'){echo '<div class="alert alert-warning" role="alert"> Household Ready To Make OSS Selection, Check Household Status!</a></div>';}?>
                                             <div class="card-body">
                                                 <h7 class="card-title mt-0"></h7>
 
@@ -107,7 +109,7 @@ $enrolled = hh_enroll_check($link,$hhCode);
                                                         <input type="text" class="form-control" id="hhname" name ="hhname" value = "<?php echo hh_name($link,$hhCode);?>" style="max-width:30%;" readonly >
                                                     </div>
                                                     <?php 
-                                                    if ($enrolled == '1'){
+                                                    if (($enrolled == '1') and ($ReadySelect == '0')){
                                                     
                                                     echo '<div class="row mb-3">'; 
                                                         echo '<label for="need_tech_guide" class="col-sm-6 col-form-label">Require Technical Guide Inorder To Make Selection?</label>';

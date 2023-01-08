@@ -132,7 +132,7 @@
 
                                         <tbody>
                                             <?Php
-                                                $query="SELECT hhcode,hhname,con,ward, area,blockname,plot,phone
+                                                $query="SELECT hhcode,hhname,con,ward,area,blockname,plot,phone
                                                 FROM households where deleted = '0' group by con,ward,area ";
                                                 
                                                 if ($result_set = $link->query($query)) {

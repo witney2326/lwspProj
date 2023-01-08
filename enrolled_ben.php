@@ -200,14 +200,15 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                                                             if ($row["identification"] == 1){$ident = 'CBT';}else{$ident = 'Self';}
                                                             if ($row["enrolled"]== 1){$enrolled = 'Yes';}else {$enrolled = 'No';}
                                                             if ($row["agree_tcs"]== 1){$agree_tcs = 'Yes';}else {$agree_tcs = 'No';}
-                                                            
+                                                            if ($row["need_tg"]== 1){$need_tg = 'Yes';}else {$need_tg = 'No';}
+                                                            if ($row["ready_selection"]== 1){$ready_selection = 'Yes';}else {$ready_selection = 'No';}
 
                                                         echo "<tr>\n";
                                                             echo "<td>".$row["hhcode"]."</td>\n";
                                                             echo "<td>".$row["hhname"]."</td>\n";
                                                             echo "<td>\t\t$agree_tcs</td>\n";
-                                                            echo "<td>".$row["need_tech_guidance_on_selection"]."</td>\n";
-                                                            echo "<td>".$row["ready_selection"]."</td>\n";
+                                                            echo "<td>\t\t$need_tg</td>\n";
+                                                            echo "<td>\t\t$ready_selection</td>\n";
                                                             echo "<td>
                                                                 
                                                                 <a onClick=\"javascript: return confirm('Do you Need Technical Guide Inorder To Make Selection?');\"  href=\"tg-for-selection.php?id=".$row['hhcode']."\"><i class='far fa-check-circle' title='Need TG For Selection' style='font-size:18px; color:purple'></i></a> 
