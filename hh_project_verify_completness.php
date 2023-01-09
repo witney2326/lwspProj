@@ -93,7 +93,7 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                                 </div>
                                 <div class="card-body">
                                     
-                                    <form action ="hh_project_progressVerifyCompleteness_Update" method="POST"> 
+                                    <form action ="hh_project_progressVerifyCompleteness_Update.php" method="POST"> 
                                         <div class="row mb-1">
                                             <label for="proj_id" class="col-sm-2 col-form-label">Project ID</label>
                                             <input type="text" class="form-control" id="proj_id" name = "proj_id" value="<?php echo $id ; ?>" style="max-width:30%;" readonly>

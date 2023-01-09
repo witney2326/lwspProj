@@ -163,9 +163,7 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                                         
                                         <div class="row justify-content-end">
                                             <div>
-                                                
                                                 <button type="submit" class="btn btn-btn btn-outline-success w-md" name="Allocate" value="Allocate">Schedule Household OSS Works</button>
-                                                
                                             </div>
                                         </div>
                                     </form>

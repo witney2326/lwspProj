@@ -223,7 +223,7 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                                                                         
                                                                         echo "<td>                                               
                                                                         <a href=\"hh_View.php?id=".$row['phhcode']."\"><i class='far fa-eye' title='View HH' style='font-size:18px;color:purple'></i></a> 
-                                                                        <a href=\"hh_project_verify_completness.php?id=".$row['pID']."\"><i class='fas fa-project-diagram' title='Update Project Progress' style='font-size:18px;color:black'></i></a> 
+                                                                        <a href=\"hh_project_verify_completness.php?id=".$row['pID']."\"><i class='fas fa-check-circle' title='Verify OSS Works' style='font-size:18px;color:green'></i></a> 
                                                                         </td>\n";
 
                                                                     echo "</tr>\n";

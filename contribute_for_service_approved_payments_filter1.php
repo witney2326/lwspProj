@@ -235,7 +235,7 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                                                                         
                                                                                 echo "<td>                              
                                                                                     <a href=\"hh_view.php?id=".$row['hhCode']."\"><i class='far fa-eye' title='View Household' style='font-size:18px;color:purple'></i></a> 
-                                                                                    <a onClick=\"javascript: return confirm('Are You Sure You want To Schedule Works For This HOUSEHOLD?');\" href=\"hh_works_schedule1.php?id=".$row['hhCode']."\"><i class='far fa-check-square' title='Schedule Works For HH' style='font-size:18px;color:green'></i></a> 
+                                                                                    <a onClick=\"javascript: return confirm('Are You Sure You want To Schedule Works For This HOUSEHOLD?');\" href=\"hh_works_schedule1.php?id=".$row['hhCode']."\"><i class='far fa-calendar' title='Schedule Works For HH' style='font-size:18px;color:green'></i></a> 
                                                                                 </td>\n";
                                                                             echo "</tr>\n";
                                                                         } 

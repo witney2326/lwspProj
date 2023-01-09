@@ -183,7 +183,6 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                                                                     <th>Project Code</th>                                           
                                                                     <th>HH Code</th>
                                                                     <th>Start Date</th>
-                                                                    <th>Expected End Date</th>
                                                                     <th>Contractor</th>
                                                                     <th>Status</th>
                                                                     <th>Action</th>  
@@ -204,7 +203,6 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                                                                         echo "<td>".$row["pID"]."</td>\n";
                                                                         echo "<td>".$row["phhcode"]."</td>\n";
                                                                         echo "<td>".$row["pstartdate"]."</td>\n";
-                                                                        echo "<td>".$row["pfinishdate"]."</td>\n";
                                                                         echo "<td>".contractor_name($link,$row["pcontractorID"])."</td>\n";
                                                                         echo "<td>".pstatus($link,$row["projStatus"])."</td>\n";
                                                                         
@@ -213,6 +211,7 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                                                                             echo "<td>
                                                                                 <a href=\"hh_View.php?id=".$row['phhcode']."\"><i class='far fa-eye' title='View HH' style='font-size:18px;color:purple'></i></a> 
                                                                                 <a href=\"hh_project_progressTrack.php?id=".$row['pID']."\"><i class='fas fa-project-diagram' title='Update Project Progress' style='font-size:18px;color:black'></i></a> 
+                                                                                <a onClick=\"javascript: return confirm('Are You Sure You want To Notify The Contractor?');\" href=\"contractor_notification_works_allocation.php?id=".$row['pcontractorID']."& hhcode=".$row['phhcode']."& sdate=".$row['pstartdate']."\"><i class='fa fa-bell' title='Notify Contactor On Works Schedule' style='font-size:18px;color:brown'></i></a> 
                                                                                 <a href=\"works-handover-certificate.php?id=".$row['pID']."\"><i class='fa fa-print' title='Print OSS Works Handover Certificate' style='font-size:18px;color:black'></i></a>                                                
                                                                             </td>\n";
                                                                         }else
