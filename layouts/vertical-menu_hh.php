@@ -131,7 +131,7 @@
 
                 <li>
                     
-                    <a href="request_for_service_hh.php" class="waves-effect">
+                    <a href="javascript:void(0);" class="waves-effect">
                     <i class="fas fa-box"></i><span class="badge rounded-pill bg-info float-end"></span>
                         <span key="t-dashboards">Request for Service</span>
                     </a>
@@ -139,7 +139,7 @@
                 </li>
 
                 <li>
-                    <a href="contribute_for_service_hh.php" class="waves-effect">
+                    <a href="javascript:void(0);" class="waves-effect">
                     <i class="bx bx-dollar "></i><span class="badge rounded-pill bg-info float-end"></span>
                         <span key="t-dashboards">Contribute for Service</span>
                     </a>
@@ -147,7 +147,7 @@
                 </li>
            
                 <li>
-                    <a href="works_tracking_hh.php" class="waves-effect">
+                    <a href="javascript:void(0);" class="waves-effect">
                         <i class="bx bx-bar-chart"></i><span class="badge rounded-pill bg-info float-end"></span>
                         <span key="t-dashboards">OSS Works</span>
                     </a>
@@ -156,7 +156,7 @@
 
                 <li>
                    
-                    <a href="basicReports.php" class="waves-effect">
+                    <a href="javascript:void(0);" class="waves-effect">
                     <i class="bx bx-line-chart" style="color:blue"></i><span class="badge rounded-pill bg-info float-end"></span>
                         <span key="t-dashboards"> Project Reports</span>
                     </a>

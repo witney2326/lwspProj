@@ -35,6 +35,7 @@ $usermail = "lilongwe.water.sanitation@gmail.com";
             
             $mail->send();
             echo "Mail has been sent successfully!";
+            echo 'history.go(-1)';
         } catch (Exception $e) {
             echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
         }

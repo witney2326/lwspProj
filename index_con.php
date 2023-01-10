@@ -56,7 +56,7 @@ $contractorID = $_SESSION["hhid"];
                                                     <div class="d-flex">
                                                         <div class="flex-grow-1">
                                                             <button class="btn btn-btn btn-outline-secondary w-md" onclick="window.location.href='works_tracking_con.php';">
-                                                                Allocated Projects and Progress Updates
+                                                                Allocated Household OSS Works and Progress Updates
                                                             </button>
                                                             
                                                             
@@ -89,7 +89,7 @@ $contractorID = $_SESSION["hhid"];
                                                     <div class="d-flex">
                                                         <div class="flex-grow-1">
                                                             
-                                                            <p class="text-muted fw-medium"><h4>Current Projects</h4></p>
+                                                            <p class="text-muted fw-medium"><h4>Current Household OSS Works Handed Over By Project</h4></p>
                                                             <?php
                                                                 $result = mysqli_query($link, "SELECT COUNT(pID) as projects FROM tprojects where pcontractorID = '$contractorID'"); 
                                                                 $row = mysqli_fetch_assoc($result); 

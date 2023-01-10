@@ -195,8 +195,8 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                                                     
                                                     
                                                     echo "<td>
-                                                        <a href=\".php?id=".$row['pID']."\"><i class='far fa-edit' style='font-size:18px'></i></a> 
-                                                        <a onClick=\"javascript: return confirm('Are You Sure You want To DELETE This Record');\" href=\".php?id=".$row['pID']."\"><i class='far fa-trash-alt' style='font-size:18px'></i></a>        
+                                                        
+                                                        <a onClick=\"javascript: return confirm('Are You Sure You want To DELETE This Record');\" href=\"javascript:void(0)?id=".$row['pID']."\"><i class='far fa-trash-alt' style='font-size:18px'></i></a>        
                                                     </td>\n";
                                                 echo "</tr>\n";
                                             echo "</tr>\n";

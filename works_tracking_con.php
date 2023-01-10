@@ -65,96 +65,13 @@ $contractorID = $_SESSION["hhid"];
                
                     <div class="col-xl-12">
                         <div class="card">
-                            <div class="card-body">
-                                        <!--start here -->
-                                <div class="card border border-primary">
-                                    <div class="card-body">
-                                        <form class="row row-cols-lg-auto g-3 align-items-center" novalidate action="works_tracking_con_filter1.php" method ="GET" >
-                                            <div class="col-12">
-                                                <label for="constituency" class="form-label">Constituency</label>
-                                                
-                                                <select class="form-select" name="constituency" id="constituency"  required>
-                                                    <option ></option>
-                                                    <?php                                                           
-                                                            $dis_fetch_query = "SELECT id, cname FROM constituency";                                                  
-                                                            $result_dis_fetch = mysqli_query($link, $dis_fetch_query);                                                                       
-                                                            $i=0;
-                                                                while($DB_ROW_reg = mysqli_fetch_array($result_dis_fetch)) {
-                                                            ?>
-                                                            <option value ="<?php
-                                                                    echo $DB_ROW_reg["id"];?>">
-                                                                <?php
-                                                                    echo $DB_ROW_reg["cname"];
-                                                                ?>
-                                                            </option>
-                                                            <?php
-                                                                $i++;
-                                                                    }
-                                                        ?>
-                                                </select>
-                                                <div class="invalid-feedback">
-                                                    Please select a valid Constituency
-                                                </div>
-                                                
-                                            </div>
-                                            
-                                            <div class="col-12">
-                                                <label for="district" class="form-label">Ward</label>
-                                                <select class="form-select" name="district" id="district" required disabled>
-                                                    <option>Select ward</option>
-                                                        <?php                                                           
-                                                            $dis_fetch_query = "SELECT DistrictID,DistrictName FROM tbldistrict";                                                  
-                                                            $result_dis_fetch = mysqli_query($link, $dis_fetch_query);                                                                       
-                                                            $i=0;
-                                                                while($DB_ROW_Dis = mysqli_fetch_array($result_dis_fetch)) {
-                                                            ?>
-                                                            <option value="<?php echo $DB_ROW_Dis["DistrictID"]; ?>">
-                                                                <?php echo $DB_ROW_Dis["DistrictName"]; ?></option><?php
-                                                                $i++;
-                                                                    }
-                                                        ?>
-                                                </select>
-                                                <div class="invalid-feedback">
-                                                    Please select a valid Ward.
-                                                </div>
-                                            </div>
 
-                                            <div class="col-12">
-                                                <label for="ta" class="form-label">City Area</label>
-                                                <select class="form-select" name="ta" id="ta" required disabled>
-                                                    <option >Select Area</option>
-                                                    <?php                                                           
-                                                            $ta_fetch_query = "SELECT TAName FROM tblta";                                                  
-                                                            $result_ta_fetch = mysqli_query($link, $ta_fetch_query);                                                                       
-                                                            $i=0;
-                                                                while($DB_ROW_ta = mysqli_fetch_array($result_ta_fetch)) {
-                                                            ?>
-                                                            <option>
-                                                                <?php echo $DB_ROW_ta["TAName"]; ?></option><?php
-                                                                $i++;
-                                                                    }
-                                                        ?>
-                                                </select>
-                                                <div class="invalid-feedback">
-                                                    Please select a valid Area
-                                                </div>
-                                            </div>
-
-                                            
-                                            <div class="col-12">
-                                                <button type="submit" class="btn btn-btn btn-outline-primary w-md" name="Submit" value="Submit">Submit</button>
-                                                <INPUT TYPE="button" class="btn btn-btn btn-outline-secondary w-md" style="width:170px" VALUE="Back" onClick="history.go(-1);">  
-                                            </div>
-                                        </form>                                            
-                                        <!-- End Here -->
-                                    </div>
-                                </div>
 
                                 <div class="row">
                                     <div class="col-12">
                                         <div class="card border border-primary">
                                         <div class="card-header bg-transparent border-primary">
-                                            <h5 class="my-0 text-primary">Scheduled Works for Contractor <?php echo $contractorID?></h5>
+                                            <h5 class="my-0 text-primary">Scheduled Works for Contractor <?php echo trim($contractorID)?></h5>
                                         </div>
                                         <div class="card-body">
                                         <h7 class="card-title mt-0"></h7>
@@ -175,7 +92,7 @@ $contractorID = $_SESSION["hhid"];
 
                                                     <tbody>
                                                         <?Php
-                                                            $query="select * from tprojects where pcontractorID = $contractorID";                                                               
+                                                            $query="select * from tprojects where pcontractorID = '$contractorID'";                                                               
                                                             
                                                             if ($result_set = $link->query($query)) {
                                                             while($row = $result_set->fetch_array(MYSQLI_ASSOC))
