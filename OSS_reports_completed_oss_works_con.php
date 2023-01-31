@@ -2,7 +2,7 @@
 <?php include 'layouts/head-main.php'; ?>
 
 <head>
-    <title>OSS  Completed Works Reports</title>
+    <title>OSS Completed Works Reports</title>
     <?php include 'layouts/head.php'; ?>
     <?php include 'layouts/head-style.php'; ?>
     <?php include 'layouts/config.php'; ?>
@@ -177,7 +177,7 @@
                                                 
                                                 <thead>
                                                     <tr>
-                                                        <th>Project Code</th>                                           
+                                                        <th>Works Code</th>                                           
                                                         <th>HH Code</th>
                                                         <th>HH Name</th>
                                                         <th>Plot No.</th>

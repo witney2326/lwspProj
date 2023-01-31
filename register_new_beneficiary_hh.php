@@ -53,24 +53,25 @@ if(isset($_POST['Submit']))
     ($hh_vulnerable =="") or ($hh_poor=="") or ($hh_ownership_status=="") or ($location_zone=="") or ($hh_latrine=="") or ($hh_identification=="") or ($hh_status=="") or ($hh_gender=="") or
     ($hh_population=='0') or ($latrine_use =="") or ($hh_nat_id==""))
     {
-    echo '<script type="text/javascript">'; 
-    echo 'alert("Please fill in the missing values on the form !");'; 
-    echo 'history.go(-1);';
-    echo '</script>';
-    }else
-    {
-    $sql = "INSERT INTO households (hhcode, con, ward, area, blockname, plot, phone, hhname, agecat, livelihood, income, homestatus, zonename, latrine, vulnerable, poor, pstatus,identification, enrolled,current_status,hh_status,hh_gender,hh_population,latrine_use,hh_nat_id)
-    VALUES ('$hhcode','$con','$ward','$area','$block','$plot','$phone','$hhname','$age_category','$livelihood','$average_income','$hh_ownership_status','$location_zone','$hh_latrine','$hh_vulnerable','$hh_poor','$pstatus','$hh_identification','$enrolled','$current_status','$hh_status','$hh_gender','$hh_population','$latrine_use','$hh_nat_id')";
-
-    if (mysqli_query($link, $sql)) {
         echo '<script type="text/javascript">'; 
-        echo 'alert("Beneficiary Record has been added successfully !");'; 
-        echo 'window.location.href = "auth-register-hh5-1.php";';
+        echo 'alert("Please fill in the missing values on the form !");'; 
+        echo 'history.go(-1);';
         echo '</script>';
-    } else {
-        echo "Error: " . $sql . ":-" . mysqli_error($link);
     }
-    mysqli_close($link);
+    else
+    {
+        $sql = "INSERT INTO households (hhcode, con, ward, area, blockname, plot, phone, hhname, agecat, livelihood, income, homestatus, zonename, latrine, vulnerable, poor, pstatus,identification, enrolled,current_status,hh_status,hh_gender,hh_population,latrine_use,hh_nat_id)
+        VALUES ('$hhcode','$con','$ward','$area','$block','$plot','$phone','$hhname','$age_category','$livelihood','$average_income','$hh_ownership_status','$location_zone','$hh_latrine','$hh_vulnerable','$hh_poor','$pstatus','$hh_identification','$enrolled','$current_status','$hh_status','$hh_gender','$hh_population','$latrine_use','$hh_nat_id')";
+
+        if (mysqli_query($link, $sql)) {
+            echo '<script type="text/javascript">'; 
+            echo 'alert("Beneficiary Record has been added successfully !");'; 
+            echo 'window.location.href = "auth-register-hh5-1.php";';
+            echo '</script>';
+        } else {
+            echo "Error: " . $sql . ":-" . mysqli_error($link);
+        }
+        mysqli_close($link);
     }
 
 }

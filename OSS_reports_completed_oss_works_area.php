@@ -142,8 +142,6 @@
                                             <p><center><h6 class="my-0 text-default"><?php echo area_name($link,$area);?>: City Area</h6></p></center>
                                         </div>
 
-                                        
-
                                         <div class="card-body">
                                         <h7 class="card-title mt-0"></h7>
                                             
@@ -153,7 +151,7 @@
                                                     
                                                     <thead>
                                                         <tr>
-                                                            <th>Project Code</th>                                           
+                                                            <th>Works Code</th>                                           
                                                             <th>HH Code</th>
                                                             <th>HH Name</th>
                                                             <th>Plot No.</th>

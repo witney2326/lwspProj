@@ -2,7 +2,7 @@
 <?php include 'layouts/head-main.php'; ?>
 
 <head>
-    <title>LWSP |Add New Beneficiary Household</title>
+    <title>LWSP |Household Contributions</title>
     <?php include 'layouts/head.php'; ?>
     <?php include 'layouts/head-style.php'; ?>
 
@@ -47,7 +47,7 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                            <h4 class="mb-sm-0 font-size-18">Households With Full Contribution</h4>
+                            <h4 class="mb-sm-0 font-size-18">Households With Approved Contribution</h4>
 
                             <div class="page-title-right">
                                 
@@ -67,22 +67,17 @@
                             <li class="nav-item waves-effect waves-light">
                                 <a class="nav-link" data-bs-toggle="tab" href="OSS_reports_hhs_payments.php" role="tab">
                                     <span class="d-block d-sm-none"><i class="far fa-envelope"></i></span>
-                                    <span class="d-none d-sm-block">Households with Full Contribution</span>
+                                    <span class="d-none d-sm-block">Households with Approved Contribution</span>
                                 </a>
                             </li>
                             
                             <li class="nav-item waves-effect waves-light">
                                 <a class="nav-link active" data-bs-toggle="link" href="javascript:void(0);" role="link">
                                     <span class="d-block d-sm-none"><i class="far fa-envelope"></i></span>
-                                    <span class="d-none d-sm-block">Filtered Households with Full Contribution</span>
+                                    <span class="d-none d-sm-block">Filtered Households with Approved Contribution</span>
                                 </a>
                             </li>
-                            <li class="nav-item waves-effect waves-light">
-                                <a class="nav-link" data-bs-toggle="tab" href="javascript:void(0);" role="tab">
-                                    <span class="d-block d-sm-none"><i class="far fa-envelope"></i></span>
-                                    <span class="d-none d-sm-block">Summarised Households with Full Contribution</span>
-                                </a>
-                            </li>
+                            
                         </ul>
                     </div>
                 </div>

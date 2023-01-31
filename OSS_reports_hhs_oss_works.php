@@ -120,7 +120,7 @@
                                         
                                         <thead>
                                             <tr>
-                                                <th>Project Code</th>                                           
+                                                <th>Works Code</th>                                           
                                                 <th>HH Code</th>
                                                 <th>HH Name</th>
                                                 <th>Plot No.</th>

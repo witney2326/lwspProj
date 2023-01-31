@@ -30,11 +30,6 @@
 <?php include 'layouts/body.php'; ?>
 <?php include 'lib.php'; ?>
 
-<?php 
-    $constituency = $_GET["constituency"];  
-    $ward = $_GET["ward"]; 
-    $area = $_GET["area"];
-?>
 
 <!-- Begin page -->
 <div id="layout-wrapper">
@@ -73,19 +68,19 @@
                                 <ul class="nav nav-pills nav-justified" role="tablist">
                                     
                                     <li class="nav-item waves-effect waves-light">
-                                        <a class="nav-link" data-bs-toggle="link" href="OSS_reports_registration_verified_hhs.php" role="link">
-                                            <span class="d-none d-sm-block">Verified/Accepted Households</span>
+                                        <a class="nav-link" data-bs-toggle="link" href="OSS_reports_registration.php" role="link">
+                                            <span class="d-none d-sm-block">Overall Registered Households</span>
                                         </a>
                                     </li>
                                     
                                     <li class="nav-item waves-effect waves-light">
-                                        <a class="nav-link active" data-bs-toggle="link" href="OSS_reports_registration_verified_hhs_filter.php" role="link">
-                                            <span class="d-none d-sm-block">Filtered Verified/Accepted Households</span>
+                                        <a class="nav-link" data-bs-toggle="link" href="OSS_reports_registration_filter.php" role="link">
+                                            <span class="d-none d-sm-block">Filtered Registered Households</span>
                                         </a>
                                     </li>
                                     <li class="nav-item waves-effect waves-light">
-                                        <a class="nav-link" data-bs-toggle="link" href="OSS_reports_registration_verified_hhs_summarised.php" role="link">
-                                            <span class="d-none d-sm-block">Summarised Verified/Accepted Households</span>
+                                        <a class="nav-link active" data-bs-toggle="tab" href="javascript:void(0);" role="tab">
+                                            <span class="d-none d-sm-block">Summarised Registered Households</span>
                                         </a>
                                     </li>
    
@@ -94,38 +89,7 @@
                         </div>
                         <div class="card">
 
-                                <div class="card-border">
-                    
-                                    <div class="card-body">
-                                        <form class="row row-cols-lg-auto g-3 align-items-center" novalidate action="OSS_reports_registration_ward.php" method ="GET" >
-                                            <div class="col-12">
-                                                <label for="constituency" class="form-label">Constituency</label>
-                                                <select class="form-select" name="constituency" id="constituency"  required>
-                                                   <option selected value="<?php echo $constituency;?>"><?php echo con_name($link,$constituency);?></option>     
-                                                </select>
-                                            </div>
-                                            <div class="col-12">
-                                                <label for="ward" class="form-label">Ward</label>
-                                                <select class="form-select" name="ward" id="ward" required>
-                                                    <option selected value="<?php echo $ward;?>"><?php echo ward_name($link,$ward);?></option>    
-                                                </select>
-                                            </div>
-
-                                            <div class="col-12">
-                                                <label for="area" class="form-label">City Area</label>
-                                                <select class="form-select" name="area" id="area" required>
-                                                    <option selected value="<?php echo $area;?>"><?php echo area_name($link,$area);?></option>    
-                                                </select>
-                                            </div>
-
-                                            
-                                            <div class="col-12">
-                                                <button type="submit" class="btn btn-outline-primary w-md" name="Submit" value="Submit">Submit</button>
-                                            </div>
-                                        </form>                                             
-                                        <!-- End Here -->
-                                    </div>
-                                </div>
+                                
 
                                 
                                 <!-- Tab panes -->
@@ -133,16 +97,15 @@
                                     <div class="col-12">
                                         <div class="card-border">
 
-                                        <div class="d-print-none">
-                                            <div class="float-end">
-                                                <a href="javascript:window.print()" class="btn btn-success waves-effect waves-light me-1"><i class="fa fa-print"></i></a>
+                                            <div class="d-print-none">
+                                                <div class="float-end">
+                                                    <a href="javascript:window.print()" class="btn btn-success waves-effect waves-light me-1"><i class="fa fa-print"></i></a>
+                                                </div>
                                             </div>
-                                        </div>
 
-                                        <div class="card-header bg-transparent border-primary">
-                                            <p><center><h5 class="my-0 text-primary">Verified/Accepted Households</h5></p></center>
-                                            <p><center><h6 class="my-0 text-default"><?php echo area_name($link,$area);?>: City Area</h6></p></center>
-                                        </div>
+                                            <div class="card-header bg-transparent border-primary">
+                                                <p><center><h5 class="my-0 text-primary">Summarised Registered Households</h5></p></center>
+                                            </div>
 
                                         
 
@@ -155,33 +118,26 @@
                                                     
                                                     <thead>
                                                         <tr>
-                                                            <th>HH Code</th>
-                                                            <th>HH Name</th>
-                                                            <th>Block Name</th>
-                                                            <th>Plot No.</th>
-                                                            <th>Phone</th>
+                                                            <th>Constituency</th>
+                                                            <th>Ward</th>
+                                                            <th>Area</th>
+                                                            <th>Registered Households</th>
                                                         </tr>
-                                                        
                                                     </thead>
 
                                                     <tbody>
                                                         <?Php
-                                                            $query="SELECT hhcode,hhname,area,blockname,plot,phone
-                                                            FROM households where ((area = '$area') and (enrolled ='1'))";
+                                                            $query="SELECT con,ward,area,count(hhcode) as No_HHs FROM households group by con,ward,area;";
                                                             
                                                             if ($result_set = $link->query($query)) {
                                                             while($row = $result_set->fetch_array(MYSQLI_ASSOC))
                                                             { 
                                                                 
                                                             echo "<tr>\n";
-                                                                
-                                                                echo "<td>".$row["hhcode"]."</td>\n";
-                                                                echo "<td>".$row["hhname"]."</td>\n";
-                                                                echo "<td>".$row["blockname"]."</td>\n";
-                                                                echo "<td>".$row["plot"]."</td>\n";
-                                                                echo "<td>".$row["phone"]."</td>\n";
-                                                                
-                                                                
+                                                                echo "<td>".con_name($link,$row["con"])."</td>\n";
+                                                                echo "<td>".ward_name($link,$row["ward"])."</td>\n";
+                                                                echo "<td>".area_name($link,$row["area"])."</td>\n";
+                                                                echo "<td>".$row["No_HHs"]."</td>\n";
                                                             echo "</tr>\n";
                                                             }
                                                             $result_set->close();
@@ -195,6 +151,7 @@
                                         </div>     
                                     </div>            
                                 </div>    
+
                             </div>
                         </div>
                     </div>

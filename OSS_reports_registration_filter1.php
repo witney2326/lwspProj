@@ -2,7 +2,7 @@
 <?php include 'layouts/head-main.php'; ?>
 
 <head>
-    <title>LWSP |Add New Beneficiary Household</title>
+    <title>LWSP |Registration Reports</title>
     <?php include 'layouts/head.php'; ?>
     <?php include 'layouts/head-style.php'; ?>
 
@@ -123,7 +123,7 @@
                                         <tbody>
                                             <?Php
                                                 $query="SELECT hhcode,hhname,ward, area,blockname,plot,phone
-                                                FROM households where con = '$constituency' group by con,ward,area";
+                                                FROM households where ((con = '$constituency') and (deleted = '0'))";
                                                 
                                                 if ($result_set = $link->query($query)) {
                                                 while($row = $result_set->fetch_array(MYSQLI_ASSOC))

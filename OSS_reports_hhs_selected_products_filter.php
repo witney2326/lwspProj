@@ -2,7 +2,7 @@
 <?php include 'layouts/head-main.php'; ?>
 
 <head>
-    <title>LWSP |Add New Beneficiary Household</title>
+    <title>LWSP |Household OSS Products</title>
     <?php include 'layouts/head.php'; ?>
     <?php include 'layouts/head-style.php'; ?>
 
@@ -47,7 +47,7 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                            <h4 class="mb-sm-0 font-size-18">Targetting and Registration: Register Household</h4>
+                            <h4 class="mb-sm-0 font-size-18">Household OSS Products</h4>
 
                             <div class="page-title-right">
                                 
@@ -77,12 +77,7 @@
                                             <span class="d-none d-sm-block">Filtered Household OSS Product Selection</span>
                                         </a>
                                     </li>
-                                    <li class="nav-item waves-effect waves-light">
-                                        <a class="nav-link" data-bs-toggle="tab" href="javascript:void(0);" role="tab">
-                                            <span class="d-block d-sm-none"><i class="far fa-envelope"></i></span>
-                                            <span class="d-none d-sm-block">Summarised Household OSS Product Selection</span>
-                                        </a>
-                                    </li>
+                                    
                         </ul>
                     </div>
                 </div>

@@ -84,7 +84,7 @@
                                         </a>
                                     </li>
                                     <li class="nav-item waves-effect waves-light">
-                                        <a class="nav-link" data-bs-toggle="tab" href="#iga" role="tab">
+                                        <a class="nav-link" data-bs-toggle="link" href="OSS_reports_registration_sumarised.php" role="link">
                                             <span class="d-none d-sm-block">Summarised Registered Households</span>
                                         </a>
                                     </li>

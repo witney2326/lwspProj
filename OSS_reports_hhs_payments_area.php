@@ -75,22 +75,17 @@
                                     <li class="nav-item waves-effect waves-light">
                                         <a class="nav-link" data-bs-toggle="link" href="OSS_reports_hhs_payments.php" role="link">
                                             <span class="d-block d-sm-none"><i class="far fa-envelope"></i></span>
-                                            <span class="d-none d-sm-block">Households with Full Contribution</span>
+                                            <span class="d-none d-sm-block">Households with Approved Contribution</span>
                                         </a>
                                     </li>
                                     
                                     <li class="nav-item waves-effect waves-light">
                                         <a class="nav-link active" data-bs-toggle="link" href="javascript:void(0);" role="link">
                                             <span class="d-block d-sm-none"><i class="far fa-envelope"></i></span>
-                                            <span class="d-none d-sm-block">Filtered Households with Full Contribution</span>
+                                            <span class="d-none d-sm-block">Filtered Households with Approved Contribution</span>
                                         </a>
                                     </li>
-                                    <li class="nav-item waves-effect waves-light">
-                                        <a class="nav-link" data-bs-toggle="link" href="javascript:void(0);" role="link">
-                                            <span class="d-block d-sm-none"><i class="far fa-envelope"></i></span>
-                                            <span class="d-none d-sm-block">Summarised Households with Full Contribution</span>
-                                        </a>
-                                    </li>
+                                    
    
                                 </ul>
                             </div>
@@ -143,7 +138,7 @@
                                         </div>
 
                                         <div class="card-header bg-transparent border-primary">
-                                            <p><center><h5 class="my-0 text-primary">Households With Full Contribution</h5></p></center>
+                                            <p><center><h5 class="my-0 text-primary">Households With Approved Contribution</h5></p></center>
                                             <p><center><h6 class="my-0 text-default"><?php echo area_name($link,$area);?>: City Area</h6></p></center>
                                         </div>
 
@@ -161,53 +156,38 @@
                                                             <th>HH Code</th>
                                                             <th>HH Name</th>
                                                             <th>City Area</th>
-                                                            <th>Block Name</th>
                                                             <th>Plot No.</th>
                                                             <th>Selected Product</th>
                                                             <th>Product Cost</th>
                                                             <th>Total Paid</th>
+
                                                         </tr>
-                                                        
                                                     </thead>
 
                                                     <tbody>
                                                         <?Php
-                                                            $query="select DISTINCT(tpayments.hhCode) from tpayments inner join households on tpayments.hhCode = households.hhcode  
+                                                            $query="select tpayments.hhCode as code, hhname, area, plot, pname, pCost, SUM(amount_paid) as Total_Paid from tpayments inner join households on tpayments.hhCode = households.hhcode
+                                                            inner join tproducts on households.selected_product = tproducts.pID  
                                                             where ((tpayments.pApproved ='1') and (households.selected_product <> '00') and 
-                                                            (households.enrolled = '1') and (households.product_approved = '1') and 
-                                                            (households.agree_tcs = '1') and (households.con = '$constituency') and (households.ward = '$ward') and (households.area = '$area'))";
+                                                            (households.enrolled = '1') and (households.product_approved = '1') and (households.agree_tcs = '1') and (area = '$area')) group by tpayments.hhCode";
                                                                                 
                                                             if ($result_set = $link->query($query)) {
                                                             while($row = $result_set->fetch_array(MYSQLI_ASSOC))
                                                             { 
-                                                                $hhcode = $row["hhCode"];
-                                                                                                                                                                                                          
-                                                                $result2 = mysqli_query($link, "SELECT SUM(amount_paid) AS total_paid FROM tpayments where ((hhCode ='$hhcode') and (pApproved ='1'))"); 
-                                                                $row2 = mysqli_fetch_assoc($result2); 
-                                                                $total_paid = number_format($row2['total_paid'],2);
                                                                 
-                                                                $result3 = mysqli_query($link, "SELECT hhname,selected_product,blockname,plot,area FROM households where ((hhcode ='$hhcode'))"); 
-                                                                $row3 = mysqli_fetch_assoc($result3); 
-                                                                $hhname = $row3['hhname'];$selected_product = pname($link,$row3['selected_product']);$pcost = number_format(product_cost($link,$row3['selected_product']),2);
-                                                                $blockname = $row3["blockname"];$plot = $row3["plot"];$area = area_name($link,$row3["area"]);
-            
-                                                                if (($row2['total_paid']) >= product_cost($link,$row3['selected_product']))
-                                                                {
                                                                 echo "<tr>\n";
-                                                                    
-                                                                    echo "<td>".$row["hhCode"]."</td>\n";
-                                                                    echo "<td>\t\t$hhname</td>\n";
-                                                                    echo "<td>\t\t$area</td>\n";
-                                                                    echo "<td>\t\t$blockname</td>\n";
-                                                                    echo "<td>\t\t$plot</td>\n";
-                                                                    echo "<td>\t\t$selected_product</td>\n";
-                                                                    echo "<td>\t\t$pcost</td>\n";
-                                                                    echo "<td>\t\t$total_paid</td>\n";
+                                                                    echo "<td>".$row["code"]."</td>\n";
+                                                                    echo "<td>".$row["hhname"]."</td>\n";
+                                                                    echo "<td>".area_name($link,$row["area"])."</td>\n";
+                                                                    echo "<td>".$row["plot"]."</td>\n";
+                                                                    echo "<td>".$row["pname"]."</td>\n";
+                                                                    echo "<td>".number_format($row["pCost"],2)."</td>\n";
+                                                                    echo "<td>".number_format($row["Total_Paid"],2)."</td>\n";
                                                                 echo "</tr>\n";
                                                                 }
                                                             }
                                                             $result_set->close();
-                                                            }  
+                                                            
                                                                                 
                                                         ?>
                                                     </tbody>

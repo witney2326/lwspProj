@@ -26,16 +26,20 @@
     }
 </style>
 <script>
-      function getWard(val) {
-        $.ajax({
-          type: "POST",
-          url: "ward.php",
-          data:'conid='+val,
-        success: function(data){
-          $("#ward").html(data);
-          
-        }
-        });
+      function getWard(val) 
+      {
+        $.ajax
+            (
+                {
+                    type: "POST",
+                    url: "ward.php",
+                    data:'conid='+val,
+                    success: function(data)
+                    {
+                    $("#ward").html(data);
+                    }
+                }
+            );
         }
 
         function getArea(val) {
@@ -163,7 +167,7 @@ if(isset($_POST['submit']))
                             <div class="col-12">
                                 <label for="constituency" class="form-label">Constituency</label>
 
-                                    <select name="constituency" id="constituency" class="form-control" onChange="getWard(this.value);" required>
+                                    <select name="constituency" id="constituency" class="form-select" onChange="getWard(this.value);" required>
                                         <option value="">Select Constituency</option>
                                         <?php $sql=mysqli_query($link,"select id,cname from constituency ");
                                         while ($rw=mysqli_fetch_array($sql)) 
@@ -178,7 +182,7 @@ if(isset($_POST['submit']))
                             </div>
                             <div class="col-12">
                                 <label for="ward" class="form-label">Ward</label>
-                                <select class="form-select" name="ward" id="ward"  required disabled>
+                                <select class="form-select" name="ward" id="ward"  required>
                                     <option value="">Select Ward</option>
                                     
                                 </select>
@@ -189,7 +193,7 @@ if(isset($_POST['submit']))
 
                             <div class="col-12">
                                 <label for="area" class="form-label">City Area</label>
-                                <select class="form-select" name="area" id="area" required disabled>
+                                <select class="form-select" name="area" id="area" required>
                                     <option>Select Area</option>
                                     <?php                                                           
                                             $ta_fetch_query = "SELECT areaid,areaname FROM tblarea";                                                  

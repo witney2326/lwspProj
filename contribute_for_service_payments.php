@@ -201,7 +201,7 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                                                                             echo "<td>".$row["hhcode"]."</td>\n";
                                                                             echo "<td>".$row["hhname"]."</td>\n";
                                                                             echo "<td>".$row["phone"]."</td>\n";
-                                                                            echo "<td>\t\t$pOption</td>\n";
+                                                                            echo "<td>".payment_option_name($link,$row["pOption"])."</td>\n";
                                                                     
                                                                             echo "<td>                                               
                                                                                 <a href=\"hh_View.php?id=".$row['hhcode']."\"><i class='far fa-eye' title='View Household' style='font-size:18px;color:purple'></i></a> 

@@ -82,11 +82,6 @@
                                             <span class="d-none d-sm-block">Filtered Household OSS Product Selection</span>
                                         </a>
                                     </li>
-                                    <li class="nav-item waves-effect waves-light">
-                                        <a class="nav-link" data-bs-toggle="tab" href="javascript:void(0);" role="tab">
-                                            <span class="d-none d-sm-block">Summarised Household OSS Product Selection</span>
-                                        </a>
-                                    </li>
    
                                 </ul>
                             </div>
@@ -166,33 +161,24 @@
                                                     <img src="assets/images/logo-dark.png" alt="" height="64" class="center">
                                                     
                                                     <thead>
-                                                        <tr>
-                                                            <th>HH Code</th>
-                                                            <th>HH Name</th>
-                                                            <th>Block Name</th>
-                                                            <th>Plot No.</th>
-                                                            <th>Phone</th>
-                                                            <th>Selected Product</th>
-                                                        </tr>
-                                                        
+                                                    <tr>
+                                                        <th>Selected Product</th>
+                                                        <th>No of Households</th>
+                                                    </tr>
                                                     </thead>
 
                                                     <tbody>
                                                         <?Php
-                                                            $query="SELECT hhcode,hhname,con,ward,area,blockname,plot,phone,selected_product,product_approved
-                                                            FROM households where ((ward = '$ward') and (enrolled = '1') and (product_approved = '1')) group by ward,area";
+                                                            $query="SELECT selected_product, COUNT(hhcode) as HHs
+                                                            FROM households where ((enrolled ='1') and (product_approved = '1') and ward = '$ward') group by selected_product ";
                                                             
                                                             if ($result_set = $link->query($query)) {
                                                             while($row = $result_set->fetch_array(MYSQLI_ASSOC))
                                                             { 
                                                                 
                                                             echo "<tr>\n";
-                                                                echo "<td>".$row["hhcode"]."</td>\n";
-                                                                echo "<td>".$row["hhname"]."</td>\n";
-                                                                echo "<td>".$row["blockname"]."</td>\n";
-                                                                echo "<td>".$row["plot"]."</td>\n";
-                                                                echo "<td>".$row["phone"]."</td>\n";
                                                                 echo "<td>".pname($link,$row["selected_product"])."</td>\n";
+                                                                echo "<td>".$row["HHs"]."</td>\n";
                                                             echo "</tr>\n";
                                                             }
                                                             $result_set->close();

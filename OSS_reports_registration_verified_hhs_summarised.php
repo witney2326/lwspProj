@@ -2,7 +2,7 @@
 <?php include 'layouts/head-main.php'; ?>
 
 <head>
-    <title>Household OSS Products</title>
+    <title>Household Registration Reports</title>
     <?php include 'layouts/head.php'; ?>
     <?php include 'layouts/head-style.php'; ?>
     <?php include 'layouts/config.php'; ?>
@@ -54,7 +54,7 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                            <h4 class="mb-sm-0 font-size-18">Household OSS Products Reports</h4>
+                            <h4 class="mb-sm-0 font-size-18">Household Registration Reports</h4>
 
                             <div class="page-title-right">
                                 <ol class="breadcrumb m-0">
@@ -74,19 +74,24 @@
                                 <ul class="nav nav-pills nav-justified" role="tablist">
                                     
                                     <li class="nav-item waves-effect waves-light">
-                                        <a class="nav-link active" data-bs-toggle="tab" href="javascript:void(0);" role="tab">
+                                        <a class="nav-link" data-bs-toggle="link" href="OSS_reports_registration_verified_hhs.php" role="link">
                                             <span class="d-block d-sm-none"><i class="far fa-envelope"></i></span>
-                                            <span class="d-none d-sm-block">Household OSS Product Selection</span>
+                                            <span class="d-none d-sm-block">Verified/Accepted Households</span>
                                         </a>
                                     </li>
                                     
                                     <li class="nav-item waves-effect waves-light">
-                                        <a class="nav-link" data-bs-toggle="link" href="OSS_reports_hhs_selected_products_filter.php" role="link">
+                                        <a class="nav-link" data-bs-toggle="link" href="OSS_reports_registration_verified_hhs_filter.php" role="link">
                                             <span class="d-block d-sm-none"><i class="far fa-envelope"></i></span>
-                                            <span class="d-none d-sm-block">Filtered Household OSS Product Selection</span>
+                                            <span class="d-none d-sm-block">Filtered Verified/Accepted Households</span>
                                         </a>
                                     </li>
-                                    
+                                    <li class="nav-item waves-effect waves-light">
+                                        <a class="nav-link active" data-bs-toggle="tab" href="javascript:void(0);" role="tab">
+                                            <span class="d-block d-sm-none"><i class="far fa-envelope"></i></span>
+                                            <span class="d-none d-sm-block">Summarised Verified/Accepted Households</span>
+                                        </a>
+                                    </li>
                                     
                                 </ul>
                             </div>
@@ -106,7 +111,7 @@
                                 </div>
 
                                 <div class="card-header bg-transparent border-primary">
-                                    <p><center><h5 class="my-0 text-primary">Household OSS Product Selection</h5></p></center>
+                                    <p><center><h5 class="my-0 text-primary">Verified/Accepted Households</h5></p></center>
                                 </div>
 
                                     <table id="datatable-buttons" class="table table-bordered dt-responsive  nowrap w-100">
@@ -115,23 +120,26 @@
                                         
                                         <thead>
                                             <tr>
-                                                <th>Selected Product</th>
-                                                <th>No of Households</th>
+                                                <th>Constituency</th>
+                                                <th>Ward</th>
+                                                <th>Area</th>
+                                                <th>Registered Households</th>
                                             </tr>
                                         </thead>
 
                                         <tbody>
                                             <?Php
-                                                $query="SELECT selected_product, COUNT(hhcode) as HHs
-                                                FROM households where ((enrolled ='1') and (product_approved = '1')) group by selected_product ";
+                                                $query="SELECT con,ward,area,count(hhcode) as No_HHs FROM households where enrolled ='1' group by con,ward,area;";
                                                 
                                                 if ($result_set = $link->query($query)) {
                                                 while($row = $result_set->fetch_array(MYSQLI_ASSOC))
                                                 { 
                                                     
                                                 echo "<tr>\n";
-                                                    echo "<td>".pname($link,$row["selected_product"])."</td>\n";
-                                                    echo "<td>".$row["HHs"]."</td>\n";
+                                                    echo "<td>".con_name($link,$row["con"])."</td>\n";
+                                                    echo "<td>".ward_name($link,$row["ward"])."</td>\n";
+                                                    echo "<td>".area_name($link,$row["area"])."</td>\n";
+                                                    echo "<td>".$row["No_HHs"]."</td>\n";
                                                 echo "</tr>\n";
                                                 }
                                                 $result_set->close();

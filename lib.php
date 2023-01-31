@@ -8,7 +8,7 @@
 
     function payment_option_name($link, $ocode)
     {
-    $rg_query = mysqli_query($link,"select oName from payment_options where oID='$ocode'"); // select query
+    $rg_query = mysqli_query($link,"select oName from payment_options where(oID='$ocode')"); // select query
     $rg = mysqli_fetch_array($rg_query);// fetch data
     return $rg['oName'];
     }

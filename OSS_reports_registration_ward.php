@@ -83,7 +83,7 @@
                                         </a>
                                     </li>
                                     <li class="nav-item waves-effect waves-light">
-                                        <a class="nav-link" data-bs-toggle="tab" href="#iga" role="tab">
+                                        <a class="nav-link" data-bs-toggle="link" href="OSS_reports_registration_sumarised.php" role="link">
                                             <span class="d-none d-sm-block">Summarised Registered Households</span>
                                         </a>
                                     </li>
@@ -180,7 +180,7 @@
                                                     <tbody>
                                                         <?Php
                                                             $query="SELECT hhcode,hhname,area,blockname,plot,phone
-                                                            FROM households where ((ward = '$ward') and (deleted = '0')) group by ward,area";
+                                                            FROM households where ((ward = '$ward') and (deleted = '0'))";
                                                             
                                                             if ($result_set = $link->query($query)) {
                                                             while($row = $result_set->fetch_array(MYSQLI_ASSOC))
@@ -190,7 +190,7 @@
                                                                 
                                                                 echo "<td>".$row["hhcode"]."</td>\n";
                                                                 echo "<td>".$row["hhname"]."</td>\n";
-                                                                echo "<td>".$row["area"]."</td>\n";
+                                                                echo "<td>".area_name($link,$row["area"])."</td>\n";
                                                                 echo "<td>".$row["blockname"]."</td>\n";
                                                                 echo "<td>".$row["plot"]."</td>\n";
                                                                 echo "<td>".$row["phone"]."</td>\n";
