@@ -159,7 +159,7 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                                                                             
                                                                             echo "<td>
                                                                                 <a href=\"user_View.php?id=".userid($link,$row['id'])."\"><i class='far fa-eye' title='View User' style='font-size:18px;color:purple'></i></a>
-                                                                                <a onClick=\"javascript: return confirm('Are You Sure You want To Delete This User?');\" href=\"del_user.php?id=".$row['id']."\"><i class='far fa-trash-alt' title='Delete User' style='font-size:18px;color:Red'></i></a>
+                                                                                <a onClick=\"javascript: return confirm('Are You Sure You want To Delete This User?');\" href=\"del_contractor.php?id=".$row['id']."\"><i class='far fa-trash-alt' title='Delete User' style='font-size:18px;color:Red'></i></a>
                                                                             </td>\n";
                                                                            
                                                                             echo "</tr>";
