@@ -26,7 +26,7 @@
             if (($sql) and mysqli_query($link,$sql2) and ($sql3) ){
                 echo '<script type="text/javascript">'; 
                 echo 'alert("Project Progress UPDATED successfully !");'; 
-                echo 'window.location.href = "works_tracking.php";';
+                echo 'history.go(-2)';
                 echo '</script>';
             } else {
                 echo "Error: " . $sql . ":-" . mysqli_error($link);
@@ -36,7 +36,7 @@
             if (($sql) and mysqli_query($link,$sql2)){
                 echo '<script type="text/javascript">'; 
                 echo 'alert("Project Progress UPDATED successfully !");'; 
-                echo 'window.location.href = "works_tracking.php";';
+                echo 'history.go(-2)';
                 echo '</script>';
             } else {
                 echo "Error: " . $sql . ":-" . mysqli_error($link);

@@ -1,6 +1,6 @@
 <?php include 'layouts/session.php'; ?>
 <?php include 'layouts/head-main.php'; ?>
-
+<?php header("Cache-Control: max-age=300, must-revalidate"); ?>
 <head>
     <title>OSS Works Tracking</title>
     <?php include 'layouts/head.php'; ?>
@@ -38,11 +38,11 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
 <?php include 'layouts/body.php'; ?>
 
 <?php 
-    if(isset($_GET['Submit']))
+    if(isset($_POST['Submit']))
     {   
-        $constituency = $_GET['constituency'];
-        $ward = $_GET['ward'];
-        $area = $_GET['area'];
+        $constituency = $_POST['constituency'];
+        $ward = $_POST['ward'];
+        $area = $_POST['area'];
      
     }
 ?>
@@ -169,7 +169,7 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                                                         
                                                             <thead>
                                                                 <tr>
-                                                                    <th>Project Code</th>                                           
+                                                                    <th>OSS Works Code</th>                                           
                                                                     <th>HH Code</th>
                                                                     <th>Start Date</th>
                                                                     <th>Contractor</th>

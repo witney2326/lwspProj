@@ -1,6 +1,6 @@
 <?php include 'layouts/session.php'; ?>
 <?php include 'layouts/head-main.php'; ?>
-
+<?php header("Cache-Control: max-age=300, must-revalidate"); ?>
 <head>
     <title>LWSP|Contribute For Service</title>
     <?php include 'layouts/head.php'; ?>
@@ -111,7 +111,7 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                                         <!--start here -->
                                         <div class="card-border">
                                             <div class="card-body">
-                                                <form class="row row-cols-lg-auto g-3 align-items-center" novalidate action="contribute_for_service_filter1.php" method ="GET" >
+                                                <form class="row row-cols-lg-auto g-3 align-items-center" novalidate action="contribute_for_service_filter1.php" method ="POST" >
                                                     <div class="col-12">
                                                         <label for="constituency" class="form-label">Constituency</label>
                                                         

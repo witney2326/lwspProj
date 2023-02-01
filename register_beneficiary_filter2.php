@@ -1,6 +1,8 @@
 <?php include 'layouts/session.php'; ?>
 <?php include 'layouts/head-main.php'; ?>
 
+<?php header("Cache-Control: max-age=300, must-revalidate"); ?>
+
 <head>
     <title>LWSP |Add New Beneficiary Household</title>
     <?php include 'layouts/head.php'; ?>
@@ -28,8 +30,8 @@
     <?php
         include "layouts/config.php"; // Using database connection file here
         
-        $constituency = $_GET['constituency'];
-        $ward = $_GET['ward'];
+        $constituency = $_POST['constituency'];
+        $ward = $_POST['ward'];
         
         function get_constituency_name($link, $ccode)
         {
@@ -109,7 +111,7 @@
                 </div>
                 <div class="card-border">
                     <div class="card-body">
-                        <form class="row row-cols-lg-auto g-3 align-items-center" novalidate action="register_beneficiary_filter3.php" method ="GET" >
+                        <form class="row row-cols-lg-auto g-3 align-items-center" novalidate action="register_beneficiary_filter3.php" method ="POST" >
                             <div class="col-12">
                                 <label for="constituency" class="form-label">Constituency</label>
                                 <select class="form-select" name="constituency" id="constituency"  required>

@@ -1,6 +1,8 @@
 <?php include 'layouts/session.php'; ?>
 <?php include 'layouts/head-main.php'; ?>
 
+<?php header("Cache-Control: max-age=300, must-revalidate"); ?>
+
 <head>
     <title>LWSP |Add New Beneficiary Household</title>
     <?php include 'layouts/head.php'; ?>
@@ -163,7 +165,7 @@ if(isset($_POST['submit']))
                 <div class="card-border">
                     
                     <div class="card-body">
-                        <form class="row row-cols-lg-auto g-3 align-items-center"  method ="GET" enctype="multipart/form-data" action="register_beneficiary_filter1.php">
+                        <form class="row row-cols-lg-auto g-3 align-items-center"  method ="POST" enctype="multipart/form-data" action="register_beneficiary_filter1.php">
                             <div class="col-12">
                                 <label for="constituency" class="form-label">Constituency</label>
 
@@ -182,7 +184,7 @@ if(isset($_POST['submit']))
                             </div>
                             <div class="col-12">
                                 <label for="ward" class="form-label">Ward</label>
-                                <select class="form-select" name="ward" id="ward"  required>
+                                <select class="form-select" name="ward" id="ward"  required disabled>
                                     <option value="">Select Ward</option>
                                     
                                 </select>
@@ -193,7 +195,7 @@ if(isset($_POST['submit']))
 
                             <div class="col-12">
                                 <label for="area" class="form-label">City Area</label>
-                                <select class="form-select" name="area" id="area" required>
+                                <select class="form-select" name="area" id="area" required disabled>
                                     <option>Select Area</option>
                                     <?php                                                           
                                             $ta_fetch_query = "SELECT areaid,areaname FROM tblarea";                                                  

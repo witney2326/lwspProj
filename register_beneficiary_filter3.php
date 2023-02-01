@@ -1,6 +1,8 @@
 <?php include 'layouts/session.php'; ?>
 <?php include 'layouts/head-main.php'; ?>
 
+<?php header("Cache-Control: max-age=300, must-revalidate"); ?>
+
 <head>
     <title>LWSP |Add New Beneficiary Household</title>
     <?php include 'layouts/head.php'; ?>
@@ -29,9 +31,9 @@
         include "layouts/config.php"; // Using database connection file here
         include "lib.php";
         
-        $con = $_GET['constituency'];
-        $ward = $_GET['ward'];
-        $area = $_GET['area'];
+        $con = $_POST['constituency'];
+        $ward = $_POST['ward'];
+        $area = $_POST['area'];
 
         
     ?>

@@ -1,6 +1,6 @@
 <?php include 'layouts/session.php'; ?>
 <?php include 'layouts/head-main.php'; ?>
-
+<?php header("Cache-Control: max-age=300, must-revalidate"); ?>
 <head>
     <title>OSS Works Tracking</title>
     <?php include 'layouts/head.php'; ?>
@@ -37,10 +37,10 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
 <?php include 'layouts/body.php'; ?>
 
 <?php 
-    if(isset($_GET['Submit']))
+    if(isset($_POST['Submit']))
     {   
-        $constituency = $_GET['constituency'];
-        $ward = $_GET['ward'];
+        $constituency = $_POST['constituency'];
+        $ward = $_POST['ward'];
      
     }
     
@@ -63,7 +63,7 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                 <div class="row">
                     <div class="col-12">
                         <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                            <h4 class="mb-sm-0 font-size-18">Works Tracking: Verified Completed Projects</h4>
+                            <h4 class="mb-sm-0 font-size-18">Works Tracking: Verified Completed OSS Works</h4>
 
                             <div class="page-title-right">
                                 <ol class="breadcrumb m-0">
@@ -119,7 +119,7 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                                         <!--start here -->
                                         <div class="card-border">
                                             <div class="card-body">
-                                                <form class="row row-cols-lg-auto g-3 align-items-center" novalidate action="works_tracking_verified_completed_projects_filter3.php" method ="GET" >
+                                                <form class="row row-cols-lg-auto g-3 align-items-center" novalidate action="works_tracking_verified_completed_projects_filter3.php" method ="POST" >
                                                     <div class="col-12">
                                                         <label for="constituency" class="form-label">Constituency</label>
                                                         

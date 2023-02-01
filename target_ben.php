@@ -1,6 +1,8 @@
 <?php include 'layouts/session.php'; ?>
 <?php include 'layouts/head-main.php'; ?>
 
+<?php header("Cache-Control: max-age=300, must-revalidate"); ?>
+
 <head>
     <title>Beneficiary Targetting</title>
     <?php include 'layouts/head.php'; ?>
@@ -107,7 +109,7 @@
                                     
                                     <div class="card-body">
                                         <h5 class="card-title mt-0"></h5>
-                                        <form class="row row-cols-lg-auto g-3 align-items-center" novalidate action="target_ben_filter1.php" method ="GET" >
+                                        <form class="row row-cols-lg-auto g-3 align-items-center" novalidate action="target_ben_filter1.php" method ="POST" >
                                             <div class="col-12">
                                                 <label for="constituency" class="form-label">Constituency</label>
                                                 

@@ -1,6 +1,6 @@
 <?php include 'layouts/session.php'; ?>
 <?php include 'layouts/head-main.php'; ?>
-
+<?php header("Cache-Control: max-age=300, must-revalidate"); ?>
 <head>
     <title>OSS|Request For Service</title>
     <?php include 'layouts/head.php'; ?>
@@ -37,11 +37,11 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
 <?php include 'layouts/body.php'; ?>
 
 <?php 
-    if(isset($_GET['Submit']))
+    if(isset($_POST['Submit']))
     {   
-        $constituency = $_GET['constituency'];
-        //$ward = $_GET['ward'];
-        //$area = $_GET['area'];
+        $constituency = $_POST['constituency'];
+        //$ward = $_POST['ward'];
+        //$area = $_POST['area'];
      
     }
     
@@ -122,7 +122,7 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                                 <!--start here -->
                                 <div class="card-border">
                                     <div class="card-body">
-                                        <form class="row row-cols-lg-auto g-3 align-items-center" novalidate action="request_for_service_filter2.php" method ="GET" >
+                                        <form class="row row-cols-lg-auto g-3 align-items-center" novalidate action="request_for_service_filter2.php" method ="POST" >
                                             <div class="col-12">
                                                 <label for="constituency" class="form-label">Constituency</label>
                                                 

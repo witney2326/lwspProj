@@ -1,6 +1,6 @@
 <?php include 'layouts/session.php'; ?>
 <?php include 'layouts/head-main.php'; ?>
-
+<?php header("Cache-Control: max-age=300, must-revalidate"); ?>
 <head>
     <title>OSS|Technology Selection</title>
     <?php include 'layouts/head.php'; ?>
@@ -102,7 +102,7 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                                 </p>
                                 <div class="card-border">
                                     <div class="card-body">
-                                        <form class="row row-cols-lg-auto g-3 align-items-center" novalidate action="tech_selection_filter1.php" method ="GET" >
+                                        <form class="row row-cols-lg-auto g-3 align-items-center" novalidate action="tech_selection_filter1.php" method ="POST" >
                                             <div class="col-12">
                                                 <label for="constituency" class="form-label">Constituency</label>
                                                 
