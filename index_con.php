@@ -12,12 +12,17 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <style>
-    .bkground{
-        background-color: orange !important;
-        border: none !important;
-        border-width:0!important;
-    }
-</style>
+        .bkground{
+            background-color: orange !important;
+            border: none !important;
+            border-width:0!important;
+        }
+        .card-border 
+        {
+            border-style: solid;
+            border-color: orange;
+        }
+    </style>
 </head>
 
 <?php include 'layouts/body.php'; ?>
@@ -39,34 +44,48 @@ $contractorID = $_SESSION["hhid"];
 
         <div class="page-content">
             <div class="container-fluid">                                     
-                </div>
+                
 
                 <!-- start page title -->
+                <b><h4>Contractor's Dashboard</h4></b>
                 <div class="row">
-                        <div class="col-6">
-                    
-                            <div class="card">
-                                <div class="card-header bg-transparent border-primary">
-                                    <div class="card-group">
-                                        <div class="card border">
-                                            <img src="..." class="card-img-top" alt="">
-                                            <div class="card-body">
-                                                
-                                                <div class="card-body">
-                                                    <div class="d-flex">
-                                                        <div class="flex-grow-1">
-                                                            <button class="btn btn-btn btn-outline-secondary w-md" onclick="window.location.href='works_tracking_con.php';">
-                                                                Allocated Household OSS Works and Progress Updates
-                                                            </button>
-                                                            
-                                                            
-                                                        </div>
-                                                        
-                                                    </div>
-                                                </div>
-                                                
-                                            <!-- -->
+                    <div class="card">
+                        <div class="card-border">
+                            <div class="card-group">
+                               
+                                    <div class="card-body">
+                                        <div class="d-flex">
+                                            <div class="flex-grow-1">
+                                                <button class="btn btn-btn btn-outline-secondary w-md" onclick="window.location.href='works_tracking_con.php';">
+                                                    Allocated OSS Works
+                                                </button>
                                             </div>
+                                        </div>
+                                    </div>
+                               
+                            </div>
+                        
+            
+                            <div class="card">
+                            
+                                <div class="card-group">
+                                    <div class="card-border">
+                                        <div class="card-body">
+                                            <p class="text-muted fw-medium"><h5>OSS Sites Handed Over</h5></p>
+                                            <?php
+                                                $result = mysqli_query($link, "SELECT COUNT(pID) as projects FROM tprojects where pcontractorID = '$contractorID'"); 
+                                                $row = mysqli_fetch_assoc($result); 
+                                                $projects = $row['projects'];
+                                            ?>
+                                        </div>
+                                    </div>
+                                    <div class="card-border">
+                                        <div class="card-body">                                            
+                                            <h4 class="mb-0">
+                                                <div class="container">
+                                                    <div class="mb-0"><?php echo "" . $projects;?></div>
+                                                </div> 
+                                            </h4>
                                         </div>
                                         
                                     </div>
@@ -74,57 +93,7 @@ $contractorID = $_SESSION["hhid"];
                             </div>
                         </div>
                     </div>
-                <!-- end page title -->
-                    <div class="row">
-                        <div class="col-6">
-                    
-                            <div class="card">
-                                <div class="card-header bg-transparent border-primary">
-                                    <div class="card-group">
-                                        <div class="card border">
-                                            <img src="..." class="card-img-top" alt="">
-                                            <div class="card-body">
-                                                
-                                                <div class="card-body">
-                                                    <div class="d-flex">
-                                                        <div class="flex-grow-1">
-                                                            
-                                                            <p class="text-muted fw-medium"><h4>Current Household OSS Works Handed Over By Project</h4></p>
-                                                            <?php
-                                                                $result = mysqli_query($link, "SELECT COUNT(pID) as projects FROM tprojects where pcontractorID = '$contractorID'"); 
-                                                                $row = mysqli_fetch_assoc($result); 
-                                                                $projects = $row['projects'];
-                                                            ?>
-                                                                
-                                                        </div>
-                                                        
-                                                    </div>
-                                                </div>
-                                                
-                                            <!-- -->
-                                            </div>
-                                        </div>
-                                        <div class="card border">
-                                            <img src="..." class="card-img-top" alt="">
-                                            <div class="card-body bg-info text-white">
-                                                <div class="card-body bg-info text-white">                                                  
-                                                    <h4 class="mb-0">
-                                                        <div class="container">
-                                                            <div class="mb-0"><?php echo "" . $projects;?></div>
-                                                        </div> 
-                                                    </h4>
-                                                </div>
-                                            </div>
-                                            
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                                    
-                    
+                </div>
             </div>
             <!-- container-fluid -->
         </div>

@@ -4,7 +4,7 @@
 <?php header("Cache-Control: max-age=300, must-revalidate"); ?>
 
 <head>
-    <title>LWSP |Add New Beneficiary Household</title>
+    <title>Register Beneficiary Household</title>
     <?php include 'layouts/head.php'; ?>
     <?php include 'layouts/head-style.php'; ?>
 
@@ -60,12 +60,12 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                            <h4 class="mb-sm-0 font-size-18">Targetting and Registration: Register Household</h4>
+                            <h4 class="mb-sm-0 font-size-18">Register Beneficiary Household</h4>
 
                             <div class="page-title-right">
                                 <ol class="breadcrumb m-0">
                                     <li class="breadcrumb-item"><a href="index.php">Dashboard</a></li>
-                                    <li class="breadcrumb-item active">Add Beneficiary</li>
+                                    <li class="breadcrumb-item active">Register Beneficiary Household</li>
                                 </ol>
                             </div>
 
@@ -130,7 +130,7 @@
                                 <label for="area" class="form-label">City Area</label>
                                 <select class="form-select" name="area" id="area" required >
                                     <?php                                                           
-                                        $ta_fetch_query = "SELECT areacode,aname FROM areas";                                                  
+                                        $ta_fetch_query = "SELECT areacode,aname FROM areas where wardid = '$ward'";                                                  
                                         $result_ta_fetch = mysqli_query($link, $ta_fetch_query);                                                                       
                                         $i=0;
                                             while($DB_ROW_ta = mysqli_fetch_array($result_ta_fetch)) {

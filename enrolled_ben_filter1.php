@@ -31,6 +31,12 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
             border-style: solid;
             border-color: orange;
         }
+        .card-border1 
+        {
+            border-style: groove;
+            border-color: orange;
+            border-width: 8px;
+        }
     </style>
 </head>
 
@@ -77,7 +83,7 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                 <div class="row">
                     <div class="col-12">
                         <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                            <h4 class="mb-sm-0 font-size-18">Targetting  and Registration: Verified Households</h4>
+                            <h4 class="mb-sm-0 font-size-18">Verified & Accepted Households</h4>
 
                             <div class="page-title-right">
                                 <ol class="breadcrumb m-0">
@@ -93,44 +99,38 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                 <div class="row">
                     <div class="col-xl-12">
                         <div class="card">
-                            <ul class="nav nav-pills nav-justified" role="tablist">
-                                <li class="nav-item waves-effect waves-light">
-                                    <a class="link" data-bs-toggle="link" href="register_beneficiary.php" role="link">
-                                        <span class="d-block d-sm-none"><i class="fas fa-users"></i></span>
-                                        <span class="d-none d-sm-block">Register HH</span>
-                                    </a>
-                                </li>              
-                                <li class="nav-item waves-effect waves-light">
-                                    <a class="nav-link " data-bs-toggle="link" href="target_ben.php" role="link">
-                                        <span class="d-block d-sm-none"><i class="fas fa-home"></i></span>
-                                        <span class="d-none d-sm-block">Registered HHs</span>
-                                    </a>
-                                </li>
+                            <div class="card-border1">
+                                <div class="card-body">
+                                    <ul class="nav nav-pills nav-justified" role="tablist">
+                                        <li class="nav-item waves-effect waves-light">
+                                            <a class="link" data-bs-toggle="link" href="register_beneficiary.php" role="link">
+                                                <span class="d-block d-sm-none"><i class="fas fa-users"></i></span>
+                                                <span class="d-none d-sm-block"><?php echo $language["Register_Household"]?></span>
+                                            </a>
+                                        </li>              
+                                        <li class="nav-item waves-effect waves-light">
+                                            <a class="nav-link " data-bs-toggle="link" href="target_ben.php" role="link">
+                                                <span class="d-block d-sm-none"><i class="fas fa-home"></i></span>
+                                                <span class="d-none d-sm-block"><?php echo $language["Registered_Households"]?></span>
+                                            </a>
+                                        </li>
 
-                                <li class="nav-item waves-effect waves-light">
-                                    <a class="nav-link active" data-bs-toggle="tab" href="javascript:void(0);" role="tab">
-                                        <span class="d-block d-sm-none"><i class="fas fa-cog"></i></span>
-                                        <span class="d-none d-sm-block">Verified HHs</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item waves-effect waves-light">
-                                    <a class="nav-link" data-bs-toggle="link" href="enrolled_ben_tg.php" role="link">
-                                        <span class="d-block d-sm-none"><i class="fas fa-cog"></i></span>
-                                        <span class="d-none d-sm-block">Verified HHs: Need Technical Guidance</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <p align="right">
-                    <button class="btn btn-outline-primary  waves-effect waves-light mb-2 me-2" onclick="window.location.href = 'view-products.php'">  View OSS Products</button>
-                </p>
-                <!-- end page title -->
-                
-                <div class="row">
-                    <div class="col-xl-12">
-                        <div class="card">
+                                        <li class="nav-item waves-effect waves-light">
+                                            <a class="nav-link active" data-bs-toggle="tab" href="javascript:void(0);" role="tab">
+                                                <span class="d-block d-sm-none"><i class="fas fa-cog"></i></span>
+                                                <span class="d-none d-sm-block"><?php echo $language["Verified_Households"]?></span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item waves-effect waves-light">
+                                            <a class="nav-link" data-bs-toggle="link" href="enrolled_ben_tg.php" role="link">
+                                                <span class="d-block d-sm-none"><i class="fas fa-cog"></i></span>
+                                                <span class="d-none d-sm-block"><?php echo $language["Verified_Households_Need_Technical_Guidance"]?></span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>                        
+            
                             <div class="card-border">
                                 <div class="card-body">
                                         <h5 class="card-title mt-0"></h5>
@@ -186,11 +186,11 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                                 <div class="row">
                                     <div class="col-12">
                                         <div class="card-border">
-                                        <div class="card-header bg-transparent border-primary">
-                                            <h5 class="my-0 text-default">Verified and Accepted Households</h5>
-                                        </div>
-                                        <div class="card-body">
-                                        <h7 class="card-title mt-0"></h7>
+                                            <p align="right">
+                                                <button class="btn btn-outline-primary  waves-effect waves-light mb-2 me-2" onclick="window.location.href = 'view-products.php'">  View OSS Products</button>
+                                            </p>
+                                            <div class="card-body">
+                                            <h7 class="card-title mt-0"></h7>
                                             
                                                 <table id="datatable" class="table table-bordered dt-responsive  nowrap w-100">
                                                 

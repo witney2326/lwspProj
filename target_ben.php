@@ -33,6 +33,12 @@
             border-style: solid;
             border-color: orange;
         }
+        .card-border1 
+        {
+            border-style: groove;
+            border-color: orange;
+            border-width: 8px;
+        }
     </style>
 </head>
 
@@ -73,35 +79,37 @@
                 </div>
                 <!-- end page title -->
 
-                <div class="row">
-                    <div class="col-xl-12">
-                        <div class="card">         
-                                <div class="card-body">
-                                    <ul class="nav nav-pills nav-justified" role="tablist">
-                                        
-                                        <li class="nav-item waves-effect waves-light">
-                                            <a class="link" data-bs-toggle="link" href="register_beneficiary.php" role="link">
-                                                <span class="d-none d-sm-block">Register HH</span>
-                                            </a>
-                                        </li>
-                                        <li class="nav-item waves-effect waves-light">
-                                            <a class="nav-link active" data-bs-toggle="tab" href="#home" role="tab">
-                                                <span class="d-none d-sm-block">Registered HHs</span>
-                                            </a>
-                                        </li>
-                                        <li class="nav-item waves-effect waves-light">
-                                            <a class="nav-link" data-bs-toggle="link" href="enrolled_ben.php" role="link">
-                                                <span class="d-none d-sm-block">Verified HHs</span>
-                                            </a>
-                                        </li>
-                                        <li class="nav-item waves-effect waves-light">
-                                            <a class="nav-link" data-bs-toggle="link" href="enrolled_ben_tg.php" role="link">
-                                                <span class="d-block d-sm-none"><i class="fas fa-cog"></i></span>
-                                                <span class="d-none d-sm-block">Verified HHs: Need Technical Guidance</span>
-                                            </a>
-                                        </li>
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <div class="card">
+                                <div class="card-border1">      
+                                    <div class="card-body">
+                                        <ul class="nav nav-pills nav-justified" role="tablist">
+                                            
+                                            <li class="nav-item waves-effect waves-light">
+                                                <a class="link" data-bs-toggle="link" href="register_beneficiary.php" role="link">
+                                                    <span class="d-none d-sm-block"><?php echo $language["Register_Household"]?></span>
+                                                </a>
+                                            </li>
+                                            <li class="nav-item waves-effect waves-light">
+                                                <a class="nav-link active" data-bs-toggle="tab" href="#home" role="tab">
+                                                    <span class="d-none d-sm-block"><?php echo $language["Registered_Households"]?></span>
+                                                </a>
+                                            </li>
+                                            <li class="nav-item waves-effect waves-light">
+                                                <a class="nav-link" data-bs-toggle="link" href="enrolled_ben.php" role="link">
+                                                    <span class="d-none d-sm-block"><?php echo $language["Verified_Households"]?></span>
+                                                </a>
+                                            </li>
+                                            <li class="nav-item waves-effect waves-light">
+                                                <a class="nav-link" data-bs-toggle="link" href="enrolled_ben_tg.php" role="link">
+                                                    <span class="d-block d-sm-none"><i class="fas fa-cog"></i></span>
+                                                    <span class="d-none d-sm-block"><?php echo $language["Verified_Households_Need_Technical_Guidance"]?></span>
+                                                </a>
+                                            </li>
 
-                                    </ul>
+                                        </ul>
+                                    </div>
                                 </div>
 
                                         <!--start here -->

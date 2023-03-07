@@ -42,7 +42,18 @@
 <!-- Begin page -->
 <div id="layout-wrapper">
 
-    <?php include 'layouts/menu.php'; ?>
+   <?php if ($_SESSION["userrole"] == "04")
+    {
+        echo include 'layouts/vertical-menu_con.php';
+    } else if ($_SESSION["userrole"] == "05")
+    {
+        echo include 'layouts/vertical-menu_hh.php';
+    } else
+    { 
+        echo include 'layouts/menu.php';
+    }
+   ?>
+    
 
     <!-- ============================================================== -->
     <!-- Start right Content here -->

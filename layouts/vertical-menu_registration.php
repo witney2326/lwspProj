@@ -156,21 +156,14 @@
 
                 <li>
                    
-                    <a href="basicReports.php" class="waves-effect">
+                    <a href="javascript:void(0);" class="waves-effect">
                     <i class="bx bx-line-chart" style="color:blue"></i><span class="badge rounded-pill bg-info float-end"></span>
                         <span key="t-dashboards"> Project Reports</span>
                     </a>
                     
                 </li>
 
-                <li>
-                    
-                    <a href="javascript:void(0);" class="waves-effect">
-                        <i class="fas fa-exclamation" style="color:black"></i><span class="badge rounded-pill bg-info float-end"></span>
-                        <span key="t-dashboards"> Case Management</span>
-                    </a>
-                    
-                </li>
+                
 
             </ul>
         </div>

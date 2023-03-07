@@ -15,13 +15,48 @@
     <script src="assets/libs/datatables.net/js/jquery.dataTables.min.js"></script>
 
     <style>
-        .card-border 
-        {
-            border-style: solid;
-            border-color: orange;
+    .nav-link active 
+    {
+        background-color: orange !important;
+        border: none !important;
+        border-width:0!important;
+    }
+    .card-border 
+    {
+        border-style: solid;
+        border-color: orange;
+    }
+</style>
+<script>
+      function getWard(val) 
+      {
+        $.ajax
+            (
+                {
+                    type: "POST",
+                    url: "ward.php",
+                    data:'conid='+val,
+                    success: function(data)
+                    {
+                    $("#ward").html(data);
+                    }
+                }
+            );
         }
-    </style>
 
+        function getArea(val) {
+        $.ajax({
+          type: "POST",
+          url: "get_ta.php",
+          data:'disid='+val,
+        success: function(data){
+          $("#ta").html(data);
+          
+        }
+        });
+        }
+
+      </script>
 </head>
 
 <div id="layout-wrapper">
@@ -29,10 +64,8 @@
     <?php include 'layouts/menu.php'; ?>
 
     <?php
-        include "layouts/config.php"; // Using database connection file here
+        include "layouts/config.php"; // Using database connection file here 
         
-        $constituency = $_POST["constituency"];
-
         function get_constituency_name($link, $ccode)
         {
             $rg_query = mysqli_query($link,"select cname from constituency where id='$ccode'"); // select query
@@ -40,14 +73,28 @@
             return $rg['cname'];
         }
 
-        function get_rname($link, $rcode)
+        function get_ward_name($link, $wcode)
         {
-        $rg_query = mysqli_query($link,"select name from tblregion where regionID='$rcode'"); // select query
-        $rg = mysqli_fetch_array($rg_query);// fetch data
-        return $rg['name'];
-        }     
-    ?>
+            $rg_query = mysqli_query($link,"select wname from wards where id='$wcode'"); // select query
+            $rg = mysqli_fetch_array($rg_query);// fetch data
+            return $rg['wname'];
+        }
 
+        function get_area_name($link, $acode)
+        {
+            $rg_query = mysqli_query($link,"select aname from areas where areacode='$acode'"); // select query
+            $rg = mysqli_fetch_array($rg_query);// fetch data
+            return $rg['aname'];
+        }
+    ?>
+    <?php 
+if(isset($_POST['submit']))
+{
+    
+    $constituency=$_POST['constituency'];
+    //$subcat=$_POST['subcategory'];
+}
+?>
     <!-- ============================================================== -->
     <!-- Start right Content here -->
     <!-- ============================================================== -->
@@ -58,9 +105,6 @@
         <div class="page-content">
             <div class="container-fluid">
 
-                <!-- start page title -->
-
-                <!-- start page title -->
                 <div class="row">
                     <div class="col-12">
                         <div class="page-title-box d-sm-flex align-items-center justify-content-between">
@@ -78,26 +122,22 @@
                 </div>
                 <!-- end page title -->
 
-                <p align="right">
-                    <INPUT TYPE="button" class="btn btn-outline-secondary w-md" style="width:170px" VALUE="Back" onClick="history.go(-1);">  
-                </p>
                 <div class="card-border">
                     <div class="card-body">
                         <ul class="nav nav-pills nav-justified" role="tablist">
+                            
                             <li class="nav-item waves-effect waves-light">
                                 <a class="nav-link active" data-bs-toggle="tab" href="javascript:void(0);" role="tab">
                                     <span class="d-block d-sm-none"><i class="fas fa-users"></i></span>
                                     <span class="d-none d-sm-block">Register HH</span>
                                 </a>
-                            </li>             
+                            </li>              
                             <li class="nav-item waves-effect waves-light">
                                 <a class="nav-link " data-bs-toggle="link" href="target_ben.php" role="link">
                                     <span class="d-block d-sm-none"><i class="fas fa-home"></i></span>
                                     <span class="d-none d-sm-block">Registered HHs</span>
                                 </a>
                             </li>
-                            
-                            
                             <li class="nav-item waves-effect waves-light">
                                 <a class="nav-link" data-bs-toggle="link" href="enrolled_ben.php" role="link">
                                     <span class="d-block d-sm-none"><i class="fas fa-cog"></i></span>
@@ -110,34 +150,36 @@
                                     <span class="d-none d-sm-block">Verified HHs: Need Technical Guidance</span>
                                 </a>
                             </li>
-
+                            
                         </ul>
                     </div>
                 </div>
+
                 <div class="card-border">
+                    
                     <div class="card-body">
-                        <form class="row row-cols-lg-auto g-3 align-items-center" novalidate action="register_beneficiary_filter2.php" method ="POST" >
+                        <form class="row row-cols-lg-auto g-3 align-items-center"  method ="POST" enctype="multipart/form-data" action="register_beneficiary_filter1.php">
                             <div class="col-12">
                                 <label for="constituency" class="form-label">Constituency</label>
-                                <select class="form-select" name="constituency" id="constituency" value =""  required>
-                                    <option selected value="<?php echo $constituency;?>" ><?php echo get_constituency_name($link,$constituency);?></option>
-                                </select>
+
+                                    <select name="constituency" id="constituency" class="form-select" onChange="getWard(this.value);" required>
+                                        <option value="">Select Constituency</option>
+                                        <?php $sql=mysqli_query($link,"select id,cname from constituency ");
+                                        while ($rw=mysqli_fetch_array($sql)) 
+                                        { ?>
+                                         <option value="<?php echo htmlentities($rw['id']);?>"><?php echo htmlentities($rw['cname']);?></option> <?php
+                                        }
+                                        ?>
+                                    </select>
+                                    <div class="invalid-feedback">
+                                        Please select a valid Constituency
+                                    </div>
                             </div>
-                            
                             <div class="col-12">
                                 <label for="ward" class="form-label">Ward</label>
-                                <select class="form-select" name="ward" id="ward" value ="" required >
-                                        <?php                                                           
-                                            $dis_fetch_query = "SELECT id,wname FROM wards where constituency ='$constituency'";                                                  
-                                            $result_dis_fetch = mysqli_query($link, $dis_fetch_query);                                                                       
-                                            $i=0;
-                                                while($DB_ROW_Dis = mysqli_fetch_array($result_dis_fetch)) {
-                                            ?>
-                                            <option value="<?php echo $DB_ROW_Dis["id"]; ?>">
-                                                <?php echo $DB_ROW_Dis["wname"]; ?></option><?php
-                                                $i++;
-                                                    }
-                                        ?>
+                                <select class="form-select" name="ward" id="ward"  required>
+                                    <option value="">Select Ward</option>
+                                    
                                 </select>
                                 <div class="invalid-feedback">
                                     Please select a valid Ward.
@@ -145,17 +187,17 @@
                             </div>
 
                             <div class="col-12">
-                                <label for="ta" class="form-label">City Area</label>
-                                <select class="form-select" name="ta" id="ta" required disabled>
+                                <label for="area" class="form-label">City Area</label>
+                                <select class="form-select" name="area" id="area" required >
                                     <option>Select Area</option>
                                     <?php                                                           
-                                            $ta_fetch_query = "SELECT TAName FROM tblta";                                                  
+                                            $ta_fetch_query = "SELECT areaid,areaname FROM tblarea";                                                  
                                             $result_ta_fetch = mysqli_query($link, $ta_fetch_query);                                                                       
                                             $i=0;
                                                 while($DB_ROW_ta = mysqli_fetch_array($result_ta_fetch)) {
                                             ?>
-                                            <option>
-                                                <?php echo $DB_ROW_ta["TAName"]; ?></option><?php
+                                            <option value="<?php echo $DB_ROW_ta["areaid"]; ?>">
+                                                <?php echo $DB_ROW_ta["areaname"]; ?></option><?php
                                                 $i++;
                                                     }
                                         ?>
@@ -164,13 +206,23 @@
                                     Please select a valid Area
                                 </div>
                             </div>
+
+                            
                             <div class="col-12">
-                                <button type="submit" class="btn btn-outline-primary w-md" name="Submit" value="Submit">Submit</button>            
+                                <button type="submit" class="btn btn-outline-primary w-md" name="Submit" value="Submit">Submit</button>
+
                             </div>
                         </form>                                             
                         <!-- End Here -->
                     </div>
                 </div>
+                <form action="target_ben.php">
+                    <p align="right">
+                        <input type="submit" class="btn btn-outline-secondary w-md" style="width:170px" VALUE="Registered HHs" />
+                        <INPUT TYPE="button" class="btn btn-outline-secondary w-md" style="width:170px" VALUE="Back" onClick="history.go(-1);">  
+                    </p>
+                </form>
+
             </div>
         </div>
         <script src="assets/libs/datatables.net/js/jquery.dataTables.min.js"></script>

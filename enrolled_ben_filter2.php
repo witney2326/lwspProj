@@ -31,6 +31,12 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
             border-style: solid;
             border-color: orange;
         }
+        .card-border1 
+        {
+            border-style: groove;
+            border-color: orange;
+            border-width: 8px;
+        }
     </style>
 </head>
 
@@ -84,7 +90,7 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                 <div class="row">
                     <div class="col-12">
                         <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                            <h4 class="mb-sm-0 font-size-18">Targetting  and Registration: Verified Households</h4>
+                            <h4 class="mb-sm-0 font-size-18">Verified & Accepted Households</h4>
 
                             <div class="page-title-right">
                                 <ol class="breadcrumb m-0">
@@ -100,159 +106,154 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                 
                 <div class="row">
                     <div class="col-xl-12">
-                        <div class="card">  
-                            <ul class="nav nav-pills nav-justified" role="tablist">
-                                <li class="nav-item waves-effect waves-light">
-                                    <a class="link" data-bs-toggle="link" href="register_beneficiary.php" role="link">
-                                        <span class="d-block d-sm-none"><i class="fas fa-users"></i></span>
-                                        <span class="d-none d-sm-block">Register HH</span>
-                                    </a>
-                                </li>             
-                                <li class="nav-item waves-effect waves-light">
-                                    <a class="nav-link " data-bs-toggle="link" href="target_ben.php" role="link">
-                                        <span class="d-block d-sm-none"><i class="fas fa-home"></i></span>
-                                        <span class="d-none d-sm-block">Registered HHs</span>
-                                    </a>
-                                </li>
+                        <div class="card"> 
+                            <div class="card-border1">
+                                <div class="card-body">
+                                    <ul class="nav nav-pills nav-justified" role="tablist">
+                                        <li class="nav-item waves-effect waves-light">
+                                            <a class="link" data-bs-toggle="link" href="register_beneficiary.php" role="link">
+                                                <span class="d-block d-sm-none"><i class="fas fa-users"></i></span>
+                                                <span class="d-none d-sm-block"><?php echo $language["Register_Household"]?></span>
+                                            </a>
+                                        </li>             
+                                        <li class="nav-item waves-effect waves-light">
+                                            <a class="nav-link " data-bs-toggle="link" href="target_ben.php" role="link">
+                                                <span class="d-block d-sm-none"><i class="fas fa-home"></i></span>
+                                                <span class="d-none d-sm-block"><?php echo $language["Registered_Households"]?></span>
+                                            </a>
+                                        </li>
 
-                                <li class="nav-item waves-effect waves-light">
-                                    <a class="nav-link active" data-bs-toggle="tab" href="javascript:void(0);" role="tab">
-                                        <span class="d-block d-sm-none"><i class="fas fa-cog"></i></span>
-                                        <span class="d-none d-sm-block">Verified HHs</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item waves-effect waves-light">
-                                    <a class="nav-link" data-bs-toggle="link" href="enrolled_ben_tg.php" role="link">
-                                        <span class="d-block d-sm-none"><i class="fas fa-cog"></i></span>
-                                        <span class="d-none d-sm-block">Verified HHs: Need Technical Guidance</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <p align="right">
-                    <button class="btn btn-outline-primary  waves-effect waves-light mb-2 me-2" onclick="window.location.href = 'view-products.php'">  View OSS Products</button>
-                </p>
-                <div class="row">
-                    <div class="col-12">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="card-border">
-                                    <div class="card-body">
-                                        <form class="row row-cols-lg-auto g-3 align-items-center" novalidate action="enrolled_ben_filter3.php" method ="POST" >
-                                            <div class="col-12">
-                                                <label for="constituency" class="form-label">Constituency</label>
-                                                
-                                                <select class="form-select" name="constituency" id="constituency"  required>
-                                                    <option selected value="<?php echo $constituency;?>"><?php echo con_name($link,$constituency);?></option>  
-                                                </select>
-                                            </div>
-                                            
-                                            <div class="col-12">
-                                                <label for="ward" class="form-label">Ward</label>
-                                                <select class="form-select" name="ward" id="ward"  required >
-                                                    <option selected value="<?php echo $ward; ?>" ><?php echo ward_name($link,$ward); ?></option>
-                                                        
-                                                </select>
-                                                
-                                            </div>
-
-                                            <div class="col-12">
-                                                <label for="area" class="form-label">City Area</label>
-                                                <select class="form-select" name="area" id="area" required >
-                                                    <option ></option>
-                                                    <?php                                                           
-                                                            $ta_fetch_query = "SELECT areacode,aname FROM areas";                                                  
-                                                            $result_ta_fetch = mysqli_query($link, $ta_fetch_query);                                                                       
-                                                            $i=0;
-                                                                while($DB_ROW_ta = mysqli_fetch_array($result_ta_fetch)) {
-                                                            ?>
-                                                            <option value="<?php echo $DB_ROW_ta["areacode"]; ?>">
-                                                                <?php echo $DB_ROW_ta["aname"]; ?></option><?php
-                                                                $i++;
-                                                                    }
-                                                        ?>
-                                                </select>
-                                                <div class="invalid-feedback">
-                                                    Please select a valid Area
-                                                </div>
-                                            </div>
-
-                                            
-                                            <div class="col-12">
-                                                <button type="submit" class="btn btn-btn btn-outline-primary w-md" name="Submit" value="Submit">Submit</button>
-                                                <INPUT TYPE="button" class="btn btn-btn btn-outline-secondary w-md" style="width:170px" VALUE="Back" onClick="history.go(-1);">  
-                                            </div>
-                                        </form>                                            
-                                        <!-- End Here -->
-                                    </div>
+                                        <li class="nav-item waves-effect waves-light">
+                                            <a class="nav-link active" data-bs-toggle="tab" href="javascript:void(0);" role="tab">
+                                                <span class="d-block d-sm-none"><i class="fas fa-cog"></i></span>
+                                                <span class="d-none d-sm-block"><?php echo $language["Verified_Households"]?></span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item waves-effect waves-light">
+                                            <a class="nav-link" data-bs-toggle="link" href="enrolled_ben_tg.php" role="link">
+                                                <span class="d-block d-sm-none"><i class="fas fa-cog"></i></span>
+                                                <span class="d-none d-sm-block"><?php echo $language["Verified_Households_Need_Technical_Guidance"]?></span>
+                                            </a>
+                                        </li>
+                                    </ul>
                                 </div>
-                                
-                                <div class="row">
-                                    <div class="col-12">
-                                        <div class="card-border">
-                                        <div class="card-header bg-transparent border-primary">
-                                            <h5 class="my-0 text-default">Verified and Accepted Households</h5>
+                            </div>
+                        
+                            <div class="card-border">
+                                <div class="card-body">
+                                    <form class="row row-cols-lg-auto g-3 align-items-center" novalidate action="enrolled_ben_filter3.php" method ="POST" >
+                                        <div class="col-12">
+                                            <label for="constituency" class="form-label">Constituency</label>
+                                            
+                                            <select class="form-select" name="constituency" id="constituency"  required>
+                                                <option selected value="<?php echo $constituency;?>"><?php echo con_name($link,$constituency);?></option>  
+                                            </select>
                                         </div>
+                                        
+                                        <div class="col-12">
+                                            <label for="ward" class="form-label">Ward</label>
+                                            <select class="form-select" name="ward" id="ward"  required >
+                                                <option selected value="<?php echo $ward; ?>" ><?php echo ward_name($link,$ward); ?></option>
+                                                    
+                                            </select>
+                                            
+                                        </div>
+
+                                        <div class="col-12">
+                                            <label for="area" class="form-label">City Area</label>
+                                            <select class="form-select" name="area" id="area" required >
+                                                <option ></option>
+                                                <?php                                                           
+                                                        $ta_fetch_query = "SELECT areacode,aname FROM areas";                                                  
+                                                        $result_ta_fetch = mysqli_query($link, $ta_fetch_query);                                                                       
+                                                        $i=0;
+                                                            while($DB_ROW_ta = mysqli_fetch_array($result_ta_fetch)) {
+                                                        ?>
+                                                        <option value="<?php echo $DB_ROW_ta["areacode"]; ?>">
+                                                            <?php echo $DB_ROW_ta["aname"]; ?></option><?php
+                                                            $i++;
+                                                                }
+                                                    ?>
+                                            </select>
+                                            <div class="invalid-feedback">
+                                                Please select a valid Area
+                                            </div>
+                                        </div>
+
+                                        
+                                        <div class="col-12">
+                                            <button type="submit" class="btn btn-btn btn-outline-primary w-md" name="Submit" value="Submit">Submit</button>
+                                            <INPUT TYPE="button" class="btn btn-btn btn-outline-secondary w-md" style="width:170px" VALUE="Back" onClick="history.go(-1);">  
+                                        </div>
+                                    </form>                                            
+                                    <!-- End Here -->
+                                </div>
+                            </div>
+                            
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="card-border">
+                                        <p align="right">
+                                            <button class="btn btn-outline-primary  waves-effect waves-light mb-2 me-2" onclick="window.location.href = 'view-products.php'">  View OSS Products</button>
+                                        </p>
                                         <div class="card-body">
                                         <h7 class="card-title mt-0"></h7>
+                                        
+                                            <table id="datatable" class="table table-bordered dt-responsive  nowrap w-100">
                                             
-                                                <table id="datatable" class="table table-bordered dt-responsive  nowrap w-100">
-                                                
-                                                    <thead>
-                                                        <tr>
-                                                            <th>HH Code</th>                                           
-                                                            <th>HH Name</th>
-                                                            <th>Agree TCs?</th>
-                                                            <th>TG?</th>
-                                                            <th>Ready_Select?</th>
-                                                            <th>Action</th>  
-                                                        </tr>
-                                                    </thead>
+                                                <thead>
+                                                    <tr>
+                                                        <th>HH Code</th>                                           
+                                                        <th>HH Name</th>
+                                                        <th>Agree TCs?</th>
+                                                        <th>TG?</th>
+                                                        <th>Ready_Select?</th>
+                                                        <th>Action</th>  
+                                                    </tr>
+                                                </thead>
 
-                                                    <tbody>
-                                                        <?Php
-                                                            $query="select * from households where ((con = '$constituency') and (ward = '$ward') and (enrolled ='1') and (deleted = '0'))";
+                                                <tbody>
+                                                    <?Php
+                                                        $query="select * from households where ((con = '$constituency') and (ward = '$ward') and (enrolled ='1') and (deleted = '0'))";
 
-                                                            //Variable $link is declared inside config.php file & used here
-                                                            
-                                                            if ($result_set = $link->query($query)) {
-                                                            while($row = $result_set->fetch_array(MYSQLI_ASSOC))
-                                                            { 
-                                                                if ($row["identification"] == 1){$ident = 'CBT';}else{$ident = 'Self';}
-                                                                if ($row["enrolled"]== 1){$enrolled = 'Yes';}else {$enrolled = 'No';}
-                                                                if ($row["agree_tcs"]== 1){$agree_tcs = 'Yes';}else {$agree_tcs = 'No';}
-                                                                if ($row["need_tg"]== 1){$need_tg = 'Yes';}else {$need_tg = 'No';}
-                                                                if ($row["ready_selection"]== 1){$ready_selection = 'Yes';}else {$ready_selection = 'No';}
+                                                        //Variable $link is declared inside config.php file & used here
+                                                        
+                                                        if ($result_set = $link->query($query)) {
+                                                        while($row = $result_set->fetch_array(MYSQLI_ASSOC))
+                                                        { 
+                                                            if ($row["identification"] == 1){$ident = 'CBT';}else{$ident = 'Self';}
+                                                            if ($row["enrolled"]== 1){$enrolled = 'Yes';}else {$enrolled = 'No';}
+                                                            if ($row["agree_tcs"]== 1){$agree_tcs = 'Yes';}else {$agree_tcs = 'No';}
+                                                            if ($row["need_tg"]== 1){$need_tg = 'Yes';}else {$need_tg = 'No';}
+                                                            if ($row["ready_selection"]== 1){$ready_selection = 'Yes';}else {$ready_selection = 'No';}
 
-                                                            echo "<tr>\n";
-                                                                echo "<td>".$row["hhcode"]."</td>\n";
-                                                                echo "<td>".$row["hhname"]."</td>\n";
-                                                                echo "<td>\t\t$agree_tcs</td>\n";
-                                                                echo "<td>\t\t$need_tg</td>\n";
-                                                                echo "<td>\t\t$ready_selection</td>\n";
-                                                                echo "<td>                                               
-                                                                    
-                                                                    <a onClick=\"javascript: return confirm('Do you Need Technical Guide Inorder To Make Selection?');\"  href=\"tg-for-selection.php?id=".$row['hhcode']."\"><i class='far fa-check-circle' title='Need TG For Selection' style='font-size:18px; color:purple'></i></a> 
-                                                                    <a onClick=\"javascript: return confirm('Are You Ready To Make Your Selection?');\" href=\"ben-ready-to-select.php?id=".$row['hhcode']."\"><i class='far fa-check-square' title='Ready For Selection' style='font-size:18px;color:green'></i></a> 
-                                                                </td>\n";
+                                                        echo "<tr>\n";
+                                                            echo "<td>".$row["hhcode"]."</td>\n";
+                                                            echo "<td>".$row["hhname"]."</td>\n";
+                                                            echo "<td>\t\t$agree_tcs</td>\n";
+                                                            echo "<td>\t\t$need_tg</td>\n";
+                                                            echo "<td>\t\t$ready_selection</td>\n";
+                                                            echo "<td>                                               
+                                                                
+                                                                <a onClick=\"javascript: return confirm('Do you Need Technical Guide Inorder To Make Selection?');\"  href=\"tg-for-selection.php?id=".$row['hhcode']."\"><i class='far fa-check-circle' title='Need TG For Selection' style='font-size:18px; color:purple'></i></a> 
+                                                                <a onClick=\"javascript: return confirm('Are You Ready To Make Your Selection?');\" href=\"ben-ready-to-select.php?id=".$row['hhcode']."\"><i class='far fa-check-square' title='Ready For Selection' style='font-size:18px;color:green'></i></a> 
+                                                            </td>\n";
 
 
-                                                            echo "</tr>\n";
-                                                            }
-                                                            $result_set->close();
-                                                            }  
-                                                                                
-                                                        ?>
-                                                    </tbody>
-                                                </table>
-                                                </p>
-                                            </div>
-                                        </div>     
-                                    </div>            
-                                </div>  
-                            </div>
+                                                        echo "</tr>\n";
+                                                        }
+                                                        $result_set->close();
+                                                        }  
+                                                                            
+                                                    ?>
+                                                </tbody>
+                                            </table>
+                                            </p>
+                                        </div>
+                                    </div>     
+                                </div>            
+                            </div>  
+                            
                         </div>
                     </div>
                 </div>

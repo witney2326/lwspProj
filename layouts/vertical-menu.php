@@ -112,17 +112,15 @@
                     
                 </li>
                 <?php
-
-                    
-                        if ($_SESSION["userrole"] == '01')
-                        {
-                            echo '<li>';
-                                 echo '<a href="sysadmin1.php" class="waves-effect">';
-                                    echo  '<i class="fa fa-cog" style="color:orangered;font-size:small;"></i><span class="badge rounded-pill bg-info float-end"></span>';
-                                    echo '<span key="t-dashboards"><b>System Admin</b></span>';
-                                echo '</a>';
-                            echo '</li>';
-                        }
+                    if ($_SESSION["userrole"] == '01')
+                    {
+                        echo '<li>';
+                                echo '<a href="sysadmin1.php" class="waves-effect">';
+                                echo  '<i class="fa fa-cog" style="color:orangered;font-size:small;"></i><span class="badge rounded-pill bg-info float-end"></span>';
+                                echo '<span key="t-dashboards"><b>System Admin</b></span>';
+                            echo '</a>';
+                        echo '</li>';
+                    }
                 ?>
 
                 <li>
@@ -163,15 +161,6 @@
                     <a href="basicReports.php" class="waves-effect">
                     <i class="bx bx-line-chart" style="color:blue;font-size:small;"></i><span class="badge rounded-pill bg-info float-end"></span>
                         <span key="t-dashboards"> Project Reports</span>
-                    </a>
-                    
-                </li>
-
-                <li>
-                    
-                    <a href="case-mgt.php" class="waves-effect">
-                        <i class="fas fa-exclamation" style="color:black"></i><span class="badge rounded-pill bg-info float-end"></span>
-                        <span key="t-dashboards"> Case Management</span>
                     </a>
                     
                 </li>

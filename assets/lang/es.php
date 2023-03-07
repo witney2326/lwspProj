@@ -165,4 +165,132 @@ $language['Blog_Details']="Detalles del blog";
 $language['Confirm_Mail']="Confirmar correo";
 $language['Email_verification']="Verificacion de email";
 $language['Two_step_verification']="Verificación de dos pasos";
+
+$language['Dashboard']="Painel";
+$language['System_Admin']="Administração do Sistema";
+$language['Register_and_Target']="Registre-se e Alvo";
+$language['Request_for_Service']="Solicitação de serviço";
+$language['Contribute_for_Service']="Contribuir para o serviço";
+$language['OSS_Works']="OSS funciona";
+$language['Project_Reports']="Relatórios de Projeto";
+
+$language['Select_Language']="Selecione o idioma";
+$language['The_Sanitation_Project']="O Projeto de Saneamento";
+$language['Registered_HouseHolds']="Domésticos Registrados";
+$language['Verified_and_Accepted_Households']="Famílias verificadas e aceitas";
+$language['Households_with_Full_Payments']="Famílias com pagamentos integrais";
+$language['Households_Requesting_Technical_Guidance_on_Selection']="Famílias que solicitam orientação técnica na seleção";
+$language['Total_OSS_Sites_Handed_Over_to_Contractors']="Total de sites de OSS entregues a empreiteiros";
+$language['OSS_Works_on_Schedule']="OSS funciona dentro do cronograma";
+$language['OSS_Works_OUT_of_Schedule']="OSS funciona fora do cronograma";
+$language['OSS_Products_Handed_over_to_Households']="Produtos OSS entregues aos agregados familiares";
+
+$language['Register_Household']="Registrar Família";
+$language['Add_New_Beneficiary_Household']="Adicionar nova família beneficiária";
+
+$language['Registered_Households']="Famílias cadastradas";
+$language['Verified_Households']="Residências verificadas";
+$language['Verified_Households_Need_Technical_Guidance']="Famílias verificadas precisam de orientação técnica";
+$language['Back']="Voltar";
+
+$language['Household_Code']="Código do agregado familiar";
+$language['Household_Name']="Nome familiar";
+$language['Identification']="Identificação";
+$language['Verified']="Aceitaram";
+$language['Action']="Ação";
+
+$language['Need_Technical_Guide']="Precisa de guia técnico";
+$language['Agree_TC']="Termos de acordo";
+$language['Ready_To_Select']="Pronto para selecionar";
+
+$language['Phone']="Telefone";
+$language['Address']="Endereço";
+$language['Plot_Address']="Endereço do Lote"; 
+$language['View_OSS_Products']="Ver produtos OSS";
+$language['Submit']="Enviar";
+$language['Target_Households']="Famílias Alvo";
+
+$language['Filter']="Filtro";
+
+$language['Payments']="Pagamentos";
+$language['Payments_Approvals']="Aprovações de pagamentos";
+$language['Approved_Payments']="Pagamentos aprovados";
+$language['Approved_Full_Payments']="Pagamentos integrais aprovados";
+$language['Contribute_For_Service']="Contribuir para o serviço"; 
+$language['Payment_Option']="Opção de pagamento"; 
+$language['Option']="Opção";
+$language['Reference']="Referência";
+$language['Amount_Paid']="Quantia paga";
+$language['Approved']="Aprovados";
+$language['ID']="ID";
+$language["Product_Cost"]="Produto OSS";
+$language["Total_Paid"]="Total Pago";
+$language["OSS_Product"] = "Produto OSS";
+
+$language["Works_Tracking"] = "Rastreamento de Obras";
+$language["Progress_Updates"] = "Atualizações de progresso";
+$language["Current_Works"] = "Trabalhos Atuais";
+$language["Completed_Works"] = "Trabalhos Concluídos";
+$language["Verified_Works"] = "Trabalhos verificados";
+
+$language["Works_Code"]= "Código de trabalho";
+$language["Start_Date"]= "Data de início";
+$language["End_Date"]= "Data final";
+$language["Contractor"]= "Contratante";
+$language["Status"]= "Status";
+$language["Completion_Date"]= "Data de conclusão";
+
+$language["Reports"]= "Relatórios";
+$language["Category"]= "Categoria";
+$language["Detail"]= "Detalhe";
+$language["Main_Statistic"]= "Estatística principal";
+
+$language["Technology_Choice"]= "Escolha de tecnologia";
+$language["Selection_and_Approvals"] = "Seleção e Aprovações";
+$language["Tech_Option"] = "Opção de tecnologia";
+$language["Households_Ready_For_Selection"] = "Famílias prontas para seleção";
+$language["Households_with_Selected_Options"] = "Famílias com opções selecionadas";
+$language["Households_With_Approved_Products"] = "Famílias com produtos aprovados";
+$language["Agree_Terms"]="Termos de acordo";
+$language["Selected_Option"]= "Opção selecionada";
+
+$language["View_Products"] = "Ver produtos OSS";
+$language["Request_Tech_Guide"] = "Solicitar guia técnico";
+$language["Select_Product"]= "Selecione o produto OSS";
+$language["Record_Payment"]= "Registro de pagamento";
+$language["Message_Supervisor"]="Supervisor de mensagens";
+$language["Household_Current_Status"] = "Status Atual dos Trabalhos OSS Domésticos";
+
+$language["Contractor_Dashboard"] = "Painel do contratante";
+$language["Allocated_Works"] = "Trabalhos Alocados";
+$language["Sites_Handed_Over"] = "Locais entregues";
+$language["Self_Registration"] = "Auto-registro";
+
+$language["OSS_Products"] = "Produtos OSS";
+$language["OSS_Toilets"] ="Banheiros OSS";
+$language["Pour_Flash_Toilet"] ="Despeje o vaso sanitário";
+$language["Single_VIP_Toilet"] ="Toalete VIP individual";
+$language["Twin_VIP_Toilet"] = "Toalete VIP Duplo";
+$language["Product_Code"] = "Código do produto";
+
+$language["Indicator"] = "Indicador";
+$language["Target"] = "Alvo";
+$language["Achieved"] ="Alcançou";
+$language["Current_OSS_Works"] = "Trabalhos Atuais de OSS";
+$language["Completed_OSS_Works"]="Trabalhos de OSS Concluídos";
+$language["Verified_Accepted_Households"]="Famílias verificadas e aceitas";
+$language["No_Of_HHs"]="Número de famílias";
+$language["No_OSS_Works"] ="Número de OSS Works";
+$language["Progress"]= "Progresso";
+$language["Technical_Guide"] = "Guia Técnico OSS";
+$language["Household_Technical_Guide_Request"] ="Solicitação de Guia Técnico Doméstico";
+
+$language["Household_Ready_To_Make_OSS_Selection"] ="Família pronta para fazer a seleção de OSS, ";
+$language["Check_Household_Status"] = "Verifique o status do agregado familiar!";
+$language["Household_NOT_YET_Enrolled"] = " Família AINDA NÃO inscrita";
+
+$language["Household_NOT_Ready_For_OSS_Product_Selection"] ="Família NÃO está pronta para seleção de produto OSS, ";
+$language["Household_OSS_Product_Already_Selected"] ="Produto de OSS doméstico já selecionado! ";
+$language["Select_Technology"] ="Selecione Tecnologia";
+
 ?>

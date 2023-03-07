@@ -4,7 +4,7 @@
 <?php header("Cache-Control: max-age=300, must-revalidate"); ?>
 
 <head>
-    <title>LWSP |Add New Beneficiary Household</title>
+    <title>Register Beneficiary Household</title>
     <?php include 'layouts/head.php'; ?>
     <?php include 'layouts/head-style.php'; ?>
 
@@ -19,6 +19,12 @@
         {
             border-style: solid;
             border-color: orange;
+        }
+        .card-border1 
+        {
+            border-style: groove;
+            border-color: orange;
+            border-width: 8px;
         }
     </style>
 </head>
@@ -52,44 +58,45 @@
                 <!-- start page title -->
                 <!-- start page title -->
                 <div class="row">
-                    <div class="col-12">
+                    <div class="col-6">
                         <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                            <h4 class="mb-sm-0 font-size-18">Register New Household</h4>
+                            <h4 class="mb-sm-0 font-size-18">Register Beneficiary Household</h4>
 
                         </div>
                     </div>
+                    <div class="col-6">
+                        <p align="right">
+                            <INPUT TYPE="button" class="btn btn-outline-secondary w-md" style="width:170px" VALUE="Back" onClick="history.go(-1);">  
+                        </p>
+                    </div>
                 </div>
                 <!-- end page title -->
-
-                <p align="right">
-                    <INPUT TYPE="button" class="btn btn-outline-secondary w-md" style="width:170px" VALUE="Back" onClick="history.go(-1);">  
-                </p>
-
-
-                <div class="card-body">
-                    <ul class="nav nav-pills nav-justified" role="tablist">
-                        <li class="nav-item waves-effect waves-light">
-                            <a class="nav-link active" data-bs-toggle="tab" href="javascript:void(0);" role="tab">
-                                <span class="d-none d-sm-block">Register HH</span>
-                            </a>
-                        </li>              
-                        <li class="nav-item waves-effect waves-light">
-                            <a class="nav-link " data-bs-toggle="link" href="target_ben.php" role="link">
-                                <span class="d-none d-sm-block">Registered HHs</span>
-                            </a>
-                        </li>
-                        <li class="nav-item waves-effect waves-light">
-                            <a class="nav-link" data-bs-toggle="link" href="enrolled_ben.php" role="link">
-                                <span class="d-none d-sm-block">Verified HHs</span>
-                            </a>
-                        </li>
-                        <li class="nav-item waves-effect waves-light">
-                            <a class="nav-link" data-bs-toggle="link" href="enrolled_ben_tg.php" role="link">
-                                <span class="d-block d-sm-none"><i class="fas fa-cog"></i></span>
-                                <span class="d-none d-sm-block">Verified HHs: Need Technical Guidance</span>
-                            </a>
-                        </li>
-                    </ul>
+                <div class="card-border1">
+                    <div class="card-body">
+                        <ul class="nav nav-pills nav-justified" role="tablist">
+                            <li class="nav-item waves-effect waves-light">
+                                <a class="nav-link active" data-bs-toggle="tab" href="javascript:void(0);" role="tab">
+                                    <span class="d-none d-sm-block">Register HH</span>
+                                </a>
+                            </li>              
+                            <li class="nav-item waves-effect waves-light">
+                                <a class="nav-link " data-bs-toggle="link" href="target_ben.php" role="link">
+                                    <span class="d-none d-sm-block">Registered HHs</span>
+                                </a>
+                            </li>
+                            <li class="nav-item waves-effect waves-light">
+                                <a class="nav-link" data-bs-toggle="link" href="enrolled_ben.php" role="link">
+                                    <span class="d-none d-sm-block">Verified HHs</span>
+                                </a>
+                            </li>
+                            <li class="nav-item waves-effect waves-light">
+                                <a class="nav-link" data-bs-toggle="link" href="enrolled_ben_tg.php" role="link">
+                                    <span class="d-block d-sm-none"><i class="fas fa-cog"></i></span>
+                                    <span class="d-none d-sm-block">Verified HHs: Need Technical Guidance</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
 
 

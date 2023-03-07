@@ -33,7 +33,7 @@ $contractorID = $_SESSION["hhid"];
 <!-- Begin page -->
 <div id="layout-wrapper">
 
-    <?php include 'layouts/menu.php'; ?>
+    <?php include 'layouts/vertical-menu_con.php'; ?>
 
     <!-- ============================================================== -->
     <!-- Start right Content here -->

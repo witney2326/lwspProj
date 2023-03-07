@@ -45,6 +45,7 @@ $hhCode = $_SESSION["hhid"];
 $enrolled = hh_enroll_check($link,$hhCode); 
 $SelectedProduct = hh_selected_product($link,$hhCode); 
 $SelectedProductApproved = hh_product_approved_check($link,$hhCode);
+$pOption = hh_payment_option($link,$hhCode);
 ?>
 
 <!-- Begin page -->
@@ -98,6 +99,7 @@ $SelectedProductApproved = hh_product_approved_check($link,$hhCode);
                                             <?php if ($enrolled == '0'){echo '<div class="alert alert-warning" role="alert"> Household NOT YET Enrolled, Check Household Status!</a></div>';}?>
                                             <?php if ($SelectedProduct == '00'){echo '<div class="alert alert-warning" role="alert"> OSS Product NOT Selected, Check Household Status!</a></div>';}?>
                                             <?php if ($SelectedProductApproved == '0'){echo '<div class="alert alert-warning" role="alert"> OSS Product Selected NOT Yet Approved by Project!</a></div>';}?>
+                                            <?php if ($pOption <> '00'){echo '<div class="alert alert-warning" role="alert"> Payment Option Already Selected!</a></div>';}?>
                                             <div class="card-body">
                                                 <h7 class="card-title mt-0"></h7>
 
@@ -111,7 +113,7 @@ $SelectedProductApproved = hh_product_approved_check($link,$hhCode);
                                                         <input type="text" class="form-control" id="hhname" name ="hhname" value = "<?php echo hh_name($link,$hhCode);?>" style="max-width:30%;" readonly >
                                                     </div>
                                                     <?php 
-                                                        if (($enrolled == '1') and ($SelectedProduct <> '00') and ($SelectedProductApproved == '1')){
+                                                        if (($enrolled == '1') and ($SelectedProduct <> '00') and ($SelectedProductApproved == '1') and ($pOption =='00')){
                                                             echo '<div class="row mb-1">'; 
                                                                 echo '<label for="payment_option" class="col-sm-3 col-form-label">Payment Option</label>';
                                                                 echo '<select class="form-select" name="payment_option" id="payment_option" style="max-width:30%;" required >';
