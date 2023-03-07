@@ -36,6 +36,21 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
             border-color: orange;
             border-width: 8px;
         }
+        .check {
+        display: inline-block;
+        width: 18px; height: 18px;
+        background-image: url('icons/check.png');
+        background-repeat: no-repeat;
+        }
+        .ico-check { background-position: 0 0; }
+
+        .view {
+        display: inline-block;
+        width: 18px; height: 18px;
+        background-image: url('icons/view.png');
+        background-repeat: no-repeat;
+        }
+        .ico-view { background-position: 0 0; }
     </style>
 </head>
 
@@ -220,8 +235,8 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                                                             echo "<td>".$row["amount_paid"]."</td>\n";
                                                             echo "<td>\t\t$pApproved</td>\n";
                                                             echo "<td>                                               
-                                                                <a href=\"hh_view.php?id=".$row['hhcode']."\"><i class='far fa-eye' title='View Household' style='font-size:18px;color:purple'></i></a> 
-                                                                <a onClick=\"javascript: return confirm('Are You Sure You want To Approve This HOUSEHOLD Payment?');\" href=\"hh_payment_approval.php?id=".$row['pID']."\"><i class='far fa-check-square' title='Approve Payment Amount' style='font-size:18px;color:green'></i></a> 
+                                                                <a href=\"hh_view.php?id=".$row['hhcode']."\"><i class='view ico-view' title='View Household' style='font-size:18px;color:purple'></i></a> 
+                                                                <a onClick=\"javascript: return confirm('Are You Sure You want To Approve This HOUSEHOLD Payment?');\" href=\"hh_payment_approval.php?id=".$row['pID']."\"><i class='check ico-check' title='Approve Payment Amount' style='font-size:18px;color:green'></i></a> 
                                                             </td>\n";
 
                                                         echo "</tr>\n";

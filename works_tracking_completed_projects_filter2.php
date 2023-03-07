@@ -37,6 +37,21 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
             border-color: orange;
             border-width: 8px;
         }
+        .view {
+        display: inline-block;
+        width: 18px; height: 18px;
+        background-image: url('icons/view.png');
+        background-repeat: no-repeat;
+        }
+        .ico-view { background-position: 0 0; }
+
+        .verify {
+        display: inline-block;
+        width: 18px; height: 18px;
+        background-image: url('icons/verified.png');
+        background-repeat: no-repeat;
+        }
+        .ico-verify { background-position: 0 0; }
     </style>
 </head>
 
@@ -213,8 +228,8 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                                                             echo "<td>".pstatus($link,$row["pstatus"])."</td>\n";
                                                             
                                                             echo "<td>                                               
-                                                            <a href=\"hh_View.php?id=".$row['phhcode']."\"><i class='far fa-eye' title='View HH' style='font-size:18px;color:purple'></i></a> 
-                                                                <a href=\"hh_project_verify_completness.php?id=".$row['pID']."\"><i class='fas fa-check-circle' title='Verify OSS Works' style='font-size:18px;color:green'></i></a> 
+                                                            <a href=\"hh_View.php?id=".$row['phhcode']."\"><i class='view ico-view' title='View HH' style='font-size:18px;color:purple'></i></a> 
+                                                                <a href=\"hh_project_verify_completness.php?id=".$row['pID']."\"><i class='verify ico-verify' title='Verify OSS Works' style='font-size:18px;color:green'></i></a> 
                                                             </td>\n";
                                                         echo "</tr>\n";
                                                         }

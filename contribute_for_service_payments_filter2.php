@@ -36,6 +36,21 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
             border-color: orange;
             border-width: 8px;
         }
+        .view {
+        display: inline-block;
+        width: 18px; height: 18px;
+        background-image: url('icons/view.png');
+        background-repeat: no-repeat;
+        }
+        .ico-view { background-position: 0 0; }
+
+        .check {
+        display: inline-block;
+        width: 18px; height: 18px;
+        background-image: url('icons/check.png');
+        background-repeat: no-repeat;
+        }
+        .ico-check { background-position: 0 0; }
     </style>
 </head>
 
@@ -213,8 +228,8 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                                                                 echo "<td>\t\t$pOption</td>\n";
                                                         
                                                                 echo "<td>                                               
-                                                                <a href=\"hh_View.php?id=".$row['hhcode']."\"><i class='far fa-eye' title='View Household' style='font-size:18px;color:purple'></i></a> 
-                                                                <a href=\"hh_payments.php?id=".$row['hhcode']."\"><i class='fas fa-comment-dollar' title='Record Household Payment' style='font-size:18px;color:green'></i></a> 
+                                                                <a href=\"hh_View.php?id=".$row['hhcode']."\"><i class='view ico-view' title='View Household' style='font-size:18px;color:purple'></i></a> 
+                                                                <a href=\"hh_payments.php?id=".$row['hhcode']."\"><i class='dollar ico-dollar' title='Record Household Payment' style='font-size:18px;color:green'></i></a> 
 
                                                                 </td>\n";
 

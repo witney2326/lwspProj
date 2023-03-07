@@ -37,6 +37,22 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
             border-color: orange;
             border-width: 8px;
         }
+
+        .check {
+        display: inline-block;
+        width: 18px; height: 18px;
+        background-image: url('icons/check.png');
+        background-repeat: no-repeat;
+        }
+        .ico-check { background-position: 0 0; }
+
+        .round_check {
+        display: inline-block;
+        width: 18px; height: 18px;
+        background-image: url('icons/round_check.png');
+        background-repeat: no-repeat;
+        }
+        .ico-round { background-position: 0 0; }
         
     </style>
 </head>
@@ -176,7 +192,7 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                                     <div class="card-border">
 
                                         <p align="right">
-                                            <button class="btn btn-outline-primary  waves-effect waves-light mb-2 me-2" onclick="window.location.href = 'view-products.php'">  View OSS Products</button>
+                                            <button class="btn btn-outline-primary  waves-effect waves-light mb-2 me-2" style = "background-color:orange;" onclick="window.location.href = 'view-products.php'">  View OSS Products</button>
                                         </p>
 
                                         <div class="card-body">
@@ -218,8 +234,8 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                                                             echo "<td>\t\t$ready_selection</td>\n";
                                                             echo "<td>
                                                                 
-                                                                <a onClick=\"javascript: return confirm('Do you Need Technical Guide Inorder To Make Selection?');\"  href=\"tg-for-selection.php?id=".$row['hhcode']."\"><i class='far fa-check-circle' title='Need TG For Selection' style='font-size:18px; color:purple'></i></a> 
-                                                                <a onClick=\"javascript: return confirm('Are You Ready To Make Your Selection?');\" href=\"ben-ready-to-select.php?id=".$row['hhcode']."\"><i class='far fa-check-square' title='Ready For Selection' style='font-size:18px;color:green'></i></a> 
+                                                                <a onClick=\"javascript: return confirm('Do you Need Technical Guide Inorder To Make Selection?');\"  href=\"tg-for-selection.php?id=".$row['hhcode']."\"><i class='round_check round' title='Need TG For Selection' style='font-size:18px; color:purple'></i></a> 
+                                                                <a onClick=\"javascript: return confirm('Are You Ready To Make Your Selection?');\" href=\"ben-ready-to-select.php?id=".$row['hhcode']."\"><i class='check ico-check' title='Ready For Selection' style='font-size:18px;color:green'></i></a> 
                                                                     
                                                             </td>\n";
 

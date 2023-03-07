@@ -36,6 +36,21 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
             border-color: orange;
             border-width: 8px;
         }
+        .view {
+        display: inline-block;
+        width: 18px; height: 18px;
+        background-image: url('icons/view.png');
+        background-repeat: no-repeat;
+        }
+        .ico-view { background-position: 0 0; }
+
+        .check {
+        display: inline-block;
+        width: 18px; height: 18px;
+        background-image: url('icons/check.png');
+        background-repeat: no-repeat;
+        }
+        .ico-check { background-position: 0 0; }
     </style>
 </head>
 
@@ -156,7 +171,7 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                                 <div class="col-12">
                                     <div class="card-border">
                                     <p align="right">
-                                        <button class="btn btn-outline-primary  waves-effect waves-light mb-2 me-2" onclick="window.location.href = 'view-products.php'">  View OSS Products</button>
+                                        <button class="btn btn-outline-primary  waves-effect waves-light mb-2 me-2" style = "background-color:orange;" onclick="window.location.href = 'view-products.php'">  View OSS Products</button>
                                     </p>
                                     <div class="card-body">
                                     <h7 class="card-title mt-0"></h7>
@@ -194,8 +209,8 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                                                                 echo "<td>\t\t$cost</td>\n";
                                                                 echo "<td>\t\t$approved</td>\n";
                                                                 echo "<td>                                               
-                                                                <a href=\"hh_View.php?id=".$row['hhcode']."\"><i class='far fa-eye' title='View HH' style='font-size:18px; color: purple'></i></a>\n
-                                                                <a onClick=\"javascript: return confirm('Are You Sure You want To Approve This Technology Selection For The Household?');\" href=\"tech_selected_approval.php?id=".$row['hhcode']."\"><i class='fa fa-check' title='Approve Tech Selection' style='font-size:18px;color:green'></i></a>
+                                                                <a href=\"hh_View.php?id=".$row['hhcode']."\"><i class='view ico-view' title='View HH' style='font-size:18px; color: purple'></i></a>\n
+                                                                <a onClick=\"javascript: return confirm('Are You Sure You want To Approve This Technology Selection For The Household?');\" href=\"tech_selected_approval.php?id=".$row['hhcode']."\"><i class='check ico-check' title='Approve Tech Selection' style='font-size:18px;color:green'></i></a>
                                                                 </td>\n";
 
                                                             echo "</tr>\n";

@@ -64,7 +64,7 @@
                                         </div>
                                         <div class="mt-4 text-center">
                                             <h7 class="mb-3 text-truncate"><a href="#" class="text-dark">Pour Flash Toilet </a></h7>
-                                            <h7 class="my-0"><span class="text-muted me-2">Product Code:</span> <b>PFT/01</b></h7>
+                                            <h7 class="my-0"><span class="text-muted me-2">Product Code:</span> <b>VIP 1.3</b></h7>
 
                                         </div>
                                     </div>
@@ -78,7 +78,7 @@
                                         </div>
                                         <div class="mt-4 text-center">
                                             <h7 class="mb-3 text-truncate"><a href="#" class="text-dark">Pour Flash Toilet </a></h7>
-                                            <h7 class="my-0"><span class="text-muted me-2">Product Code:</span> <b>PFT/01</b></h7>
+                                            <h7 class="my-0"><span class="text-muted me-2">Product Code:</span> <b>VIP 1.3</b></h7>
 
                                         </div>
                                     </div>
@@ -95,7 +95,7 @@
                                             <h7 class="mb-3 text-truncate"><a href="#" class="text-dark">Single VIP Toilet</a></h7>
 
                                             
-                                            <h7 class="my-0"><span class="text-muted me-2">Product Code:</span> <b>SVT/01</b></h7>
+                                            <h7 class="my-0"><span class="text-muted me-2">Product Code:</span> <b>VIP 1.1</b></h7>
 
                                         </div>
                                     </div>
@@ -109,7 +109,7 @@
                                         </div>
                                         <div class="mt-4 text-center">
                                             <h7 class="mb-3 text-truncate"><a href="#" class="text-dark">Single VIP Toilet</a></h7> 
-                                            <h7 class="my-0"><span class="text-muted me-2">Product Code:</span> <b>SVT/01</b></h7>
+                                            <h7 class="my-0"><span class="text-muted me-2">Product Code:</span> <b>VIP 1.1</b></h7>
 
                                         </div>
                                     </div>
@@ -127,7 +127,7 @@
                                             <h7 class="mb-3 text-truncate"><a href="#" class="text-dark">Twin VIP Toilet</a></h7>
 
                                             
-                                            <h7 class="my-0"><span class="text-muted me-2">Product Code:</span> <b>TVT/01</b></h7>
+                                            <h7 class="my-0"><span class="text-muted me-2">Product Code:</span> <b>VIP 1.2</b></h7>
 
                                         </div>
                                     </div>
@@ -142,7 +142,7 @@
                                         </div>
                                         <div class="mt-4 text-center">
                                             <h7 class="mb-3 text-truncate"><a href="#" class="text-dark">Twin VIP Toilet</a></h7>
-                                            <h7 class="my-0"><span class="text-muted me-2">Product Code:</span> <b>TVT/01</b></h7>
+                                            <h7 class="my-0"><span class="text-muted me-2">Product Code:</span> <b>VIP 1.2</b></h7>
 
                                         </div>
                                     </div>

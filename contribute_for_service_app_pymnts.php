@@ -36,6 +36,13 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
             border-color: orange;
             border-width: 8px;
         }
+        .view {
+        display: inline-block;
+        width: 18px; height: 18px;
+        background-image: url('icons/view.png');
+        background-repeat: no-repeat;
+        }
+        .ico-view { background-position: 0 0; }
     </style>
 </head>
 
@@ -212,7 +219,7 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                                                             echo "<td>".number_format($row["amount_paid"],2)."</td>\n";
                                                             echo "<td>\t\t$pApproved</td>\n";
                                                             echo "<td>                                               
-                                                                <a href=\"hh_view.php?id=".$row['hhcode']."\"><i class='far fa-eye' title='View Household' style='font-size:18px;color:purple'></i></a> 
+                                                                <a href=\"hh_view.php?id=".$row['hhcode']."\"><i class='view ico-view' title='View Household' style='font-size:18px;color:purple'></i></a> 
                                                                 
                                                             </td>\n";
 

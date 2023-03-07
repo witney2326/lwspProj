@@ -39,6 +39,21 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
             border-color: orange;
             border-width: 8px;
         }
+        .view {
+        display: inline-block;
+        width: 18px; height: 18px;
+        background-image: url('icons/view.png');
+        background-repeat: no-repeat;
+        }
+        .ico-view { background-position: 0 0; }
+
+        .fchart {
+        display: inline-block;
+        width: 18px; height: 18px;
+        background-image: url('icons/fchart.png');
+        background-repeat: no-repeat;
+        }
+        .ico-fchart { background-position: 0 0; }
     </style>
 </head>
 
@@ -211,8 +226,8 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                                                             echo "<td>".pstatus($link,$row["pstatus"])."</td>\n";
                                                             
                                                             echo "<td>                                               
-                                                            <a href=\"hh_View.php?id=".$row['phhcode']."\"><i class='far fa-eye' title='View HH' style='font-size:18px;color:purple'></i></a> 
-                                                            <a href=\"hh_project_progressTrack.php?id=".$row['pID']."\"><i class='fas fa-project-diagram' title='Update Project Progress' style='font-size:18px;color:black'></i></a> 
+                                                            <a href=\"hh_View.php?id=".$row['phhcode']."\"><i class='view ico-view' title='View HH' style='font-size:18px;color:purple'></i></a> 
+                                                            <a href=\"hh_project_progressTrack.php?id=".$row['pID']."\"><i class='fchart ico-fchart' title='Update Project Progress' style='font-size:18px;color:black'></i></a> 
                                                             </td>\n";
 
                                                         echo "</tr>\n";

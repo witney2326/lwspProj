@@ -37,6 +37,14 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
             border-color: orange;
             border-width: 8px;
         }
+
+        .record {
+        display: inline-block;
+        width: 18px; height: 18px;
+        background-image: url('icons/record.png');
+        background-repeat: no-repeat;
+        }
+        .ico-record { background-position: 0 0; }
     </style>
 </head>
 
@@ -180,7 +188,7 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                                 <div class="col-12">
                                     <div class="card-border">
                                         <p align="right">
-                                            <button class="btn btn-outline-primary  waves-effect waves-light mb-2 me-2" onclick="window.location.href = 'view-products.php'">  View OSS Products</button>
+                                            <button class="btn btn-outline-primary  waves-effect waves-light mb-2 me-2" style = "background-color:orange;" onclick="window.location.href = 'view-products.php'">  View OSS Products</button>
                                         </p>
                                         <div class="card-body">
                                         <h7 class="card-title mt-0"></h7>
@@ -215,7 +223,7 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                                                             echo "<td>".$row["blockname"]."</td>\n";
                                                             echo "<td>".$row["plot"]."</td>\n";
                                                             echo "<td>                                               
-                                                                <a onClick=\"javascript: return confirm('Do you Want To Record Technical Guide Rendered To HH?');\"  href=\"record_hh_tg.php?id=".$row['hhcode']."\"><i class='fas fa-record-vinyl' title='Want To Record TG Rendered?' style='font-size:18px; color:black'></i></a> 
+                                                                <a onClick=\"javascript: return confirm('Do you Want To Record Technical Guide Rendered To HH?');\"  href=\"record_hh_tg.php?id=".$row['hhcode']."\"><i class='record ico-record' title='Want To Record TG Rendered?' style='font-size:18px; color:black'></i></a> 
                                                             </td>\n";
 
                                                         echo "</tr>\n";

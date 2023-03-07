@@ -38,6 +38,37 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
             border-color: orange;
             border-width: 8px;
         }
+        .view {
+        display: inline-block;
+        width: 18px; height: 18px;
+        background-image: url('icons/view.png');
+        background-repeat: no-repeat;
+        }
+        .ico-view { background-position: 0 0; }
+
+        .fchart {
+        display: inline-block;
+        width: 18px; height: 18px;
+        background-image: url('icons/fchart.png');
+        background-repeat: no-repeat;
+        }
+        .ico-fchart { background-position: 0 0; }
+
+        .notify {
+        display: inline-block;
+        width: 18px; height: 18px;
+        background-image: url('icons/notification.png');
+        background-repeat: no-repeat;
+        }
+        .ico-notify { background-position: 0 0; }
+
+        .printer {
+        display: inline-block;
+        width: 18px; height: 18px;
+        background-image: url('icons/printer.png');
+        background-repeat: no-repeat;
+        }
+        .ico-printer { background-position: 0 0; }
     </style>
 </head>
 
@@ -201,16 +232,16 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                                                             if  ($pstatus == '00') 
                                                             {  
                                                                 echo "<td>
-                                                                    <a href=\"hh_View.php?id=".$row['phhcode']."\"><i class='far fa-eye' title='View HH' style='font-size:18px;color:purple'></i></a> 
-                                                                    <a href=\"hh_project_progressTrack.php?id=".$row['pID']."\"><i class='fas fa-project-diagram' title='Update Project Progress' style='font-size:18px;color:black'></i></a> 
-                                                                    <a onClick=\"javascript: return confirm('Are You Sure You want To Notify The Contractor?');\" href=\"contractor_notification_works_allocation.php?id=".$row['pcontractorID']."& hhcode=".$row['phhcode']."& sdate=".$row['pstartdate']."\"><i class='fa fa-bell' title='Notify Contactor On Works Schedule' style='font-size:18px;color:brown'></i></a> 
-                                                                    <a href=\"works-handover-certificate.php?id=".$row['pID']."\"><i class='fa fa-print' title='Print OSS Works Handover Certificate' style='font-size:18px;color:black'></i></a>                                                
+                                                                    <a href=\"hh_View.php?id=".$row['phhcode']."\"><i class='view ico-view' title='View HH' style='font-size:18px;color:purple'></i></a> 
+                                                                    <a href=\"hh_project_progressTrack.php?id=".$row['pID']."\"><i class='fchart ico-fchart' title='Update Project Progress' style='font-size:18px;color:black'></i></a> 
+                                                                    <a onClick=\"javascript: return confirm('Are You Sure You want To Notify The Contractor?');\" href=\"contractor_notification_works_allocation.php?id=".$row['pcontractorID']."& hhcode=".$row['phhcode']."& sdate=".$row['pstartdate']."\"><i class='notify ico-notify' title='Notify Contactor On Works Schedule' style='font-size:18px;color:brown'></i></a> 
+                                                                    <a href=\"works-handover-certificate.php?id=".$row['pID']."\"><i class='printer ico-printer' title='Print OSS Works Handover Certificate' style='font-size:18px;color:black'></i></a>                                                
                                                                 </td>\n";
                                                             }else
                                                             {
                                                                 echo "<td>
-                                                                    <a href=\"hh_View.php?id=".$row['phhcode']."\"><i class='far fa-eye' title='View HH' style='font-size:18px;color:purple'></i></a> 
-                                                                    <a href=\"hh_project_progressTrack.php?id=".$row['pID']."\"><i class='fas fa-project-diagram' title='Update Project Progress' style='font-size:18px;color:black'></i></a> 
+                                                                    <a href=\"hh_View.php?id=".$row['phhcode']."\"><i class='view ico-view' title='View HH' style='font-size:18px;color:purple'></i></a> 
+                                                                    <a href=\"hh_project_progressTrack.php?id=".$row['pID']."\"><i class='fchart ico-fchart' title='Update Project Progress' style='font-size:18px;color:black'></i></a> 
                                                                 </td>\n";
                                                             }
 

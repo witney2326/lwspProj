@@ -5,6 +5,20 @@
     <title>Household View</title>
     <?php include 'layouts/head.php'; ?>
     <?php include 'layouts/head-style.php'; ?>
+
+    <style> 
+        .card-border 
+        {
+            border-style: solid;
+            border-color: orange;
+        }
+        .card-border1 
+        {
+            border-style: groove;
+            border-color: orange;
+            border-width: 8px;
+        }
+        </style>
 </head>
 
 <?php include 'layouts/body.php'; ?>
@@ -84,7 +98,7 @@
                 <div class="row">
 
                     <div class="col-xl-12">
-                        <div class="card">
+                        <div class="card-border1">
                             <div class="card-body">
 
                                 <div class="row">
@@ -104,7 +118,7 @@
                                             <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
                                                 <p>
                                                     <div class="row"> 
-                                                        <div class="card border border-success">
+                                                        <div class="card-border">
                                                         <h5 class="card-title mt-0"> Household Details</h5>   
                                                             <div class="col-lg-11">
                                                                 <div class="row mb-1">
@@ -176,7 +190,7 @@
                                             <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
                                                 <p>
                                                     <div class="row"> 
-                                                        <div class="card border border-success">
+                                                        <div class="card-border">
                                                             <div class="col-lg-12">
 
                                                                 <div class="card-header bg-transparent border-primary">
@@ -240,7 +254,7 @@
                                             </div>
                                             <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
                                                 <p>
-                                                    <div class="card border border-primary">
+                                                    <div class="card-border">
                                                         <div class="card-body">
                                                             <h5 class="card-title mt-0"> Household Selected Product</h5>
                                                             <div class="card-header bg-transparent border-primary">
@@ -254,7 +268,7 @@
 
                                             <div class="tab-pane fade" id="v-pills-mycs" role="tabpanel" aria-labelledby="v-pills-mycs-tab">
                                                 <p>
-                                                    <div class="card border border-primary">
+                                                    <div class="card-border">
                                                         <div class="card-body">
                                                             <h5 class="card-title mt-0"> Works Progress</h5>
 
@@ -302,7 +316,7 @@
 
                                             <div class="tab-pane fade" id="v-pills-mjsg" role="tabpanel" aria-labelledby="v-pills-mjsg-tab">
                                                 <p>
-                                                    <div class="card border border-primary">
+                                                    <div class="card-border">
                                                         <div class="card-body">
                                                             <h5 class="card-title mt-0"> Project Completion Certificate</h5>
                                                               

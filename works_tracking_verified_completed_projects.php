@@ -37,6 +37,22 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
             border-color: orange;
             border-width: 8px;
         }
+
+        .printer {
+        display: inline-block;
+        width: 18px; height: 18px;
+        background-image: url('icons/printer.png');
+        background-repeat: no-repeat;
+        }
+        .ico-printer { background-position: 0 0; }
+
+        .view {
+        display: inline-block;
+        width: 18px; height: 18px;
+        background-image: url('icons/view.png');
+        background-repeat: no-repeat;
+        }
+        .ico-view { background-position: 0 0; }
     </style>
 </head>
 
@@ -204,8 +220,8 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                                                             echo "<td>".contractor_name($link,$row["pcontractorID"])."</td>\n";
                                                             
                                                             echo "<td>                                               
-                                                                <a href=\"hh_View.php?id=".$row['phhcode']."\"><i class='far fa-eye' title='View HH' style='font-size:18px;color:purple'></i></a> 
-                                                                <a href=\"completion certificate.php?id=".$row['pID']."\"><i class='fa fa-print' title='Print Completion Certificate' style='font-size:18px;color:black'></i></a> 
+                                                                <a href=\"hh_View.php?id=".$row['phhcode']."\"><i class='view ico-view' title='View HH' style='font-size:18px;color:purple'></i></a> 
+                                                                <a href=\"completion certificate.php?id=".$row['pID']."\"><i class='printer ico-printer' title='Print Completion Certificate' style='font-size:18px;color:black'></i></a> 
                                                             </td>\n";
 
                                                         echo "</tr>\n";

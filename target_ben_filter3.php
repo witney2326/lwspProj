@@ -37,6 +37,46 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
             border-color: orange;
             border-width: 8px;
         }
+
+        .delete {
+        display: inline-block;
+        width: 18px; height: 18px;
+        background-image: url('icons/delete.png');
+        background-repeat: no-repeat;
+        }
+        .ico-delete { background-position: 0 0; }
+
+        .add {
+        display: inline-block;
+        width: 18px; height: 18px;
+        background-image: url('icons/save.png');
+        background-repeat: no-repeat;
+        }
+        .ico-add { background-position: 0 0; }
+
+        .edit {
+        display: inline-block;
+        width: 18px; height: 18px;
+        background-image: url('icons/edit.png');
+        background-repeat: no-repeat;
+        }
+        .ico-edit { background-position: 0 0; }
+
+        .view {
+        display: inline-block;
+        width: 18px; height: 18px;
+        background-image: url('icons/view.png');
+        background-repeat: no-repeat;
+        }
+        .ico-view { background-position: 0 0; }
+
+        .check {
+        display: inline-block;
+        width: 18px; height: 18px;
+        background-image: url('icons/check.png');
+        background-repeat: no-repeat;
+        }
+        .ico-check { background-position: 0 0; }
     </style>
 </head>
 
@@ -214,10 +254,10 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                                                                 echo "<td>\t\t$ident</td>\n";
                                                                 echo "<td>\t\t$enrolled</td>\n";
                                                                 echo "<td>                                               
-                                                                    <a href=\"hh_View.php?id=".$row['hhcode']."\"><i class='far fa-eye' title='View HH' style='font-size:18px; color:purple'></i></a> 
-                                                                    <a onClick=\"javascript: return confirm('Are You Sure You want To Enrol This HOUSEHOLD for This Programme?');\" href=\"target_beneficiary_enrol.php?id=".$row['hhcode']."\"><i class='far fa-check-square' title='Enrol Household' style='font-size:18px;color:green'></i></a> 
-                                                                    <a href=\"edit-household.php?id=".$row['hhcode']."\"><i class='mdi mdi-pencil font-size-18' title='Edit HH' style='font-size:18px; color:black'></i></a> 
-                                                                    <a onClick=\"javascript: return confirm('Are You Sure You want To DELETE This HOUSEHOLD');\" href=\"del_hh.php?id=".$row['hhcode']."\"><i class='far fa-trash-alt' title='Delete Member' style='font-size:18px; color:red'></i></a>      
+                                                                    <a href=\"hh_View.php?id=".$row['hhcode']."\"><i class='view ico-view' title='View HH' style='font-size:18px; color:purple'></i></a> 
+                                                                    <a onClick=\"javascript: return confirm('Are You Sure You want To Enrol This HOUSEHOLD for This Programme?');\" href=\"target_beneficiary_enrol.php?id=".$row['hhcode']."\"><i class='check ico-check' title='Enrol Household' style='font-size:18px;color:green'></i></a> 
+                                                                    <a href=\"edit-household.php?id=".$row['hhcode']."\"><i class='edit ico-edit' title='Edit HH' style='font-size:18px; color:black'></i></a> 
+                                                                    <a onClick=\"javascript: return confirm('Are You Sure You want To DELETE This HOUSEHOLD');\" href=\"del_hh.php?id=".$row['hhcode']."\"><i class='delete ico-delete' title='Delete Member' style='font-size:18px; color:red'></i></a>      
                                                                 </td>\n";
 
                                                             echo "</tr>\n";
