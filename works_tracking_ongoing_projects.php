@@ -205,7 +205,7 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
 
                                                 <tbody>
                                                     <?Php
-                                                        $query="select * from tprojects where ((pstatus <> '00') and (pstatus <> '05') and (pstatus <> '06'))";                                                               
+                                                        $query="select * from tprojects where ((pstatus = '01') or (pstatus = '02') or (pstatus = '03') or (pstatus = '04'))";                                                               
                                                         
                                                         if ($result_set = $link->query($query)) {
                                                         while($row = $result_set->fetch_array(MYSQLI_ASSOC))

@@ -15,26 +15,31 @@ $result = mysqli_query($link, "SELECT cemail FROM tcontractor WHERE id = '$id'")
 $row = mysqli_fetch_assoc($result); 
 $usermail = $row['cemail'];
 
+$sql2 = mysqli_query($link, "SELECT cmail,chost,cpass FROM tconfig"); 
+$rw = mysqli_fetch_assoc($sql2); 
+$chost = $rw['chost'];
+$cmail = $rw['cmail'];
+$cpass = $rw['cpass'];
 
         $mail = new PHPMailer(true);
         
         try {
             $mail->SMTPDebug = 1;                                       
             $mail->isSMTP();                                            
-            $mail->Host       = 'comsip.org.mw';                    
+            $mail->Host       = $chost;                    
             $mail->SMTPAuth   = true;                             
-            $mail->Username   = 'sysadmin@comsip.org.mw';                 
-            $mail->Password   = 'x@F4?)R[N@mx';                        
+            $mail->Username   = $cmail;                 
+            $mail->Password   = $cpass;                        
             $mail->SMTPSecure = 'tls';                              
             $mail->Port       = 587;  
         
-            $mail->setFrom('lilongwe.water.sanitation@gmail.com', 'admin@LWSP');           
+            $mail->setFrom($cmail, 'Admin');           
             $mail->addAddress($usermail);
             
             
             $mail->isHTML(true);                                  
             $mail->Subject = $hhid.": OSS Works Allocation";
-            $mail->Body    = "You have been allocated OSS Works: log on to http://wkabango-001-site1.itempurl.com for details";
+            $mail->Body    = "You have been allocated OSS Works: log on to http://oss-lwsp.net for details";
             
             $mail->send();
             echo '<script type="text/javascript">'; 

@@ -84,7 +84,7 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                 <div class="row">
                     <div class="col-12">
                         <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                            <h4 class="mb-sm-0 font-size-18">Completed OSS Works</h4>
+                            <h4 class="mb-sm-0 font-size-18">Completed OSS Works - Not Verified</h4>
 
                             <div class="page-title-right">
                                 <ol class="breadcrumb m-0">
@@ -202,9 +202,7 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                             <div class="row">
                                 <div class="col-12">
                                     <div class="card-border">
-                                    <div class="card-header bg-transparent border-primary">
-                                        <h5 class="my-0 text-primary">Completed OSS Works</h5>
-                                    </div>
+                                    
                                     <div class="card-body">
                                     <h7 class="card-title mt-0"></h7>
                                         

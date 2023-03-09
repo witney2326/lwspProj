@@ -27,7 +27,7 @@ function get_project_count($link)
         $sql2 = mysqli_query($link,"update households  SET contractor_identified = '1', contractor_allocated ='1', contractor ='$contractor', current_status = '07' where hhcode = '$hh_id'");
 
         $sql = "INSERT INTO tprojects (pID,phhcode,pcontractorID,pCost,pstartdate,pfinishdate,pcompletiondate,pstatus,pCompletenessVerified,pCertificateProduced,pHandedOverHH,pHandedOverContractor,pdeleted)
-        VALUES ('$pID','$hh_id','$contractor','0','$startdate','$finishdate','NULL','00','0','0','0','0','0')";
+        VALUES ('$pID','$hh_id','$contractor','0','$startdate','$finishdate','NULL','00','0','0','0','1','0')";
 
         if (mysqli_query($link,$sql) and ($sql2)) 
             {

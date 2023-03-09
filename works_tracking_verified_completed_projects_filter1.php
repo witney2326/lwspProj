@@ -225,7 +225,7 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                                                             
                                                             echo "<td>                                               
                                                             <a href=\"hh_View.php?id=".$row['phhcode']."\"><i class='view ico-view' title='View HH' style='font-size:18px;color:purple'></i></a> 
-                                                            <a href=\"hh_project_progressTrack.php?id=".$row['pID']."\"><i class='printer ico-printer' title='Print Completion Certificate' style='font-size:18px;color:black'></i></a> 
+                                                            <a href=\"completion certificate.php?id=".$row['pID']."\"><i class='printer ico-printer' title='Print Completion Certificate' style='font-size:18px;color:black'></i></a> 
                                                             </td>\n";
 
                                                         echo "</tr>\n";

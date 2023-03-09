@@ -92,7 +92,7 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                 <div class="row">
                     <div class="col-12">
                         <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                            <h4 class="mb-sm-0 font-size-18">OSS Works Progress Updates</h4>
+                            <h4 class="mb-sm-0 font-size-18">Scheduled OSS Works - Yet To Start</h4>
 
                             <div class="page-title-right">
                                 <ol class="breadcrumb m-0">
@@ -136,7 +136,7 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                                         <li class="nav-item waves-effect waves-light">
                                             <a class="nav-link" data-bs-toggle="link" href="works_tracking_verified_completed_projects.php" role="link">
                                                 <span class="d-block d-sm-none"><i class="fas fa-cog"></i></span>
-                                                <span class="d-none d-sm-block">Verified OSS Works</span>
+                                                <span class="d-none d-sm-block">Verified Completed OSS Works</span>
                                             </a>
                                         </li>
 
@@ -201,9 +201,7 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                             <div class="row">
                                 <div class="col-12">
                                     <div class="card-border">
-                                    <div class="card-header bg-transparent border-primary">
-                                        <h5 class="my-0 text-default">Scheduled OSS Works</h5>
-                                    </div>
+                                    
                                     <div class="card-body">
                                     <h7 class="card-title mt-0"></h7>
                                         
@@ -222,7 +220,7 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
 
                                                 <tbody>
                                                     <?Php
-                                                        $query="select * from tprojects where ((pstatus <> '05') or (pstatus <> '06'))";                                                               
+                                                        $query="select * from tprojects where pstatus = '00'";                                                               
                                                         
                                                         if ($result_set = $link->query($query)) {
                                                         while($row = $result_set->fetch_array(MYSQLI_ASSOC))

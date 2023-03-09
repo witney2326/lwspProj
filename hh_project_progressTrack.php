@@ -140,9 +140,17 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
 
                                         
                                         <div class="row mb-3">
+                                            
                                             <label for="progress" class="col-sm-2 col-form-label">Progress</label>
-                                            <select class="form-select" name="progress" id="progress" style="max-width:30%;" required >
-                                                
+                                            <?php
+                                            if ($pstatus == '06')
+                                                {
+                                                echo '<select class="form-select" name="progress" id="progress" style="max-width:30%;" required disabled>';
+                                                } else
+                                                {
+                                                    echo '<select class="form-select" name="progress" id="progress" style="max-width:30%;" required>'; 
+                                                } 
+                                            ?>  
                                                 <?php                                                           
                                                         $ta_fetch_query = "SELECT id,status FROM tproject_status";                                                  
                                                         $result_ta_fetch = mysqli_query($link, $ta_fetch_query);                                                                       
@@ -162,7 +170,15 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
 
                                         <div class="row justify-content-end">
                                             <div>
-                                                <button type="submit" class="btn btn-outline-primary w-md" name="Update" value="Update" >Update OSS Works Progress</button>
+                                                <?php
+                                                    if ($pstatus == '06')
+                                                    {
+                                                        echo '<button type="submit" class="btn btn-outline-primary w-md" name="Update" value="Update" disabled >Update OSS Works Progress</button>';
+                                                    } else
+                                                    {
+                                                        echo '<button type="submit" class="btn btn-outline-primary w-md" name="Update" value="Update" >Update OSS Works Progress</button>';
+                                                    }
+                                                ?>
                                             </div>
                                         </div>
                                     </form>

@@ -38,47 +38,18 @@
     <!-- ============================================================== -->
     <div class="main-content">
 
-        <div class="page-content">
+    <div class="page-content">
             <div class="container-fluid">                                     
                 </div>
 
                 <!-- start page title -->
                 <div class="row">
-                        <div class="col-10">
+                        <div class="col-6">
                     
                             <div class="card">
-                                <div class="card-header bg-transparent border-primary">
-                                    <div class="card-group">
-                                        <div class="card-border">
-                                            <img src="..." class="card-img-top" alt="">
-                                            <div class="card-body">
-                                                
-                                                <div class="my-body">
-                                                    <div class="d-flex">
-                                                        <div class="flex-grow-1">
-                                                            <button class="btn btn-btn btn-outline-secondary w-md" onclick="window.location.href='auth-register-hh1.php';">
-                                                                Household Registration
-                                                            </button>
-                                                            <button class="btn btn-btn btn-outline-secondary w-md" onclick="window.location.href='auth-register-staff.php';">
-                                                                LWSP Staff Registration
-                                                            </button>
-                                                            <button class="btn btn-btn btn-outline-secondary w-md" onclick="window.location.href='auth-register-supervisor.php';">
-                                                                Supervisor Registration
-                                                            </button>
-                                                            <button class="btn btn-btn btn-outline-secondary w-md" onclick="window.location.href='auth-register-contractor.php';">
-                                                                Contractor Registration
-                                                            </button>
-                                                            
-                                                        </div>
-                                                        
-                                                    </div>
-                                                </div>
-                                                
-                                            <!-- -->
-                                            </div>
-                                        </div>
-                                        
-                                    </div>
+                                <div class="card-border">
+                <br><b><h4>Welcome To OSS IT Platform Self Registration Module</h4></b><br> 
+                <h6>Please Use the Menu on the left pane for your option</h6>
                                 </div>
                             </div>
                         </div>

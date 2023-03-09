@@ -13,7 +13,7 @@
     </style>
 </head>
 
-<?php include 'layouts/body.php'; 
+    <?php include 'layouts/body.php'; 
       include 'layouts/config.php';
 
       $id = $_GET['id'];
@@ -32,7 +32,7 @@
          }
                 
      ?>
-?>
+
 
         
 
@@ -96,12 +96,20 @@
                                     <p></p>
                                 </div>
                                 <div class="row mb-4">
-                                        <label for="proj_id" class="col-sm-2 col-form-label">HH Head's Signature</label>
-                                        <input type="text" class="form-control" id="proj_id" name = "proj_id" value="" style="max-width:30%;" readonly>
+                                    <label for="proj_id" class="col-sm-2 col-form-label">HH Head's Signature</label>
+                                    <input type="text" class="form-control" id="proj_id" name = "proj_id" value="" style="max-width:30%;" readonly>
 
-                                        <label for="hhcode" class="col-sm-2 col-form-label">Contractor's signature</label>
-                                        <input type="text" class="form-control" id="hhcode" name="hhcode" value ="" style="max-width:30%;"readonly>
-                                    </div>
+                                    <label for="hhcode" class="col-sm-2 col-form-label">Contractor's signature</label>
+                                    <input type="text" class="form-control" id="hhcode" name="hhcode" value ="" style="max-width:30%;"readonly>
+                                </div>
+                                Verified By
+                                <div class="row mb-4">
+                                    <label for="proj_id" class="col-sm-2 col-form-label">Client's Signature</label>
+                                    <input type="text" class="form-control" id="proj_id" name = "proj_id" value="" style="max-width:30%;" readonly>
+
+                                    <label for="hhcode" class="col-sm-2 col-form-label">Consultant's Signature</label>
+                                    <input type="text" class="form-control" id="hhcode" name="hhcode" value ="" style="max-width:30%;"readonly>
+                                </div>
                                     
                                 <div class="d-print-none">
                                     <div class="float-end">

@@ -209,8 +209,8 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
 
                                                 <tbody>
                                                     <?Php
-                                                        $query="select tprojects.pID,tprojects.phhcode,tprojects.pstartdate,tprojects.pfinishdate,tprojects.pcontractorID,tprojects.pstatus from tprojects inner join households on tprojects.phhcode = households.hhcode where ((households.con = '$constituency') and (households.ward = '$ward') and (tprojects.pstatus <> '00') and (tprojects.pstatus <> '05') and (pstatus <> '06'))";
-
+                                                        $query="select tprojects.pID,tprojects.phhcode,tprojects.pstartdate,tprojects.pfinishdate,tprojects.pcontractorID,tprojects.pstatus as projStatus from tprojects inner join households on tprojects.phhcode = households.hhcode where ((households.con = '$constituency') and (households.ward = '$ward') and ((tprojects.pstatus = '01') or (tprojects.pstatus = '02') or (tprojects.pstatus = '03') or (tprojects.pstatus = '04')))";
+                                                        
                                                         //Variable $link is declared inside config.php file & used here
                                                         
                                                         if ($result_set = $link->query($query)) {
@@ -223,7 +223,7 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                                                             echo "<td>".$row["pstartdate"]."</td>\n";
                                                             echo "<td>".$row["pfinishdate"]."</td>\n";
                                                             echo "<td>".contractor_name($link,$row["pcontractorID"])."</td>\n";
-                                                            echo "<td>".pstatus($link,$row["pstatus"])."</td>\n";
+                                                            echo "<td>".pstatus($link,$row["projStatus"])."</td>\n";
                                                             
                                                             echo "<td>                                               
                                                             <a href=\"hh_View.php?id=".$row['phhcode']."\"><i class='view ico-view' title='View HH' style='font-size:18px;color:purple'></i></a> 

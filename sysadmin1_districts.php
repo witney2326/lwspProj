@@ -2,7 +2,7 @@
 <?php include 'layouts/head-main.php'; ?>
 
 <head>
-    <title>System Management</title>
+    <title>Ward Management</title>
     <?php include 'layouts/head.php'; ?>
     <?php include 'layouts/head-style.php'; ?>
     <?php include 'layouts/config.php'; ?>
@@ -30,6 +30,35 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
             border-style: solid;
             border-color: orange;
         }
+        .card-border1 
+        {
+            border-style: groove;
+            border-color: orange;
+            border-width: 8px;
+        }
+        .delete {
+        display: inline-block;
+        width: 18px; height: 18px;
+        background-image: url('icons/delete.png');
+        background-repeat: no-repeat;
+        }
+        .ico-delete { background-position: 0 0; }
+
+        .add {
+        display: inline-block;
+        width: 18px; height: 18px;
+        background-image: url('icons/save.png');
+        background-repeat: no-repeat;
+        }
+        .ico-add { background-position: 0 0; }
+
+        .edit {
+        display: inline-block;
+        width: 18px; height: 18px;
+        background-image: url('icons/edit.png');
+        background-repeat: no-repeat;
+        }
+        .ico-edit { background-position: 0 0; }
     </style>
 </head>
 
@@ -54,7 +83,7 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                 <div class="row">
                     <div class="col-12">
                         <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                            <h4 class="mb-sm-0 font-size-18">System Management</h4>
+                            <h4 class="mb-sm-0 font-size-18">Ward Management</h4>
 
                         </div>
                     </div>
@@ -65,109 +94,103 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
 
                     <div class="col-xl-12">
                         <div class="card">
-                            <div class="card-body">
-                                <!-- Nav tabs -->
-                                <ul class="nav nav-pills nav-justified" role="tablist">
-                                    <li class="nav-item waves-effect waves-light">
-                                        <a class="nav-link"  href="sysadmin1.php" role="tab">
-                                            <span class="d-block d-sm-none"><i class="fas fa-home"></i></span>
-                                            <span class="d-none d-sm-block">users</span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item waves-effect waves-light">
-                                        <a class="nav-link" data-bs-toggle="link" href="sysadmin1_contractors.php" role="link">
-                                            <span class="d-block d-sm-none"><i class="fas fa-home"></i></span>
-                                            <span class="d-none d-sm-block">contractors</span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item waves-effect waves-light">
-                                        <a class="link"  href="sysadmin1_roles.php" role="link">
-                                            <span class="d-block d-sm-none"><i class="far fa-envelope"></i></span>
-                                            <span class="d-none d-sm-block">roles</span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item waves-effect waves-light">
-                                        <a class="link"  href="sysadmin1_regions.php" role="link">
-                                            <span class="d-block d-sm-none"><i class="far fa-envelope"></i></span>
-                                            <span class="d-none d-sm-block">Constituency</span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item waves-effect waves-light">
-                                        <a class="nav-link active" data-bs-toggle="tab" href="javascript: void(0);" role="tab">
-                                            <span class="d-block d-sm-none"><i class="far fa-envelope"></i></span>
-                                            <span class="d-none d-sm-block">Ward</span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item waves-effect waves-light">
-                                        <a class="link"  href="sysadmin1_tas.php" role="link">
-                                            <span class="d-block d-sm-none"><i class="far fa-envelope"></i></span>
-                                            <span class="d-none d-sm-block">Area</span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item waves-effect waves-light">
-                                        <a class="link"  href="sysadmin1_buscats.php" role="link">
-                                            <span class="d-block d-sm-none"><i class="far fa-envelope"></i></span>
-                                            <span class="d-none d-sm-block">OSS Products</span>
-                                        </a>
-                                    </li>
-                                </ul>
-
-                                <form action="OSS_add_CityWard.php">
-                                    <p align="right">
-                                        <input type="submit" value="Add New Ward" class="btn btn-outline-success w-md" style="width:170px"/>
-                                    </p>
-                                </form>
-
-                                <div class="row">
-                                    <div class="col-9">
-                                        <div class="card-border">
-                                        
-                                        <div class="card-body">
-                                        <h7 class="card-title mt-0"></h7>
-                                            
-                                                <table id="datatable" class="table table-bordered dt-responsive  nowrap w-100">
-                                                
-                                                    <thead>
-                                                        <tr>
-                                                            <th>Ward ID</th>
-                                                            <th>Constituency</th>
-                                                            <th>Ward</th>
-                                                            <th>Action</th>                                                              
-                                                        </tr>
-                                                    </thead>
-
-
-                                                    <tbody>
-                                                        <?Php
-                                                            $query = "SELECT * FROM wards";
-
-                                                            if ($result_set = $link->query($query)) {
-                                                            while($row = $result_set->fetch_array(MYSQLI_ASSOC))
-                                                            { 
-                                                                echo "<tr>";
-                                                                echo "<td>".$row['id']."</td>";
-                                                                echo "<td>".$row['constituency']."</td>";
-                                                                echo "<td>".$row['wname']."</td>";                                                       
-                                                                
-
-                                                                echo "<td>
-                                                                    <a href=\"OSS_edit_CityWard.php?id=".$row['id']."\"><i class='fas fa-edit' title='Edit City Ward' style='font-size:18px;color:green'></i></a>
-                                                                    <a onClick=\"javascript: return confirm('Are You Sure You want To Delete This City Ward');\" href=\"OSS_ward_delete.php?id=".$row['id']."\"><i class='far fa-trash-alt' title='Delete City Ward' style='font-size:18px;color:Red'></i></a>
-                                                                    </td>\n";
-                                                                echo "</tr>";
-                                                            }
-                                                            $result_set->close();
-                                                            }  
-                                                                                
-                                                        ?>
-                                                    </tbody>
-                                                </table>
-                                                </p>
-                                            </div>
-                                        </div>     
-                                    </div>            
-                                </div>  
+                            <div class="card-border1">
+                                <div class="card-body">
+                                    <!-- Nav tabs -->
+                                    <ul class="nav nav-pills nav-justified" role="tablist">
+                                        <li class="nav-item waves-effect waves-light">
+                                            <a class="nav-link"  href="sysadmin1.php" role="tab">
+                                                <span class="d-block d-sm-none"><i class="fas fa-home"></i></span>
+                                                <span class="d-none d-sm-block">users</span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item waves-effect waves-light">
+                                            <a class="nav-link" data-bs-toggle="link" href="sysadmin1_contractors.php" role="link">
+                                                <span class="d-block d-sm-none"><i class="fas fa-home"></i></span>
+                                                <span class="d-none d-sm-block">contractors</span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item waves-effect waves-light">
+                                            <a class="link"  href="sysadmin1_roles.php" role="link">
+                                                <span class="d-block d-sm-none"><i class="far fa-envelope"></i></span>
+                                                <span class="d-none d-sm-block">roles</span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item waves-effect waves-light">
+                                            <a class="link"  href="sysadmin1_regions.php" role="link">
+                                                <span class="d-block d-sm-none"><i class="far fa-envelope"></i></span>
+                                                <span class="d-none d-sm-block">Constituency</span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item waves-effect waves-light">
+                                            <a class="nav-link active" data-bs-toggle="tab" href="javascript: void(0);" role="tab">
+                                                <span class="d-block d-sm-none"><i class="far fa-envelope"></i></span>
+                                                <span class="d-none d-sm-block">Ward</span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item waves-effect waves-light">
+                                            <a class="link"  href="sysadmin1_tas.php" role="link">
+                                                <span class="d-block d-sm-none"><i class="far fa-envelope"></i></span>
+                                                <span class="d-none d-sm-block">Area</span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item waves-effect waves-light">
+                                            <a class="link"  href="sysadmin1_buscats.php" role="link">
+                                                <span class="d-block d-sm-none"><i class="far fa-envelope"></i></span>
+                                                <span class="d-none d-sm-block">OSS Products</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
+                            <div class="card-border">
+                            <form action="OSS_add_CityWard.php">
+                                <p align="right">
+                                    <input type="submit" value="Add New Ward" class="btn btn-outline-success w-md" style="width:170px"/>
+                                </p>
+                            </form>
+                                
+                                <div class="card-body">
+                                    
+                                    <table id="datatable" class="table table-bordered dt-responsive  nowrap w-100">
+                                    
+                                        <thead>
+                                            <tr>
+                                                <th>Ward ID</th>
+                                                <th>Constituency</th>
+                                                <th>Ward</th>
+                                                <th>Action</th>                                                              
+                                            </tr>
+                                        </thead>
+
+
+                                        <tbody>
+                                            <?Php
+                                                $query = "SELECT * FROM wards";
+
+                                                if ($result_set = $link->query($query)) {
+                                                while($row = $result_set->fetch_array(MYSQLI_ASSOC))
+                                                { 
+                                                    echo "<tr>";
+                                                    echo "<td>".$row['id']."</td>";
+                                                    echo "<td>".$row['constituency']."</td>";
+                                                    echo "<td>".$row['wname']."</td>";                                                       
+                                                    
+
+                                                    echo "<td>
+                                                        <a href=\"OSS_edit_CityWard.php?id=".$row['id']."\"><i class='edit ico-edit' title='Edit City Ward' style='font-size:18px;color:green'></i></a>
+                                                        <a onClick=\"javascript: return confirm('Are You Sure You want To Delete This City Ward');\" href=\"OSS_ward_delete.php?id=".$row['id']."\"><i class='delete ico-delete' title='Delete City Ward' style='font-size:18px;color:Red'></i></a>
+                                                        </td>\n";
+                                                    echo "</tr>";
+                                                }
+                                                $result_set->close();
+                                                }  
+                                                                    
+                                            ?>
+                                        </tbody>
+                                    </table>
+                                </div>     
+                            </div>            
                         </div>
                     </div>
                 </div>

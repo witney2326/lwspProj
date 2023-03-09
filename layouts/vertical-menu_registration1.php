@@ -69,8 +69,6 @@
 
             </div>
 
-            
-
             <div class="dropdown d-inline-block">
                 <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <img class="rounded-circle header-profile-user" src="assets/images/users/avatar-1.jpg" alt="Header Avatar">
@@ -116,37 +114,56 @@
 
                 <li>
                     
-                    <a href="auth-register-hh1.php" class="waves-effect">
-                        <i class="fa fa-home" style="color:black"></i><span class="badge rounded-pill bg-info float-end"></span>
-                        <span key="t-dashboards">Household Registration</span>
+                    <a href="javascript:void(0);" class="waves-effect">
+                        <i class="fa fa-cog" style="color:orangered"></i><span class="badge rounded-pill bg-info float-end"></span>
+                        <span key="t-dashboards">System Admin</span>
                     </a>
                     
                 </li>
 
                 <li>
-                    <a href="auth-register-staff.php" class="waves-effect"> 
-                        <i class="bx bxs-group"style="color:brown"></i><span class="badge rounded-pill bg-info float-end"></span>
-                        <span key="t-dashboards">LWSP Staff Registration</span>
+                    <a href="javascript:void(0);" class="waves-effect">
+                        <i class="bx bxs-group"></i><span class="badge rounded-pill bg-info float-end"></span>
+                        <span key="t-dashboards">Register and Target</span>
                     </a>
                     
                 </li>
 
                 <li>
                     
-                    <a href="auth-register-supervisor.php" class="waves-effect">
-                    <i class="fa fa-tasks"></i><span class="badge rounded-pill bg-info float-end"></span>
-                        <span key="t-dashboards">Supervisor Registration</span>
+                    <a href="javascript:void(0);" class="waves-effect">
+                    <i class="fas fa-box"></i><span class="badge rounded-pill bg-info float-end"></span>
+                        <span key="t-dashboards">Request for Service</span>
                     </a>
                     
                 </li>
 
                 <li>
-                    <a href="auth-register-contractor.php" class="waves-effect">
-                    <i class="fa-solid fa-hammer" style="color:black" ></i><span class="badge rounded-pill bg-info float-end"></span>
-                        <span key="t-dashboards">Contractor Registration</span>
+                    <a href="javascript:void(0);" class="waves-effect">
+                    <i class="bx bx-dollar "></i><span class="badge rounded-pill bg-info float-end"></span>
+                        <span key="t-dashboards">Contribute for Service</span>
                     </a>
                     
                 </li>
+           
+                <li>
+                    <a href="javascript:void(0);" class="waves-effect">
+                        <i class="bx bx-bar-chart"></i><span class="badge rounded-pill bg-info float-end"></span>
+                        <span key="t-dashboards">OSS Works</span>
+                    </a>
+                    
+                </li>
+
+                <li>
+                   
+                    <a href="javascript:void(0);" class="waves-effect">
+                    <i class="bx bx-line-chart" style="color:blue"></i><span class="badge rounded-pill bg-info float-end"></span>
+                        <span key="t-dashboards"> Project Reports</span>
+                    </a>
+                    
+                </li>
+
+                
 
             </ul>
         </div>

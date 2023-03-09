@@ -101,7 +101,7 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                 <div class="row">
                     <div class="col-12">
                         <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                            <h4 class="mb-sm-0 font-size-18">OSS Works Progress Updates</h4>
+                            <h4 class="mb-sm-0 font-size-18">Scheduled OSS Works - Yet To Start</h4>
 
                             <div class="page-title-right">
                                 <ol class="breadcrumb m-0">
@@ -193,9 +193,7 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                             <div class="row">
                                 <div class="col-12">
                                     <div class="card-border">
-                                    <div class="card-header bg-transparent border-primary">
-                                        <h5 class="my-0 text-default">Scheduled OSS Works</h5>
-                                    </div>
+                                    
                                     <div class="card-body">
                                     <h7 class="card-title mt-0"></h7>
                                         
@@ -214,7 +212,7 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
 
                                                 <tbody>
                                                     <?Php
-                                                        $query="select tprojects.pID,tprojects.phhcode,tprojects.pstartdate,tprojects.pfinishdate,tprojects.pcontractorID,tprojects.pstatus as projStatus from tprojects inner join households on tprojects.phhcode = households.hhcode where ((households.con = '$constituency') and (households.ward = '$ward') and (households.area = '$area') and (tprojects.pstatus <> '05') and (tprojects.pstatus <> '06'))";
+                                                        $query="select tprojects.pID,tprojects.phhcode,tprojects.pstartdate,tprojects.pfinishdate,tprojects.pcontractorID,tprojects.pstatus as projStatus from tprojects inner join households on tprojects.phhcode = households.hhcode where ((households.con = '$constituency') and (households.ward = '$ward') and (households.area = '$area') and (tprojects.pstatus = '00'))";
 
                                                         //Variable $link is declared inside config.php file & used here
                                                         
