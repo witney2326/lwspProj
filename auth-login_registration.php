@@ -170,7 +170,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                                         <div class="row mb-1">
                                             <div class="text-center">
-                                                <button class="btn btn btn-outline-success waves-effect waves-light" type="submit" value="Login" style="width:30%">Login and Register</button>
+                                                <button class="btn btn btn-outline-success waves-effect waves-light" type="submit" value="Login" style="width:30%">Sign Up</button>
                                                 <a href="" class="text-muted"style="width:70%"></a>
 
                                                 <div class="mt-2 text-right"> 
