@@ -59,10 +59,13 @@ $contractorID = $_SESSION["hhid"];
                                                 <button class="btn btn-btn btn-outline-secondary w-md" onclick="window.location.href='works_tracking_con.php';">
                                                     Allocated OSS Works
                                                 </button>
+                                                <button class="btn btn-btn btn-outline-secondary w-md" onclick="window.location.href='register_beneficiary.php';">
+                                                    Register and Target
+                                                </button>
                                             </div>
                                         </div>
                                     </div>
-                               
+
                             </div>
                         
             

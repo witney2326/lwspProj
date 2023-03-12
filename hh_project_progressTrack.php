@@ -24,6 +24,35 @@
   <script type="text/javascript" 
 src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
   </script>
+
+<style> 
+        .card-border 
+        {
+            border-style: solid;
+            border-color: orange;
+        }
+        .card-border1 
+        {
+            border-style: groove;
+            border-color: orange;
+            border-width: 8px;
+        }
+        .upload {
+        display: inline-block;
+        width: 18px; height: 18px;
+        background-image: url('icons/upload.png');
+        background-repeat: no-repeat;
+        }
+        .ico-upload { background-position: 0 0; }
+
+        .round_check {
+        display: inline-block;
+        width: 18px; height: 18px;
+        background-image: url('icons/round_check.png');
+        background-repeat: no-repeat;
+        }
+        .ico-round { background-position: 0 0; }
+        </style>
 </head>
 
 <?php include 'layouts/body.php'; ?>
@@ -79,7 +108,7 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                 <div class="row">
                     <div class="col-9">
                         <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                            <h4 class="mb-sm-0 font-size-18">OSS HH Project Progress Update</h4>
+                            <h4 class="mb-sm-0 font-size-18">OSS Household Works Progress Update</h4>
                             <div class="page-title-right">
                                     <div>
                                         <p align="right">
@@ -97,7 +126,7 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
 
                         <?php include 'layouts/body.php'; ?>
                         <div class="col-lg-9">
-                            <div class="card border border-success">
+                            <div class="card-border">
                                 <div class="card-header bg-transparent border-success">
                                     
                                 </div>
@@ -183,6 +212,70 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                                         </div>
                                     </form>
                                     
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                            <div class="col-lg-9">
+                                <div class="card">
+                                    <div class="card-border">
+                                        <div class="card-body">
+                                            <h5 class="card-title mt-0"> Household Works Progress</h5>
+
+                                            <table id="datatable" class="table table-bordered dt-responsive  nowrap w-100">
+                                                
+                                            <thead>
+                                                <tr>
+                                                    <th>ID</th>                                           
+                                                    <th>Status Date</th>
+                                                    <th>Works status</th>
+                                                    <th>Status View</th>
+                                                    <th>Action</th>
+
+                                                </tr>
+                                            </thead>
+
+                                            <tbody>
+                                                <?Php
+                                                    $query="select * from tproject_progress where projID = '$id'";                                                               
+                                                    
+                                                    if ($result_set = $link->query($query)) {
+                                                    while($row = $result_set->fetch_array(MYSQLI_ASSOC))
+                                                    { 
+                                                        if (isset($row["filename_"]))
+                                                        {
+                                                            $stat_view = $row["filename_"];
+                                                        }else
+                                                        {
+                                                            $Color = "red";
+                                                            $stat_view ="Not Uploaded";
+                                                        }
+                                                        
+                                                        echo "<tr>\n";
+                                                            echo "<td>".$row["recID"]."</td>\n";
+                                                            echo "<td>".$row["status_date"]."</td>\n";
+                                                            echo "<td>".pstatus($link,$row["proj_status"])."</td>\n";
+                                                            echo "<td>\t\t$stat_view</td>\n";
+                                                            echo "<td>
+                                                        
+                                                                <a onClick=\"javascript: return confirm('Are You Sure You want To Upload Status Image');\" href=\"upload.php?id=".$row['recID']."\"><i class='upload ico-upload' style='font-size:18px'></i></a>        
+                                                            </td>\n";
+                                                            
+                                                            
+                                                        echo "</tr>\n";
+                                                    }
+                                                    $result_set->close();
+                                                    }  
+                                                                                        
+                                                    ?>
+                                                </tbody>
+                                            </table>
+
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>

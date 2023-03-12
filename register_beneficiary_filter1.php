@@ -26,8 +26,15 @@
 
 <div id="layout-wrapper">
 
-    <?php include 'layouts/menu.php'; ?>
-
+    <?php 
+        if ($_SESSION["userrole"] == '04')
+        {
+            include 'layouts/vertical-menu_con.php';
+        } else
+        {
+        include 'layouts/menu.php'; 
+        }
+    ?>
     <?php
         include "layouts/config.php"; // Using database connection file here
         

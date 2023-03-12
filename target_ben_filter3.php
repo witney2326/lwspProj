@@ -2,7 +2,7 @@
 <?php include 'layouts/head-main.php'; ?>
 <?php header("Cache-Control: max-age=300, must-revalidate"); ?>
 <head>
-    <title>Target Beneficiary</title>
+    <title>Registered Beneficiary Households</title>
     <?php include 'layouts/head.php'; ?>
     <?php include 'layouts/head-style.php'; ?>
     <?php include 'layouts/config.php'; ?>
@@ -116,7 +116,15 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
 <!-- Begin page -->
 <div id="layout-wrapper">
 
-    <?php include 'layouts/menu.php'; ?>
+    <?php 
+        if ($_SESSION["userrole"] == '04')
+        {
+            include 'layouts/vertical-menu_con.php';
+        } else
+        {
+        include 'layouts/menu.php'; 
+        }
+    ?>
 
     <!-- ============================================================== -->
     <!-- Start right Content here -->
@@ -130,12 +138,12 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                 <div class="row">
                     <div class="col-12">
                         <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                            <h4 class="mb-sm-0 font-size-18">Target Beneficiary</h4>
+                            <h4 class="mb-sm-0 font-size-18">Registered Beneficiary Households</h4>
 
                             <div class="page-title-right">
                                 <ol class="breadcrumb m-0">
                                     <li class="breadcrumb-item"><a href="index_check.php">Dashboard</a></li>
-                                    <li class="breadcrumb-item active">Target Beneficiary</li>
+                                    <li class="breadcrumb-item active">Registered Beneficiary Households</li>
                                 </ol>
                             </div>
 
@@ -219,9 +227,7 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                                 <div class="row">
                                     <div class="col-12">
                                         <div class="card-border">
-                                        <div class="card-header bg-transparent border-primary">
-                                            <h5 class="my-0 text-default">Registered Households</h5>
-                                        </div>
+                                        
                                         <div class="card-body">
                                         <h7 class="card-title mt-0"></h7>
                                             
