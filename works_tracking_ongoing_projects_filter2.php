@@ -46,6 +46,15 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
         }
         .ico-view { background-position: 0 0; }
 
+        .check {
+        display: inline-block;
+        width: 18px; height: 18px;
+        background-image: url('icons/check.png');
+        background-repeat: no-repeat;
+        }
+        .ico-check { background-position: 0 0; }
+
+
         .fchart {
         display: inline-block;
         width: 18px; height: 18px;
@@ -197,36 +206,36 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                                             
                                                 <thead>
                                                     <tr>
-                                                        <th>OSS Works Code</th>                                           
+                                                        <th>Works Code</th>                                           
                                                         <th>HH Code</th>
-                                                        <th>Start Date</th>
-                                                        <th>Expected End Date</th>
+                                                        <th>Finish Date</th>
                                                         <th>Contractor</th>
                                                         <th>Status</th>
+                                                        <th>Status Approved</th>
                                                         <th>Action</th>  
                                                     </tr>
                                                 </thead>
 
                                                 <tbody>
                                                     <?Php
-                                                        $query="select tprojects.pID,tprojects.phhcode,tprojects.pstartdate,tprojects.pfinishdate,tprojects.pcontractorID,tprojects.pstatus as projStatus from tprojects inner join households on tprojects.phhcode = households.hhcode where ((households.con = '$constituency') and (households.ward = '$ward') and ((tprojects.pstatus = '01') or (tprojects.pstatus = '02') or (tprojects.pstatus = '03') or (tprojects.pstatus = '04')))";
+                                                        $query="select tprojects.pID,tprojects.phhcode,tprojects.pstartdate,tprojects.pfinishdate,tprojects.pcontractorID,tprojects.pstatus_approved,tprojects.pstatus as projStatus from tprojects inner join households on tprojects.phhcode = households.hhcode where ((households.con = '$constituency') and (households.ward = '$ward') and ((tprojects.pstatus = '01') or (tprojects.pstatus = '02') or (tprojects.pstatus = '03') or (tprojects.pstatus = '04')))";
                                                         
                                                         //Variable $link is declared inside config.php file & used here
                                                         
                                                         if ($result_set = $link->query($query)) {
                                                         while($row = $result_set->fetch_array(MYSQLI_ASSOC))
                                                         { 
-                                                            
+                                                            if ($row["pstatus_approved"] == '1') {$statusApproved = "Yes";}else{$statusApproved = "No";}
                                                         echo "<tr>\n";
                                                             echo "<td>".$row["pID"]."</td>\n";
                                                             echo "<td>".$row["phhcode"]."</td>\n";
-                                                            echo "<td>".$row["pstartdate"]."</td>\n";
                                                             echo "<td>".$row["pfinishdate"]."</td>\n";
                                                             echo "<td>".contractor_name($link,$row["pcontractorID"])."</td>\n";
                                                             echo "<td>".pstatus($link,$row["projStatus"])."</td>\n";
-                                                            
+                                                            echo "<td>\t\t$statusApproved</td>\n";
                                                             echo "<td>                                               
-                                                            <a href=\"hh_View.php?id=".$row['phhcode']."\"><i class='view ico-view' title='View HH' style='font-size:18px;color:purple'></i></a> 
+                                                                <a href=\"hh_View.php?id=".$row['phhcode']."\"><i class='view ico-view' title='View HH' style='font-size:18px;color:purple'></i></a> 
+                                                                <a onClick=\"javascript: return confirm('Are You Sure You want To Approve Current Works Progress Status?');\" href=\"works_status_approval.php?id=".$row['pID']."\"><i class='check ico-check' title='Approve Current Works Status' style='font-size:18px;color:green'></i></a>
                                                                 <a href=\"hh_project_progressTrack.php?id=".$row['pID']."\"><i class='fchart ico-fchart' title='Update Project Progress' style='font-size:18px;color:black'></i></a> 
                                                             </td>\n";
                                                         echo "</tr>\n";

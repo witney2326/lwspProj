@@ -4,7 +4,6 @@
 
 <head>
     <title><?php echo $language["Dashboard"];?></title>
-    
     <?php include 'layouts/head.php'; ?>
     <?php include 'layouts/head-style.php'; ?>
     
@@ -42,36 +41,6 @@
 
     // File upload path
 
-    if(isset($_POST["submit"]) && !empty($_FILES["file"]["name"])){
-        $targetDir = "uploads/";
-        $fileName = basename($_FILES["file"]["name"]);
-        $targetFilePath = $targetDir . $fileName;
-        $fileType = pathinfo($targetFilePath,PATHINFO_EXTENSION);
-
-        // Allow certain file formats
-        $allowTypes = array('jpg','png','jpeg','gif','pdf');
-        if(in_array($fileType, $allowTypes)){
-            // Upload file to server
-            if(move_uploaded_file($_FILES["file"]["tmp_name"], $targetFilePath)){
-                // Insert image file name into database
-
-                $insert="UPDATE tproject_progress set filename_ = '$fileName' where recID=$ID";
-                if ($result_set_up = $link->query($insert))
-                {
-                    $statusMsg = "The Picture File ".$fileName. " has been uploaded successfully.";
-                }else{
-                    $statusMsg = "Picture upload failed, please try again.";
-                } 
-            }else{
-                $statusMsg = "Sorry, there was an error uploading your Picture.";
-            }
-        }else{
-            $statusMsg = 'Sorry, only JPG, JPEG, PNG, GIF, & PDF files are allowed to upload.';
-        }
-    }else{
-        $statusMsg = 'Please Select Works Status Picture to upload.';
-    }
-
     // Display status message
     echo $statusMsg;
 
@@ -105,13 +74,6 @@
                         <div class="card">
                             <div class="card-border">     
 
-                                <form action="" method="post" enctype="multipart/form-data">
-                                    Select Picture File to Upload:
-                                    <input type="file" name="file">
-                                    <input type="submit" name="submit" value="Upload">
-                                </form>
-                            </div>
-                            <div class="card-border1"> 
                                 <?php
                                     echo $statusMsg;
                                     echo " ";
@@ -124,8 +86,8 @@
                                             echo '<img src="./uploads/'; echo $data['filename_']; 
                                     echo '</div>';       
                                 ?>
-                               
                             </div>
+                           
 
                         </div>
                         

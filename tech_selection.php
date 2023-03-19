@@ -44,6 +44,14 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
         }
         .ico-view { background-position: 0 0; }
 
+        .pin {
+        display: inline-block;
+        width: 18px; height: 18px;
+        background-image: url('icons/pin.png');
+        background-repeat: no-repeat;
+        }
+        .ico-pin { background-position: 0 0; }
+
         .check {
         display: inline-block;
         width: 18px; height: 18px;
@@ -189,6 +197,7 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                                                         <th>HH Code</th>                                           
                                                         <th>HH Name</th>
                                                         <th>Tech Selection</th>
+                                                        <th>Tech Site Set</th>
                                                         <th>Tech Cost</th>
                                                         <th>Tech  Approved?</th>
                                                         <th>Action</th>  
@@ -208,14 +217,17 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                                                             $cost = number_format(product_cost($link,$row["selected_product"]),2);
 
                                                             if ($row["product_approved"] == '1'){$approved = 'Yes';}else{$approved = 'No';}
+                                                            if (($row["lat"]== 0) or ($row["long"]== 0)){$geo_set = "Not Set";}else{$geo_set = "Set";}
                                                         echo "<tr>\n";
                                                             echo "<td>".$row["hhcode"]."</td>\n";
                                                             echo "<td>".$row["hhname"]."</td>\n";
                                                             echo "<td>\t\t$prod</td>\n";
+                                                            echo "<td>\t\t$geo_set</td>\n";
                                                             echo "<td>\t\t$cost</td>\n";
                                                             echo "<td>\t\t$approved</td>\n";
                                                             echo "<td>                                               
                                                             <a href=\"hh_View.php?id=".$row['hhcode']."\"><i class='view ico-view' title='View HH' style='font-size:18px; color: purple'></i></a>\n
+                                                            <a href=\"location.php?id=".$row['hhcode']."\"><i class='pin ico-pin' title='Geo Locate House' style='font-size:18px; color: blue'></i></a>\n
                                                             <a onClick=\"javascript: return confirm('Are You Sure You want To Approve This Technology Selection For The Household?');\" href=\"tech_selected_approval.php?id=".$row['hhcode']."\"><i class='check ico-check' title='Approve Tech Selection' style='font-size:18px;color:green'></i></a>
                                                             </td>\n";
 

@@ -40,18 +40,18 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
         .upload {
         display: inline-block;
         width: 18px; height: 18px;
-        background-image: url('icons/upload.png');
+        background-image: url('icons/new_upload.png');
         background-repeat: no-repeat;
         }
         .ico-upload { background-position: 0 0; }
 
-        .round_check {
+        .view {
         display: inline-block;
         width: 18px; height: 18px;
-        background-image: url('icons/round_check.png');
+        background-image: url('icons/view.png');
         background-repeat: no-repeat;
         }
-        .ico-round { background-position: 0 0; }
+        .ico-view { background-position: 0 0; }
         </style>
 </head>
 
@@ -60,7 +60,7 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
 <?php
        include "layouts/config.php"; // Using database connection file here
         
-       $id = $_GET['id']; // get id through query string
+      $id = $_GET['id']; // get id through query string
       $query="select * from tprojects where pID='$id'";
        
        if ($result_set = $link->query($query)) {
@@ -232,7 +232,7 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                                                     <th>ID</th>                                           
                                                     <th>Status Date</th>
                                                     <th>Works status</th>
-                                                    <th>Status View</th>
+                                                    <th>Pictorial View OSS Works </th>
                                                     <th>Action</th>
 
                                                 </tr>
@@ -260,8 +260,8 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                                                             echo "<td>".pstatus($link,$row["proj_status"])."</td>\n";
                                                             echo "<td>\t\t$stat_view</td>\n";
                                                             echo "<td>
-                                                        
-                                                                <a onClick=\"javascript: return confirm('Are You Sure You want To Upload Status Image');\" href=\"upload.php?id=".$row['recID']."\"><i class='upload ico-upload' style='font-size:18px'></i></a>        
+                                                                <a href=\"view_status2.php?id=".$row['recID']."\"><i class='view ico-view' title='Visual Progress' style='font-size:18px;color:purple'></i></a> 
+                                                                <a href=\"upload.php?id=".$row['recID']."\"><i class='upload ico-upload' title='Upload Visual Progress' style='font-size:18px'></i></a>
                                                             </td>\n";
                                                             
                                                             

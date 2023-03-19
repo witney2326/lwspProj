@@ -4,6 +4,61 @@
         border: none !important;
         border-width:0!important;
     }
+    .users {
+        display: inline-block;
+        width: 18px; height: 18px;
+        background-image: url('icons/users1.png');
+        background-repeat: no-repeat;
+        }
+        .ico-users { background-position: 0 0; }
+
+    .settings {
+        display: inline-block;
+        width: 18px; height: 18px;
+        background-image: url('icons/settings1.png');
+        background-repeat: no-repeat;
+        }
+        .ico-settings { background-position: 0 0; }
+
+    .dollar {
+        display: inline-block;
+        width: 18px; height: 18px;
+        background-image: url('icons/dollar1.png');
+        background-repeat: no-repeat;
+        }
+        .ico-dollar { background-position: 0 0; }
+
+    .chart {
+        display: inline-block;
+        width: 18px; height: 18px;
+        background-image: url('icons/chart1.png');
+        background-repeat: no-repeat;
+        }
+        .ico-chart { background-position: 0 0; }
+
+    .report {
+        display: inline-block;
+        width: 18px; height: 18px;
+        background-image: url('icons/report1.png');
+        background-repeat: no-repeat;
+        }
+        .ico-report { background-position: 0 0; }
+
+    .service {
+        display: inline-block;
+        width: 18px; height: 18px;
+        background-image: url('icons/service.png');
+        background-repeat: no-repeat;
+        }
+        .ico-service { background-position: 0 0; }
+
+    .home {
+        display: inline-block;
+        width: 18px; height: 18px;
+        background-image: url('icons/home.png');
+        background-repeat: no-repeat;
+        }
+        .ico-home { background-position: 0 0; }
 </style>
 <header id="page-topbar">
     <div class="navbar-header">
@@ -106,65 +161,27 @@
 
                 <li>
                     <a href="index_con.php" class="waves-effect">
-                        <i class="bx bx-home-circle"></i><span class="badge rounded-pill bg-info float-end"></span>
+                        <i class="home ico-home"></i><span class="badge rounded-pill bg-info float-end"></span>
                         <span key="t-dashboards"><?php echo $language["Dashboard"]; ?></span>
                     </a>
                     
                 </li>
 
                 <li>
-                    
-                    <a href="javascript:void(0);" class="waves-effect">
-                        <i class="fa fa-cog" style="color:orangered"></i><span class="badge rounded-pill bg-info float-end"></span>
-                        <span key="t-dashboards">System Admin</span>
-                    </a>
-                    
-                </li>
-
-                <li>
-                    <a href="javascript:void(0);" class="waves-effect">
-                        <i class="bx bxs-group"></i><span class="badge rounded-pill bg-info float-end"></span>
+                    <a href="register_beneficiary.php" class="waves-effect">
+                        <i class="users ico-users"></i><span class="badge rounded-pill bg-info float-end"></span>
                         <span key="t-dashboards">Register and Target</span>
                     </a>
                     
                 </li>
 
                 <li>
-                    
-                    <a href="javascript:void(0);" class="waves-effect">
-                    <i class="fas fa-box"></i><span class="badge rounded-pill bg-info float-end"></span>
-                        <span key="t-dashboards">Request for Service</span>
+                    <a href="works_tracking_con.php" class="waves-effect">
+                        <i class="chart ico-chart"></i><span class="badge rounded-pill bg-info float-end"></span>
+                        <span key="t-dashboards">Allocated OSS Works</span>
                     </a>
                     
                 </li>
-
-                <li>
-                    <a href="javascript:void(0);" class="waves-effect">
-                    <i class="bx bx-dollar "></i><span class="badge rounded-pill bg-info float-end"></span>
-                        <span key="t-dashboards">Contribute for Service</span>
-                    </a>
-                    
-                </li>
-           
-                <li>
-                    <a href="javascript:void(0);" class="waves-effect">
-                        <i class="bx bx-bar-chart"></i><span class="badge rounded-pill bg-info float-end"></span>
-                        <span key="t-dashboards">OSS Works</span>
-                    </a>
-                    
-                </li>
-
-                <li>
-                   
-                    <a href="javascript:void(0);" class="waves-effect">
-                    <i class="bx bx-line-chart" style="color:blue"></i><span class="badge rounded-pill bg-info float-end"></span>
-                        <span key="t-dashboards"> Project Reports</span>
-                    </a>
-                    
-                </li>
-
-                
-
             </ul>
         </div>
         <!-- Sidebar -->

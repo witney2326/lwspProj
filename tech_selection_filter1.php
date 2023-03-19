@@ -193,6 +193,7 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                                                         <th>HH Code</th>                                           
                                                         <th>HH Name</th>
                                                         <th>Tech Selection</th>
+                                                        <th>Tech Site Set</th>
                                                         <th>Tech Cost</th>
                                                         <th>Tech  Approved?</th>
                                                         <th>Action</th>  
@@ -212,10 +213,12 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                                                                 $cost = number_format(product_cost($link,$row["selected_product"]),2);
 
                                                                 if ($row["product_approved"] == '1'){$approved = 'Yes';}else{$approved = 'No';}
+                                                                if (($row["lat"]== 0) or ($row["long"]== 0)){$geo_set = "Not Set";}else{$geo_set = "Set";}
                                                             echo "<tr>\n";
                                                                 echo "<td>".$row["hhcode"]."</td>\n";
                                                                 echo "<td>".$row["hhname"]."</td>\n";
                                                                 echo "<td>\t\t$prod</td>\n";
+                                                                echo "<td>\t\t$geo_set</td>\n";
                                                                 echo "<td>\t\t$cost</td>\n";
                                                                 echo "<td>\t\t$approved</td>\n";
                                                                 echo "<td>                                               

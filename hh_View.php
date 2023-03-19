@@ -47,6 +47,8 @@
                  $vulnerable= $row["vulnerable"];
                  $poor= $row["poor"]; 
                  $enrolled= $row["enrolled"];
+                 $lat= $row["lat"];
+                 $long= $row["long"];
              }
              $result_set->close();
          }
@@ -107,6 +109,7 @@
                                             <a class="nav-link mb-2 active" id="v-pills-home-tab" data-bs-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Household Details</a>
                                             <a class="nav-link mb-2" id="v-pills-profile-tab" data-bs-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Household Payments</a>
                                             <a class="nav-link mb-2" id="v-pills-messages-tab" data-bs-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Selected Products</a>
+                                            <a class="nav-link mb-2" id="v-pills-messages1-tab" data-bs-toggle="pill" href="#v-pills-messages1" role="tab" aria-controls="v-pills-messages1" aria-selected="false">Geo Coordinates</a>
                                             <a class="nav-link mb-2" id="v-pills-mycs-tab" data-bs-toggle="pill" href="#v-pills-mycs" role="tab" aria-controls="v-pills-mycs" aria-selected="false">Works Progress</a>
                                             <a class="nav-link mb-2" id="v-pills-mjsg-tab" data-bs-toggle="pill" href="#v-pills-mjsg" role="tab" aria-controls="v-pills-mjsg" aria-selected="false">Works Certificate</a>
                                            
@@ -261,6 +264,29 @@
                                                                 
                                                                 <h6 class="my-0 text-default">Product: <?php echo pname($link,$product); ?> </h6>
                                                             </div>
+                                                        </div>
+                                                    </div>
+                                                </p> 
+                                            </div>
+
+                                            <div class="tab-pane fade" id="v-pills-messages1" role="tabpanel" aria-labelledby="v-pills-messages1-tab">
+                                                <p>
+                                                    <div class="card-border">
+                                                        <div class="card-body">
+                                                            <h5 class="card-title mt-0"> Household Geo-Coordinates</h5>
+                                                            <div class="card-header bg-transparent border-primary">
+                                                                
+                                                                
+                                                                <div class="row mb-2">
+                                                                    <label for="lat" class="col-sm-2 col-form-label">Latitude</label>
+                                                                    <input type="text" class="form-control" id="lat" name="lat" value ="<?php if ($lat == 0){echo "Not Set";}else{echo $lat;} ?>" style="max-width:30%;"readonly>
+
+                                                                    <label for="long" class="col-sm-2 col-form-label">Phone No.</label>
+                                                                    <input type="text" class="form-control" id="long" name="long" value =" <?php if ($long == 0){echo "Not Set";}else{echo $long;} ?>" style="max-width:30%;"readonly>
+                                                                </div>
+                                                            </div>
+
+                                                                
                                                         </div>
                                                     </div>
                                                 </p> 
