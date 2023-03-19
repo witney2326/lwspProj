@@ -51,6 +51,14 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
         background-repeat: no-repeat;
         }
         .ico-check { background-position: 0 0; }
+
+        .pin {
+        display: inline-block;
+        width: 18px; height: 18px;
+        background-image: url('icons/pin.png');
+        background-repeat: no-repeat;
+        }
+        .ico-pin { background-position: 0 0; }
     </style>
 </head>
 
@@ -71,7 +79,7 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
 <!-- Begin page -->
 <div id="layout-wrapper">
 
-    <?php include 'layouts/menu.php'; ?>
+<?php if ($_SESSION["userrole"] == '04'){include 'layouts/vertical-menu_con.php';}else {include 'layouts/menu.php';} ?>
 
     <!-- ============================================================== -->
     <!-- Start right Content here -->
@@ -85,12 +93,12 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                 <div class="row">
                     <div class="col-12">
                         <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                            <h4 class="mb-sm-0 font-size-18">OSS Technology Selection Approvals</h4>
+                            <h4 class="mb-sm-0 font-size-18"><?php if ($_SESSION["userrole"] == '04'){echo "OSS Technology Site Geo Setting";}else{echo "OSS Technology Selection Approvals";}?></h4>
 
                             <div class="page-title-right">
                                 <ol class="breadcrumb m-0">
                                     <li class="breadcrumb-item"><a href="index_check.php">Dashboard</a></li>
-                                    <li class="breadcrumb-item active">OSS Technology Selection Approvals</li>
+                                    <li class="breadcrumb-item active"><?php if ($_SESSION["userrole"] == '04'){echo "OSS Technology Site Geo Setting";}else{echo "OSS Technology Selection Approvals";}?></li>
                                 </ol>
                             </div>
 
@@ -211,10 +219,20 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                                                                 echo "<td>\t\t$geo_set</td>\n";
                                                                 echo "<td>\t\t$cost</td>\n";
                                                                 echo "<td>\t\t$approved</td>\n";
-                                                                echo "<td>                                               
-                                                                <a href=\"hh_View.php?id=".$row['hhcode']."\"><i class='view ico-view' title='View HH' style='font-size:18px; color: purple'></i></a>\n
-                                                                <a onClick=\"javascript: return confirm('Are You Sure You want To Approve This Technology Selection For The Household?');\" href=\"tech_selected_approval.php?id=".$row['hhcode']."\"><i class='check ico-check' title='Approve Tech Selection' style='font-size:18px;color:green'></i></a>
-                                                                </td>\n";
+                                                                if ($_SESSION["userrole"] == '04')
+                                                                {
+                                                                    echo "<td>                                               
+                                                                    <a href=\"hh_View.php?id=".$row['hhcode']."\"><i class='view ico-view' title='View HH' style='font-size:18px; color: purple'></i></a>\n
+                                                                    <a href=\"location.php?id=".$row['hhcode']."\"><i class='pin ico-pin' title='Geo Locate House' style='font-size:18px; color: blue'></i></a>\n
+                                                                    </td>\n";
+                                                                }else
+                                                                {
+                                                                    echo "<td>                                               
+                                                                    <a href=\"hh_View.php?id=".$row['hhcode']."\"><i class='view ico-view' title='View HH' style='font-size:18px; color: purple'></i></a>\n
+                                                                    <a href=\"location.php?id=".$row['hhcode']."\"><i class='pin ico-pin' title='Geo Locate House' style='font-size:18px; color: blue'></i></a>\n
+                                                                    <a onClick=\"javascript: return confirm('Are You Sure You want To Approve This Technology Selection For The Household?');\" href=\"tech_selected_approval.php?id=".$row['hhcode']."\"><i class='check ico-check' title='Approve Tech Selection' style='font-size:18px;color:green'></i></a>
+                                                                    </td>\n";
+                                                                }
 
                                                             echo "</tr>\n";
                                                         }

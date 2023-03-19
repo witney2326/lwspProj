@@ -64,7 +64,7 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
 <!-- Begin page -->
 <div id="layout-wrapper">
 
-    <?php include 'layouts/menu.php'; ?>
+<?php if ($_SESSION["userrole"] == '04'){include 'layouts/vertical-menu_con.php';}else {include 'layouts/menu.php';} ?>
 
     <!-- ============================================================== -->
     <!-- Start right Content here -->

@@ -187,12 +187,10 @@
                 </li>
 
                 <li>
-                    
                     <a href="request_for_service.php" class="waves-effect">
                     <i class="service ico-service"style="font-size:small;"></i><span class="badge rounded-pill bg-info float-end"></span>
                         <span key="t-dashboards">Request for Service</span>
                     </a>
-                    
                 </li>
 
                 <li>

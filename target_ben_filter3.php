@@ -2,7 +2,7 @@
 <?php include 'layouts/head-main.php'; ?>
 <?php header("Cache-Control: max-age=300, must-revalidate"); ?>
 <head>
-    <title>Registered Beneficiary Households</title>
+    <title>Unverified Registered Beneficiary Households</title>
     <?php include 'layouts/head.php'; ?>
     <?php include 'layouts/head-style.php'; ?>
     <?php include 'layouts/config.php'; ?>
@@ -138,12 +138,12 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                 <div class="row">
                     <div class="col-12">
                         <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                            <h4 class="mb-sm-0 font-size-18">Registered Beneficiary Households</h4>
+                            <h4 class="mb-sm-0 font-size-18">Unverified Registered Beneficiary Households</h4>
 
                             <div class="page-title-right">
                                 <ol class="breadcrumb m-0">
                                     <li class="breadcrumb-item"><a href="index_check.php">Dashboard</a></li>
-                                    <li class="breadcrumb-item active">Registered Beneficiary Households</li>
+                                    <li class="breadcrumb-item active">Unverified Registered Beneficiary Households</li>
                                 </ol>
                             </div>
 
@@ -238,14 +238,14 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                                                             <th>HH Code</th>                                           
                                                             <th>HH Name</th>
                                                             <th>Identification</th>
-                                                            <th>Enrolled?</th>
+                                                            <th>Verified/Accepted??</th>
                                                             <th>Action</th>  
                                                         </tr>
                                                     </thead>
 
                                                     <tbody>
                                                         <?Php
-                                                            $query="select * from households where ((area = '$area') and (deleted = '0'))";
+                                                            $query="select * from households where ((area = '$area') and (deleted ='0') and (enrolled = '0'))";
 
                                                             //Variable $link is declared inside config.php file & used here
                                                             
@@ -259,12 +259,22 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                                                                 echo "<td>".$row["hhname"]."</td>\n";
                                                                 echo "<td>\t\t$ident</td>\n";
                                                                 echo "<td>\t\t$enrolled</td>\n";
-                                                                echo "<td>                                               
-                                                                    <a href=\"hh_View.php?id=".$row['hhcode']."\"><i class='view ico-view' title='View HH' style='font-size:18px; color:purple'></i></a> 
-                                                                    <a onClick=\"javascript: return confirm('Are You Sure You want To Enrol This HOUSEHOLD for This Programme?');\" href=\"target_beneficiary_enrol.php?id=".$row['hhcode']."\"><i class='check ico-check' title='Enrol Household' style='font-size:18px;color:green'></i></a> 
-                                                                    <a href=\"edit-household.php?id=".$row['hhcode']."\"><i class='edit ico-edit' title='Edit HH' style='font-size:18px; color:black'></i></a> 
-                                                                    <a onClick=\"javascript: return confirm('Are You Sure You want To DELETE This HOUSEHOLD');\" href=\"del_hh.php?id=".$row['hhcode']."\"><i class='delete ico-delete' title='Delete Member' style='font-size:18px; color:red'></i></a>      
-                                                                </td>\n";
+                                                                if ($_SESSION["userrole"] == '04')
+                                                                {
+                                                                    echo "<td>                                               
+                                                                        <a href=\"hh_View.php?id=".$row['hhcode']."\"><i class='view ico-view' title='View HH' style='font-size:18px; color:purple'></i></a> 
+                                                                        <a onClick=\"javascript: return confirm('Are You Sure You want To Enrol This HOUSEHOLD for This Programme?');\" href=\"target_beneficiary_enrol.php?id=".$row['hhcode']."\"><i class='check ico-check' title='Enrol Household' style='font-size:18px;color:green'></i></a> 
+                                                                        
+                                                                    </td>\n";
+                                                                }else
+                                                                {
+                                                                    echo "<td>                                               
+                                                                        <a href=\"hh_View.php?id=".$row['hhcode']."\"><i class='view ico-view' title='View HH' style='font-size:18px; color:purple'></i></a> 
+                                                                        <a onClick=\"javascript: return confirm('Are You Sure You want To Enrol This HOUSEHOLD for This Programme?');\" href=\"target_beneficiary_enrol.php?id=".$row['hhcode']."\"><i class='check ico-check' title='Enrol Household' style='font-size:18px;color:green'></i></a> 
+                                                                        <a href=\"edit-household.php?id=".$row['hhcode']."\"><i class='edit ico-edit' title='Edit HH' style='font-size:18px; color:black'></i></a> 
+                                                                        <a onClick=\"javascript: return confirm('Are You Sure You want To DELETE This HOUSEHOLD');\" href=\"del_hh.php?id=".$row['hhcode']."\"><i class='delete ico-delete' title='Delete Member' style='font-size:18px; color:red'></i></a>      
+                                                                    </td>\n";
+                                                                }
 
                                                             echo "</tr>\n";
                                                             }
