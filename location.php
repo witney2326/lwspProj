@@ -100,7 +100,7 @@
                       </div>
                       <div class="card-body">
                           
-                          <form action =".php" method="POST"> 
+                            <form action ="hh_works_update_geopoint.php" method="POST"> 
                               <div class="row mb-1">
                                   <label for="hhcode" class="col-sm-2 col-form-label">Household ID</label>
                                   <input type="text" class="form-control" id="hhcode" name = "hhcode" value="<?php echo $id ; ?>" style="max-width:30%;" readonly>
@@ -127,7 +127,7 @@
                                   <input type="text" class="form-control" id="phone" name="phone" value =" <?php echo $phone; ?>" style="max-width:30%;"readonly>
                               </div>
                               
-                              <div class="row mb-2"><h5>Click The Button Below To Capture Geopoint for Household</h5></div>
+                              <p style="color: blue">Click The Button Below To Capture Geopoint for Household OSS Works</p>
                               <div class="row mb-1">
                                   <label for="lat_input" class="col-sm-2 col-form-label">Latitude</label>
                                   <input type="text" class="form-control" id="lat_input" name="lat_input" value ="<?php if ($lat == 0){echo "Not Set";}else{echo $lat;} ?>" style="max-width:30%;"readonly>
@@ -135,9 +135,17 @@
                                   <label for="long_input" class="col-sm-2 col-form-label">Longitude</label>
                                   <input type="text" class="form-control" id="long_input" name="long_input" value ="<?php if ($longi == 0){echo "Not Set";} else {echo $longi;} ?>" style="max-width:30%;"readonly>
                               </div>
-                              <div class="col-12">
-                                <button type="submit" class="btn btn-outline-primary w-md" name="Submit" value="Submit">Update Household</button>
-                            </div>
+                                <div class="col-12">
+                                    <?php
+                                    if ((isset($lat)) and (isset($longi)))
+                                    {
+                                        echo '<button type="submit" class="btn btn-outline-primary w-md" name="Submit" value="Submit" disabled >Update Household</button>';
+                                    } else
+                                    {
+                                        echo '<button type="submit" class="btn btn-outline-primary w-md" name="Submit" value="Submit">Update Household</button>';
+                                    }
+                                    ?>
+                                </div>
                           </form>
                           
                       </div>
@@ -149,9 +157,15 @@
                       <div class="card-border">
 
                         <p><h6>Geo Coordinates For OSS Household Works</h6></p>
-
-                        <div class="col-12"><button class="btn btn-btn btn-outline-info w-md" onclick="getLocation()">Get Coordinates</button></div>
-         
+                        <?php
+                            if ((isset($lat)) and (isset($longi)))
+                            {
+                                echo '<div class="col-12"><button class="btn btn-btn btn-outline-info w-md" onclick="getLocation()" disabled>Get Coordinates</button></div>';
+                            }else
+                            {
+                                echo '<div class="col-12"><button class="btn btn-btn btn-outline-info w-md" onclick="getLocation()">Get Coordinates</button></div>'; 
+                            }
+                        ?>
                       </div>
                     </div>
                 </div>

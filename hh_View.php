@@ -48,7 +48,7 @@
                  $poor= $row["poor"]; 
                  $enrolled= $row["enrolled"];
                  $lat= $row["lat"];
-                 $long= $row["long"];
+                 $long= $row["longi"];
              }
              $result_set->close();
          }

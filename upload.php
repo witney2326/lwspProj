@@ -121,7 +121,7 @@
                                             $result = mysqli_query($link, $query);
                                     
                                             $data = mysqli_fetch_assoc($result);
-                                            echo '<img src="./uploads/'; echo $data['filename_']; 
+                                            if (isset($data)){echo '<img src="./uploads/'; echo $data['filename_'];}else{echo "No Status Picture";} 
                                     echo '</div>';       
                                 ?>
                                
