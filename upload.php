@@ -120,7 +120,7 @@
                                             $query = " select filename_ from tproject_progress where recID = '$ID' ";
                                             $result = mysqli_query($link, $query);
                                     
-                                            $data = mysqli_fetch_assoc($result);
+                                            $data = mysqli_fetch_assoc($result)
                                             if (isset($data)){echo '<img src="./uploads/'; echo $data['filename_'];}else{echo "No Status Picture";} 
                                     echo '</div>';       
                                 ?>

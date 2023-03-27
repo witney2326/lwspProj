@@ -3,11 +3,11 @@ include_once 'layouts/config.php';
 
 if(isset($_POST['Submit']))
 {    
-$hh_id = $_POST["hhcode"];
+$hh_code = $_POST["hhcode"];
 $lat_input= $_POST["lat_input"];
 $long_input = $_POST['long_input'];
 
-$sql = "UPDATE households set lat = '$lat_input', longi = '$long_input' where hhcode = '$hh_id'";
+$sql = "UPDATE households set lat = '$lat_input', longi = '$long_input' where hhcode = '$hh_code'";
 
 if (mysqli_query($link, $sql)) {
     echo '<script type="text/javascript">'; 
