@@ -3,7 +3,7 @@
 <?php include 'layouts/config.php'; ?>
 
 <head>
-    <title>Register User| LWSP</title>
+    <title>Register Contractor</title>
     <?php include 'layouts/head.php'; ?>
 
     <!-- owl.carousel css -->
@@ -17,6 +17,12 @@
         {
             border-style: solid;
             border-color: orange;
+        }
+        .card-border1 
+        {
+            border-style: groove;
+            border-color: orange;
+            border-width: 8px;
         }
         .my-body 
         {
@@ -186,7 +192,7 @@ if (isset($_POST["Submit"])) {
         <div class="container-fluid p-0">
             <div class="row g-0">
 
-                <div class="col-xl-7">
+                <div class="col-xl-9">
                     <div class="auth-full-bg pt-lg-5 p-4">
                         <div class="w-100">
                             <div class="bg-overlay"></div>
@@ -236,98 +242,95 @@ if (isset($_POST["Submit"])) {
                 </div>
                 <!-- end col -->
 
-                <div class="col-xl-5">
-                    <div class="auth-full-page-content p-md-5 p-4">
-                        <div class="w-100">
+                <div class="col-xl-3">
+                    <div class="card">
+                        <div class="card-border1"> 
+                            <div class="auth-full-page-content p-md-5 p-4">
+                                <div class="w-100">
 
-                            <div class="d-flex flex-column h-100">
-                                
-                                <div class="mb-4 mb-md-5">
-                                    
-                                    <a href="javascript:void(0);" class="d-block auth-logo">
-                                        <img src="assets/images/logo-dark.png" alt="" height="64" class="center">
-                                    </a>
-                                    
-                                </div>
-                                <div class="my-auto">
-
-                                    <div>
-                                        <h5 class="text-center">Register LWSP Contractor account</h5>
+                                    <div class="d-flex flex-column h-100">
                                         
-                                    </div>
-                                    <div class="card">
-                                        <div class="card-border">
-                                            <div class="mt-4">
-                                                <form class="needs-validation" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST">
+                                        <div class="mt-5 text-center">
+                                            <img src="assets/images/logo-dark.png" alt="" height="64" class="auth-logo-dark">
+                                        </div>
+                                        <div class="mt-5 text-center">
+                                            <h5 class="text-default">Register Contractor Account</h5>
+                                        </div>
+                                        
+                                            
+                                        <div class="mt-4">
+                                            <form class="needs-validation" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST">
 
-                                                    <div class="row mb-1">
-                                                        <label for="position" class="col-sm-5 col-form-label">Position</label>
-                                                        <select class="form-select" name="position" id="position" style="max-width:40%;" required >
-                                                            <option selected value="04">Contractor</option>
-                                                        </select>
-                                                    </div>
-                                                    
-                                                    <div class="row mb-1 <?php echo (!empty($useremail_err)) ? 'has-error' : ''; ?>">
-                                                        <label for="useremail" class="col-sm-5 col-form-label">email address</label>
-                                                        <input type="email" class="form-control" id="useremail" name="useremail"  value="<?php echo $useremail; ?>" style="max-width:40%;">
-                                                        <span class="text-danger"><?php echo $useremail_err; ?></span>
-                                                    </div>
+                                                <div class="row mb-1">
+                                                    <label for="position" class="col-sm-5 col-form-label">Position</label>
+                                                    <select class="form-select" name="position" id="position" style="max-width:50%;" required >
+                                                        <option selected value="04">Contractor</option>
+                                                    </select>
+                                                </div>
+                                                
+                                                <div class="row mb-1 <?php echo (!empty($useremail_err)) ? 'has-error' : ''; ?>">
+                                                    <label for="useremail" class="col-sm-5 col-form-label">email address</label>
+                                                    <input type="email" class="form-control" id="useremail" name="useremail"  value="<?php echo $useremail; ?>" style="max-width:50%;">
+                                                    <span class="text-danger"><?php echo $useremail_err; ?></span>
+                                                </div>
 
-                                                    <div class="row mb-1 <?php echo (!empty($cname_err)) ? 'has-error' : ''; ?>">
-                                                        <label for="cname" class="col-sm-5 col-form-label">Enter Contractor Name</label>
-                                                        <input type="text" class="form-control" id="cname" name="cname" value="<?php echo $cname; ?>" style="max-width:40%;">
-                                                        <span class="text-danger"><?php echo $cname_err; ?></span>
-                                                    </div>
+                                                <div class="row mb-1 <?php echo (!empty($cname_err)) ? 'has-error' : ''; ?>">
+                                                    <label for="cname" class="col-sm-5 col-form-label">Contractor Name</label>
+                                                    <input type="text" class="form-control" id="cname" name="cname" value="<?php echo $cname; ?>" style="max-width:50%;">
+                                                    <span class="text-danger"><?php echo $cname_err; ?></span>
+                                                </div>
 
-                                                    <div class="row mb-1 <?php echo (!empty($caddress_err)) ? 'has-error' : ''; ?>">
-                                                        <label for="caddress" class="col-sm-5 col-form-label">Enter Contractor Address</label>
-                                                        <input type="text" class="form-control" id="caddress" name="caddress" value="<?php echo $caddress; ?>" style="max-width:40%;">
-                                                        <span class="text-danger"><?php echo $caddress_err; ?></span>
-                                                    </div>
+                                                <div class="row mb-1 <?php echo (!empty($caddress_err)) ? 'has-error' : ''; ?>">
+                                                    <label for="caddress" class="col-sm-5 col-form-label">Contractor Address</label>
+                                                    <input type="text" class="form-control" id="caddress" name="caddress" value="<?php echo $caddress; ?>" style="max-width:50%;">
+                                                    <span class="text-danger"><?php echo $caddress_err; ?></span>
+                                                </div>
 
-                                                    <div class="row mb-1 <?php echo (!empty($cphone_err)) ? 'has-error' : ''; ?>">
-                                                        <label for="cphone" class="col-sm-5 col-form-label">Enter Contractor Phone</label>
-                                                        <input type="text" class="form-control" id="cphone" name="cphone" value="<?php echo $cphone; ?>"style="max-width:40%;" >
-                                                        <span class="text-danger"><?php echo $cphone_err; ?></span>
-                                                    </div>
+                                                <div class="row mb-1 <?php echo (!empty($cphone_err)) ? 'has-error' : ''; ?>">
+                                                    <label for="cphone" class="col-sm-5 col-form-label"> Contractor Phone</label>
+                                                    <input type="text" class="form-control" id="cphone" name="cphone" value="<?php echo $cphone; ?>"style="max-width:50%;" >
+                                                    <span class="text-danger"><?php echo $cphone_err; ?></span>
+                                                </div>
 
-                                                    <div class="row mb-1 <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
-                                                        <label for="username" class="col-sm-5 col-form-label">Enter Platform Username</label>
-                                                        <input type="text" class="form-control" id="username" name="username"  value="<?php echo $username; ?>"style="max-width:40%;">
-                                                        <span class="text-danger"><?php echo $username_err; ?></span>
-                                                    </div>
+                                                <div class="row mb-1 <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
+                                                    <label for="username" class="col-sm-5 col-form-label">Enter Username</label>
+                                                    <input type="text" class="form-control" id="username" name="username"  value="<?php echo $username; ?>"style="max-width:50%;">
+                                                    <span class="text-danger"><?php echo $username_err; ?></span>
+                                                </div>
 
-                                                    <div class="row mb-1 <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
-                                                        <label for="userpassword" class="col-sm-5 col-form-label">Enter Password</label>
-                                                        <input type="password" class="form-control" id="userpassword" name="password"  value="<?php echo $password; ?>"style="max-width:40%;">
-                                                        <span class="text-danger"><?php echo $password_err; ?></span>
-                                                    </div>
+                                                <div class="row mb-1 <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
+                                                    <label for="userpassword" class="col-sm-5 col-form-label">Enter Password</label>
+                                                    <input type="password" class="form-control" id="userpassword" name="password"  value="<?php echo $password; ?>"style="max-width:50%;">
+                                                    <span class="text-danger"><?php echo $password_err; ?></span>
+                                                </div>
 
-                                                    <div class="row mb-1 <?php echo (!empty($confirm_password_err)) ? 'has-error' : ''; ?>">
-                                                        <label for="confirm_password" class="col-sm-5 col-form-label">Confirm Your Password</label>
-                                                        <input type="password" class="form-control" id="confirm_password" name="confirm_password"  value="<?php echo $confirm_password; ?>"style="max-width:40%;">
-                                                        <span class="text-danger"><?php echo $confirm_password_err; ?></span>
-                                                    </div>
-                                                    
-                                                    
-                                                    <div class="mt-4 d-grid">
-                                                        <button class="btn btn-primary waves-effect waves-light" type="submit"name="Submit" value="Submit">Submit Registration</button>
-                                                    </div>
+                                                <div class="row mb-1 <?php echo (!empty($confirm_password_err)) ? 'has-error' : ''; ?>">
+                                                    <label for="confirm_password" class="col-sm-5 col-form-label">Confirm Password</label>
+                                                    <input type="password" class="form-control" id="confirm_password" name="confirm_password"  value="<?php echo $confirm_password; ?>"style="max-width:50%;">
+                                                    <span class="text-danger"><?php echo $confirm_password_err; ?></span>
+                                                </div>
+                                                
+                                                
+                                                <div class="mt-4 d-grid">
+                                                    <button class="btn btn-primary waves-effect waves-light" type="submit"name="Submit" value="Submit">Submit Registration</button>
+                                                </div>
 
-                                                </form>
-                                            </div>
+                                            </form>
+                                        </div>
+                                                
+                                            
+                                        
+
+                                        <div class="mt-4 mt-md-5 text-center">
+                                            <p class="mb-0">© <script>
+                                                    document.write(new Date().getFullYear())
+                                                </script> Copyright<i class="mdi mdi-heart text-danger"></i> LWSP</p>
                                         </div>
                                     </div>
-                                </div>
 
-                                <div class="mt-4 mt-md-5 text-center">
-                                    <p class="mb-0">© <script>
-                                            document.write(new Date().getFullYear())
-                                        </script> Copyright<i class="mdi mdi-heart text-danger"></i> LWSP</p>
+
                                 </div>
                             </div>
-
-
                         </div>
                     </div>
                 </div>

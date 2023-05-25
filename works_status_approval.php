@@ -8,13 +8,13 @@
     $row = mysqli_fetch_assoc($result); 
     $pstatus_approved = $row['pstatus_approved']; 
 
-    if ($pstatus_approved = '1')
+    if ($pstatus_approved == '1')
     {
         echo '<script type="text/javascript">'; 
         echo 'alert("Current Status Already Approved!");'; 
         echo 'history.go(-1)';
         echo '</script>';
-    } else if ($pstatus_approved = '0')
+    } else if ($pstatus_approved == '0')
     {
         $sql = "UPDATE tprojects set pstatus_approved ='1' where pID = '$ID'";
         

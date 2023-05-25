@@ -3,17 +3,18 @@
 <?php include 'layouts/head-main.php'; ?>
 
 <head>
-    <title><?php echo $language["Dashboard"];?></title>
+    <title>Upload Products</title>
     
     <?php include 'layouts/head.php'; ?>
     <?php include 'layouts/head-style.php'; ?>
+    <?php include 'layouts/config.php'; ?>
     
     <style> 
         .card-border 
         {
             border-style: groove;
-            border-color: orange;
-            border-width: 8px;
+            border-color: gray;
+            border-width: 9px;
         }
         .Mycell
         {
@@ -22,9 +23,9 @@
         .card-border1 
         {
             border-style: solid;
-            border-color: orange;
+            border-color: gray;
             border-width: 4px;
-            background-color:greenyellow;
+            background-color:white;
             
         }
     </style>
@@ -34,7 +35,6 @@
 
 <?php
     include 'layouts/body.php';
-    include 'layouts/Config.php';
 
     $statusMsg = '';
 
@@ -43,7 +43,7 @@
     // File upload path
 
     if(isset($_POST["submit"]) && !empty($_FILES["file"]["name"])){
-        $targetDir = "uploads/";
+        $targetDir = "uploads_products/";
         $fileName = basename($_FILES["file"]["name"]);
         $targetFilePath = $targetDir . $fileName;
         $fileType = pathinfo($targetFilePath,PATHINFO_EXTENSION);
@@ -55,7 +55,7 @@
             if(move_uploaded_file($_FILES["file"]["tmp_name"], $targetFilePath)){
                 // Insert image file name into database
 
-                $insert="UPDATE tproject_progress set filename_ = '$fileName' where recID=$ID";
+                $insert="UPDATE tproducts set filename_ = '$fileName' where pID=$ID";
                 if ($result_set_up = $link->query($insert))
                 {
                     $statusMsg = "The Picture File ".$fileName. " has been uploaded successfully.";
@@ -69,19 +69,20 @@
             $statusMsg = 'Sorry, only JPG, JPEG, PNG, GIF, & PDF files are allowed to upload.';
         }
     }else{
-        $statusMsg = 'Please Select Works Status Picture to upload.';
+        $statusMsg = 'Please Select Picture to upload.';
     }
 
     // Display status message
+    echo '<p>';
     echo $statusMsg;
 
         echo '<div id="display-image">';
             
-                $query = " select filename_ from tproject_progress where recID =$ID ";
+                $query = " select filename_ from tproducts where pID =$ID ";
                 $result = mysqli_query($link, $query);
         
                 $data = mysqli_fetch_assoc($result);
-                echo '<img src="./uploads/'; echo $data['filename_']; 
+                echo '<img src="./uploads_products/'; echo $data['filename_']; 
         echo '</div>';
 ?>
 
@@ -106,7 +107,8 @@
                             <div class="card-border">     
 
                                 <form action="" method="post" enctype="multipart/form-data">
-                                    Select Picture File to Upload:
+                                    <br>
+                                    <p>Select Picture File to Upload:</p>
                                     <input type="file" name="file">
                                     <input type="submit" name="submit" value="Upload">
                                 </form>
@@ -121,7 +123,7 @@
                                             $result = mysqli_query($link, $query);
                                     
                                             $data = mysqli_fetch_assoc($result);
-                                            if (isset($data)){echo '<img src="./uploads/'; echo $data['filename_'];}else{echo "No Status Picture";} 
+                                            if (isset($data)){echo '<img src="./uploads_products/'; echo $data['filename_'];}else{echo "No Status Picture";} 
                                     echo '</div>';       
                                 ?>
                                

@@ -175,7 +175,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                                 <a href="" class="text-muted"style="width:70%"></a>
 
                                                 <div class="mt-2 text-center"> 
-                                                    <a href="auth-login_registration.php" class="text-muted"style="width:60%"><h6 class="text-default">No credentials -- Sign up</h6></a>
+                                                    <a href="auth-login_registration.php" class="text-muted"style="width:60%"><h6 class="text-default">Sign up</h6></a>
                                                 </div>
                                             </div>                                     
                                         </div>

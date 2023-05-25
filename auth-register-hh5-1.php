@@ -3,7 +3,7 @@
 <?php include 'layouts/config.php'; ?>
 
 <head>
-    <title>Register User Household| OSS IT Platform</title>
+    <title>Register User Household</title>
     <?php include 'layouts/head.php'; ?>
 
     <!-- owl.carousel css -->
@@ -12,6 +12,30 @@
     <link rel="stylesheet" href="assets/libs/owl.carousel/assets/owl.theme.default.min.css">
 
     <?php include 'layouts/head-style.php'; ?>
+    <style> 
+        .card-border 
+        {
+            border-style: solid;
+            border-color: orange;
+        }
+        .card-border1 
+        {
+            border-style: groove;
+            border-color: orange;
+            border-width: 8px;
+        }
+        .my-body 
+        {
+            background-color: orange;
+        }
+        .center 
+        {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 50%;
+        }
+    </style>
 </head>
 
 
@@ -20,6 +44,8 @@
 require_once "layouts/config.php";
 
 $hhcode = $_SESSION['hhid'];
+
+$eaddress = str_replace("/",".","$hhcode")."@"."oss-lwsp.net";
 
 // Define variables and initialize with empty values
 $useremail = $username =  $password = $confirm_password = "";
@@ -123,7 +149,7 @@ if (isset($_POST["Submit"])) {
                 // Redirect to login page
                 echo '<script type="text/javascript">'; 
                 echo 'alert("Successfully Registered, Wait for email confirmation before login!");'; 
-                echo 'window.location.href = "register_beneficiary.php";';
+                echo 'history.go(-3);';
                 echo '</script>';
                 //header("location: auth-login.php");
             } else {
@@ -198,77 +224,73 @@ if (isset($_POST["Submit"])) {
                 <!-- end col -->
 
                 <div class="col-xl-3">
-                    <div class="auth-full-page-content p-md-5 p-4">
-                        <div class="w-100">
+                    <div class="card">
+                        <div class="card-border1"> 
+                            <div class="auth-full-page-content p-md-5 p-4">
+                                <div class="w-100">
 
-                            <div class="d-flex flex-column h-100">
-                                <div class="mb-4 mb-md-5">
-                                    <a href="index.php" class="d-block auth-logo">
-                                        <img src="assets/images/logo-dark.png" alt="" height="64" class="auth-logo-dark">
-                                        <img src="assets/images/logo-light.png" alt="" height="64" class="auth-logo-light">
-                                    </a>
-                                </div>
-                                <div class="my-auto">
+                                    <div class="d-flex flex-column h-100">
+                                        <div class="mt-5 text-center">
+                                            <img src="assets/images/logo-dark.png" alt="" height="64" class="auth-logo-dark">
+                                        </div>
+                                        <div class="mt-5 text-center">
+                                            <h6 class="text-default">Register Household Account for <?php echo $hhcode;?></h6>
+                                        </div>
 
-                                    <div>
-                                        <h5 class="text-default">Register Household Account for <?php echo $hhcode;?></h5>
-                                        
-                                    </div>
+                                        <div class="mt-4">
+                                            <form class="needs-validation" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST">
 
-                                    <div class="mt-4">
-                                        <form class="needs-validation" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST">
+                                                <div class="mb-1">
+                                                    <label for="position" class="form-label">Role</label>
+                                                    <select class="form-select" name="position" id="position" required>
+                                                        <option selected value="05">household</option>
+                                                    </select>
+                                                    
+                                                </div>
 
-                                            <div class="mb-1">
-                                                <label for="position" class="form-label">Role</label>
-                                                <select class="form-select" name="position" id="position" required>
-                                                    <option selected value="05">household</option>
-                                                </select>
+                                                <div class="mb-1 <?php echo (!empty($useremail_err)) ? 'has-error' : ''; ?>">
+                                                    <label for="useremail" class="form-label">email address</label>
+                                                    <input type="email" class="form-control" id="useremail" name="useremail"  value="<?php echo $eaddress; ?>">
+                                                    <span class="text-danger"><?php echo $useremail_err; ?></span>
+                                                </div>
+
+                                                <div class="mb-1 <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
+                                                    <label for="username" class="form-label">Enter Username</label>
+                                                    <input type="text" class="form-control" id="username" name="username"  value="<?php echo $hhcode;?>">
+                                                    <span class="text-danger"><?php echo $username_err; ?></span>
+                                                </div>
+
+                                                <div class="mb-1 <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
+                                                    <label for="userpassword" class="form-label">Enter Password</label>
+                                                    <input type="password" class="form-control" id="userpassword" name="password"  value="<?php echo $hhcode;?>">
+                                                    <span class="text-danger"><?php echo $password_err; ?></span>
+                                                </div>
+
+                                                <div class="mb-1 <?php echo (!empty($confirm_password_err)) ? 'has-error' : ''; ?>">
+                                                    <label for="confirm_password" class="form-label">Confirm Your Password</label>
+                                                    <input type="password" class="form-control" id="confirm_password" name="confirm_password"  value="<?php echo $hhcode;?>">
+                                                    <span class="text-danger"><?php echo $confirm_password_err; ?></span>
+                                                </div>
                                                 
-                                            </div>
+                                                <input type="hidden" id="hhcode" name="hhcode" value="<?php echo $hhcode;?>">
+                                                
+                                                
+                                                <div class="mt-4 d-grid">
+                                                    <button class="btn btn-primary waves-effect waves-light" type="submit"name="Submit" value="Submit">Submit Registration</button>
+                                                </div>
 
-                                            <div class="mb-1 <?php echo (!empty($useremail_err)) ? 'has-error' : ''; ?>">
-                                                <label for="useremail" class="form-label">email address</label>
-                                                <input type="email" class="form-control" id="useremail" name="useremail"  value="<?php echo $useremail; ?>">
-                                                <span class="text-danger"><?php echo $useremail_err; ?></span>
-                                            </div>
+                                            </form>
+                                        </div>
+                                        
 
-                                            <div class="mb-1 <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
-                                                <label for="username" class="form-label">Enter Username</label>
-                                                <input type="text" class="form-control" id="username" name="username"  value="<?php echo $username; ?>">
-                                                <span class="text-danger"><?php echo $username_err; ?></span>
-                                            </div>
-
-                                            <div class="mb-1 <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
-                                                <label for="userpassword" class="form-label">Enter Password</label>
-                                                <input type="password" class="form-control" id="userpassword" name="password"  value="<?php echo $password; ?>">
-                                                <span class="text-danger"><?php echo $password_err; ?></span>
-                                            </div>
-
-                                            <div class="mb-1 <?php echo (!empty($confirm_password_err)) ? 'has-error' : ''; ?>">
-                                                <label for="confirm_password" class="form-label">Confirm Your Password</label>
-                                                <input type="password" class="form-control" id="confirm_password" name="confirm_password"  value="<?php echo $confirm_password; ?>">
-                                                <span class="text-danger"><?php echo $confirm_password_err; ?></span>
-                                            </div>
-                                            
-                                            <input type="hidden" id="hhcode" name="hhcode" value="<?php echo $hhcode;?>">
-                                            
-                                            
-                                            <div class="mt-4 d-grid">
-                                                <button class="btn btn-primary waves-effect waves-light" type="submit"name="Submit" value="Submit">Submit Registration</button>
-                                            </div>
-
-                                        </form>
+                                        <div class="mt-4 mt-md-5 text-center">
+                                            <p class="mb-0">© <script>
+                                                    document.write(new Date().getFullYear())
+                                                </script> Copyright<i class="mdi mdi-heart text-danger"></i> LWSP</p>
+                                        </div>
                                     </div>
-                                </div>
-
-                                <div class="mt-4 mt-md-5 text-center">
-                                    <p class="mb-0">© <script>
-                                            document.write(new Date().getFullYear())
-                                        </script> Copyright<i class="mdi mdi-heart text-danger"></i> LWSP</p>
                                 </div>
                             </div>
-
-
                         </div>
                     </div>
                 </div>

@@ -125,7 +125,7 @@
                                         <div class="col-md-3">
                                             <div class="mb-3">
                                                 <label for="con" class="form-label">Constituency</label>
-                                                <select class="form-select" id="con" name ="con" required >
+                                                <select class="form-select" id="con" name ="con" style="background-color:plum;" required >
                                                     <option selected value="<?php echo $con;?>" ><?php echo con_name($link,$con);?></option>
                                                 </select>
                                             </div>
@@ -133,7 +133,7 @@
                                         <div class="col-md-3">
                                             <div class="mb-3">
                                                 <label for="ward" class="form-label">Ward</label>
-                                                <select class="form-select" id="ward" name ="ward" required >
+                                                <select class="form-select" id="ward" name ="ward" style="background-color:plum;" required >
                                                     <option selected value="<?php echo $ward;?>" ><?php echo ward_name($link,$ward);?></option>
                                                 </select>
                                             </div>
@@ -141,7 +141,7 @@
                                         <div class="col-md-3">
                                             <div class="mb-3">
                                                 <label for="area" class="form-label">Area</label>
-                                                <select class="form-select" id="area" name ="area" required>
+                                                <select class="form-select" id="area" name ="area" style="background-color:plum;" required>
                                                     <option selected  value="<?php echo $area;?>"><?php echo area_name($link,$area);?></option> 
                                                 </select>
                                             </div>
@@ -178,7 +178,7 @@
                                             <div class="mb-3">
                                                 <label for="age_category" class="form-label">Age Category</label>
                                                 <select class="form-select" id="age_category" name ="age_category" required>
-                                                <option ></option> 
+                                                
                                                     <?php                                                           
                                                         $spp_fetch_query = "SELECT id, cat FROM age_category";                                                  
                                                         $result_spp_fetch = mysqli_query($link, $spp_fetch_query);                                                                       
@@ -201,7 +201,7 @@
                                             <div class="mb-3">
                                                 <label for="livelihood" class="form-label">Source Of Livelihood</label>
                                                 <select class="form-select" id="livelihood" name ="livelihood" required>
-                                                <option ></option> 
+                                                
                                                     <?php                                                           
                                                         $spp_fetch_query = "SELECT id, livelihood FROM main_livelihood";                                                  
                                                         $result_spp_fetch = mysqli_query($link, $spp_fetch_query);                                                                       
@@ -220,7 +220,7 @@
                                             <div class="mb-3">
                                                 <label for="average_income" class="form-label">Average Monthly Income</label>
                                                 <select class="form-select" id="average_income" name ="average_income" required>
-                                                    <option></option>
+                                                    
                                                     <?php                                                           
                                                         $spp_fetch_query = "SELECT id, income FROM month_income";                                                  
                                                         $result_spp_fetch = mysqli_query($link, $spp_fetch_query);                                                                       
@@ -265,7 +265,7 @@
                                             <div class="mb-3">
                                                 <label for="hh_ownership_status" class="form-label">House Ownership Status</label>
                                                 <select class="form-select" id="hh_ownership_status" name ="hh_ownership_status" required>
-                                                    <option></option>
+                                                    
                                                     <?php                                                           
                                                         $spp_fetch_query = "SELECT id, status_ FROM home_status";                                                  
                                                         $result_spp_fetch = mysqli_query($link, $spp_fetch_query);                                                                       
@@ -285,7 +285,7 @@
                                             <div class="mb-3">
                                                 <label for="location_zone" class="form-label">HH Structure Location Zone</label>
                                                 <select class="form-select" id="location_zone" name ="location_zone" required>
-                                                    <option></option>
+                                                    
                                                     <?php                                                           
                                                         $spp_fetch_query = "SELECT id, l_zone FROM location_zone";                                                  
                                                         $result_spp_fetch = mysqli_query($link, $spp_fetch_query);                                                                       
@@ -304,7 +304,7 @@
                                             <div class="mb-3">
                                                 <label for="hh_latrine" class="form-label">HH Latrine</label>
                                                 <select class="form-select" id="hh_latrine" name ="hh_latrine" required>
-                                                    <option></option>
+                                                    
                                                     <?php                                                           
                                                         $spp_fetch_query = "SELECT id, type_ FROM hh_latrine";                                                  
                                                         $result_spp_fetch = mysqli_query($link, $spp_fetch_query);                                                                       
@@ -336,7 +336,7 @@
                                             <div class="mb-3">
                                                 <label for="hh_status" class="form-label">Household Status</label>
                                                 <select class="form-select" id="hh_status" name ="hh_status" required>
-                                                    <option></option>
+                                                    
                                                     <?php                                                           
                                                         $spp_fetch_query = "SELECT id, status_ FROM household_status";                                                  
                                                         $result_spp_fetch = mysqli_query($link, $spp_fetch_query);                                                                       
@@ -356,7 +356,7 @@
                                             <div class="mb-3">
                                                 <label for="hh_gender" class="form-label">HH Head Gender</label>
                                                 <select class="form-select" id="hh_gender" name ="hh_gender" required>
-                                                    <option></option>
+                                                    
                                                     <?php                                                           
                                                         $spp_fetch_query = "SELECT id, gender FROM tgender";                                                  
                                                         $result_spp_fetch = mysqli_query($link, $spp_fetch_query);                                                                       

@@ -186,7 +186,7 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
 
                             <div class="card-border">
                                 <div class="card-body">
-                                    <form class="row row-cols-lg-auto g-3 align-items-center" novalidate action="register_beneficiary_filter3.php" method ="POST" >
+                                    <form class="row row-cols-lg-auto g-3 align-items-center" novalidate action="register_beneficiary_filter3.php" method ="POST">
                                         <div class="col-12">
                                             <label for="constituency" class="form-label"><?php echo $language["Con"]?></label>
                                             
@@ -219,22 +219,15 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                                             <label for="ward" class="form-label"><?php echo $language["Ward"]?></label>
                                             <select class="form-select" name="ward" id="ward" onChange="getArea(this.value);" required>
                                                 <option>Select Ward</option>
-                                                    
                                             </select>
-                                            <div class="invalid-feedback">
-                                                Please select a valid Ward.
-                                            </div>
                                         </div>
 
                                         <div class="col-12">
                                             <label for="area" class="form-label"><?php echo $language["Area"]?></label>
                                             <select class="form-select" name="area" id="area" required>
                                                 <option >Select Area</option>
-                                                
                                             </select>
-                                            <div class="invalid-feedback">
-                                                Please select a valid Area
-                                            </div>
+                                            
                                         </div>
 
                                         

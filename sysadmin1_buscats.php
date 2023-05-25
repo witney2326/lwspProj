@@ -60,6 +60,23 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
         background-repeat: no-repeat;
         }
         .ico-edit { background-position: 0 0; }
+
+        .view {
+        display: inline-block;
+        width: 18px; height: 18px;
+        background-image: url('icons/view.png');
+        background-repeat: no-repeat;
+        }
+        .ico-view { background-position: 0 0; }
+
+        .upload {
+                display: inline-block;
+                width: 18px; height: 18px;
+                background-image: url('icons/new_upload.png');
+                background-repeat: no-repeat;
+                }
+        .ico-upload { background-position: 0 0; }
+
     </style>
 </head>
 
@@ -161,6 +178,7 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                                                 <th>OSS Product</th>
                                                 <th>Product Cost</th>
                                                 <th>Description</th>
+                                                <th>Image Uploaded</th>
                                                 <th>Action</th>                                                              
                                             </tr>
                                         </thead>
@@ -173,14 +191,25 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                                                 if ($result_set = $link->query($query)) {
                                                 while($row = $result_set->fetch_array(MYSQLI_ASSOC))
                                                 { 
+                                                    if (isset($row["filename_"]))
+                                                        {
+                                                            $stat_view = "Yes";
+                                                        }else
+                                                        {
+                                                            $stat_view ="No";
+                                                        }
+
                                                     echo "<tr>";
                                                     echo "<td>".$row['pID']."</td>";
                                                     echo "<td>".$row['pname']."</td>";
                                                     echo "<td>".number_format($row['pCost'],2)."</td>";
                                                     echo "<td>".$row['pdescription']."</td>";
+                                                    echo "<td>\t\t$stat_view</td>";
                                                     echo "<td>
-                                                        <a href=\"OSS_edit_product.php?id=".$row['pID']."\"><i class='edit ico-edit' title='Edit OSS Product' style='font-size:18px;color:green'></i></a>
-                                                        <a onClick=\"javascript: return confirm('Are You Sure You want To Delete This OSS Product ');\" href=\"OSS_product_delete.php?id=".$row['pID']."\"><i class='delete ico-delete' title='Delete SLG' style='font-size:18px;color:Red'></i></a>
+                                                        <a href=\"view_product_image.php?id=".$row['pID']."\"><button class='btn btn-sm btn-outline-success' title='View Product' style='font-size:18px;color:purple'><i class='view ico-view'></i></button></a> 
+                                                        <a href=\"OSS_edit_product.php?id=".$row['pID']."\"><button class='btn btn-sm btn-outline-success' title='Edit OSS Product' style='font-size:18px;color:green'><i class='edit ico-edit'></i></button></a>
+                                                        <a href=\"upload_products.php?id=".$row['pID']."\"><button class='btn btn-sm btn-outline-success' title='Upload Product Image' style='font-size:18px'><i class='upload ico-upload'></i></button></a>
+                                                        <a onClick=\"javascript: return confirm('Are You Sure You want To Delete This OSS Product ');\" href=\"OSS_product_delete.php?id=".$row['pID']."\"><button class='btn btn-sm btn-outline-success' title='Delete Product' style='font-size:18px;color:Red'><i class='delete ico-delete'></i></button</a>
                                                         </td>\n";
                                                     echo "</tr>";
                                                 }

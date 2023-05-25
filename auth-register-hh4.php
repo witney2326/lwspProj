@@ -2,7 +2,7 @@
 <?php include 'layouts/head-main.php'; ?>
 
 <head>
-    <title>LWSP |Register New Household</title>
+    <title>Register Household</title>
     <?php include 'layouts/head.php'; ?>
     <?php include 'layouts/head-style.php'; ?>
     <?php include 'lib.php'; ?>
@@ -22,9 +22,9 @@
     <?php
         include "layouts/config.php"; // Using database connection file here
         
-        $con = $_GET['con'];
-        $ward = $_GET['ward'];
-        $area = $_GET['area'];    
+        $con = $_POST["constituency"];
+        $ward = $_POST["ward"];
+        $area = $_POST["area"];    
     ?>
 
     <!-- ============================================================== -->
@@ -42,25 +42,21 @@
                     <div class="col-12">
                         <div class="page-title-box d-sm-flex align-items-center justify-content-between">
                             <h4 class="mb-sm-0 font-size-18">Register Household</h4>
+                            <div class="page-title-right">
+                                <ol class="breadcrumb m-0">
+                                    <INPUT TYPE="button" class="btn btn-outline-secondary w-md" style="width:170px" VALUE="Back" onClick="history.go(-1);">
+                                </ol>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <!-- end page title -->
 
-                <p align="right">
-                    <INPUT TYPE="button" class="btn btn-outline-secondary w-md" style="width:170px" VALUE="Back" onClick="history.go(-1);">  
-                </p>
-
-                
-
-                <!-- end here -->
                 <div class="row">
                     <div class="col-12">
 
                         <div class="card border border-success">
-                            <div class="card-header bg-transparent border-success">
-                                <h5 class="my-0 text-success">Register New Household</h5>
-                            </div>
+                            
                             <div class="card-body">
                                 
                                 <form novalidate action="register_new_beneficiary_hh.php" method ="POST">
@@ -69,7 +65,7 @@
                                         <div class="col-md-3">
                                             <div class="mb-3">
                                                 <label for="con" class="form-label">Constituency</label>
-                                                <select class="form-select" id="con" name ="con" required >
+                                                <select class="form-select" id="con" name ="con" required style="background-color:plum;">
                                                     <option selected value="<?php echo $con;?>" ><?php echo con_name($link,$con);?></option>
                                                 </select>
                                             </div>
@@ -77,7 +73,7 @@
                                         <div class="col-md-3">
                                             <div class="mb-3">
                                                 <label for="ward" class="form-label">Ward</label>
-                                                <select class="form-select" id="ward" name ="ward" required >
+                                                <select class="form-select" id="ward" name ="ward" required style="background-color:plum;">
                                                     <option selected value="<?php echo $ward;?>" ><?php echo ward_name($link,$ward);?></option>
                                                 </select>
                                             </div>
@@ -85,7 +81,7 @@
                                         <div class="col-md-3">
                                             <div class="mb-3">
                                                 <label for="area" class="form-label">City Area</label>
-                                                <select class="form-select" id="area" name ="area" required>
+                                                <select class="form-select" id="area" name ="area" required style="background-color:plum;">
                                                     <option selected  value="<?php echo $area;?>"><?php echo area_name($link,$area);?></option> 
                                                 </select>
                                             </div>
@@ -102,7 +98,7 @@
                                     <div class="row">
                                         <div class="col-md-3">
                                             <div class="mb-3">
-                                                <label for="hhname" class="form-label">HH Name</label>
+                                                <label for="hhname" class="form-label">Household Head Name</label>
                                                 <input type="text" class="form-control" id="hhname" name = "hhname" >
                                             </div>
                                         </div>
@@ -184,9 +180,9 @@
 
                                         <div class="col-md-3">
                                             <div class="mb-3">
-                                                <label for="hh_vulnerable" class="form-label">HH Vulnerable?</label><br>
+                                                <label for="hh_vulnerable" class="form-label">Is Household Vulnerable?</label><br>
                                                 
-                                                <input type="radio" id="Yes" name="hh_vulnerable" value="1">
+                                                <input type="radio" id="Yes" name="hh_vulnerable" value="1" checked>
                                                 <label for="Yes">Yes</label>
                                                 <input type="radio" id="No" name="hh_vulnerable" value="0">
                                                 <label for="No">No</label><br>
@@ -194,9 +190,9 @@
                                         </div>
                                         <div class="col-md-3">
                                             <div class="mb-3">
-                                                <label for="hh_poor" class="form-label">HH Poor?</label><br>
+                                                <label for="hh_poor" class="form-label">Is Household Poor?</label><br>
                                                 
-                                                <input type="radio" id="Yes" name="hh_poor" value="1">
+                                                <input type="radio" id="Yes" name="hh_poor" value="1" checked>
                                                 <label for="Yes">Yes</label>
                                                 <input type="radio" id="No" name="hh_poor" value="0">
                                                 <label for="No">No</label><br>
@@ -229,7 +225,7 @@
                                         </div>
                                         <div class="col-md-3">
                                             <div class="mb-3">
-                                                <label for="location_zone" class="form-label">HH Structure Location Zone</label>
+                                                <label for="location_zone" class="form-label">Household Structure Location Zone</label>
                                                 <select class="form-select" id="location_zone" name ="location_zone" required>
                                                     <option></option>
                                                     <?php                                                           
@@ -248,7 +244,7 @@
                                         </div>
                                         <div class="col-md-3">
                                             <div class="mb-3">
-                                                <label for="hh_latrine" class="form-label">HH Latrine</label>
+                                                <label for="hh_latrine" class="form-label">Household Latrine</label>
                                                 <select class="form-select" id="hh_latrine" name ="hh_latrine" required>
                                                     <option></option>
                                                     <?php                                                           
@@ -267,9 +263,9 @@
                                         </div>
                                         <div class="col-md-3">
                                             <div class="mb-3">
-                                                <label for="hh_identification" class="form-label">HH Identification</label><br>
+                                                <label for="hh_identification" class="form-label">How the Household Was Identified</label><br>
                                                 
-                                                <input type="radio" id="CBT" name="hh_identification" value="1">
+                                                <input type="radio" id="CBT" name="hh_identification" value="1" checked>
                                                 <label for="CBT">CBT</label>
                                                 <input type="radio" id="Self" name="hh_identification" value="0">
                                                 <label for="Self">Self</label><br>
@@ -348,7 +344,7 @@
                                     <div class="row">
                                         <div class="col-md-3">
                                             <div>
-                                                <button type="submit" class="btn btn-outline-primary w-md" style="width:200px" name="Submit" value="Submit">Register HH</button>
+                                                <button type="submit" class="btn btn-outline-primary w-md" style="width:200px" name="Submit" value="Submit">Register Household</button>
                                                 
                                             </div>                                   
                                         </div>

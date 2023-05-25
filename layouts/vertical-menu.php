@@ -76,6 +76,9 @@
                     </span>
                 </a>
 
+                <div class="row mb-5">
+                </div>
+
                 <a href="index.php" class="logo logo-light">
                     <span class="logo-sm">
                         <img src="assets/images/logo-light.svg" alt="" height="22">
@@ -158,10 +161,11 @@
             <!-- Left Menu Start -->
             <ul class="metismenu list-unstyled" id="side-menu">
                 <li ></li>
-
+                <div class="row mb-5">
+                </div>
                 <li>
                     <a href="index_check.php" class="waves-effect">
-                        <i class="home ico-home"></i><span class="badge rounded-pill bg-info float-end"></span>
+                        <i class="home ico-home" ></i><span class="badge rounded-pill bg-info float-end"></span>
                         <span key="t-dashboards"><?php echo $language["Dashboard"]; ?></span>
                     </a>
                     

@@ -5,7 +5,7 @@ if(!empty($_POST["wardid"]))
  $id=$_POST['wardid'];
  
 
- $stmt = mysqli_query($link,"SELECT areacode,aname FROM areas WHERE wardid ='$id'");
+ $stmt = mysqli_query($link,"SELECT areacode,aname FROM areas");
  ?><option selected="selected">Select Area </option><?php
  while($row=mysqli_fetch_array($stmt))
  {
