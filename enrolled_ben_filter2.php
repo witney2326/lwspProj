@@ -225,10 +225,10 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                                         
                                             <table id="datatable" class="table table-bordered dt-responsive  nowrap w-100">
                                             
-                                                <thead>
+                                                <thead style="background-color:plum">
                                                     <tr>
-                                                        <th>HH Code</th>                                           
-                                                        <th>HH Name</th>
+                                                        <th>Household Code</th>                                           
+                                                        <th>Household Name</th>
                                                         <th>Agree TCs?</th>
                                                         <th>TG?</th>
                                                         <th>Ready_Select?</th>
@@ -259,8 +259,8 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                                                             echo "<td>\t\t$ready_selection</td>\n";
                                                             echo "<td>                                               
                                                                 
-                                                                <a onClick=\"javascript: return confirm('Do you Need Technical Guide Inorder To Make Selection?');\"  href=\"tg-for-selection.php?id=".$row['hhcode']."\"><i class='round_check round' title='Need TG For Selection' style='font-size:18px; color:purple'></i></a> 
-                                                                <a onClick=\"javascript: return confirm('Are You Ready To Make Your Selection?');\" href=\"ben-ready-to-select.php?id=".$row['hhcode']."\"><i class='check ico-check' title='Ready For Selection' style='font-size:18px;color:green'></i></a> 
+                                                            <a onClick=\"javascript: return confirm('Do you Need Technical Guide Inorder To Make Selection?');\"  href=\"tg-for-selection.php?id=".$row['hhcode']."\"><button class='btn btn-sm btn-outline-info' title='Need TG For Selection' style='font-size:18px; color:purple'><i class='round_check round'></i></button></a> 
+                                                            <a onClick=\"javascript: return confirm('Are You Ready To Make Your Selection?');\" href=\"ben-ready-to-select.php?id=".$row['hhcode']."\"><button class='btn btn-sm btn-outline-primary' title='Ready For Selection' style='font-size:18px;color:green'><i class='check ico-check'></i></button></a> 
                                                             </td>\n";
 
 

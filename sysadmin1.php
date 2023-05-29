@@ -61,6 +61,14 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
         background-repeat: no-repeat;
         }
         .ico-delete { background-position: 0 0; }
+
+        .deactive {
+        display: inline-block;
+        width: 18px; height: 18px;
+        background-image: url('icons/deactive.png');
+        background-repeat: no-repeat;
+        }
+        .ico-deactive { background-position: 0 0; }
     </style>
 </head>
 
@@ -154,7 +162,7 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                                     
                                         <table id="datatable" class="table table-bordered dt-responsive  nowrap w-100">
                                         
-                                            <thead>
+                                            <thead style="background-color:plum;">
                                                 <tr>
                                                     <th>ID</th>
                                                     <th>uName</th>
@@ -185,18 +193,18 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                                                         if ($row['ustatus'] == '1')
                                                         {
                                                             echo "<td>
-                                                                <a href=\"user_View.php?id=".$row['id']."\"><i class='view ico-view' title='View User' style='font-size:18px;color:purple'></i></a>
-                                                                <i class='check ico-check' title='User Already Activated' style='font-size:18px;color:green'></i></a>
-                                                                <a href=\"sysadmin1_mail.php?id=".$row['id']."\"><i class='fa fa-ban' title='Deactivate User' style='font-size:18px'></i></a>
-                                                                <a onClick=\"javascript: return confirm('Are You Sure You want To Delete This User - You Must Be a Supervisor');\" href=\"app_user_delete.php?id=".$row['id']."\"><i class='delete ico-delete' title='Delete User' style='font-size:18px;color:Red'></i></a>
+                                                                <a href=\"user_View.php?id=".$row['id']."\"><button class='btn btn-sm btn-outline-success' title='View User' style='font-size:18px;color:purple'><i class='view ico-view'></i></button></a>
+                                                                <button class='btn btn-sm btn-outline-info' title='User Already Activated' style='font-size:18px;color:green'><i class='check ico-check'></i></button></a>
+                                                                <a href=\"sysadmin1_mail.php?id=".$row['id']."\"><button class='btn btn-sm btn-outline-primary' title='Deactivate User' style='font-size:18px'><i class='deactive ico-deactive'></i></button></a>
+                                                                <a onClick=\"javascript: return confirm('Are You Sure You want To Delete This User - You Must Be a Supervisor');\" href=\"app_user_delete.php?id=".$row['id']."\"><button class='btn btn-sm btn-outline-secondary' title='Delete User' style='font-size:18px;color:Red'><i class='delete ico-delete'></i></button></a>
                                                             </td>\n";
                                                         }else
                                                         {
                                                             echo "<td>
-                                                                <a href=\"user_View.php?id=".$row['id']."\"><i class='view ico-view' title='View User' style='font-size:18px;color:purple'></i></a>
-                                                                <a onClick=\"javascript: return confirm('Are You Sure You want To Activate This User');\" href=\"sysadmin_useractivate.php?id=".$row['id']."\"><i class='check ico-check' title='Activate User' style='font-size:18px;color:green'></i></a>
-                                                                <i class='fa fa-ban' title='User Not active' style='font-size:18px'></i></a>
-                                                                <a onClick=\"javascript: return confirm('Are You Sure You want To Delete This User?');\" href=\"del_user.php?id=".$row['id']."\"><i class='delete ico-delete' title='Delete User' style='font-size:18px;color:Red'></i></a>
+                                                                <a href=\"user_View.php?id=".$row['id']."\"><button class='btn btn-sm btn-outline-success' title='View User' style='font-size:18px;color:purple'><i class='view ico-view'></i></button></a>
+                                                                <a onClick=\"javascript: return confirm('Are You Sure You want To Activate This User');\" href=\"sysadmin_useractivate.php?id=".$row['id']."\"><button class='btn btn-sm btn-outline-info' title='Activate User' style='font-size:18px;color:green'><i class='check ico-check'></i></button></a>
+                                                                <button class='btn btn-sm btn-outline-primary' title='User Not active' style='font-size:18px'><i class='deactive ico-deactive'></i></button></a>
+                                                                <a onClick=\"javascript: return confirm('Are You Sure You want To Delete This User?');\" href=\"del_user.php?id=".$row['id']."\"><button class='btn btn-sm btn-outline-secondary' title='Delete User' style='font-size:18px;color:Red'><i class='delete ico-delete'></i></button></a>
                                                             </td>\n";
                                                         }
                                                         echo "</tr>";

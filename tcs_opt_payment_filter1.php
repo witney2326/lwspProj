@@ -182,21 +182,21 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                                         
                                             <table id="datatable" class="table table-bordered dt-responsive  nowrap w-100">
                                             
-                                                <thead>
+                                                <thead style="background-color:plum;">
                                                     <tr>
-                                                        <th>HH Code</th>                                           
-                                                        <th>HH Name</th>
-                                                        <th>Tech Selection</th>
-                                                        <th>T&Cs</th>
-                                                        <th>Selected Pmt Opt</th>
+                                                        <th>Household Code</th>                                           
+                                                        <th>Household Name</th>
+                                                        <th>Selected Product</th>
                                                         <th>Payment Option</th>
+                                                        <th>Product Cost</th>
+                                                        <th>Balance Due</th>
                                                         <th>Action</th>  
                                                     </tr>
                                                 </thead>
 
                                                 <tbody>
                                                     <?Php
-                                                        $query="select * from households where ((con = '$constituency') and (selected_product <> '00') and (enrolled = '1') and (product_approved = '1') and (pOption = '00'))";
+                                                        $query="select * from households where ((con = '$constituency') and (selected_product <> '00') and (enrolled = '1') and (product_approved = '1'))";
 
                                                         //Variable $link is declared inside config.php file & used here
                                                         
@@ -204,37 +204,20 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                                                             while($row = $result_set->fetch_array(MYSQLI_ASSOC))
                                                             { 
                                                                 if ($row["selected_product"] == '00'){$prod = 'None';}else{$prod = pname($link,$row["selected_product"]);}
-                                                                if ($row["pOption"] == '00'){$pOption = 'None';}else{$pOption = payment_option_name($link,$row["pOption"]);}
-                                                                $cost = number_format(product_cost($link,$row["selected_product"]),2);
-
-                                                                if ($row["agree_tcs"] == '1'){$agree_tcs = 'Yes';}else{$agree_tcs = 'NA';}
-                                                                $hhID = $row["hhcode"];
+                                                            if ($row["pOption"] == '00'){$pOption = 'None';}else{$pOption = payment_option_name($link,$row["pOption"]);}
+                                                            $cost = number_format(product_cost($link,$row["selected_product"]),2);
+                                                            $balance_due = number_format($row["amount_owing"]-$row["tamount_paid"],2);
+                                                            if ($row["agree_tcs"] == '1'){$agree_tcs = 'Yes';}else{$agree_tcs = 'NA';}
+                                                            $hhID = $row["hhcode"];
                                                             echo "<tr>\n";
                                                                 echo "<td>".$row["hhcode"]."</td>\n";
                                                                 echo "<td>".$row["hhname"]."</td>\n";
                                                                 echo "<td>\t\t$prod</td>\n";
-                                                                echo "<td>\t\t$agree_tcs</td>\n";
                                                                 echo "<td>\t\t$pOption</td>\n";
-                                                                echo "<td>";
-                                                                echo "<form action = 'request_for_service_SelectPaymentOption.php' method ='POST'>";
-                                                                    echo '<select id="payment_option"  name="payment_option">';
-                                                                        
-                                                                        $ta_fetch_query = "SELECT oID,oName FROM payment_options";                                                  
-                                                                        $result_ta_fetch = mysqli_query($link, $ta_fetch_query);                                                                       
-                                                                        $i=0;
-                                                                            while($DB_ROW_ta = mysqli_fetch_array($result_ta_fetch)) {
-                                                                        ?>
-                                                                        <option value="<?php echo $DB_ROW_ta["oID"]; ?>">
-                                                                            <?php echo $DB_ROW_ta["oName"];?></option><?php
-                                                                            $i++;
-                                                                                }
-                                                                    echo "</select>";
-                                                                    echo "<input type='hidden' id='hhID' name='hhID' value='$hhID'>";
-                                                                    echo "<button type='submit' class='btn-outline-primary' name='FormSubmit' value='Submit' onClick='return confirmSubmit()'>Select</button>";
-                                                                echo "</form>";
-                                                            echo "</td>";
+                                                                echo "<td>\t\t$cost</td>";
+                                                                echo "<td>\t\t$balance_due</td>\n"; 
                                                                 echo "<td>                                               
-                                                                <a href=\"hh_View.php?id=".$row['hhcode']."\"><i class='view ico-view' title='View HH' style='font-size:18px; color: purple'></i></a>\n
+                                                                <a href=\"hh_View.php?id=".$row['hhcode']."\"><button class='btn btn-sm btn-outline-info' title='View HH' style='font-size:18px; color: purple'><i class='view ico-view'></i></button></a>\n
                                                                 
                                                                 </td>\n";
 

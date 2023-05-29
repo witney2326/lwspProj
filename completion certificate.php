@@ -10,6 +10,12 @@
     <style>
         h1 {text-align: center;}
         h4 {text-align: center;}
+
+        .card-border {
+            border-style: groove;
+            border-color: orange;
+            border-width: 12px;
+        }
     </style>
 </head>
 
@@ -50,76 +56,92 @@
             <div class="container-fluid">
 
                 <!-- start page title -->
+
+                <div class="row">
+                    <div class="col-9">
+                        <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+                            <div class="d-print-none">
+                                <div class="float-end">
+                                    <a href="javascript:window.print()" class="btn btn-secondary waves-effect waves-light me-1"><i class="fa fa-print"></i>  Print Certificate</a>
+                                </div>
+                            </div>
+
+                            <div class="page-title-right">
+                                <ol class="breadcrumb m-0">
+                                    <INPUT TYPE="button" class="btn btn-btn btn-outline-secondary w-md" style="width:170px" VALUE="Back" onClick="history.go(-1);">  
+                                </ol>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
                 
                 <!-- end page title -->
 
                 <div class="row">
                     <div class="col-lg-9">
                         <div class="card">
-                            <div class="card-body">
-                                <div class="invoice-title">
-                                    
-                                    <div class="mb-4">
-                                        <h1><img src="assets/images/logo-dark.png" alt="logo" height="50" /></h1>
+                            <div class="card-border">
+                                <div class="card-body">
+                                    <div class="invoice-title">
+                                        
+                                        <div class="mb-4">
+                                            <h1><img src="assets/images/logo-dark.png" alt="logo" height="64" /></h1>
+                                        </div>
+                                        <p><center><h3> OSS Works Completion Certificate By Contractor on Record</h3></p></center>
                                     </div>
-                                    <h3><div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                                        OSS Works Completion Certificate By Contractor on Record
-                                    </div></h3>
-                                </div>
-                                <hr>
-                                <div class="row">
-                                    
-                                    <div class="row mb-1">
-                                        <label for="hhname" class="col-sm-2 col-form-label">HH Name</label>
-                                        <input type="text" class="form-control" id="hhname" name = "hhname" value="<?php echo hh_name($link,$phhcode);?>" style="max-width:30%;" readonly>
+                                    <hr>
+                                    <div class="row">
+                                        
+                                        <div class="row mb-1">
+                                            <label for="hhname" class="col-sm-2 col-form-label">HH Name</label>
+                                            <input type="text" class="form-control" id="hhname" name = "hhname" value="<?php echo hh_name($link,$phhcode);?>" style="max-width:30%;" readonly>
 
-                                        <label for="hhcode" class="col-sm-2 col-form-label">Plot No</label>
-                                        <input type="text" class="form-control" id="hhcode" name="hhcode" value ="<?php echo $plot;?>" style="max-width:30%;"readonly>
+                                            <label for="hhcode" class="col-sm-2 col-form-label">Plot No</label>
+                                            <input type="text" class="form-control" id="hhcode" name="hhcode" value ="<?php echo $plot;?>" style="max-width:30%;"readonly>
+                                        </div>
+                                        <div class="row mb-1">
+                                            <label for="proj_id" class="col-sm-2 col-form-label">Submitted On</label>
+                                            <input type="text" class="form-control" id="proj_id" name = "proj_id" value="<?php echo $pcompletiondate;?>" style="max-width:30%;" readonly>
+
+                                            <label for="hhcode" class="col-sm-2 col-form-label">Certificate No.</label>
+                                            <input type="text" class="form-control" id="hhcode" name="hhcode" value ="<?php echo $phhcode;?>" style="max-width:30%;"readonly>
+                                        </div>
+                                        
                                     </div>
-                                    <div class="row mb-1">
-                                        <label for="proj_id" class="col-sm-2 col-form-label">Submitted On</label>
-                                        <input type="text" class="form-control" id="proj_id" name = "proj_id" value="<?php echo $pcompletiondate;?>" style="max-width:30%;" readonly>
-
-                                        <label for="hhcode" class="col-sm-2 col-form-label">Certificate No.</label>
-                                        <input type="text" class="form-control" id="hhcode" name="hhcode" value ="<?php echo $phhcode;?>" style="max-width:30%;"readonly>
+                                    <div class="row">
+                                        <p>Sir,</p>
+                                        <p>1. The works have been constructed according to the sanctioned plans.</p>
+                                        <p>2. The works have been constructed as per:</p>
+                                        <p>   - The detailed structural drawings and structural specifications.</p>
+                                        <p>   -	The detailed architectural drawings and architectural specifications prepared by the architect.</p>
+                                        <p>   -	Detailed drawings and specifications of all services</p>
+                                        <p>3. All materials used in the constructions have been tested as provided in the specifications and a record of test reports has been kept.</p>
+                                        <p></p>
                                     </div>
-                                    
-                                </div>
-                                <div class="row">
-                                    <p>Sir,</p>
-                                    <p>1. The works have been constructed according to the sanctioned plans.</p>
-                                    <p>2. The works have been constructed as per:</p>
-                                    <p>   - The detailed structural drawings and structural specifications.</p>
-                                    <p>   -	The detailed architectural drawings and architectural specifications prepared by the architect.</p>
-                                    <p>   -	Detailed drawings and specifications of all services</p>
-                                    <p>3. All materials used in the constructions have been tested as provided in the specifications and a record of test reports has been kept.</p>
-                                    <p></p>
-                                </div>
-                                <div class="row mb-4">
-                                    <label for="proj_id" class="col-sm-2 col-form-label">HH Head's Signature</label>
-                                    <input type="text" class="form-control" id="proj_id" name = "proj_id" value="" style="max-width:30%;" readonly>
+                                    <div class="row mb-4">
+                                        <label for="proj_id" class="col-sm-2 col-form-label">HH Head's Signature</label>
+                                        <input type="text" class="form-control" id="proj_id" name = "proj_id" value="" style="max-width:30%;" readonly>
 
-                                    <label for="hhcode" class="col-sm-2 col-form-label">Contractor's signature</label>
-                                    <input type="text" class="form-control" id="hhcode" name="hhcode" value ="" style="max-width:30%;"readonly>
-                                </div>
-                                Verified By
-                                <div class="row mb-4">
-                                    <label for="proj_id" class="col-sm-2 col-form-label">Client's Signature</label>
-                                    <input type="text" class="form-control" id="proj_id" name = "proj_id" value="" style="max-width:30%;" readonly>
+                                        <label for="hhcode" class="col-sm-2 col-form-label">Contractor's signature</label>
+                                        <input type="text" class="form-control" id="hhcode" name="hhcode" value ="" style="max-width:30%;"readonly>
+                                    </div>
+                                    Verified By
+                                    <div class="row mb-4">
+                                        <label for="proj_id" class="col-sm-2 col-form-label">Client's Signature</label>
+                                        <input type="text" class="form-control" id="proj_id" name = "proj_id" value="" style="max-width:30%;" readonly>
 
-                                    <label for="hhcode" class="col-sm-2 col-form-label">Consultant's Signature</label>
-                                    <input type="text" class="form-control" id="hhcode" name="hhcode" value ="" style="max-width:30%;"readonly>
-                                </div>
-                                    
-                                <div class="d-print-none">
-                                    <div class="float-end">
-                                        <a href="javascript:window.print()" class="btn btn-success waves-effect waves-light me-1"><i class="fa fa-print"></i></a>
+                                        <label for="hhcode" class="col-sm-2 col-form-label">Consultant's Signature</label>
+                                        <input type="text" class="form-control" id="hhcode" name="hhcode" value ="" style="max-width:30%;"readonly>
                                     </div>
                                 </div>
                             </div>
+                            
                         </div>
                     </div>
                 </div>
+                
                 <!-- end row -->
 
             </div> <!-- container-fluid -->

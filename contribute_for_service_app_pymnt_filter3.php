@@ -178,13 +178,12 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                                         
                                             <table id="datatable" class="table table-bordered dt-responsive  nowrap w-100">
                                             
-                                                <thead>
+                                                <thead style="background-color:plum;">
                                                     <tr>
                                                         <th>Rec ID</th> 
-                                                        <th>HH Code</th>                                           
-                                                        <th>HH Name</th>
-                                                        <th>Pmt Option</th>
-                                                        <th>Pmt Ref</th>
+                                                        <th>Household Code</th>                                           
+                                                        <th>Household Name</th>
+                                                        <th>Payment Reference</th>
                                                         <th>Amount Paid</th>
                                                         <th>Approved?</th>
                                                         <th>Action</th>    
@@ -207,12 +206,11 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                                                             echo "<td>".$row["pID"]."</td>\n";
                                                             echo "<td>".$row["hhcode"]."</td>\n";
                                                             echo "<td>".$row["hhname"]."</td>\n";
-                                                            echo "<td>\t\t$pOption</td>\n";
                                                             echo "<td>".$row["pReference"]."</td>\n";
                                                             echo "<td>".number_format($row["amount_paid"],2)."</td>\n";
                                                             echo "<td>\t\t$pApproved</td>\n";
                                                             echo "<td>                                               
-                                                                <a href=\"hh_view.php?id=".$row['hhcode']."\"><i class='view ico-view' title='View Household' style='font-size:18px;color:purple'></i></a> 
+                                                            <a href=\"hh_view.php?id=".$row['hhcode']."\"><button class='btn btn-sm btn-outline-info' title='View Household' style='font-size:18px;color:purple'><i class='view ico-view'></i></button></a> 
                                                                 
                                                             </td>\n";
 

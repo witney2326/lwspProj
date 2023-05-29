@@ -55,7 +55,7 @@
 
                             <div class="page-title-right">
                                 <ol class="breadcrumb m-0">
-                                    
+                                    <INPUT TYPE="button" class="btn btn-btn btn-outline-secondary w-md" style="width:170px" VALUE="Back" onClick="history.go(-1);">  
                                 </ol>
                             </div>
 
@@ -106,6 +106,7 @@
                                             <div class="col-12">
                                             <label for="ward" class="form-label">Ward</label>
                                                 <select class="form-select" name="ward" id="ward" value ="" required >
+                                                    <option></option>
                                                     <?php                                                           
                                                         $dis_fetch_query = "SELECT id,wname FROM wards where constituency ='$constituency'";                                                  
                                                         $result_dis_fetch = mysqli_query($link, $dis_fetch_query);                                                                       
@@ -118,30 +119,13 @@
                                                                 }
                                                     ?>
                                                 </select>
-                                                <div class="invalid-feedback">
-                                                    Please select a valid Ward.
-                                                </div>
                                             </div>
 
                                             <div class="col-12">
                                                 <label for="area" class="form-label">City Area</label>
-                                                <select class="form-select" name="area" id="area" required disabled>
+                                                <select class="form-select" name="area" id="area" disabled>
                                                     <option>Select Area</option>
-                                                    <?php                                                           
-                                                            $ta_fetch_query = "SELECT areaid,areaname FROM tblarea";                                                  
-                                                            $result_ta_fetch = mysqli_query($link, $ta_fetch_query);                                                                       
-                                                            $i=0;
-                                                                while($DB_ROW_ta = mysqli_fetch_array($result_ta_fetch)) {
-                                                            ?>
-                                                            <option value="<?php echo $DB_ROW_ta["areaid"]; ?>">
-                                                                <?php echo $DB_ROW_ta["areaname"]; ?></option><?php
-                                                                $i++;
-                                                                    }
-                                                        ?>
                                                 </select>
-                                                <div class="invalid-feedback">
-                                                    Please select a valid Area
-                                                </div>
                                             </div>
 
                                             
@@ -175,12 +159,12 @@
                                             
                                             <table id="datatable-buttons" class="table table-bordered dt-responsive  nowrap w-100">
                                                 
-                                                <img src="assets/images/logo-dark.png" alt="" height="64" class="center">
+                                                <img src="assets/images/logo-dark.png" alt="" height="84" class="center">
                                                 
-                                                <thead>
+                                                <thead style="background-color:plum;">
                                                     <tr>
-                                                        <th>HH Code</th>
-                                                        <th>HH Name</th>
+                                                        <th>Household Code</th>
+                                                        <th>Household Name</th>
                                                         <th>Ward</th>
                                                         <th>Area</th>
                                                         <th>Block Name</th>

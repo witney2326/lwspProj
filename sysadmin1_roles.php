@@ -134,7 +134,7 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                                 
                                     <table id="datatable" class="table table-bordered dt-responsive  nowrap w-100">
                                     
-                                        <thead>
+                                        <thead style="background-color:plum">
                                             <tr>
                                                 <th>RoleId</th>
                                                 <th>RoleName</th>
@@ -152,11 +152,11 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                                                 { 
                                                     echo "<tr>";
                                                     echo "<td>".$row['roleid']."</td>";
-                                                    echo "<td>".$row['rolename']."</td>";
+                                                    echo "<td>".$row['rolename']."</td>"; 
 
                                                     echo "<td>
                                                         
-                                                        <a onClick=\"javascript: return confirm('Are You Sure You want To Delete This SLG - You Must Be a Supervisor');\" href=\"basicSLGdelete.php?id=".$row['roleid']."\"><i class='delete ico-delete' title='Delete SLG' style='font-size:18px;color:Red'></i></a>
+                                                        <a onClick=\"javascript: return confirm('Are You Sure You want To Delete This SLG - You Must Be a Supervisor');\" href=\"basicSLGdelete.php?id=".$row['roleid']."\"><button class='btn btn-sm btn-outline-success' title='Delete SLG' style='font-size:18px;color:Red'><i class='delete ico-delete'></i></a>
                                                         </td>\n";
                                                     echo "</tr>";
                                                 }

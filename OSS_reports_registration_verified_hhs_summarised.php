@@ -58,7 +58,7 @@
 
                             <div class="page-title-right">
                                 <ol class="breadcrumb m-0">
-                                    
+                                    <INPUT TYPE="button" class="btn btn-btn btn-outline-secondary w-md" style="width:170px" VALUE="Back" onClick="history.go(-1);">  
                                 </ol>
                             </div>
 
@@ -118,7 +118,7 @@
                                         
                                         <img src="assets/images/logo-dark.png" alt="" height="64" class="center">
                                         
-                                        <thead>
+                                        <thead style="background-color:plum;">
                                             <tr>
                                                 <th>Constituency</th>
                                                 <th>Ward</th>

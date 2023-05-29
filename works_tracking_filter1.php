@@ -211,10 +211,10 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                                         
                                             <table id="datatable" class="table table-bordered dt-responsive  nowrap w-100">
                                             
-                                                <thead>
+                                                <thead style="background-color:plum;">
                                                     <tr>
                                                         <th>OSS Works Code</th>                                           
-                                                        <th>HH Code</th>
+                                                        <th>Household Code</th>
                                                         <th>Start Date</th>
                                                         <th>Contractor</th>
                                                         <th>Status</th>
@@ -242,16 +242,16 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                                                             if  ($pstatus == '00') 
                                                             {  
                                                                 echo "<td>
-                                                                    <a href=\"hh_View.php?id=".$row['phhcode']."\"><i class='view ico-view' title='View HH' style='font-size:18px;color:purple'></i></a> 
-                                                                    <a href=\"hh_project_progressTrack.php?id=".$row['pID']."\"><i class='fchart ico-fchart' title='Update Project Progress' style='font-size:18px;color:black'></i></a> 
-                                                                    <a onClick=\"javascript: return confirm('Are You Sure You want To Notify The Contractor?');\" href=\"contractor_notification_works_allocation.php?id=".$row['pcontractorID']."& hhcode=".$row['phhcode']."& sdate=".$row['pstartdate']."\"><i class='notify ico-notify' title='Notify Contactor On Works Schedule' style='font-size:18px;color:brown'></i></a> 
-                                                                    <a href=\"works-handover-certificate.php?id=".$row['pID']."\"><i class='printer ico-printer' title='Print OSS Works Handover Certificate' style='font-size:18px;color:black'></i></a>                                                
+                                                                    <a href=\"hh_View.php?id=".$row['phhcode']."\"><button class='btn btn-sm btn-outline-info' title='View HH' style='font-size:18px;color:purple'><i class='view ico-view'></i></button></a> 
+                                                                    <a href=\"hh_project_progressTrack.php?id=".$row['pID']."\"><button class='btn btn-sm btn-outline-secondary' title='Update Project Progress' style='font-size:18px;color:black'><i class='fchart ico-fchart'></i></button></a>
+                                                                    <a onClick=\"javascript: return confirm('Are You Sure You want To Notify The Contractor?');\" href=\"contractor_notification_works_allocation.php?id=".$row['pcontractorID']."& hhcode=".$row['phhcode']."& sdate=".$row['pstartdate']."\"><button class='btn btn-sm btn-outline-success' title='Notify Contactor On Works Schedule' style='font-size:18px;color:brown'><i class='notify ico-notify'></i></button></a> 
+                                                                    <a href=\"works-handover-certificate.php?id=".$row['pID']."\"><button class='btn btn-sm btn-outline-primary' title='Print OSS Works Handover Certificate' style='font-size:18px;color:black'><i class='printer ico-printer'></i></button></a>                                                
                                                                 </td>\n";
                                                             }else
                                                             {
                                                                 echo "<td>
-                                                                    <a href=\"hh_View.php?id=".$row['phhcode']."\"><i class='view ico-view' title='View HH' style='font-size:18px;color:purple'></i></a> 
-                                                                    <a href=\"hh_project_progressTrack.php?id=".$row['pID']."\"><i class='fchart ico-fchart' title='Update Project Progress' style='font-size:18px;color:black'></i></a> 
+                                                                    <a href=\"hh_View.php?id=".$row['phhcode']."\"><button class='btn btn-sm btn-outline-info' title='View HH' style='font-size:18px;color:purple'><i class='view ico-view'></i></button></a> 
+                                                                    <a href=\"hh_project_progressTrack.php?id=".$row['pID']."\"><button class='btn btn-sm btn-outline-secondary' title='Update Project Progress' style='font-size:18px;color:black'><i class='fchart ico-fchart'></i></button></a> 
                                                                 </td>\n";
                                                             }
 

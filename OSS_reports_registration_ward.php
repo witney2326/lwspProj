@@ -56,7 +56,7 @@
 
                             <div class="page-title-right">
                                 <ol class="breadcrumb m-0">
-                                    
+                                    <INPUT TYPE="button" class="btn btn-btn btn-outline-secondary w-md" style="width:170px" VALUE="Back" onClick="history.go(-1);">  
                                 </ol>
                             </div>
 
@@ -163,12 +163,12 @@
                                             
                                                 <table id="datatable-buttons" class="table table-bordered dt-responsive  nowrap w-100">
                                                     
-                                                    <img src="assets/images/logo-dark.png" alt="" height="64" class="center">
+                                                    <img src="assets/images/logo-dark.png" alt="" height="84" class="center">
                                                     
-                                                    <thead>
+                                                    <thead style="background-color:plum;">
                                                         <tr>
-                                                            <th>HH Code</th>
-                                                            <th>HH Name</th>
+                                                            <th>Household Code</th>
+                                                            <th>Household Name</th>
                                                             <th>Area</th>
                                                             <th>Block Name</th>
                                                             <th>Plot No.</th>

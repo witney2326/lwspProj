@@ -199,10 +199,10 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                                         
                                             <table id="datatable" class="table table-bordered dt-responsive  nowrap w-100">
                                             
-                                                <thead>
+                                                <thead style="background-color:plum;">
                                                     <tr>
                                                         <th>Works Code</th>                                           
-                                                        <th>HH Code</th>
+                                                        <th>Household Code</th>
                                                         <th>Finish Date</th>
                                                         <th>Contractor</th>
                                                         <th>Status</th>
@@ -223,13 +223,13 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                                                             echo "<td>".$row["pID"]."</td>\n";
                                                             echo "<td>".$row["phhcode"]."</td>\n";
                                                             echo "<td>".$row["pfinishdate"]."</td>\n";
-                                                            echo "<td>".contractor_name($link,$row["pcontractorID"])."</td>\n";
+                                                            echo "<td>".contractor_name($link,$row["pcontractorID"])."</td>\n"; 
                                                             echo "<td>".pstatus($link,$row["pstatus"])."</td>\n";
                                                             echo "<td>\t\t$statusApproved</td>\n";
                                                             echo "<td>                                               
-                                                                <a href=\"hh_View.php?id=".$row['phhcode']."\"><i class='view ico-view' title='View HH' style='font-size:18px;color:purple'></i></a> 
-                                                                <a onClick=\"javascript: return confirm('Are You Sure You want To Approve Current Works Progress Status?');\" href=\"works_status_approval.php?id=".$row['pID']."\"><i class='check ico-check' title='Approve Current Works Status' style='font-size:18px;color:green'></i></a>
-                                                                <a href=\"hh_project_progressTrack.php?id=".$row['pID']."\"><i class='fchart ico-fchart' title='Update Project Progress' style='font-size:18px;color:black'></i></a> 
+                                                                <a href=\"hh_View.php?id=".$row['phhcode']."\"><button class='btn btn-sm btn-outline-info' title='View household' style='font-size:18px;color:purple'><i class='view ico-view'></i></button></a> 
+                                                                <a onClick=\"javascript: return confirm('Are You Sure You want To Approve Current Works Progress Status?');\" href=\"works_status_approval.php?id=".$row['pID']."\"><button class='btn btn-sm btn-outline-success' title='Approve Current Works Status' style='font-size:18px;color:green'><i class='check ico-check'></i></button></a>
+                                                                <a href=\"hh_project_progressTrack.php?id=".$row['pID']."\"><button class='btn btn-sm btn-outline-secondary' title='Update Project Progress' style='font-size:18px;color:black'><i class='fchart ico-fchart'></i></button></a> 
                                                             </td>\n";
 
                                                         echo "</tr>\n";

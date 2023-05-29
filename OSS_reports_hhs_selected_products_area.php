@@ -57,7 +57,7 @@
 
                             <div class="page-title-right">
                                 <ol class="breadcrumb m-0">
-                                    
+                                    <INPUT TYPE="button" class="btn btn-btn btn-outline-secondary w-md" style="width:170px" VALUE="Back" onClick="history.go(-1);">  
                                 </ol>
                             </div>
 
@@ -126,7 +126,7 @@
                                 
                                 <!-- Tab panes -->
                                 <div class="row">
-                                    <div class="col-12">
+                                    <div class="col-6">
                                         <div class="card-border">
 
                                         <div class="d-print-none">
@@ -149,7 +149,7 @@
                                                     
                                                     <img src="assets/images/logo-dark.png" alt="" height="64" class="center">
                                                     
-                                                    <thead>
+                                                    <thead style="background-color:plum;">
                                                     <tr>
                                                         <th>Selected Product</th>
                                                         <th>No of Households</th>

@@ -163,30 +163,14 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                                                                 }
                                                     ?>
                                             </select>
-                                            <div class="invalid-feedback">
-                                                Please select a valid Ward.
-                                            </div>
+                                            
                                         </div>
 
                                         <div class="col-12">
-                                            <label for="ta" class="form-label">City Area</label>
-                                            <select class="form-select" name="ta" id="ta" required disabled>
-                                                <option selected  value="$ta"></option>
-                                                <?php                                                           
-                                                        $ta_fetch_query = "SELECT TAName FROM tblta";                                                  
-                                                        $result_ta_fetch = mysqli_query($link, $ta_fetch_query);                                                                       
-                                                        $i=0;
-                                                            while($DB_ROW_ta = mysqli_fetch_array($result_ta_fetch)) {
-                                                        ?>
-                                                        <option>
-                                                            <?php echo $DB_ROW_ta["TAName"]; ?></option><?php
-                                                            $i++;
-                                                                }
-                                                    ?>
+                                            <label for="area" class="form-label">City Area</label>
+                                            <select class="form-select" name="area" id="area" required disabled>
+                                                <option>Select Area</option>
                                             </select>
-                                            <div class="invalid-feedback">
-                                                Please select a valid Area
-                                            </div>
                                         </div>
 
                                         
@@ -208,10 +192,10 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                                         
                                             <table id="datatable" class="table table-bordered dt-responsive  nowrap w-100">
                                             
-                                                <thead>
+                                                <thead style="background-color:plum;">
                                                     <tr>
-                                                        <th>HH Code</th>                                           
-                                                        <th>HH Name</th>
+                                                        <th>Household Code</th>                                           
+                                                        <th>Household Name</th>
                                                         <th>OSS Product</th>
                                                         <th>Total Paid</th>
                                                         <th>Cost Of Product</th>
@@ -249,8 +233,8 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                                                                     echo "<td>\t\t$pcost</td>\n";
                                                             
                                                                     echo "<td>                              
-                                                                        <a href=\"hh_view.php?id=".$row['hhCode']."\"><i class='view ico-view' title='View Household' style='font-size:18px;color:purple'></i></a> 
-                                                                        <a onClick=\"javascript: return confirm('Are You Sure You want To Schedule Works For This HOUSEHOLD?');\" href=\"hh_works_schedule1.php?id=".$row['hhCode']."\"><i class='calendar ico-calendar' title='Schedule Works For HH' style='font-size:18px;color:green'></i></a> 
+                                                                    <a href=\"hh_view.php?id=".$row['hhCode']."\"><button class='btn btn-sm btn-outline-info' title='View Household' style='font-size:18px;color:purple'><i class='view ico-view'></i></button></a> 
+                                                                    <a onClick=\"javascript: return confirm('Are You Sure You want To Schedule Works For This HOUSEHOLD?');\" href=\"hh_works_schedule1.php?id=".$row['hhCode']."\"><button class='btn btn-sm btn-outline-secondary' title='Schedule Works For HH' style='font-size:18px;color:green'><i class='calendar ico-calendar'></i></button></a>
                                                                     </td>\n";
                                                                 echo "</tr>\n";
                                                             } 

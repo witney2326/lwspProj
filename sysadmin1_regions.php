@@ -155,7 +155,7 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
 
                                     <table id="datatable" class="table table-bordered dt-responsive  nowrap w-100">
                                     
-                                        <thead>
+                                        <thead style="background-color:plum;">
                                             <tr>
                                                 <th>RecID</th>
                                                 <th>Constituency</th>
@@ -173,11 +173,11 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                                                 { 
                                                     echo "<tr>";
                                                     echo "<td>".$row['id']."</td>";
-                                                    echo "<td>".$row['cname']."</td>";
+                                                    echo "<td>".$row['cname']."</td>"; 
                                                     
                                                     echo "<td>
-                                                        <a href=\"OSS_edit_CityCon.php?id=".$row['id']."\"><i class='edit ico-edit' title='Edit City Constituency' style='font-size:18px;color:green'></i></a>
-                                                        <a onClick=\"javascript: return confirm('Are You Sure You want To Delete This Constituency?');\" href=OSS_constituency_delete.php\"?id=".$row['id']."\"><i class='delete ico-delete' title='Delete SLG' style='font-size:18px;color:Red'></i></a>
+                                                        <a href=\"OSS_edit_CityCon.php?id=".$row['id']."\"><button class='btn btn-sm btn-outline-success' title='Edit City Constituency' style='font-size:18px;color:green'><i class='edit ico-edit'></i></button></a>
+                                                        <a onClick=\"javascript: return confirm('Are You Sure You want To Delete This Constituency?');\" href=OSS_constituency_delete.php\"?id=".$row['id']."\"><button class='btn btn-sm btn-outline-secondary' title='Delete SLG' style='font-size:18px;color:Red'><i class='delete ico-delete'></i></button></a>
                                                         </td>\n";
                                                     echo "</tr>";
                                                 }

@@ -61,20 +61,15 @@
             <div class="row">
                 <div class="col-4">
                     <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                        <p><h5 class="mb-sm-0 font-size-16">Image View For OSS Product:</h5></p>
+                        <p><h5 class="mb-sm-0 font-size-14">Image View For OSS Product:</h5></p>
                         <p><h6 class="mb-sm-0 font-size-12"><?php echo $pname; echo " "; echo $pdescription;?></h6></p>
-                        <div class="page-title-right">
-                            <ol class="breadcrumb m-0">
-                                <INPUT TYPE="button" class="btn btn-btn btn-outline-secondary w-md" VALUE="Back" onClick="history.go(-1);">
-                            </ol>
-                        </div>
-
                     </div>
                 </div>
             </div>
 	
             
-                <div class ="row">
+            <div class ="row">
+                <div class="col-4">
                     <div id="display-image">
                         <?php
                             $query = "select filename_ from tproducts where pID = $ID";
@@ -82,14 +77,20 @@
 
                             while ($data = mysqli_fetch_assoc($result)) {
                         ?>
-                            <img src="./uploads_products/<?php echo $data['filename_']; ?>" style="height: 400px; width: 440px; border-style: groove;border-color: gray;border-width: 8px;"/>
+                            <img src="./uploads_products/<?php echo $data['filename_']; ?>" style="height: 400px; width: 440px; border-style: groove;border-color: orange;border-width: 10px;"/>
 
                         <?php
                             }
                         ?>
                     </div>
                 </div>
-           
+            </div>
+
+            <div class="page-title-right">
+                <ol class="breadcrumb m-0">
+                    <INPUT TYPE="button" class="btn btn-btn btn-outline-secondary w-md" VALUE="Back" onClick="history.go(-1);">
+                </ol>
+            </div>
         </div>
     </div>
 </div>

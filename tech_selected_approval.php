@@ -15,12 +15,15 @@
         $result_set->close();
     }
 
+    $query_pamount = mysqli_query($link, "SELECT pCost as product_cost FROM tproducts where pID = '$selected_product'"); 
+    $row_query_pamount = mysqli_fetch_assoc($query_pamount); 
+    $product_cost = $row_query_pamount['product_cost'];
 
     if (($lat <> 0) or ($longi <> 0))
     {
         if (($product_approved =='0') and ($selected_product <> '00'))
         {
-            $sql = mysqli_query($link,"update households  SET product_approved = '1', current_status = '04' where hhcode = '$hhID'");
+            $sql = mysqli_query($link,"update households  SET product_approved = '1', current_status = '04', pOption ='04', amount_owing ='$product_cost' where hhcode = '$hhID'");
                     
             if ($sql) {
                 echo '<script type="text/javascript">'; 

@@ -203,10 +203,10 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                                         
                                             <table id="datatable" class="table table-bordered dt-responsive  nowrap w-100">
                                             
-                                                <thead>
+                                                <thead style="background-color:plum">
                                                     <tr>
-                                                        <th>HH Code</th>                                           
-                                                        <th>HH Name</th>
+                                                        <th>Household Code</th>                                           
+                                                        <th>Household Name</th>
                                                         <th>Phone No.</th>
                                                         <th>Block Name</th>
                                                         <th>Plot No.</th>
@@ -231,7 +231,7 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                                                             echo "<td>".$row["blockname"]."</td>\n";
                                                             echo "<td>".$row["plot"]."</td>\n";
                                                             echo "<td>                                               
-                                                                <a onClick=\"javascript: return confirm('Do you Want To Record Technical Guide Rendered To HH?');\"  href=\"record_hh_tg.php?id=".$row['hhcode']."\"><i class='record ico-record' title='Want To Record TG Rendered?' style='font-size:18px; color:black'></i></a> 
+                                                            <a onClick=\"javascript: return confirm('Do you Want To Record Technical Guide Rendered To HH?');\"  href=\"record_hh_tg.php?id=".$row['hhcode']."\"><button class='btn btn-sm btn-outline-secondary' title='Want To Record TG Rendered?' style='font-size:18px; color:black'><i class='record ico-record'></i></button></a> 
                                                             </td>\n";
 
                                                         echo "</tr>\n";

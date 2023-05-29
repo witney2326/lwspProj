@@ -50,7 +50,7 @@
                             <h4 class="mb-sm-0 font-size-18">OSS Works Reports</h4>
 
                             <div class="page-title-right">
-                                
+                                <INPUT TYPE="button" class="btn btn-btn btn-outline-secondary w-md" style="width:170px" VALUE="Back" onClick="history.go(-1);">  
                             </div>
 
                         </div>
@@ -93,69 +93,38 @@
                         <form class="row row-cols-lg-auto g-3 align-items-center" novalidate action="OSS_reports_hhs_oss_works_con.php" method ="GET" >
                             <div class="col-12">
                                 <label for="constituency" class="form-label">Constituency</label>
-                                
-                                    <select class="form-select" name="constituency" id="constituency"  required>
-                                        <?php                                                           
-                                                $dis_fetch_query = "SELECT id, cname FROM constituency";                                                  
-                                                $result_dis_fetch = mysqli_query($link, $dis_fetch_query);                                                                       
-                                                $i=0;
-                                                    while($DB_ROW_reg = mysqli_fetch_array($result_dis_fetch)) {
-                                                ?>
-                                                <option value ="<?php
-                                                        echo $DB_ROW_reg["id"];?>">
-                                                    <?php
-                                                        echo $DB_ROW_reg["cname"];
-                                                    ?>
-                                                </option>
-                                                <?php
-                                                    $i++;
-                                                        }
+                                <select class="form-select" name="constituency" id="constituency"  required>
+                                    <option></option>
+                                    <?php                                                           
+                                        $dis_fetch_query = "SELECT id, cname FROM constituency";                                                  
+                                        $result_dis_fetch = mysqli_query($link, $dis_fetch_query);                                                                       
+                                        $i=0;
+                                            while($DB_ROW_reg = mysqli_fetch_array($result_dis_fetch)) {
+                                        ?>
+                                        <option value ="<?php
+                                                echo $DB_ROW_reg["id"];?>">
+                                            <?php
+                                                echo $DB_ROW_reg["cname"];
                                             ?>
-                                    </select>
-                                    <div class="invalid-feedback">
-                                        Please select a valid Constituency
-                                    </div>
+                                        </option>
+                                        <?php
+                                            $i++;
+                                                }
+                                    ?>
+                                </select>
                             </div>
                             <div class="col-12">
                                 <label for="ward" class="form-label">Ward</label>
-                                <select class="form-select" name="ward" id="ward" disabled required>
+                                <select class="form-select" name="ward" id="ward" disabled>
                                     <option>Select Ward</option>
-                                        <?php                                                           
-                                            $dis_fetch_query = "SELECT wardid,wardname FROM wards";                                                  
-                                            $result_dis_fetch = mysqli_query($link, $dis_fetch_query);                                                                       
-                                            $i=0;
-                                                while($DB_ROW_Dis = mysqli_fetch_array($result_dis_fetch)) {
-                                            ?>
-                                            <option value="<?php echo $DB_ROW_Dis["wardid"]; ?>">
-                                                <?php echo $DB_ROW_Dis["wardname"]; ?></option><?php
-                                                $i++;
-                                                    }
-                                        ?>
                                 </select>
-                                <div class="invalid-feedback">
-                                    Please select a valid Ward.
-                                </div>
                             </div>
 
                             <div class="col-12">
                                 <label for="area" class="form-label">City Area</label>
-                                <select class="form-select" name="area" id="area" required disabled>
+                                <select class="form-select" name="area" id="area" disabled>
                                     <option>Select Area</option>
-                                    <?php                                                           
-                                            $ta_fetch_query = "SELECT areaid,areaname FROM tblarea";                                                  
-                                            $result_ta_fetch = mysqli_query($link, $ta_fetch_query);                                                                       
-                                            $i=0;
-                                                while($DB_ROW_ta = mysqli_fetch_array($result_ta_fetch)) {
-                                            ?>
-                                            <option value="<?php echo $DB_ROW_ta["areaid"]; ?>">
-                                                <?php echo $DB_ROW_ta["areaname"]; ?></option><?php
-                                                $i++;
-                                                    }
-                                        ?>
                                 </select>
-                                <div class="invalid-feedback">
-                                    Please select a valid Area
-                                </div>
                             </div>
 
                             

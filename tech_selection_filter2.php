@@ -199,10 +199,10 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                                         
                                             <table id="datatable" class="table table-bordered dt-responsive  nowrap w-100">
                                             
-                                                <thead>
+                                                <thead style="background-color:plum;">
                                                     <tr>
-                                                        <th>HH Code</th>                                           
-                                                        <th>HH Name</th>
+                                                        <th>Household Code</th>                                           
+                                                        <th>Household Name</th>
                                                         <th>Tech Selection</th>
                                                         <th>Tech Site Set</th>
                                                         <th>Tech Cost</th>
@@ -235,15 +235,15 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                                                                 if ($_SESSION["userrole"] == '04')
                                                                 {
                                                                     echo "<td>                                               
-                                                                    <a href=\"hh_View.php?id=".$row['hhcode']."\"><i class='view ico-view' title='View HH' style='font-size:18px; color: purple'></i></a>\n
-                                                                    <a href=\"location.php?id=".$row['hhcode']."\"><i class='pin ico-pin' title='Geo Locate House' style='font-size:18px; color: blue'></i></a>\n
+                                                                    <a href=\"hh_View.php?id=".$row['hhcode']."\"><button class='btn btn-sm btn-outline-success' title='View HH' style='font-size:18px; color: purple'><i class='view ico-view'></i></a>\n
+                                                                    <a href=\"location.php?id=".$row['hhcode']."\"><button class='btn btn-sm btn-outline-info' title='Geo Locate House' style='font-size:18px; color: blue'><i class='pin ico-pin'></i></a>\n
                                                                     </td>\n";
                                                                 }else
                                                                 {
                                                                     echo "<td>                                               
-                                                                    <a href=\"hh_View.php?id=".$row['hhcode']."\"><i class='view ico-view' title='View HH' style='font-size:18px; color: purple'></i></a>\n
-                                                                    <a href=\"location.php?id=".$row['hhcode']."\"><i class='pin ico-pin' title='Geo Locate House' style='font-size:18px; color: blue'></i></a>\n
-                                                                    <a onClick=\"javascript: return confirm('Are You Sure You want To Approve This Technology Selection For The Household?');\" href=\"tech_selected_approval.php?id=".$row['hhcode']."\"><i class='check ico-check' title='Approve Tech Selection' style='font-size:18px;color:green'></i></a>
+                                                                    <a href=\"hh_View.php?id=".$row['hhcode']."\"><button class='btn btn-sm btn-outline-success' style='font-size:18px; color: purple'><i class='view ico-view'></i></a>\n
+                                                                    <a href=\"location.php?id=".$row['hhcode']."\"><button class='btn btn-sm btn-outline-info' title='Geo Locate House' style='font-size:18px; color: blue'><i class='pin ico-pin'></i></a>\n
+                                                                    <a onClick=\"javascript: return confirm('Are You Sure You want To Approve This Technology Selection For The Household?');\" href=\"tech_selected_approval.php?id=".$row['hhcode']."\"><button class='btn btn-sm btn-outline-primary' title='Approve Tech Selection' style='font-size:18px;color:green'><i class='check ico-check'></i></a>
                                                                     </td>\n";
                                                                 }
 

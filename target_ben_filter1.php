@@ -239,10 +239,10 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                                             
                                                 <table id="datatable" class="table table-bordered dt-responsive  nowrap w-100">
                                                 
-                                                    <thead>
+                                                    <thead style="background-color:plum">
                                                         <tr>
-                                                            <th>HH Code</th>                                           
-                                                            <th>HH Name</th>
+                                                            <th>Household Code</th>                                           
+                                                            <th>Household Name</th>
                                                             <th>Identification</th>
                                                             <th>Verified/Accepted??</th>
                                                             <th>Action</th>  
@@ -268,18 +268,18 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                                                                 if ($_SESSION["userrole"] == '04')
                                                                 {
                                                                     echo "<td>                                               
-                                                                        <a href=\"hh_View.php?id=".$row['hhcode']."\"><i class='view ico-view' title='View HH' style='font-size:18px; color:purple'></i></a> 
-                                                                        <a onClick=\"javascript: return confirm('Are You Sure You want To Enrol This HOUSEHOLD for This Programme?');\" href=\"target_beneficiary_enrol.php?id=".$row['hhcode']."\"><i class='check ico-check' title='Enrol Household' style='font-size:18px;color:green'></i></a> 
-                                                                        
-                                                                    </td>\n";
-                                                                }else
+                                                                    <a href=\"hh_View.php?id=".$row['hhcode']."\"><button class='btn btn-sm btn-outline-success' title='View HH' style='font-size:18px; color:purple'><i class='view ico-view'></i></button></a> 
+                                                                    <a onClick=\"javascript: return confirm('Are You Sure You want To Enrol This HOUSEHOLD for This Programme?');\" href=\"target_beneficiary_enrol.php?id=".$row['hhcode']."\"><button class='btn btn-sm btn-outline-info' title='Enrol Household' style='font-size:18px;color:green'><i class='check ico-check'></i></button></a> 
+                                                                    
+                                                                </td>\n";
+                                                            }else
                                                                 {
-                                                                    echo "<td>                                               
-                                                                        <a href=\"hh_View.php?id=".$row['hhcode']."\"><i class='view ico-view' title='View HH' style='font-size:18px; color:purple'></i></a> 
-                                                                        <a onClick=\"javascript: return confirm('Are You Sure You want To Enrol This HOUSEHOLD for This Programme?');\" href=\"target_beneficiary_enrol.php?id=".$row['hhcode']."\"><i class='check ico-check' title='Enrol Household' style='font-size:18px;color:green'></i></a> 
-                                                                        <a href=\"edit-household.php?id=".$row['hhcode']."\"><i class='edit ico-edit' title='Edit HH' style='font-size:18px; color:black'></i></a> 
-                                                                        <a onClick=\"javascript: return confirm('Are You Sure You want To DELETE This HOUSEHOLD');\" href=\"del_hh.php?id=".$row['hhcode']."\"><i class='delete ico-delete' title='Delete Member' style='font-size:18px; color:red'></i></a>      
-                                                                    </td>\n";
+                                                                echo "<td>                                               
+                                                                    <a href=\"hh_View.php?id=".$row['hhcode']."\"><button class='btn btn-sm btn-outline-success' title='View HH' style='font-size:18px; color:purple'><i class='view ico-view'></i></button></a> 
+                                                                    <a onClick=\"javascript: return confirm('Are You Sure You want To Enrol This HOUSEHOLD for This Programme?');\" href=\"target_beneficiary_enrol.php?id=".$row['hhcode']."\"><button class='btn btn-sm btn-outline-info' title='Enrol Household' style='font-size:18px;color:green'><i class='check ico-check'></i></button></a> 
+                                                                    <a href=\"edit-household.php?id=".$row['hhcode']."\"><button class='btn btn-sm btn-outline-primary' title='Edit HH' style='font-size:18px; color:black'><i class='edit ico-edit'></i></button></a> 
+                                                                    <a onClick=\"javascript: return confirm('Are You Sure You want To DELETE This HOUSEHOLD');\" href=\"del_hh.php?id=".$row['hhcode']."\"><button class='btn btn-sm btn-outline-secondary' title='Delete Member' style='font-size:18px; color:red'><i class='delete ico-delete'></i></button></a>      
+                                                                </td>\n";
                                                                 }
 
                                                             echo "</tr>\n";

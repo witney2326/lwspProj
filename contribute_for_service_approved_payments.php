@@ -190,15 +190,14 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                                         
                                             <table id="datatable" class="table table-bordered dt-responsive  nowrap w-100">
                                             
-                                                <thead>
+                                                <thead style="background-color:plum;">
                                                     <tr>
                                                             
-                                                        <th>HH Code</th>                                           
-                                                        <th>HH Name</th>
+                                                        <th>Household Code</th>                                           
+                                                        <th>Household Name</th>
                                                         <th>OSS Product</th>
                                                         <th>Total Paid</th>
                                                         <th>Cost Of Product</th>
-                                                        
                                                         <th>Action</th>  
                                                     </tr>
                                                 </thead>
@@ -226,13 +225,13 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                                                                     
                                                                     echo "<td>".$row["hhCode"]."</td>\n";
                                                                     echo "<td>\t\t$hhname</td>\n";
-                                                                    echo "<td>\t\t$selected_product</td>\n";
+                                                                    echo "<td>\t\t$selected_product</td>\n";  
                                                                     echo "<td>\t\t$total_paid</td>\n";
                                                                     echo "<td>\t\t$pcost</td>\n"; 
                                                             
                                                                     echo "<td>                              
-                                                                        <a href=\"hh_view.php?id=".$row['hhCode']."\"><i class='view ico-view' title='View Household' style='font-size:18px;color:purple'></i></a> 
-                                                                        <a onClick=\"javascript: return confirm('Are You Sure You want To Schedule Works For This HOUSEHOLD?');\" href=\"hh_works_schedule1.php?id=".$row['hhCode']."\"><i class='calendar ico-calendar' title='Schedule Works For HH' style='font-size:18px;color:green'></i></a>
+                                                                        <a href=\"hh_view.php?id=".$row['hhCode']."\"><button class='btn btn-sm btn-outline-info' title='View Household' style='font-size:18px;color:purple'><i class='view ico-view'></i></button></a> 
+                                                                        <a onClick=\"javascript: return confirm('Are You Sure You want To Schedule Works For This HOUSEHOLD?');\" href=\"hh_works_schedule1.php?id=".$row['hhCode']."\"><button class='btn btn-sm btn-outline-secondary' title='Schedule Works For HH' style='font-size:18px;color:green'><i class='calendar ico-calendar'></i></button></a>
                                                                         
                                                                     </td>\n";
                                                                 echo "</tr>\n";

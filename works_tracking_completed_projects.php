@@ -152,52 +152,20 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                                                                 }
                                                     ?>
                                             </select>
-                                            <div class="invalid-feedback">
-                                                Please select a valid Constituency
-                                            </div>
-                                            
                                         </div>
                                         
                                         <div class="col-12">
-                                            <label for="district" class="form-label">Ward</label>
-                                            <select class="form-select" name="district" id="district" required disabled>
+                                            <label for="ward" class="form-label">Ward</label>
+                                            <select class="form-select" name="ward" id="ward" required disabled>
                                                 <option>Select ward</option>
-                                                    <?php                                                           
-                                                        $dis_fetch_query = "SELECT DistrictID,DistrictName FROM tbldistrict";                                                  
-                                                        $result_dis_fetch = mysqli_query($link, $dis_fetch_query);                                                                       
-                                                        $i=0;
-                                                            while($DB_ROW_Dis = mysqli_fetch_array($result_dis_fetch)) {
-                                                        ?>
-                                                        <option value="<?php echo $DB_ROW_Dis["DistrictID"]; ?>">
-                                                            <?php echo $DB_ROW_Dis["DistrictName"]; ?></option><?php
-                                                            $i++;
-                                                                }
-                                                    ?>
                                             </select>
-                                            <div class="invalid-feedback">
-                                                Please select a valid Ward.
-                                            </div>
                                         </div>
 
                                         <div class="col-12">
-                                            <label for="ta" class="form-label">City Area</label>
-                                            <select class="form-select" name="ta" id="ta" required disabled>
+                                            <label for="area" class="form-label">City Area</label>
+                                            <select class="form-select" name="area" id="area" required disabled>
                                                 <option >Select Area</option>
-                                                <?php                                                           
-                                                        $ta_fetch_query = "SELECT TAName FROM tblta";                                                  
-                                                        $result_ta_fetch = mysqli_query($link, $ta_fetch_query);                                                                       
-                                                        $i=0;
-                                                            while($DB_ROW_ta = mysqli_fetch_array($result_ta_fetch)) {
-                                                        ?>
-                                                        <option>
-                                                            <?php echo $DB_ROW_ta["TAName"]; ?></option><?php
-                                                            $i++;
-                                                                }
-                                                    ?>
                                             </select>
-                                            <div class="invalid-feedback">
-                                                Please select a valid Area
-                                            </div>
                                         </div>
 
                                         
@@ -219,10 +187,10 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                                         
                                             <table id="datatable" class="table table-bordered dt-responsive  nowrap w-100">
                                             
-                                                <thead>
+                                                <thead style="background-color:plum;">
                                                     <tr>
                                                         <th>OSS Works Code</th>                                           
-                                                        <th>HH Code</th>
+                                                        <th>Household Code</th>
                                                         <th>Start Date</th>
                                                         <th>Expected End Date</th>
                                                         <th>Contractor</th>
@@ -244,12 +212,12 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                                                             echo "<td>".$row["phhcode"]."</td>\n";
                                                             echo "<td>".$row["pstartdate"]."</td>\n";
                                                             echo "<td>".$row["pfinishdate"]."</td>\n";
-                                                            echo "<td>".contractor_name($link,$row["pcontractorID"])."</td>\n";
+                                                            echo "<td>".contractor_name($link,$row["pcontractorID"])."</td>\n";  
                                                             echo "<td>".pstatus($link,$row["pstatus"])."</td>\n";
                                                             
                                                             echo "<td>                                               
-                                                                <a href=\"hh_View.php?id=".$row['phhcode']."\"><i class='view ico-view' title='View HH' style='font-size:18px;color:purple'></i></a> 
-                                                                <a href=\"hh_project_verify_completness.php?id=".$row['pID']."\"><i class='verify ico-verify' title='Verify OSS Works' style='font-size:18px;color:green'></i></a> 
+                                                                <a href=\"hh_View.php?id=".$row['phhcode']."\"><button class='btn btn-sm btn-outline-info' title='View Household' style='font-size:18px;color:purple'>i class='view ico-view'></i></button></a> 
+                                                                <a href=\"hh_project_verify_completness.php?id=".$row['pID']."\"><button class='btn btn-sm btn-outline-primary' title='Verify OSS Works' style='font-size:18px;color:green'><i class='verify ico-verify'></i></button></a> 
                                                             </td>\n";
 
                                                         echo "</tr>\n";

@@ -15,7 +15,7 @@
         .settings {
         display: inline-block;
         width: 18px; height: 18px;
-        background-image: url('icons/settings1.png');
+        background-image: url('icons/settings.png');
         background-repeat: no-repeat;
         }
         .ico-settings { background-position: 0 0; }
@@ -59,6 +59,23 @@
         background-repeat: no-repeat;
         }
         .ico-home { background-position: 0 0; }
+
+        .page {
+        display: inline-block;
+        width: 18px; height: 18px;
+        background-image: url('icons/page.png');
+        background-repeat: no-repeat;
+        }
+        .ico-page { background-position: 0 0; }
+
+        .down {
+        display: inline-block;
+        width: 18px; height: 18px;
+        background-image: url('icons/down1.png');
+        background-repeat: no-repeat;
+        }
+        .ico-down { background-position: 0 0; }
+        
 </style>
 <header id="page-topbar">
 
@@ -131,7 +148,7 @@
                 <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <img class="rounded-circle header-profile-user" src="assets/images/users/avatar-1.jpg" alt="Header Avatar">
                     <span class="d-none d-xl-inline-block ms-1" key="t-henry"><?php echo lcfirst($_SESSION["username"]); ?></span>
-                    <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
+                    
                 </button>
                 <div class="dropdown-menu dropdown-menu-end">
                     <!-- item-->
@@ -143,7 +160,7 @@
 
             <div class="dropdown d-inline-block">
                 <button type="button" class="btn header-item noti-icon right-bar-toggle waves-effect">
-                    <i class="bx bx-cog "></i>
+                <button class='btn btn-sm btn-outline-info'><i class="page ico-page "></i></button>
                 </button>
             </div>
 

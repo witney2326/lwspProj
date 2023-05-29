@@ -43,14 +43,15 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
         background-repeat: no-repeat;
         }
         .ico-view { background-position: 0 0; }
-
-        .dollar {
+        
+        .pay {
         display: inline-block;
         width: 18px; height: 18px;
         background-image: url('icons/dollars.png');
         background-repeat: no-repeat;
         }
-        .ico-dollar { background-position: 0 0; }
+        .ico-pay { background-position: 0 0; }
+        
     </style>
 </head>
 
@@ -184,20 +185,19 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                             <div class="row">
                                 <div class="col-12">
                                     <div class="card-border">
-                                    <div class="card-header bg-transparent border-primary">
-                                        <h5 class="my-0 text-default">Households Ready For Contributions/Payments</h5>
-                                    </div>
+                                    
                                     <div class="card-body">
                                     <h7 class="card-title mt-0"></h7>
                                         
                                             <table id="datatable" class="table table-bordered dt-responsive  nowrap w-100">
                                             
-                                                <thead>
+                                                <thead style="background-color:plum;">
                                                     <tr>
-                                                        <th>HH Code</th>                                           
-                                                        <th>HH Name</th>
+                                                        <th>Household Code</th>                                           
+                                                        <th>Household Name</th>
                                                         <th>Phone</th>
-                                                        <th>Pmt Option</th>
+                                                        <th>Plot No.</th>
+                                                        <th>Balance Due</th>
                                                         <th>Action</th>  
                                                     </tr>
                                                 </thead>
@@ -211,18 +211,22 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                                                         if ($result_set = $link->query($query)) {
                                                         while($row = $result_set->fetch_array(MYSQLI_ASSOC))
                                                         { 
-                                                            
-                                                            if ($row["pOption"] == '00'){$pOption = 'None';}else{$pOption = payment_option_name($link,$row["pOption"]);}
-                                                            
+                                                            $hh = $row["hhcode"];
+                                                            $result = mysqli_query($link, "SELECT SUM(amount_paid) AS value_sum FROM tpayments where hhCode = '$hh'"); 
+                                                            $rw = mysqli_fetch_assoc($result); 
+                                                            $sum_paid = $rw['value_sum'];
+                                                           
+                                                            $cost = product_cost($link,$row["selected_product"]);
+                                                            $balance_due = number_format(($cost-$sum_paid),2);
                                                             echo "<tr>\n";
                                                                 echo "<td>".$row["hhcode"]."</td>\n";
                                                                 echo "<td>".$row["hhname"]."</td>\n";
                                                                 echo "<td>".$row["phone"]."</td>\n";
-                                                                echo "<td>".payment_option_name($link,$row["pOption"])."</td>\n";
-                                                        
+                                                                echo "<td>".$row["plot"]."</td>\n";
+                                                                echo "<td>\t\t$balance_due</td>\n";
                                                                 echo "<td>                                               
-                                                                    <a href=\"hh_View.php?id=".$row['hhcode']."\"><i class='view ico-view' title='View Household' style='font-size:18px;color:purple'></i></a> 
-                                                                    <a href=\"hh_payments.php?id=".$row['hhcode']."\"><i class='dollar ico-dollar' title='Record Household Payment' style='font-size:18px;color:green'></i></a> 
+                                                                    <a href=\"hh_View.php?id=".$row['hhcode']."\"><button class='btn btn-sm btn-outline-info' title='View Household' style='font-size:18px;color:purple'><i class='view ico-view'></i></button></a> 
+                                                                    <a href=\"hh_payments.php?id=".$row['hhcode']."\"><button class='btn btn-sm btn-outline-secondary' title='Record Household Payment' style='font-size:18px;color:green'><i class='pay ico-pay'></i></button></a> 
                                                                 </td>\n";
 
                                                             echo "</tr>\n";

@@ -204,10 +204,10 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                                         
                                             <table id="datatable" class="table table-bordered dt-responsive  nowrap w-100">
                                             
-                                                <thead>
+                                                <thead style="background-color:plum;">
                                                     <tr>
-                                                        <th>HH Code</th>                                           
-                                                        <th>HH Name</th>
+                                                        <th>Household Code</th>                                           
+                                                        <th>Household Name</th>
                                                         <th>Tech Option?</th>
                                                         <th>Action</th>  
                                                     </tr>
@@ -246,7 +246,7 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                                                                     echo "</form>";
                                                                 echo "</td>";
                                                                 echo "<td>                                               
-                                                                        <a href=\"hh_View.php?id=".$row['hhcode']."\"><i class='view ico-view' title='View Household' style='font-size:18px; color: purple'></i></a>\n";
+                                                                <a href=\"hh_View.php?id=".$row['hhcode']."\"><button class='btn btn-sm btn-outline-success' title='View Household' style='font-size:18px; color: purple'><i class='view ico-view'></i></button></a>\n"; 
                                                                     
                                                                 
 

@@ -157,7 +157,7 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                                     
                                     <table id="datatable" class="table table-bordered dt-responsive  nowrap w-100">
                                     
-                                        <thead>
+                                        <thead style="background-color:plum;">
                                             <tr>
                                                 <th>Area ID</th>
                                                 <th>Ward</th>
@@ -176,12 +176,12 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                                                 { 
                                                     echo "<tr>";
                                                     echo "<td>".$row['areacode']."</td>";
-                                                    echo "<td>".ward_name($link,$row['wardid'])."</td>";
+                                                    echo "<td>".ward_name($link,$row['wardid'])."</td>"; 
                                                     echo "<td>".$row['aname']."</td>";                                                       
                                                     
                                                     echo "<td>
-                                                        <a href=\"OSS_edit_CityArea.php?id=".$row['areacode']."\"><i class='edit ico-edit' title='Edit City Area' style='font-size:18px;color:green'></i></a>
-                                                        <a onClick=\"javascript: return confirm('Are You Sure You want To Delete This City Area');\" href=\"OSS_CityArea_delete.php?id=".$row['areacode']."\"><i class='delete ico-delete' title='Delete SLG' style='font-size:18px;color:Red'></i></a>
+                                                        <a href=\"OSS_edit_CityArea.php?id=".$row['areacode']."\"><button class='btn btn-sm btn-outline-primary' title='Edit City Area' style='font-size:18px;color:green'><i class='edit ico-edit'></i></button></a>
+                                                        <a onClick=\"javascript: return confirm('Are You Sure You want To Delete This City Area');\" href=\"OSS_CityArea_delete.php?id=".$row['areacode']."\"><button class='btn btn-sm btn-outline-secondary' title='Delete SLG' style='font-size:18px;color:Red'><i class='delete ico-delete'></i></button></a>
                                                         </td>\n";
                                                     echo "</tr>";
                                                 }

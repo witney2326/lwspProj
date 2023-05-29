@@ -116,28 +116,28 @@
                                             <tr>
                                                 <th scope="row">1</th>
                                                 <td>Households Registered</td>
-                                                <td><a href="OSS_reports_registration.php"><i class="fa fa-file" style='font-size:24px' aria-hidden="true"></i></a></td>
+                                                <td><a href="OSS_reports_registration.php"><button class='btn btn-sm btn-outline-info' style='font-size:12px' aria-hidden="true">View Report</button></a></td>
 
                                                 <td><?php echo $hh_registered;?> Household(s)</td>
                                             </tr>
                                             <tr>
                                                 <th scope="row">2</th>
                                                 <td>Households Verified/Accepted</td>
-                                                <td><a href="OSS_reports_registration_verified_hhs.php"><i class="fa fa-file" style='font-size:24px' aria-hidden="true"></i></a></td>
+                                                <td><a href="OSS_reports_registration_verified_hhs.php"><button class='btn btn-sm btn-outline-info' style='font-size:12px' aria-hidden="true">View Report</button></a></td>
 
                                                 <td><?php echo $hh_verified;?> Households</td>
                                             </tr>
                                             <tr>
                                                 <th scope="row">3</th>
                                                 <td>Products Selected</td>
-                                                <td><a href="OSS_reports_hhs_selected_products.php"><i class="fa fa-file" style='font-size:24px' aria-hidden="true"></i></a></td>
+                                                <td><a href="OSS_reports_hhs_selected_products.php"><button class='btn btn-sm btn-outline-info' style='font-size:12px' aria-hidden="true">View Report</button></i></a></td>
                                                 <td><?php echo $approved_products;?> OSS Products</td>
                                             </tr>
                                            
                                             <tr>
                                                 <th scope="row">4</th>
                                                 <td>Approved Household Contributions/Payments</td>
-                                                <td><a href="OSS_reports_hhs_payments.php"><i class="fa fa-file" style='font-size:24px' aria-hidden="true"></i></a></td>
+                                                <td><a href="OSS_reports_hhs_payments.php"><button class='btn btn-sm btn-outline-info' style='font-size:12px' aria-hidden="true">View Report</button></a></td>
 
                                                 <td><?php echo "MK"; echo number_format($hh_approved_amount,2);?></td>
                                             </tr>
@@ -145,7 +145,7 @@
                                             <tr>
                                                 <th scope="row">5</th>
                                                 <td>Household OSS Works</td>
-                                                <td><a href="OSS_reports_hhs_oss_works.php"><i class="fa fa-file" style='font-size:24px' aria-hidden="true"></i></a></td>
+                                                <td><a href="OSS_reports_hhs_oss_works.php"><button class='btn btn-sm btn-outline-info' style='font-size:12px' aria-hidden="true">View Report</button></a></td>
 
                                                 <td><?php echo $approved_projects;?> OSS Works</td>
                                             </tr>
@@ -153,7 +153,7 @@
                                             <tr>
                                                 <th scope="row">6</th>
                                                 <td>Completed and Verified OSS Works </td>
-                                                <td><a href="OSS_reports_completed_oss_works.php"><i class="fas fa-file" style='font-size:24px'></i></a></td>
+                                                <td><a href="OSS_reports_completed_oss_works.php"><button class='btn btn-sm btn-outline-info' style='font-size:12px' aria-hidden="true">View Report</button></a></td>
 
                                                 <td><?php echo $completed_projects;?> OSS Works</td>
                                             </tr>

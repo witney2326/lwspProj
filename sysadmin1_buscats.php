@@ -172,7 +172,7 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                                     
                                     <table id="datatable" class="table table-bordered dt-responsive  nowrap w-100">
                                     
-                                        <thead>
+                                        <thead style="background-color:plum">
                                             <tr>
                                                 <th>ID</th>
                                                 <th>OSS Product</th>
@@ -207,9 +207,9 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                                                     echo "<td>\t\t$stat_view</td>";
                                                     echo "<td>
                                                         <a href=\"view_product_image.php?id=".$row['pID']."\"><button class='btn btn-sm btn-outline-success' title='View Product' style='font-size:18px;color:purple'><i class='view ico-view'></i></button></a> 
-                                                        <a href=\"OSS_edit_product.php?id=".$row['pID']."\"><button class='btn btn-sm btn-outline-success' title='Edit OSS Product' style='font-size:18px;color:green'><i class='edit ico-edit'></i></button></a>
-                                                        <a href=\"upload_products.php?id=".$row['pID']."\"><button class='btn btn-sm btn-outline-success' title='Upload Product Image' style='font-size:18px'><i class='upload ico-upload'></i></button></a>
-                                                        <a onClick=\"javascript: return confirm('Are You Sure You want To Delete This OSS Product ');\" href=\"OSS_product_delete.php?id=".$row['pID']."\"><button class='btn btn-sm btn-outline-success' title='Delete Product' style='font-size:18px;color:Red'><i class='delete ico-delete'></i></button</a>
+                                                        <a href=\"OSS_edit_product.php?id=".$row['pID']."\"><button class='btn btn-sm btn-outline-primary' title='Edit OSS Product' style='font-size:18px;color:green'><i class='edit ico-edit'></i></button></a>
+                                                        <a href=\"upload_products.php?id=".$row['pID']."\"><button class='btn btn-sm btn-outline-info' title='Upload Product Image' style='font-size:18px'><i class='upload ico-upload'></i></button></a>
+                                                        <a onClick=\"javascript: return confirm('Are You Sure You want To Delete This OSS Product ');\" href=\"OSS_product_delete.php?id=".$row['pID']."\"><button class='btn btn-sm btn-outline-secondary' title='Delete Product' style='font-size:18px;color:Red'><i class='delete ico-delete'></i></button</a>
                                                         </td>\n";
                                                     echo "</tr>";
                                                 }
