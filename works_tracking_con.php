@@ -25,6 +25,14 @@
   <script type="text/javascript" 
 src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
   </script>
+
+  <style>
+    .card-border 
+        {
+            border-style: solid;
+            border-color: orange;
+        }
+    </style>
 </head>
 
 <?php include 'layouts/body.php'; 
@@ -47,12 +55,11 @@ $contractorID = $_SESSION["hhid"];
                 <div class="row">
                     <div class="col-12">
                         <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                            <h4 class="mb-sm-0 font-size-18">Works Tracking and Progress Updates</h4>
+                            <h4 class="mb-sm-0 font-size-18">Scheduled Works for Contractor:  <?php echo trim($contractorID)?></h4>
 
                             <div class="page-title-right">
                                 <ol class="breadcrumb m-0">
-                                    <li class="breadcrumb-item"><a href="index_con.php">Dashboard</a></li>
-                                    <li class="breadcrumb-item active">Works Tracking</li>
+                                    <INPUT TYPE="button" class="btn btn-btn btn-outline-secondary w-md" VALUE="Back" onClick="history.go(-1);">
                                 </ol>
                             </div>
 
@@ -69,59 +76,57 @@ $contractorID = $_SESSION["hhid"];
 
                                 <div class="row">
                                     <div class="col-12">
-                                        <div class="card border border-primary">
-                                        <div class="card-header bg-transparent border-primary">
-                                            <h5 class="my-0 text-primary">Scheduled Works for Contractor <?php echo trim($contractorID)?></h5>
-                                        </div>
-                                        <div class="card-body">
-                                        <h7 class="card-title mt-0"></h7>
-                                            
-                                                <table id="datatable" class="table table-bordered dt-responsive  nowrap w-100">
+                                        <div class="card-border">
+                                        
+                                            <div class="card-body">
+                                            <h7 class="card-title mt-0"></h7>
                                                 
-                                                    <thead>
-                                                        <tr>
-                                                            <th>Project Code</th>                                           
-                                                            <th>HH Code</th>
-                                                            <th>Start Date</th>
-                                                            <th>Expected End Date</th>
-                                                            <th>Contractor</th>
-                                                            <th>Status</th>
-                                                            <th>Action</th>  
-                                                        </tr>
-                                                    </thead>
+                                                    <table id="datatable" class="table table-bordered dt-responsive  nowrap w-100">
+                                                    
+                                                        <thead style="background-color:plum;">
+                                                            <tr>
+                                                                <th>Project Code</th>                                           
+                                                                <th>Household Code</th>
+                                                                <th>Start Date</th>
+                                                                <th>Expected End Date</th>
+                                                                <th>Contractor</th>
+                                                                <th>Status</th>
+                                                                <th>Action</th>  
+                                                            </tr>
+                                                        </thead>
 
-                                                    <tbody>
-                                                        <?Php
-                                                            $query="select * from tprojects where pcontractorID = '$contractorID'";                                                               
-                                                            
-                                                            if ($result_set = $link->query($query)) {
-                                                            while($row = $result_set->fetch_array(MYSQLI_ASSOC))
-                                                            { 
+                                                        <tbody>
+                                                            <?Php
+                                                                $query="select * from tprojects where pcontractorID = '$contractorID'";                                                               
                                                                 
-                                                            echo "<tr>\n";
-                                                                echo "<td>".$row["pID"]."</td>\n";
-                                                                echo "<td>".$row["phhcode"]."</td>\n";
-                                                                echo "<td>".$row["pstartdate"]."</td>\n";
-                                                                echo "<td>".$row["pfinishdate"]."</td>\n";
-                                                                echo "<td>".contractor_name($link,$row["pcontractorID"])."</td>\n";
-                                                                echo "<td>".pstatus($link,$row["pstatus"])."</td>\n";
-                                                                
-                                                                echo "<td>                                               
-                                                                    <a href=\"hh_View.php?id=".$row['phhcode']."\"><i class='far fa-eye' title='View HH' style='font-size:18px;color:purple'></i></a> 
-                                                                    <a href=\"hh_project_progressTrack.php?id=".$row['pID']."\"><i class='fas fa-project-diagram' title='Update Project Progress' style='font-size:18px;color:black'></i></a> 
-                                                                </td>\n";
+                                                                if ($result_set = $link->query($query)) {
+                                                                while($row = $result_set->fetch_array(MYSQLI_ASSOC))
+                                                                { 
+                                                                    
+                                                                echo "<tr>\n";
+                                                                    echo "<td>".$row["pID"]."</td>\n";
+                                                                    echo "<td>".$row["phhcode"]."</td>\n";
+                                                                    echo "<td>".$row["pstartdate"]."</td>\n";
+                                                                    echo "<td>".$row["pfinishdate"]."</td>\n";
+                                                                    echo "<td>".contractor_name($link,$row["pcontractorID"])."</td>\n";
+                                                                    echo "<td>".pstatus($link,$row["pstatus"])."</td>\n";
+                                                                    
+                                                                    echo "<td>                                               
+                                                                        <a href=\"hh_View.php?id=".$row['phhcode']."\"><i class='far fa-eye' title='View HH' style='font-size:18px;color:purple'></i></a> 
+                                                                        <a href=\"hh_project_progressTrack.php?id=".$row['pID']."\"><i class='fas fa-project-diagram' title='Update Project Progress' style='font-size:18px;color:black'></i></a> 
+                                                                    </td>\n";
 
-                                                            echo "</tr>\n";
-                                                            }
-                                                            $result_set->close();
-                                                            }  
-                                                                                
-                                                        ?>
-                                                    </tbody>
-                                                </table>
-                                                </p>
-                                            </div>
-                                        </div>     
+                                                                echo "</tr>\n";
+                                                                }
+                                                                $result_set->close();
+                                                                }  
+                                                                                    
+                                                            ?>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div> 
+                                        </div>    
                                     </div>            
                                 </div>  
 
@@ -129,23 +134,6 @@ $contractorID = $_SESSION["hhid"];
                         </div>
                     </div>
                 </div>
-
-
-                
-
-                    
-
-               
-
-
-                <!-- Collapse -->
-                
-
-                
-                <!-- end row -->
-
-                
-                <!-- end row -->
 
             </div> <!-- container-fluid -->
         </div>

@@ -227,7 +227,7 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
 
                                             <table id="datatable" class="table table-bordered dt-responsive  nowrap w-100">
                                                 
-                                            <thead>
+                                            <thead style="background-color:plum;">
                                                 <tr>
                                                     <th>ID</th>                                           
                                                     <th>Status Date</th>

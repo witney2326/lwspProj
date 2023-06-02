@@ -1,11 +1,15 @@
 <?php include 'layouts/session.php'; ?>
 <?php include 'layouts/head-main.php'; ?>
+<?php include 'layouts/config.php'; 
 
+    $result = mysqli_query($link, "SELECT pvalue FROM app_parameters where id = '01'"); 
+    $row = mysqli_fetch_assoc($result); 
+    $pvalue = $row['pvalue'];
+?>
 <head>
-    <title><?php echo $language["Dashboard"];?></title>
+    <title><?php echo $pvalue;?></title>
     <?php include 'layouts/head.php'; ?>
-    <?php include 'layouts/head-style.php'; ?>
-    <?php include 'layouts/config.php'; ?> 
+    <?php include 'layouts/head-style.php'; ?> 
     
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css" integrity="sha384-jLKHWM3JRmfMU0A5x5AkjWkw/EYfGUAGagvnfryNV3F9VqM98XiIH7VBGVoxVSc7" crossorigin="anonymous">
@@ -225,11 +229,17 @@ $test = 85;
                                             <tr>
                                                 <td>Registered HouseHolds</td>
                                                 <?php
+
+                                                    $target_result = mysqli_query($link, "SELECT pvalue FROM app_parameters where id = '04'"); 
+                                                    $target_row = mysqli_fetch_assoc($target_result); 
+
+                                                    if (isset($target_row['pvalue'])){$pvalue = $target_row['pvalue'];}else{$pvalue = 1;}
+
                                                     $result = mysqli_query($link, "SELECT COUNT(hhcode) AS value_sum FROM households where deleted = '0'"); 
                                                     $row = mysqli_fetch_assoc($result); 
                                                     $sum_registered = $row['value_sum'];
                                                     
-                                                    $target = 8000;
+                                                    $target = $pvalue;
 
                                                     if ($target <= 0)
                                                     {$rate = 0;}else

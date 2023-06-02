@@ -135,10 +135,20 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                             <h4 class="mb-sm-0 font-size-18"><?php echo $language["Register_Household"];?></h4>
 
                             <div class="page-title-right">
-                                <ol class="breadcrumb m-0">
-                                    <li class="breadcrumb-item"><a href="index_check.php"><?php echo $language["Dashboard"]?></a></li>
-                                    <li class="breadcrumb-item active"><?php echo $language["Register_Household"]?></li>
-                                </ol>
+                                <?php
+                                  if ($_SESSION["userrole"] == '04')
+                                  {
+                                    echo '<ol class="breadcrumb m-0">';
+                                        echo '<INPUT TYPE="button" class="btn btn-btn btn-outline-secondary w-md" style="width:170px" VALUE="Back" onClick="history.go(-1);">  ';
+                                    echo '</ol>';
+                                  } else
+                                  {
+                                      echo '<ol class="breadcrumb m-0">';
+                                          echo '<li class="breadcrumb-item"><a href="index_check.php"><?php echo $language["Dashboard"]?></a></li>';
+                                          echo '<li class="breadcrumb-item active"><?php echo $language["Register_Household"]?></li>';
+                                      echo '</ol>';
+                                  }
+                                ?>
                             </div>
 
                         </div>

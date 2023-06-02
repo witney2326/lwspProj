@@ -150,7 +150,12 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                                                 <span class="d-none d-sm-block">OSS Products</span>
                                             </a>
                                         </li>
-                                        
+                                        <li class="nav-item waves-effect waves-light">
+                                            <a class="nav-link" data-bs-toggle="link" href="parameter_mgt.php" role="link">
+                                                <span class="d-block d-sm-none"><i class="far fa-envelope"></i></span>
+                                                <span class="d-none d-sm-block">Project Settings</span>
+                                            </a>
+                                        </li>
                                     </ul>
                                 </div>
                             </div>
@@ -169,7 +174,6 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                                                     <th>Email</th>
                                                     <th>Role</th>
                                                     <th>Status</th>
-                                                    <th>Code</th>
                                                     <th>Action</th>                                                              
                                                 </tr>
                                             </thead>
@@ -189,7 +193,6 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                                                         echo "<td>".$row['useremail']."</td>";                                                       
                                                         echo "<td>".role_name($link,$row['userrole'])."</td>";
                                                         echo "<td>\t\t$ustatus</td>";
-                                                        echo "<td>".$row['usercon']."</td>";
                                                         if ($row['ustatus'] == '1')
                                                         {
                                                             echo "<td>

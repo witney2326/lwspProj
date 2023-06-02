@@ -2,8 +2,56 @@
     .navbar-header {
         background-color: orange !important;
         border: none !important;
-        border-width:0!important;
-    }
+        border-width:0!important;}
+
+        .products {
+        display: inline-block;
+        width: 18px; height: 18px;
+        background-image: url('icons/productsV.png');
+        background-repeat: no-repeat;
+        }
+        .ico-products { background-position: 0 0; }
+
+        .guide {
+        display: inline-block;
+        width: 18px; height: 18px;
+        background-image: url('icons/techGuide.png');
+        background-repeat: no-repeat;
+        }
+        .ico-guide { background-position: 0 0; }
+
+        .pselect {
+        display: inline-block;
+        width: 18px; height: 18px;
+        background-image: url('icons/selectP.png');
+        background-repeat: no-repeat;
+        }
+        .ico-pselect { background-position: 0 0; }
+
+        .dollar {
+        display: inline-block;
+        width: 18px; height: 18px;
+        background-image: url('icons/dollars.png');
+        background-repeat: no-repeat;
+        }
+        .ico-dollar { background-position: 0 0; }
+
+        .mail {
+        display: inline-block;
+        width: 18px; height: 18px;
+        background-image: url('icons/sendM.png');
+        background-repeat: no-repeat;
+        }
+        .ico-mail { background-position: 0 0; }
+
+        .home {
+        display: inline-block;
+        width: 18px; height: 18px;
+        background-image: url('icons/home.png');
+        background-repeat: no-repeat;
+        }
+        .ico-home { background-position: 0 0; }
+    
 </style>
 <header id="page-topbar">
     <div class="navbar-header">
@@ -19,6 +67,9 @@
                         <img src="assets/images/logo-dark.png" alt="" height="17">
                     </span>
                 </a>
+
+                <div class="row mb-3">
+                </div>
 
                 <a href="index_hh.php" class="logo logo-light">
                     <span class="logo-sm">
@@ -36,8 +87,16 @@
 
             <!-- App Search-->
 
-            <div>
-                <span><h2><b>Lilongwe Water and Sanitation Project</h2></b></span>
+            <div class = "row">
+                <?php include_once 'layouts/config.php';
+                    $result = mysqli_query($link, "SELECT pvalue FROM app_parameters where id = '01'"); 
+                    $row = mysqli_fetch_assoc($result); 
+                    $pvalue = $row['pvalue'];
+                ?>
+                <br></br><br></br>
+                <div class="row mb-3">
+                </div>
+                <span><h2><b><?php echo" "; echo $pvalue;?></h2></span>
             </div>
 
 
@@ -82,13 +141,6 @@
                     <a class="dropdown-item text-danger" href="logout.php"><i class="bx bx-power-off font-size-16 align-middle me-1 text-danger"></i> <span key="t-logout"><?php echo $language["Logout"]; ?></span></a>
                 </div>
             </div>
-
-            <div class="dropdown d-inline-block">
-                <button type="button" class="btn header-item noti-icon right-bar-toggle waves-effect">
-                    <i class="bx bx-cog "></i>
-                </button>
-            </div>
-
         </div>
     </div>
 </header>
@@ -102,11 +154,14 @@
         <div id="sidebar-menu">
             <!-- Left Menu Start -->
             <ul class="metismenu list-unstyled" id="side-menu">
-                <li class="menu-title" key="t-menu"><?php echo $language["Menu"]; ?></li>
+
+                <li class="menu-title" key="t-menu"></li>
+                <div class="row mb-2">
+                </div>
 
                 <li>
                     <a href="index_hh.php" class="waves-effect">
-                        <i class="bx bx-home-circle"></i><span class="badge rounded-pill bg-info float-end"></span>
+                        <i class="home ico-home"></i><span class="badge rounded-pill bg-info float-end"></span>
                         <span key="t-dashboards"><?php echo $language["Dashboard"]; ?></span>
                     </a>
                     
@@ -114,54 +169,47 @@
 
                 <li>
                     
-                    <a href="javascript:void(0);" class="waves-effect">
-                        <i class="fa fa-cog" style="color:orangered"></i><span class="badge rounded-pill bg-info float-end"></span>
-                        <span key="t-dashboards">System Admin</span>
+                    <a href="view-products_hh.php" class="waves-effect">
+                        <i class="products ico-products" style="color:orangered"></i><span class="badge rounded-pill bg-info float-end"></span>
+                        <span key="t-dashboards">View Products</span>
                     </a>
                     
                 </li>
 
                 <li>
-                    <a href="javascript:void(0);" class="waves-effect">
-                        <i class="bx bxs-group"></i><span class="badge rounded-pill bg-info float-end"></span>
-                        <span key="t-dashboards">Register and Target</span>
+                    <a href="tcs_tech_guide_hh.php" class="waves-effect">
+                        <i class="guide ico-guide"></i><span class="badge rounded-pill bg-info float-end"></span>
+                        <span key="t-dashboards">Tech Guide</span>
                     </a>
                     
                 </li>
 
                 <li>
                     
-                    <a href="javascript:void(0);" class="waves-effect">
-                    <i class="fas fa-box"></i><span class="badge rounded-pill bg-info float-end"></span>
-                        <span key="t-dashboards">Request for Service</span>
+                    <a href="request_for_service_hh.php" class="waves-effect">
+                    <i class="pselect ico-pselect"></i><span class="badge rounded-pill bg-info float-end"></span>
+                        <span key="t-dashboards">Select Product</span>
                     </a>
                     
                 </li>
 
                 <li>
-                    <a href="javascript:void(0);" class="waves-effect">
-                    <i class="bx bx-dollar "></i><span class="badge rounded-pill bg-info float-end"></span>
-                        <span key="t-dashboards">Contribute for Service</span>
+                    <a href="hh_payments_hh.php" class="waves-effect">
+                    <i class="dollar ico-dollar "></i><span class="badge rounded-pill bg-info float-end"></span>
+                        <span key="t-dashboards">Payment</span>
                     </a>
                     
                 </li>
            
                 <li>
-                    <a href="javascript:void(0);" class="waves-effect">
-                        <i class="bx bx-bar-chart"></i><span class="badge rounded-pill bg-info float-end"></span>
-                        <span key="t-dashboards">OSS Works</span>
+                    <a href="comments_hh.php" class="waves-effect">
+                        <i class="mail ico-mail"></i><span class="badge rounded-pill bg-info float-end"></span>
+                        <span key="t-dashboards">Message Supervisor</span>
                     </a>
                     
                 </li>
 
-                <li>
-                   
-                    <a href="javascript:void(0);" class="waves-effect">
-                    <i class="bx bx-line-chart" style="color:blue"></i><span class="badge rounded-pill bg-info float-end"></span>
-                        <span key="t-dashboards"> Project Reports</span>
-                    </a>
-                    
-                </li>
+                
 
                 
             </ul>

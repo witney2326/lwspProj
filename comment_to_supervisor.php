@@ -8,7 +8,12 @@
 //send confirmation mail
 $hhmemo = $_POST['hhmemo'];
 
-$usermail = "lwsp@oss-lwsp.net";
+//$result = mysqli_query($link, "SELECT useremail FROM users WHERE id = '$Rec_ID'"); 
+//$row = mysqli_fetch_assoc($result); 
+//$usermail = $row['useremail'];
+$result = mysqli_query($link, "SELECT pvalue FROM app_parameters WHERE id = '05'"); 
+$row = mysqli_fetch_assoc($result); 
+$usermail = $row['pvalue'];
 
 $sql2 = mysqli_query($link, "SELECT cmail,chost,cpass FROM tconfig"); 
 $rw = mysqli_fetch_assoc($sql2); 
@@ -28,7 +33,7 @@ $cpass = $rw['cpass'];
             $mail->SMTPSecure = 'tls';                              
             $mail->Port       = 587;  
         
-            $mail->setFrom($cmail, 'Household');            
+            $mail->setFrom($cmail, 'Admin');           
             $mail->addAddress($usermail);
             
             
@@ -37,11 +42,14 @@ $cpass = $rw['cpass'];
             $mail->Body    = $hhmemo;
             
             $mail->send();
-            echo "Mail has been sent successfully!";
-            echo 'history.go(-1)';
+            echo '<script type="text/javascript">'; 
+                echo 'alert("Mail has been sent successfully!");'; 
+                echo 'history.go(-1)';
+            echo '</script>';
+
         } catch (Exception $e) {
             echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
         }
-// end here         
+// end here                 
     ?>
     

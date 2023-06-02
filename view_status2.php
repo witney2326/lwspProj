@@ -48,15 +48,20 @@
 
             <!-- start page title -->
             <div class="row">
-                <div class="col-7">
-                    <h4 class="mb-sm-0 font-size-18">OSS Works Pictorial Progress</h4>
-                    <p align="right">
-                        <INPUT TYPE="button" class="btn btn-btn btn-outline-secondary w-md" VALUE="Back" onClick="history.go(-1);">
-                    </p>
+                <div class="col-6">
+                    <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+                        <h4 class="mb-sm-0 font-size-18">OSS Works Pictorial Progress</h4>
+
+                        <div class="page-title-right">
+                            <ol class="breadcrumb m-0">
+                                <INPUT TYPE="button" class="btn btn-btn btn-outline-secondary w-md" VALUE="Back" onClick="history.go(-1);">
+                            </ol>
+                        </div>
+                    </div>
                 </div>
             </div>
 	
-            <div class = "col-lg-7">
+            <div class = "col-lg-6">
                 <div class ="row">
                     <div class="card">
                         <div class="card-border">  

@@ -35,6 +35,14 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
         return false ;
         }   
     </script>
+
+    <style>
+    .card-border 
+        {
+            border-style: solid;
+            border-color: orange;
+        }
+    </style>
 </head>
 
 <?php include 'layouts/body.php'; 
@@ -64,12 +72,11 @@ $Selectedprod=hh_selected_product($link,$hhCode);
                 <div class="row">
                     <div class="col-9">
                         <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                            <h4 class="mb-sm-0 font-size-18">Household Technology Choice</h4>
+                            <h4 class="mb-sm-0 font-size-18">Household Product Selection</h4>
 
                             <div class="page-title-right">
                                 <ol class="breadcrumb m-0">
-                                    <li class="breadcrumb-item"><a href="index_hh.php">Dashboard</a></li>
-                                    <li class="breadcrumb-item active">Request For Service</li>
+                                    <INPUT TYPE="button" class="btn btn-btn btn-outline-secondary w-md" VALUE="Back" onClick="history.go(-1);">
                                 </ol>
                             </div>
 
@@ -89,12 +96,9 @@ $Selectedprod=hh_selected_product($link,$hhCode);
                                 
                                 <div class="row">
                                     <div class="col-9">
-                                    <p align="right">
-                                        <button class="btn btn-outline-primary  waves-effect waves-light mb-2 me-2" onclick="window.location.href = 'view-products_hh.php'">  View OSS Products</button>
-                                        <INPUT TYPE="button" class="btn btn-btn btn-outline-secondary w-md" VALUE="Back" onClick="history.go(-1);">
-                                    </p>
                                     
-                                        <div class="card border border-primary">
+                                    
+                                        <div class="card-border">
                                             <?php if ($enrolled == '0'){echo '<div class="alert alert-warning" role="alert"> Household NOT YET Enrolled, Check Household Status!</a></div>';}?>
                                             <?php if ($readySelect == '0'){echo '<div class="alert alert-warning" role="alert"> Household IS NOT Ready For OSS Product Selection, Check Household Status!</a></div>';}?>
                                             <?php if ($Selectedprod <> '00'){echo '<div class="alert alert-warning" role="alert"> Household OSS Product Already Selected, Check Household Status!</a></div>';}?>
@@ -103,11 +107,11 @@ $Selectedprod=hh_selected_product($link,$hhCode);
 
                                                 <form action = 'request_for_service_SelectProduct_hh.php' method ='POST'>
                                                     <div class="row mb-1">
-                                                        <label for="hhcode" class="col-sm-2 col-form-label">HH Code</label>                           
+                                                        <label for="hhcode" class="col-sm-2 col-form-label">Household Code</label>                           
                                                         <input type="text" class="form-control" id="hhcode" name = "hhcode" value="<?php echo $hhCode;?>" style="max-width:30%;" readonly >
                                                     </div>
                                                     <div class="row mb-1"> 
-                                                        <label for="hhname" class="col-sm-2 col-form-label">HH Name</label>
+                                                        <label for="hhname" class="col-sm-2 col-form-label">Household Name</label>
                                                         <input type="text" class="form-control" id="hhname" name ="hhname" value = "<?php echo hh_name($link,$hhCode);?>" style="max-width:30%;" readonly >
                                                     </div>
                                                 <?php

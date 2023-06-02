@@ -140,6 +140,12 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                                                 <span class="d-none d-sm-block">OSS Products</span>
                                             </a>
                                         </li>
+                                        <li class="nav-item waves-effect waves-light">
+                                            <a class="nav-link" data-bs-toggle="link" href="parameter_mgt.php" role="link">
+                                                <span class="d-block d-sm-none"><i class="far fa-envelope"></i></span>
+                                                <span class="d-none d-sm-block">Project Settings</span>
+                                            </a>
+                                        </li>
                                     </ul>
                                 </div>
                             </div>

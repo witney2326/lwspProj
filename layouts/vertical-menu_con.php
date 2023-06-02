@@ -59,6 +59,15 @@
         background-repeat: no-repeat;
         }
         .ico-home { background-position: 0 0; }
+
+        .mail {
+        display: inline-block;
+        width: 18px; height: 18px;
+        background-image: url('icons/sendM.png');
+        background-repeat: no-repeat;
+        }
+        .ico-mail { background-position: 0 0; }
+
 </style>
 <header id="page-topbar">
     <div class="navbar-header">
@@ -74,6 +83,9 @@
                         <img src="assets/images/logo-dark.png" alt="" height="17">
                     </span>
                 </a>
+
+                <div class="row mb-3">
+                </div>
 
                 <a href="index_con.php" class="logo logo-light">
                     <span class="logo-sm">
@@ -91,8 +103,16 @@
 
             <!-- App Search-->
 
-            <div>
-                <span><h2><b>Lilongwe Water and Sanitation Project</h2></b></span>
+            <div class = "row">
+                <?php include_once 'layouts/config.php';
+                    $result = mysqli_query($link, "SELECT pvalue FROM app_parameters where id = '01'"); 
+                    $row = mysqli_fetch_assoc($result); 
+                    $pvalue = $row['pvalue'];
+                ?>
+                <br></br><br></br>
+                <div class="row mb-3">
+                </div>
+                <span><h2><b><?php echo" "; echo $pvalue;?></h2></span>
             </div>
 
 
@@ -137,13 +157,6 @@
                     <a class="dropdown-item text-danger" href="logout.php"><i class="bx bx-power-off font-size-16 align-middle me-1 text-danger"></i> <span key="t-logout"><?php echo $language["Logout"]; ?></span></a>
                 </div>
             </div>
-
-            <div class="dropdown d-inline-block">
-                <button type="button" class="btn header-item noti-icon right-bar-toggle waves-effect">
-                    <i class="bx bx-cog "></i>
-                </button>
-            </div>
-
         </div>
     </div>
 </header>
@@ -157,8 +170,9 @@
         <div id="sidebar-menu">
             <!-- Left Menu Start -->
             <ul class="metismenu list-unstyled" id="side-menu">
-                <li class="menu-title" key="t-menu"><?php echo $language["Menu"]; ?></li>
-
+                <li class="menu-title" key="t-menu"></li>
+                <div class="row mb-2">
+                </div>
                 <li>
                     <a href="index_con.php" class="waves-effect">
                         <i class="home ico-home"></i><span class="badge rounded-pill bg-info float-end"></span>
@@ -185,6 +199,13 @@
                     <a href="works_tracking_con.php" class="waves-effect">
                         <i class="chart ico-chart"></i><span class="badge rounded-pill bg-info float-end"></span>
                         <span key="t-dashboards">Allocated OSS Works</span>
+                    </a>
+                    
+                </li>
+                <li>
+                    <a href="comments_con.php" class="waves-effect">
+                        <i class="mail ico-mail"></i><span class="badge rounded-pill bg-info float-end"></span>
+                        <span key="t-dashboards">Message Supervisor</span>
                     </a>
                     
                 </li>

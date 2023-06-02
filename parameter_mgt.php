@@ -2,9 +2,9 @@
 <?php include 'layouts/head-main.php'; ?>
 
 <head>
-    <title>Contractor Management</title>
+    <title>Application Settings</title>
     <?php include 'layouts/head.php'; ?>
-    <?php include 'layouts/head-style.php';?>
+    <?php include 'layouts/head-style.php'; ?>
     <?php include 'layouts/config.php'; ?>
 <!-- DataTables -->
     <link href="assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css" />
@@ -27,30 +27,42 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
 
     <style> 
         .card-border 
-        {
+            {
             border-style: solid;
             border-color: orange;
-        }
+            }
         .card-border1 
-        {
-            border-style: groove;
-            border-color: orange;
-            border-width: 8px;
-        }
-        .view {
-        display: inline-block;
-        width: 18px; height: 18px;
-        background-image: url('icons/view.png');
-        background-repeat: no-repeat;
-        }
-        .ico-view { background-position: 0 0; }
+            {
+                border-style: groove;
+                border-color: orange;
+                border-width: 9px;
+            }
+        .card1
+            {
+                background-color: rgba(0, 0, 0, 0.2);
+            }
 
-        
+        .add {
+            display: inline-block;
+            width: 18px; height: 18px;
+            background-image: url('icons/add.png');
+            background-repeat: no-repeat;
+        }
+        .ico-add { background-position: 0 0; }
+
+        .edit {
+            display: inline-block;
+            width: 18px; height: 18px;
+            background-image: url('icons/edit.png');
+            background-repeat: no-repeat;
+        }
+        .ico-edit { background-position: 0 0; }
+
         .delete {
-        display: inline-block;
-        width: 18px; height: 18px;
-        background-image: url('icons/delete.png');
-        background-repeat: no-repeat;
+            display: inline-block;
+            width: 18px; height: 18px;
+            background-image: url('icons/delete.png');
+            background-repeat: no-repeat;
         }
         .ico-delete { background-position: 0 0; }
     </style>
@@ -77,7 +89,7 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                 <div class="row">
                     <div class="col-12">
                         <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                            <h4 class="mb-sm-0 font-size-18">Contractor Management</h4>
+                            <h4 class="mb-sm-0 font-size-18">Application Settings</h4>
 
                         </div>
                     </div>
@@ -93,104 +105,101 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
                                     <!-- Nav tabs -->
                                     <ul class="nav nav-pills nav-justified" role="tablist">
                                         <li class="nav-item waves-effect waves-light">
-                                            <a class="nav-link" data-bs-toggle="link" href="sysadmin1.php" role="link">
+                                            <a class="nav-link"  href="sysadmin1.php" role="tab">
                                                 <span class="d-block d-sm-none"><i class="fas fa-home"></i></span>
                                                 <span class="d-none d-sm-block">users</span>
                                             </a>
                                         </li>
                                         <li class="nav-item waves-effect waves-light">
-                                            <a class="nav-link active" data-bs-toggle="tab" href="javascript:void(0);" role="tab">
+                                            <a class="nav-link" data-bs-toggle="link" href="sysadmin1_contractors.php" role="link">
                                                 <span class="d-block d-sm-none"><i class="fas fa-home"></i></span>
                                                 <span class="d-none d-sm-block">contractors</span>
                                             </a>
                                         </li>
                                         <li class="nav-item waves-effect waves-light">
-                                            <a class="nav-link"  href="sysadmin1_roles.php" role="link">
+                                            <a class="link"  href="sysadmin1_roles.php" role="link">
                                                 <span class="d-block d-sm-none"><i class="far fa-envelope"></i></span>
                                                 <span class="d-none d-sm-block">roles</span>
                                             </a>
                                         </li>
                                         <li class="nav-item waves-effect waves-light">
-                                            <a class="nav-link"  href="sysadmin1_regions.php" role="link">
+                                            <a class="link"  href="sysadmin1_regions.php" role="link">
                                                 <span class="d-block d-sm-none"><i class="far fa-envelope"></i></span>
                                                 <span class="d-none d-sm-block">Constituency</span>
                                             </a>
                                         </li>
                                         <li class="nav-item waves-effect waves-light">
-                                            <a class="nav-link"  href="sysadmin1_districts.php" role="link">
+                                            <a class="link" data-bs-toggle="link" href="sysadmin1_districts.php" role="link">
                                                 <span class="d-block d-sm-none"><i class="far fa-envelope"></i></span>
                                                 <span class="d-none d-sm-block">Ward</span>
                                             </a>
                                         </li>
                                         <li class="nav-item waves-effect waves-light">
-                                            <a class="nav-link"  href="sysadmin1_tas.php" role="link">
+                                            <a class="link"  href="sysadmin1_tas.php" role="link">
                                                 <span class="d-block d-sm-none"><i class="far fa-envelope"></i></span>
                                                 <span class="d-none d-sm-block">Area</span>
                                             </a>
                                         </li>
                                         <li class="nav-item waves-effect waves-light">
-                                            <a class="nav-link"  href="sysadmin1_buscats.php" role="link">
+                                            <a class="link"  href="sysadmin1_buscats.php" role="link">
                                                 <span class="d-block d-sm-none"><i class="far fa-envelope"></i></span>
                                                 <span class="d-none d-sm-block">OSS Products</span>
                                             </a>
                                         </li>
                                         <li class="nav-item waves-effect waves-light">
-                                            <a class="nav-link" data-bs-toggle="link" href="parameter_mgt.php" role="link">
+                                            <a class="nav-link active" data-bs-toggle="tab" href="javascript: void(0);" role="tab">
                                                 <span class="d-block d-sm-none"><i class="far fa-envelope"></i></span>
                                                 <span class="d-none d-sm-block">Project Settings</span>
                                             </a>
                                         </li>
+                                    
                                     </ul>
                                 </div>
                             </div>
+                            
 
                             <div class="card-border">
-                                
                                 <div class="card-body">
-
+                                <h7 class="card-title mt-0"></h7>
                                     
-                                    <table id="datatable" class="table table-bordered dt-responsive  nowrap w-100">
-                                    
-                                        <thead style="background-color:plum;">
-                                            <tr>
-                                                <th>ID</th>
-                                                <th>uName</th>
-                                                <th>Email</th>
-                                                <th>Address</th>
-                                                <th>Phone</th>
-                                                <th>Action</th>                                                              
-                                            </tr>
-                                        </thead>
+                                        <table id="datatable" class="table table-bordered dt-responsive  nowrap w-100">
+                                        
+                                            <thead style="background-color:plum;">
+                                                <tr>
+                                                    <th>Parameter_ID</th>
+                                                    <th>Parameter</th>
+                                                    <th>Parameter_Value</th>
+                                                    <th>Action</th>                                                              
+                                                </tr>
+                                            </thead>
 
 
-                                        <tbody>
-                                            <?Php
-                                                $query = "SELECT * FROM tcontractor ORDER by id";
+                                            <tbody>
+                                                <?Php
+                                                    $query = "SELECT * FROM app_parameters";
 
-                                                if ($result_set = $link->query($query)) {
-                                                while($row = $result_set->fetch_array(MYSQLI_ASSOC))
-                                                { 
-                                                    
-                                                    echo "<tr>";
-                                                    echo "<td>".$row['id']."</td>";
-                                                    echo "<td>".$row['cname']."</td>";
-                                                    echo "<td>".$row['cemail']."</td>";                                                       
-                                                    echo "<td>".$row['caddress']."</td>";
-                                                    echo "<td>".$row['phone']."</td>"; 
-                                                    
-                                                    echo "<td>
-                                                        <a href=\"user_View.php?id=".userid($link,$row['id'])."\"><button class='btn btn-sm btn-outline-success' title='View User' style='font-size:18px;color:purple'><i class='view ico-view'></i></button></a>
-                                                        <a onClick=\"javascript: return confirm('Are You Sure You want To Delete This User?');\" href=\"del_contractor.php?id=".$row['id']."\"><button class='btn btn-sm btn-outline-secondary' title='Delete User' style='font-size:18px;color:Red'><i class='delete ico-delete'></i></button></a>
-                                                    </td>\n";
-                                                    
-                                                    echo "</tr>";
-                                                }
-                                                $result_set->close();
-                                                }  
-                                                                    
-                                            ?>
-                                        </tbody>
-                                    </table>
+                                                    if ($result_set = $link->query($query)) {
+                                                    while($row = $result_set->fetch_array(MYSQLI_ASSOC))
+                                                    { 
+                                                        echo "<tr>";
+                                                        echo "<td>".$row['id']."</td>";
+                                                        echo "<td>".$row['pname']."</td>";
+                                                        echo "<td>".$row['pvalue']."</td>";                                                       
+                                                        
+                                                        echo "<td>
+                                                                <a href=\"parameter_add.php?id=".$row['id']."\"><button class='btn btn-sm btn-outline-success' title='Add_Parameter' style='font-size:18px;color:black'><i class='add ico-add'></i></button></a>
+                                                                <a href=\"parameter_edit.php?id=".$row['id']."\"><button class='btn btn-sm btn-outline-primary' title='Edit_Parameter' style='font-size:18px;color:green'><i class='edit ico-edit'></i></button></a>
+                                                                <a onClick=\"javascript: return confirm('Sure You Want To Delete This Parameter?');\" href=\"parameter_delete.php?id=".$row['id']."\"><button class='btn btn-sm btn-outline-secondary' title='Delete Parameter' style='font-size:18px;color:Red'><i class='delete ico-delete'></i></button></a>
+                                                            </td>\n";
+                                                        echo "</tr>";
+                                                    }
+                                                    $result_set->close();
+                                                    }  
+                                                                        
+                                                ?>
+                                            </tbody>
+                                        </table>
+                                    </div>
                                 </div>     
                             </div>            
                         </div>

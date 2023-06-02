@@ -98,33 +98,46 @@
     <div class="main-content">
         <div class="page-content">
             <div class="container-fluid"> 
-            <INPUT TYPE="button" class="btn btn-btn btn-outline-secondary w-md" style="width:100px" VALUE="Back" onClick="history.go(-1);">  
+            
                                     
                 <div class = "col-lg-6">
                     <div class ="row">
+                        <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+                            <h4 class="mb-sm-0 font-size-18">Upload Status Picture</h4>
+
+                            <div class="page-title-right">
+                                <ol class="breadcrumb m-0">
+                                    <INPUT TYPE="button" class="btn btn-btn btn-outline-secondary w-md" VALUE="Back" onClick="history.go(-1);">
+                                </ol>
+                            </div>
+
+                        </div>
+                    </div>
                         <div class="card">
                             <div class="card-border">     
-
-                                <form action="" method="post" enctype="multipart/form-data">
-                                    Select Picture File to Upload:
-                                    <input type="file" name="file">
-                                    <input type="submit" name="submit" value="Upload">
-                                </form>
+                                <div class = "card-body">
+                                    <form action="" method="post" enctype="multipart/form-data">
+                                        Select Picture File to Upload:
+                                        <input type="file" name="file">
+                                        <input type="submit" name="submit" value="Upload">
+                                    </form>
+                                </div>
                             </div>
                             <div class="card-border1"> 
-                                <?php
-                                    echo $statusMsg;
-                                    echo " ";
-                                    echo '<div id="display-image">';
+                                <div class = "card-body">
+                                    <?php
+                                        echo $statusMsg;
+                                        echo " ";
+                                        echo '<div id="display-image">';
+                                            
+                                                $query = " select filename_ from tproject_progress where recID = '$ID' ";
+                                                $result = mysqli_query($link, $query);
                                         
-                                            $query = " select filename_ from tproject_progress where recID = '$ID' ";
-                                            $result = mysqli_query($link, $query);
-                                    
-                                            $data = mysqli_fetch_assoc($result);
-                                            if (isset($data)){echo '<img src="./uploads/'; echo $data['filename_'];}else{echo "No Status Picture";} 
-                                    echo '</div>';       
-                                ?>
-                               
+                                                $data = mysqli_fetch_assoc($result);
+                                                if (isset($data)){echo '<img src="./uploads/'; echo $data['filename_'];}else{echo "No Status Picture";} 
+                                        echo '</div>';       
+                                    ?>
+                                </div>
                             </div>
 
                         </div>

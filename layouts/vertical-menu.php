@@ -23,7 +23,7 @@
         .dollar {
         display: inline-block;
         width: 18px; height: 18px;
-        background-image: url('icons/dollar1.png');
+        background-image: url('icons/dollars.png');
         background-repeat: no-repeat;
         }
         .ico-dollar { background-position: 0 0; }
@@ -93,7 +93,7 @@
                     </span>
                 </a>
 
-                <div class="row mb-5">
+                <div class="row mb-3">
                 </div>
 
                 <a href="index.php" class="logo logo-light">
@@ -110,9 +110,16 @@
                 <i class="fa fa-fw fa-bars"></i>
             </button>
             
-            <div>
-                <br></br>
-                <span><h2><b>Lilongwe Water and Sanitation Project</h2></b></span>
+            <div class = "row">
+                <?php include_once 'layouts/config.php';
+                    $result = mysqli_query($link, "SELECT pvalue FROM app_parameters where id = '01'"); 
+                    $row = mysqli_fetch_assoc($result); 
+                    $pvalue = $row['pvalue'];
+                ?>
+                <br></br><br></br>
+                <div class="row mb-3">
+                </div>
+                <span><h2><b><?php echo" "; echo $pvalue;?></h2></span>
             </div>
 
 
@@ -120,35 +127,10 @@
 
         <div class="d-flex">
 
-            <div class="dropdown d-inline-block d-lg-none ms-2">
-                <button type="button" class="btn header-item noti-icon waves-effect" id="page-header-search-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="mdi mdi-magnify"></i>
-                </button>
-                <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end p-0" aria-labelledby="page-header-search-dropdown">
-
-                    <form class="p-3">
-                        <div class="form-group m-0">
-                            <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Search ..." aria-label="Recipient's username">
-                                <div class="input-group-append">
-                                    <button class="btn btn-primary" type="submit"><i class="mdi mdi-magnify"></i></button>
-                                    
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-
-            <div class="dropdown d-inline-block">
-
-            </div>
-
             <div class="dropdown d-inline-block">
                 <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <img class="rounded-circle header-profile-user" src="assets/images/users/avatar-1.jpg" alt="Header Avatar">
                     <span class="d-none d-xl-inline-block ms-1" key="t-henry"><?php echo lcfirst($_SESSION["username"]); ?></span>
-                    
                 </button>
                 <div class="dropdown-menu dropdown-menu-end">
                     <!-- item-->
@@ -157,13 +139,6 @@
                     <a class="dropdown-item text-danger" href="logout.php"><i class="bx bx-power-off font-size-16 align-middle me-1 text-danger"></i> <span key="t-logout"><?php echo $language["Logout"]; ?></span></a>
                 </div>
             </div>
-
-            <div class="dropdown d-inline-block">
-                <button type="button" class="btn header-item noti-icon right-bar-toggle waves-effect">
-                <button class='btn btn-sm btn-outline-info'><i class="page ico-page "></i></button>
-                </button>
-            </div>
-
         </div>
     </div>
 </header>
@@ -178,7 +153,7 @@
             <!-- Left Menu Start -->
             <ul class="metismenu list-unstyled" id="side-menu">
                 <li ></li>
-                <div class="row mb-5">
+                <div class="row mb-3">
                 </div>
                 <li>
                     <a href="index_check.php" class="waves-effect">

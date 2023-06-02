@@ -24,6 +24,15 @@
   <script type="text/javascript" 
 src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
   </script>
+
+<style>
+    .card-border 
+        {
+            border-style: solid;
+            border-color: orange;
+        }
+</style>
+
 </head>
 
 <?php include 'layouts/body.php'; ?>
@@ -91,17 +100,17 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
 
                         <?php include 'layouts/body.php'; ?>
                         <div class="col-lg-9">
-                            <div class="card border border-success">
+                            <div class="card-border">
                             <?php if ($enrolled == '0'){echo '<div class="alert alert-warning" role="alert"> Household NOT YET Enrolled, Check Household Status!</a></div>';}?>
-                            <?php if ($paymentOption == '00'){echo '<div class="alert alert-warning" role="alert"> Payment Option NOT Selected, Check Household Status!</a></div>';}?>
+                            <?php if ($paymentOption == '00'){echo '<div class="alert alert-warning" role="alert"> Product Selection NOT Approved, Check Household Status!</a></div>';}?>
                                 <div class="card-body">
                                     
                                     <form method="POST" action="hh_payments_update_hh.php">
                                         <div class="row mb-1">
-                                            <label for="hh_id" class="col-sm-2 col-form-label">HH Code</label>
+                                            <label for="hh_id" class="col-sm-2 col-form-label">Household Code</label>
                                             <input type="text" class="form-control" id="hh_id" name = "hh_id" value="<?php echo $id ; ?>" style="max-width:30%;" readonly >
                                             
-                                            <label for="hhname" class="col-sm-2 col-form-label">HH Name</label>
+                                            <label for="hhname" class="col-sm-2 col-form-label">Household Name</label>
                                             <input type="text" class="form-control" id="hhname" name = "hhname" value="<?php echo $hhname; ?>" style="max-width:30%;" readonly >
                                         </div>
                                         
@@ -151,16 +160,16 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
 
                 <div class="row">
                     <div class="col-9">
-                        <div class="card border border-success">
+                        <div class="card-border">
                         <div class="card-header bg-transparent border-primary">
-                            <h5 class="my-0 text-primary">HH Payments Record</h5>
+                            <h5 class="my-0 text-primary">Household Payment Record</h5>
                         </div>
                         <div class="card-body">
                         <h5 class="card-title mt-0"></h5>
                             
                                 <table id="datatable" class="table table-bordered dt-responsive  nowrap w-100">
                                 
-                                    <thead>
+                                    <thead style="background-color:plum;">
                                         <tr>
                                             <th>Payment_ID</th>                                              
                                             <th>Date</th>                                                                                               

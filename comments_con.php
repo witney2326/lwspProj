@@ -35,13 +35,20 @@ src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js">
         return false ;
         }   
     </script>
-    <style>
+
+    <style> 
         .card-border 
             {
                 border-style: solid;
                 border-color: orange;
             }
-        </style>
+        .card-border1 
+            {
+                border-style: groove;
+                border-color: orange;
+                border-width: 9px;
+            }
+    </style>
 </head>
 
 <?php include 'layouts/body.php'; 
@@ -54,7 +61,7 @@ $enrolled = hh_enroll_check($link,$hhCode);
 
 <!-- Begin page -->
 <div id="layout-wrapper">
-<?php include 'layouts/menu_hh.php'; ?>
+<?php include 'layouts/menu_con.php'; ?>
    
 
     <!-- ============================================================== -->
@@ -84,70 +91,39 @@ $enrolled = hh_enroll_check($link,$hhCode);
 
                 <div class="row">
                
-                    <div class="col-xl-12">
+                    <div class="col-xl-9">
                         <div class="card">
-                            <div class="card-body">
-                              
+                            <div class="card-border1">
+                                <div class="card-body">
 
-                                <!--start here -->
-                                
-                                <div class="row">
-                                    <div class="col-9">
                                     
-                                        <div class="card-border">
-                                            <?php if ($enrolled == '0'){echo '<div class="alert alert-warning" role="alert"> Household NOT YET Enrolled, Check Household Status!</a></div>';}?>
-                                            <div class="card-body">
-                                                <h7 class="card-title mt-0"></h7>
+                                    <div class="card-body">
+                                        <h7 class="card-title mt-0"></h7>
 
-                                                <form action = 'comment_to_supervisor.php' method ='POST'>
-                                                    <div class="row mb-1">
-                                                        <label for="hhcode" class="col-sm-2 col-form-label">Household Code</label>                           
-                                                        <input type="text" class="form-control" id="hhcode" name = "hhcode" value="<?php echo $hhCode;?>" style="max-width:30%;" readonly >
-                                                    </div>
-                                                    <div class="row mb-1"> 
-                                                        <label for="hhname" class="col-sm-2 col-form-label">Household Name</label>
-                                                        <input type="text" class="form-control" id="hhname" name ="hhname" value = "<?php echo hh_name($link,$hhCode);?>" style="max-width:30%;" readonly >
-                                                    </div>
-                                                <?php
-                                                if ($enrolled == '1'){
-                                                    echo '<div class="row mb-3">'; 
-                                                        echo '<label for="product" class="col-sm-2 col-form-label">Mail Body</label>';
-                                                        echo '<textarea id="hhmemo" name="hhmemo" rows="5" cols="33"></textarea>';
-                                                    echo '</div>';
-                                                    
-                                                    
-                                                    echo '<div>';
-                                                        echo '<button type="submit" class="btn btn-outline-primary" name="FormSubmit" value="Submit" onClick="return confirmSubmit()">Send Mail</button>';
-                                                    echo '</div>';}
-                                                    ?>
-                                                </form>
+                                        <form action = 'comment_to_supervisor.php' method ='POST'>
+                                            <div class="row mb-1">
+                                                <label for="hhcode" class="col-sm-2 col-form-label">Contractor ID</label>                           
+                                                <input type="text" class="form-control" id="hhcode" name = "hhcode" value="<?php echo $hhCode;?>" style="max-width:30%;" readonly >
                                             </div>
-                                        </div>     
-                                    </div>            
+                                            
+                                       
+                                            <div class="row mb-3"> 
+                                                <label for="product" class="col-sm-2 col-form-label">Mail Body</label>
+                                                <textarea id="hhmemo" name="hhmemo" rows="5" cols="33"></textarea>
+                                                    
+                                            </div>
+                                            
+                                            
+                                            <div>
+                                                <button type="submit" class="btn btn-outline-primary" name="FormSubmit" value="Submit" onClick="return confirmSubmit()">Send Message</button>
+                                            </div>
+                                        </form>
+                                    </div>      
                                 </div>  
-                                    <!-- Here -->
                             </div>
                         </div>
                     </div>
                 </div>
-
-
-                
-
-                    
-
-               
-
-
-                <!-- Collapse -->
-                
-
-                
-                <!-- end row -->
-
-                
-                <!-- end row -->
-
             </div> <!-- container-fluid -->
         </div>
         <!-- End Page-content -->

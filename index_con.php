@@ -1,11 +1,15 @@
 <?php include 'layouts/session.php'; ?>
 <?php include 'layouts/head-main.php'; ?>
+<?php include 'layouts/config.php'; 
 
+    $result = mysqli_query($link, "SELECT pvalue FROM app_parameters where id = '01'"); 
+    $row = mysqli_fetch_assoc($result); 
+    $pvalue = $row['pvalue'];
+?>
 <head>
-    <title>LWSP - Lilongwe Water and Sanitation Project</title>
+    <title><?php echo $pvalue;?></title>
     <?php include 'layouts/head.php'; ?>
     <?php include 'layouts/head-style.php'; ?>
-    <?php include 'layouts/config.php'; ?>
     <?php include 'lib.php'; ?>
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css" integrity="sha384-jLKHWM3JRmfMU0A5x5AkjWkw/EYfGUAGagvnfryNV3F9VqM98XiIH7VBGVoxVSc7" crossorigin="anonymous">
@@ -49,50 +53,27 @@ $contractorID = $_SESSION["hhid"];
                 <!-- start page title -->
                 <b><h4>Contractor's Dashboard</h4></b>
                 <div class="row">
-                    <div class="card">
-                        <div class="card-border">
-                            <div class="card-group">
-                               
-                                    <div class="card-body">
-                                        <div class="d-flex">
-                                            <div class="flex-grow-1">
-                                                <button class="btn btn-btn btn-outline-secondary w-md" onclick="window.location.href='works_tracking_con.php';">
-                                                    Allocated OSS Works
-                                                </button>
-                                                <button class="btn btn-btn btn-outline-secondary w-md" onclick="window.location.href='register_beneficiary.php';">
-                                                    Register and Target
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                            </div>
-                        
-            
-                            <div class="card">
-                            
-                                <div class="card-group">
-                                    <div class="card-border">
-                                        <div class="card-body">
-                                            <p class="text-muted fw-medium"><h5>OSS Sites Handed Over</h5></p>
-                                            <?php
-                                                $result = mysqli_query($link, "SELECT COUNT(pID) as projects FROM tprojects where pcontractorID = '$contractorID'"); 
-                                                $row = mysqli_fetch_assoc($result); 
-                                                $projects = $row['projects'];
-                                            ?>
-                                        </div>
-                                    </div>
-                                    <div class="card-border">
-                                        <div class="card-body">                                            
-                                            <h4 class="mb-0">
-                                                <div class="container">
-                                                    <div class="mb-0"><?php echo "" . $projects;?></div>
-                                                </div> 
-                                            </h4>
-                                        </div>
-                                        
-                                    </div>
+                    <div class="col-4">
+                        <div class="card-group">
+                            <div class="card-border">
+                                <div class="card-body">
+                                    <p class="text-muted fw-medium"><h5>OSS Sites Handed Over</h5></p>
+                                    <?php
+                                        $result = mysqli_query($link, "SELECT COUNT(pID) as projects FROM tprojects where pcontractorID = '$contractorID'"); 
+                                        $row = mysqli_fetch_assoc($result); 
+                                        $projects = $row['projects'];
+                                    ?>
                                 </div>
+                            </div>
+                            <div class="card-border">
+                                <div class="card-body">                                            
+                                    <h4 class="mb-0">
+                                        <div class="container">
+                                            <div class="mb-0"><?php echo "" . $projects;?></div>
+                                        </div> 
+                                    </h4>
+                                </div>
+                                
                             </div>
                         </div>
                     </div>

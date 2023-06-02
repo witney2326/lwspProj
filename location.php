@@ -2,7 +2,7 @@
 <?php include 'layouts/head-main.php'; ?>
 
 <head>
-    <title>OSS Works GeoPoint</title>
+    <title>Works GeoPoint</title>
     <?php include 'layouts/head.php'; ?>
     <?php include 'layouts/head-style.php'; ?>
     <?php include 'layouts/config.php'; ?> 
@@ -24,6 +24,17 @@
         }
         
     </style>
+
+<script type="text/javascript">
+    function Validate() {
+        var lat_input1 = document.getElementById("lat_input");
+        if (lat_input1.value == "Not Set") {
+            alert("Please Capture GEO-POINT First !!");
+            return false;
+        }
+        return true;
+    }
+</script>
 
 <script>
   var x = document.getElementById("demo");
@@ -127,23 +138,23 @@
                                   <input type="text" class="form-control" id="phone" name="phone" value =" <?php echo $phone; ?>" style="max-width:30%;"readonly>
                               </div>
                               
-                              <p style="color: blue">Click The Button Below To Capture Geopoint for Household OSS Works</p>
+                              <p style="color: blue">Click The Button Below To Update Household With Generated Geopoint</p>
                               <div class="row mb-1">
                                   <label for="lat_input" class="col-sm-2 col-form-label">Latitude</label>
-                                  <input type="text" class="form-control" id="lat_input" name="lat_input" value ="<?php if ($lat == 0){echo "Not Set";}else{echo $lat;} ?>" style="max-width:30%;"readonly>
+                                  <input type="text" class="form-control" id="lat_input" name="lat_input" value ="<?php if ($lat == 0){echo "Not Set";}else{echo $lat;} ?>" style="max-width:30%;" readonly>
 
                                   <label for="long_input" class="col-sm-2 col-form-label">Longitude</label>
                                   <input type="text" class="form-control" id="long_input" name="long_input" value ="<?php if ($longi == 0){echo "Not Set";} else {echo $longi;} ?>" style="max-width:30%;"readonly>
                               </div>
                                 <div class="col-12">
                                     <?php
-                                    if ((isset($lat)) and (isset($longi)))
-                                    {
-                                        echo '<button type="submit" class="btn btn-outline-primary w-md" name="Submit" value="Submit" disabled >Update Household</button>';
-                                    } else
-                                    {
-                                        echo '<button type="submit" class="btn btn-outline-primary w-md" name="Submit" value="Submit">Update Household</button>';
-                                    }
+                                        if (($lat == 0) && ($longi == 0))
+                                        {
+                                            echo '<button type="submit" class="btn btn-outline-primary w-md" name="Submit" id= "btnSubmit" value="Submit" onclick="return Validate()">Update Household</button>';
+                                        }else
+                                        {
+                                            echo '<button type="submit" class="btn btn-outline-primary w-md" name="Submit" id= "btnSubmit" value="Submit" disabled="disabled">Update Household</button>';
+                                        }
                                     ?>
                                 </div>
                           </form>
@@ -154,18 +165,19 @@
             
                 <div class ="row">
                     <div class="col-xl-4">                        
-                      <div class="card-border">
-
-                        <p><h6>Geo Coordinates For OSS Household Works</h6></p>
-                        <?php
-                            if ((isset($lat)) and (isset($longi)))
-                            {
-                                echo '<div class="col-12"><button class="btn btn-btn btn-outline-info w-md" onclick="getLocation()" disabled>Get Coordinates</button></div>';
-                            }else
-                            {
-                                echo '<div class="col-12"><button class="btn btn-btn btn-outline-info w-md" onclick="getLocation()">Get Coordinates</button></div>'; 
-                            }
-                        ?>
+                        <div class="card-border">
+                            <div class="card-body">
+                                <p><h6> Click The Button Below To Capture Geo Coordinates For Household Works</h6></p>
+                                <?php
+                                    if (($lat == 0) && ($longi == 0))
+                                    {
+                                        echo '<div class="col-12"><button class="btn btn-btn btn-outline-primary w-md" onclick="getLocation()">Get Coordinates</button></div>';
+                                    }else
+                                    {
+                                        echo '<div class="col-12"><button class="btn btn-btn btn-outline-primary w-md" onclick="getLocation()" disabled>Get Coordinates</button></div>'; 
+                                    }
+                                ?>
+                            </div>
                       </div>
                     </div>
                 </div>
