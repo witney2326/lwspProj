@@ -59,73 +59,26 @@ require_once 'layouts/config.php';
         <div class="container-fluid p-0">
             <div class="row g-0">
 
-                <div class="col-xl-9">
-                    
-                    <div class="auth-full-bg pt-lg-5 p-4">
-                        <div class="w-100">
-                            
-                                
-                            <div class="bg-overlay"></div>
-                            <div class="d-flex h-100 flex-column">
-
-                                <div class="p-4 mt-auto">
-                                    <div class="row justify-content-center">
-                                        <div class="col-lg-7">
-                                            <div class="text-center">
-
-                                                <h4 class="mb-3"><i class="bx bxs-quote-alt-left text-primary h1 align-middle me-3"></i><span class="text-primary"></h4>
-
-                                                <div dir="ltr">
-                                                    <div class="owl-carousel owl-theme auth-review-carousel" id="auth-review-carousel">
-                                                        <div class="item">
-                                                            <div class="py-3">
-                                                                <p class="font-size-16 mb-4">Lilongwe Water and Sanitation Project</p>
-
-                                                                <div>
-                                                                    <h4 class="font-size-16 text-primary"></h4>
-                                                                    <p class="font-size-14 mb-0"></p>
-                                                                </div>
-                                                            </div>
-
-                                                        </div>
-
-                                                        <div class="item">
-                                                            <div class="py-3">
-                                                                <p class="font-size-16 mb-4">Lilongwe Water and Sanitation Project</p>
-
-                                                                <div>
-                                                                    <h4 class="font-size-16 text-primary"></h4>
-                                                                    <p class="font-size-14 mb-0"></p>
-                                                                </div>
-                                                            </div>
-
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="col-xl-4">
+                    <div class="card">
+                        <div class="card-border">
+                            <figure class="card__thumbnail">
+                            <img src="assets/images/sanitation.jpg">
+                            <span class="card__title"><center><h3>Register Household Account</h3></center></b><br></span>
+                        </div> 
+                    </div> 
                 </div>
                 <!-- end col -->
 
-                <div class="col-xl-3">
+                <div class="col-xl-2">
                     <div class="card">
                         <div class="card-border1"> 
-                            <div class="auth-full-page-content p-md-5 p-4">
+                            <div class="p-md-5 p-4">
                                 <div class="w-100">
 
                                     <div class="d-flex flex-column h-100">
                                         
-                                        <div class="mt-5 text-center">
-                                            <img src="assets/images/logo-dark.png" alt="" height="64" class="auth-logo-dark">
-                                        </div>
-                                        <div class="mt-5 text-center">
-                                            <h5 class="text-default">Register Household</h5>
-                                        </div>
+                                        
 
                                         <div class="mt-4">
                                             <form class="needs-validation"  action="auth-register-hh4.php" method="POST">
@@ -161,23 +114,21 @@ require_once 'layouts/config.php';
                                                     </select>
                                                 </div>
 
-                                                <div class="mb-1">
+                                                <div class="mb-3">
                                                     <label for="area" class="form-label">Select Area</label>
                                                     <select class="form-select" name="area" id="area" required>
                                                         <option ></option>
                                                     </select>
                                                 </div>
 
-                                                
+                                                </b><br><br><br><br><br><br>
                                                 <div class="mt-4 d-grid">
                                                     <button class="btn btn-primary waves-effect waves-light" type="submit">Submit Area</button>
                                                 </div>
-
+                                                
                                             </form>
 
-                                            <div class="mt-5 text-center">
-                                                
-                                            </div>
+                                            
 
                                         </div>
                                         

@@ -48,8 +48,10 @@
                     
                             <div class="card">
                                 <div class="card-border">
-                <br><b><h4>Welcome To OSS IT Platform Self Registration Module</h4></b><br> 
-                <h6>Please Use the Menu on the left pane for your option</h6>
+                                    <figure class="card__thumbnail">
+                                    <img src="assets/images/sanitation.jpg">
+                                    <span class="card__title"><center><h4>Welcome To OSS IT Platform Self Registration Module</h4></center></b><br> 
+                                    <center><h5>Please Use the Menu on the left pane for your option</h5></center></span>
                                 </div>
                             </div>
                         </div>

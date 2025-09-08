@@ -139,51 +139,34 @@ if (isset($_POST["Submit"])) {
      $x.=$dbcount;
      $cID = $x;
 
+        $password1 = password_hash($password, PASSWORD_DEFAULT); // Creates a password hash
+        $token = bin2hex(random_bytes(50)); // generate unique token
     // Check input errors before inserting in database
-    if (empty($useremail_err) && empty($username_err) && empty($password_err) && empty($confirm_password_err)) {
 
-        // Prepare an insert statement
-        $sql = "INSERT INTO users (useremail, username, ustatus, userrole, usercon, userward, userarea, password, token) VALUES (?, ?, ?, ?,?, ?, ?, ?, ?)";
+    if (empty($useremail_err) && empty($username_err) && empty($password_err) && empty($confirm_password_err)) 
+        {
 
-        if ($stmt = mysqli_prepare($link, $sql)) {
-            // Bind variables to the prepared statement as parameters
-            mysqli_stmt_bind_param($stmt, "sssssssss", $param_useremail, $param_username, $param_ustatus, $param_userrole, $param_userreg, $param_userdis, $param_userta, $param_password, $param_token);
+            // Prepare an insert statement
+            $sql = "INSERT INTO users (useremail, username, ustatus, userrole, usercon, userward, userarea, password, token) VALUES 
+            ('$useremail','$username','$ustatus','$position','$cID','00', '00','$password1','$token')";
 
-            // Set parameters
-            $param_useremail = $useremail;
-            $param_username = $username;
-            $param_ustatus = $ustatus;
-
-            $param_userrole = $position;
-            $param_userreg = $cID;
-            $param_userdis = '00';
-            $param_userta = '00';
-
-            $param_password = password_hash($password, PASSWORD_DEFAULT); // Creates a password hash
-            $param_token = bin2hex(random_bytes(50)); // generate unique token
-
-
-            $sql2 = "INSERT INTO tcontractor (id,cemail, cname, caddress,phone, token) VALUES ('$cID','$param_useremail','$cname', '$caddress','$cphone', '$param_token')";
+            $sql2 = "INSERT INTO tcontractor (id,cemail, cname, caddress,phone, token) VALUES ('$cID','$useremail','$cname', '$caddress','$cphone', '$token')";
             // Attempt to execute the prepared statement
-            if ((mysqli_stmt_execute($stmt)) and (mysqli_query($link, $sql2))) {
-                // Redirect to login page
+
+            if ($link->query($sql) === true && $link->query($sql2) === true ) {
                 echo '<script type="text/javascript">'; 
-                echo 'alert("Successfully Registered, Wait for email confirmation before login!");'; 
-                echo 'window.location.href = "i_registration.php";';
+                    echo 'alert("Successfully Registered, Wait for email confirmation before login!");'; 
+                    echo 'window.location.href = "i_registration.php";';
                 echo '</script>';
-                
-            } else {
-                echo "Something went wrong. Please try again later.";
-            }
-
-            // Close statement
-            mysqli_stmt_close($stmt);
+              } else {
+                echo "Error: " . $sql . "<br>" . $link->error;
+                echo "Error: " . $sql2 . "<br>" . $link->error;
+               
+              } 
         }
-    }
-
     // Close connection
-    mysqli_close($link);
-}
+        mysqli_close($link);
+    }
 ?>
 
 <body class="auth-body-bg">
@@ -192,72 +175,25 @@ if (isset($_POST["Submit"])) {
         <div class="container-fluid p-0">
             <div class="row g-0">
 
-                <div class="col-xl-9">
-                    <div class="auth-full-bg pt-lg-5 p-4">
-                        <div class="w-100">
-                            <div class="bg-overlay"></div>
-                            <div class="d-flex h-100 flex-column">
-
-                                <div class="p-4 mt-auto">
-                                    <div class="row justify-content-center">
-                                        <div class="col-lg-7">
-                                            <div class="text-center">
-
-                                                <h4 class="mb-3"><i class="bx bxs-quote-alt-left text-primary h1 align-middle me-3"></i><span class="text-primary"></h4>
-
-                                                <div dir="ltr">
-                                                    <div class="owl-carousel owl-theme auth-review-carousel" id="auth-review-carousel">
-                                                        <div class="item">
-                                                            <div class="py-3">
-                                                                <p class="font-size-16 mb-4">" Lilongwe Water and Sanitation Project "</p>
-
-                                                                <div>
-                                                                    <h4 class="font-size-16 text-primary"></h4>
-                                                                    <p class="font-size-14 mb-0"></p>
-                                                                </div>
-                                                            </div>
-
-                                                        </div>
-
-                                                        <div class="item">
-                                                            <div class="py-3">
-                                                                <p class="font-size-16 mb-4">" Lilongwe Water and Sanitation Project in Malawi "</p>
-
-                                                                <div>
-                                                                    <h4 class="font-size-16 text-primary"></h4>
-                                                                    <p class="font-size-14 mb-0"></p>
-                                                                </div>
-                                                            </div>
-
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="col-xl-4">
+                    <div class="card">
+                        <div class="card-border">
+                            <figure class="card__thumbnail">
+                            <img src="assets/images/sanitation.jpg">
+                            <span class="card__title"><center><h3>Register LWSP Contractor Account</h3></center></b><br></span>
+                        </div> 
+                    </div> 
                 </div>
                 <!-- end col -->
 
                 <div class="col-xl-3">
                     <div class="card">
                         <div class="card-border1"> 
-                            <div class="auth-full-page-content p-md-5 p-4">
+                            <div class="p-md-5 p-4">
                                 <div class="w-100">
 
                                     <div class="d-flex flex-column h-100">
-                                        
-                                        <div class="mt-5 text-center">
-                                            <img src="assets/images/logo-dark.png" alt="" height="64" class="auth-logo-dark">
-                                        </div>
-                                        <div class="mt-5 text-center">
-                                            <h5 class="text-default">Register Contractor Account</h5>
-                                        </div>
-                                        
-                                            
+  
                                         <div class="mt-4">
                                             <form class="needs-validation" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST">
 
@@ -311,21 +247,13 @@ if (isset($_POST["Submit"])) {
                                                 </div>
                                                 
                                                 
-                                                <div class="mt-4 d-grid">
+                                                <div class="mt-5 d-grid">
                                                     <button class="btn btn-primary waves-effect waves-light" type="submit"name="Submit" value="Submit">Submit Registration</button>
                                                 </div>
 
                                             </form>
                                         </div>
-                                                
-                                            
-                                        
 
-                                        <div class="mt-4 mt-md-5 text-center">
-                                            <p class="mb-0">© <script>
-                                                    document.write(new Date().getFullYear())
-                                                </script> Copyright<i class="mdi mdi-heart text-danger"></i> LWSP</p>
-                                        </div>
                                     </div>
 
 
